@@ -1,0 +1,37 @@
+<!--<div class="modal-header">
+  <h4 class="modal-title">Modal title</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Dismiss click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="manipulationForm.valid && save()" #manipulationForm="ngForm" novalidate>
+    <div>
+      <label>Код</label>
+      <input type="text" [(ngModel)]="manipulation.code" name="manipulation.code" required #manipulationCode="ngModel" class="form-control">
+    </div>
+    <div>
+      <label>Име</label>
+      <input type="text" [(ngModel)]="manipulation.name" name="name" required #manipulationName="ngModel" class="form-control">
+    </div>
+    <div>
+      <label>Цена</label>
+      <input type="text" [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" class="form-control">
+    </div>
+    <div>
+      <label>Валута</label>
+      <input type="text" [(ngModel)]="manipulation.currency" name="currency" #manipulationCurrency="ngModel" required class="form-control">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Затвори</button>
+  <button type="button" (click)="save()" [disabled]="manipulationForm.invalid" class="btn btn-primary">Запази</button>
+</div>-->
+<md-dialog-content>
+  test
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button [md-dialog-close]="false">Save</button>
+  <button md-button [md-dialog-close]="'cancel'">Cancel</button>
+</md-dialog-actions>
