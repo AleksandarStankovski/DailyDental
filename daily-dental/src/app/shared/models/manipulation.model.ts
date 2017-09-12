@@ -1,7 +1,8 @@
 export class Manipulation {
-  _id: string;
-  code: string;
-  name: string;
-  price: number;
-  currency: string;
+  constructor(
+    public code: string,
+    public name: string,
+    public price: number,
+    public currency: string,
+    public _id?: string) {}
 }

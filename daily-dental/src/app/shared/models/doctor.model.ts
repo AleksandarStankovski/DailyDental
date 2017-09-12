@@ -1,8 +1,10 @@
 export class Doctor {
-    _id: string;
-    egn: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-    address: string;
+  constructor(
+    public code: string,
+    public firstName: string,
+    public lastName: string,
+    public egn: string,
+    public phone: string,
+    public address: string,
+    public _id?: string) {}
 }

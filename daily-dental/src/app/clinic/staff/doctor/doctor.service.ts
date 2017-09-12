@@ -9,16 +9,18 @@ import { Doctor } from '../../../shared/models/doctor.model';
 @Injectable()
 export class DoctorService {
 
-  private http: Http;
   private doctorUrl = 'api';
 
-  constructor(http: Http) {
-    this.http = http;
-  }
+  constructor(private http: Http) {}
 
   getAllDoctors(): Observable<Doctor[]> {
     return this.http.get(`${this.doctorUrl}/doctors`)
     .map(response => response.json() as Doctor[]);
+  }
+
+  getDoctor(id: string): Observable<Doctor> {
+    return this.http.get(`${this.doctorUrl}/doctor/${id}`)
+    .map(response => response.json() as Doctor)
   }
 
 }

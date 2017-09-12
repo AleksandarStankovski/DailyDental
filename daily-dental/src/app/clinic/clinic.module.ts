@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
 
 import { ClinicComponent } from './clinic.component';
@@ -24,7 +23,6 @@ const clinicRoutes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule,
     RouterModule.forChild(clinicRoutes)
   ],

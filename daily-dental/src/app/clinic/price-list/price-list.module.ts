@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MdDialogModule } from '@angular/material';
-
+import { SharedModule } from '../../shared/shared.module';
 import { PriceListComponent } from './price-list.component';
 import { ManipulationComponent } from './manipulation/manipulation.component';
-
 import { ManipulationService } from './manipulation/manipulation.service';
-import { AddManipulationComponent } from './add-manipulation/add-manipulation.component';
-import { EditManipulationComponent } from './edit-manipulation/edit-manipulation.component';
+import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
+
 
 const priceListRoutes: Routes = [
   {
@@ -22,24 +18,20 @@ const priceListRoutes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
     HttpModule,
-    MdDialogModule,
+    SharedModule,
     RouterModule.forChild(priceListRoutes)
   ],
   declarations: [
     PriceListComponent,
     ManipulationComponent,
-    AddManipulationComponent,
-    EditManipulationComponent
+    ManipulationFormComponent
   ],
   providers: [
     ManipulationService
   ],
-   entryComponents: [
-     AddManipulationComponent,
-     EditManipulationComponent
-   ]
+  entryComponents: [
+    ManipulationFormComponent
+  ]
 })
 export class PriceListModule { }

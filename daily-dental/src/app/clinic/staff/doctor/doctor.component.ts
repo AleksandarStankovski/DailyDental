@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { Doctor } from '../../../shared/models/doctor.model';
 
 @Component({
   selector: 'app-doctor',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorComponent implements OnInit {
 
+  @Input() doctor: Doctor;
+  @Output() editDoctor: EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  edit(): void {
+    this.editDoctor.emit(this.doctor._id);
+  }
 }

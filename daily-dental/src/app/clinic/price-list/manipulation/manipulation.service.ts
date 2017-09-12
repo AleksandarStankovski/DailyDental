@@ -9,12 +9,9 @@ import { Manipulation } from '../../../shared/models/manipulation.model';
 @Injectable()
 export class ManipulationService {
 
-  private http: Http;
   private manipulationUrl = 'api';
 
-  constructor(http: Http) {
-    this.http = http;
-  }
+  constructor(private http: Http) {}
 
   getAllManipulations(): Observable<Manipulation[]> {
     return this.http.get(`${this.manipulationUrl}/manipulations`)
@@ -22,21 +19,25 @@ export class ManipulationService {
   }
 
   getManipultion(id: string): Observable<Manipulation> {
+    console.log(`Get manipulation with id: ${id}`);
     return this.http.get(`${this.manipulationUrl}/manipulation/${id}`)
     .map(response => response.json() as Manipulation);
   }
 
-  createManioulation(data: Manipulation): Observable<any> {
+  createManipulation(data: Manipulation): Observable<any> {
+    console.log(`Create manipulation: ${data}`);
     return this.http.post(`${this.manipulationUrl}/manipulation/create`, data)
     .map(response => response.json());
   }
 
   editManipulation(data: Manipulation): Observable<any> {
+    console.log(`Edit manipulation: ${data}`);
     return this.http.post(`${this.manipulationUrl}/manipulation/edit`, data)
     .map(response => response.json());
   }
 
   deleteManipulation(id: string): Observable<any> {
+    console.log(`Delete manipulation with id: ${id}`);
     return this.http.delete(`${this.manipulationUrl}/manipulation/${id}`)
     .map(response => response.json());
   }

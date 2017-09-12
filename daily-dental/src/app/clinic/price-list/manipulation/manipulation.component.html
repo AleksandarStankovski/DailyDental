@@ -1,5 +1,8 @@
 <div>
-  <span>{{manipulation.id}}</span>
+  <span>{{manipulation._id}}</span>
+  <p>{{manipulation.code}}</p>
   <p>{{manipulation.name}}</p>
-  <a (click)="edit()" class="btn btn-primary">Преглед</a>
+  <p>{{manipulation.price}}</p>
+  <p>{{manipulation.currency}}</p>
+  <button (click)="edit()" md-raised-button>Преглед</button>
 </div>

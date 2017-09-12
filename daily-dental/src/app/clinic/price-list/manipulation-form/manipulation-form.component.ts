@@ -1,0 +1,56 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
+import { Observable } from 'rxjs/Observable';
+
+import { ManipulationService } from '../manipulation/manipulation.service';
+import { Manipulation } from '../../../shared/models/manipulation.model';
+
+@Component({
+  selector: 'app-manipulation-form',
+  templateUrl: './manipulation-form.component.html',
+  styleUrls: ['./manipulation-form.component.css']
+})
+export class ManipulationFormComponent implements OnInit {
+
+  manipulation: Manipulation;
+
+  constructor(
+    public dialogRef: MdDialogRef<ManipulationFormComponent>,
+    private manipulationService: ManipulationService,
+    @Inject(MD_DIALOG_DATA) public data: any) {}
+
+  ngOnInit() {
+    // tslint:disable-next-line:no-unused-expression
+    new Manipulation('', '', undefined, '');
+    if (this.data.manipulationId) {
+      this.getManipulation();
+    }
+  }
+
+  getManipulation(): void {
+    this.manipulationService.getManipultion(this.data.manipulationId)
+    .subscribe(response => {
+      this.manipulation = response;
+    })
+  }
+
+  save(): void {
+    if (this.data.manipulationId) {
+      this.manipulationService.editManipulation(this.manipulation)
+      .subscribe(response => {
+        this.dialogRef.close('Edit');
+      })
+    } else {
+      this.manipulationService.createManipulation(this.manipulation)
+      .subscribe(response => {
+        this.dialogRef.close('Create')
+      })
+    }
+  }
+
+  delete(): void {
+    console.log(this.manipulation._id);
+  }
+
+}

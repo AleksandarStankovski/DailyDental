@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
+import { SharedModule } from '../../shared/shared.module';
 import { StaffComponent } from './staff.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorService } from './doctor/doctor.service';
+import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 
 const staffRoutes: Routes = [
   {
@@ -14,12 +17,20 @@ const staffRoutes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
+    HttpModule,
+    SharedModule,
     RouterModule.forChild(staffRoutes)
   ],
   declarations: [
     StaffComponent,
-    DoctorComponent
+    DoctorComponent,
+    DoctorFormComponent
+  ],
+  providers: [
+    DoctorService
+  ],
+  entryComponents: [
+    DoctorFormComponent
   ]
 })
 export class StaffModule { }

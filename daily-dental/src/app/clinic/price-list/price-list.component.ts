@@ -4,8 +4,7 @@ import { MdDialog } from '@angular/material';
 
 import { Manipulation } from '../../shared/models/manipulation.model';
 import { ManipulationService } from './manipulation/manipulation.service';
-import { AddManipulationComponent } from './add-manipulation/add-manipulation.component';
-import { EditManipulationComponent } from './edit-manipulation/edit-manipulation.component';
+import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
 
 @Component({
   selector: 'app-price-list',
@@ -15,32 +14,36 @@ import { EditManipulationComponent } from './edit-manipulation/edit-manipulation
 export class PriceListComponent implements OnInit {
 
   manipulations: Manipulation[];
-  private manipulationService: ManipulationService;
-  private modalDialog: MdDialog;
 
-  constructor(manipulationService: ManipulationService, modalDialog: MdDialog) {
-    this.manipulationService = manipulationService;
-    this.modalDialog = modalDialog;
-  }
+  constructor(
+    private manipulationService: ManipulationService,
+    private modalDialog: MdDialog) {}
 
   ngOnInit() {
-    this.getAllManiulations();
+    this.getAllManipulations();
   }
 
-  getAllManiulations(): void {
+  getAllManipulations(): void {
     this.manipulationService.getAllManipulations()
     .subscribe(response => this.manipulations = response);
   }
 
-  addManipulation(): void {
-    const modalDialogRef = this.modalDialog.open(AddManipulationComponent, {})
+  openModalDialog(manipulationId?: string): void {
+    const id = manipulationId || undefined;
+    const modalDialogRef = this.modalDialog.open(ManipulationFormComponent, {
+      data: { manipulationId: id}
+    })
     modalDialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      this.getAllManipulations();
     })
   }
 
-  editManipulation(manipulationId: string): void {
+  addManipulation(): void {
+    this.openModalDialog();
+  }
 
+  editManipulation(manipulationId: string): void {
+    this.openModalDialog(manipulationId);
   }
 
 }

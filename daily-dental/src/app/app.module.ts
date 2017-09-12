@@ -1,13 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import 'hammerjs';
-
-
-import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
   {
