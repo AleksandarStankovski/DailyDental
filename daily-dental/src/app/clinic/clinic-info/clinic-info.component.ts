@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
 import { Clinic } from '../../shared/models/clinic.model';
-import { ClinicInfoService } from './clinic-info.service';
+import { ClinicDetailsService } from './clinic-details/clinic-details.service';
 
 @Component({
   selector: 'app-clinic-info',
@@ -12,24 +12,19 @@ import { ClinicInfoService } from './clinic-info.service';
 export class ClinicInfoComponent implements OnInit {
 
   clinics: Clinic[];
-  clinic: Clinic;
 
   constructor(
     private modalDialog: MdDialog,
-    private clinicInfoService: ClinicInfoService) { }
+    private clinicDetailsService: ClinicDetailsService) { }
 
   ngOnInit() {
-    this.clinics = [
-      new Clinic('', '', '', '', '')
-    ]
     this.getAllClinics();
   }
 
   getAllClinics(): void {
-    this.clinicInfoService.getAllClinics()
+    this.clinicDetailsService.getAllClinics()
     .subscribe(resolve => {
       this.clinics = resolve;
-      this.clinic = resolve[0];
     })
   }
 
@@ -38,6 +33,10 @@ export class ClinicInfoComponent implements OnInit {
   }
 
   addClinic(): void {
+  }
+
+  editClinic(): void {
+
   }
 
 }

@@ -4,10 +4,10 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 
-import { Clinic } from '../../shared/models/clinic.model';
+import { Clinic } from '../../../shared/models/clinic.model';
 
 @Injectable()
-export class ClinicInfoService {
+export class ClinicDetailsService {
 
   private apiUrl = 'api'
 

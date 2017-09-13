@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module';
 import { ClinicInfoComponent } from './clinic-info.component';
-import { ClinicInfoService } from './clinic-info.service';
+import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
+import { ClinicDetailsService } from './clinic-details/clinic-details.service';
 
 const clinicInfoRoutes: Routes = [
   {
@@ -20,10 +21,11 @@ const clinicInfoRoutes: Routes = [
     RouterModule.forChild(clinicInfoRoutes)
   ],
   declarations: [
-    ClinicInfoComponent
+    ClinicInfoComponent,
+    ClinicDetailsComponent
   ],
   providers: [
-    ClinicInfoService
+    ClinicDetailsService
   ]
 })
 export class ClinicInfoModule { }
