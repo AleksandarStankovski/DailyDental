@@ -34,7 +34,7 @@ export class ManipulationService {
   }
 
   deleteManipulation(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/manipulation/${id}`)
+    return this.http.delete(`${this.apiUrl}/manipulation/delete/${id}`)
     .map(response => response.json());
   }
 

@@ -2,12 +2,14 @@ let offices = [
     {
         code: '1000',
         phone: '0876141091',
-        color: '#fff'
+        color: '#fff',
+        _id: '4853412'
     },
     {
         code: '1001',
         phone: '0876141091',
-        color: '#fff'
+        color: '#fff',
+        _id: '786451'
     }
 ]
 

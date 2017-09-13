@@ -30,6 +30,11 @@
         <input mdInput [(ngModel)]="doctor.address" name="address" required #doctorEgn="ngModel" placeholder="Адрес">
       </md-form-field>
     </div>
+    <div>
+      <md-form-field>
+        <input mdInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
+      </md-form-field>
+    </div>
   </form>
 </md-dialog-content>
 <md-dialog-actions>

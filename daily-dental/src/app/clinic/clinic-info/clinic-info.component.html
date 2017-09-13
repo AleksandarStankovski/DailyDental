@@ -1,0 +1,9 @@
+<h3>Клиника</h3>
+<button *ngIf="clinics.length < 1" (click)="addClinic()" md-mini-fab>+</button>
+<div>
+  <span>{{clinic?.code}}</span>
+  <p>{{clinic?.name}}</p>
+  <p>{{clinic?.phone}}</p>
+  <p>{{clinic?.address}}</p>
+  <p>{{clinic?.email}}</p>
+</div>

@@ -6,6 +6,7 @@ let doctors = [
         egn: '254871157',
         phone: '0876141091',
         address: 'София, Перник 90',
+        email: 'test@tes.com',
         _id: '451521'
     },
     {
@@ -15,6 +16,7 @@ let doctors = [
         egn: '254871157',
         phone: '0876141092',
         address: 'София, Перник 90',
+        email: 'test@tes.com',
         _id: '1224354'
     }
 ]

@@ -10,16 +10,20 @@ const clinicRoutes: Routes = [
     component: ClinicComponent,
     children: [
       {
+        path: 'clinic-info',
+        loadChildren: 'app/clinic/clinic-info/clinic-info.module#ClinicInfoModule'
+      },
+      {
+        path: 'dental-offices',
+        loadChildren: 'app/clinic/dental-offices/dental-offices.module#DentalOfficesModule'
+      },
+      {
         path: 'staff',
         loadChildren: 'app/clinic/staff/staff.module#StaffModule'
       },
       {
         path: 'price-list',
         loadChildren: 'app/clinic/price-list/price-list.module#PriceListModule'
-      },
-      {
-        path: 'dental-offices',
-        loadChildren: 'app/clinic/dental-offices/dental-offices.module#DentalOfficesModule'
       }
     ]
   }

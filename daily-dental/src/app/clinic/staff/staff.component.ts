@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MdDialog } from '@angular/material';
 
 import { Doctor } from '../../shared/models/doctor.model';
-import { DoctorService } from './doctor/doctor.service';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
+import { DoctorService } from './doctor/doctor.service';
 
 @Component({
   selector: 'app-staff',
@@ -16,8 +15,8 @@ export class StaffComponent implements OnInit {
   doctors: Doctor[];
 
   constructor(
-    private doctorService: DoctorService,
-    private modalDialog: MdDialog) {}
+    private modalDialog: MdDialog,
+    private doctorService: DoctorService) {}
 
   ngOnInit() {
     this.getAllDoctors();
@@ -26,7 +25,7 @@ export class StaffComponent implements OnInit {
   getAllDoctors(): void {
     this.doctorService.getAllDoctors()
     .subscribe(response => {
-      this.doctors = response
+      this.doctors = response;
     });
   }
 
@@ -34,8 +33,9 @@ export class StaffComponent implements OnInit {
     const id = doctorId || undefined;
     const modalDialogRef = this.modalDialog.open(DoctorFormComponent, {
       data: { doctorId: id }
-    })
-    modalDialogRef.afterClosed().subscribe(result => {
+    });
+    modalDialogRef.afterClosed()
+    .subscribe(result => {
       this.getAllDoctors();
     })
   }

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from '../../shared/shared.module';
 import { DentalOfficesComponent } from './dental-offices.component';
 import { OfficeComponent } from './office/office.component';
+import { OfficeFormComponent } from './office-form/office-form.component';
 import { OfficeService } from './office/office.service';
 
 const dentalOfficesRoutes: Routes = [
@@ -22,10 +23,14 @@ const dentalOfficesRoutes: Routes = [
   ],
   declarations: [
     DentalOfficesComponent,
-    OfficeComponent
+    OfficeComponent,
+    OfficeFormComponent
   ],
   providers: [
     OfficeService
+  ],
+  entryComponents: [
+    OfficeFormComponent
   ]
 })
 export class DentalOfficesModule { }

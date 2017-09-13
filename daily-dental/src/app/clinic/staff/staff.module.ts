@@ -5,8 +5,8 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from '../../shared/shared.module';
 import { StaffComponent } from './staff.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { DoctorService } from './doctor/doctor.service';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
+import { DoctorService } from './doctor/doctor.service';
 
 const staffRoutes: Routes = [
   {

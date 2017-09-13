@@ -5,8 +5,8 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from '../../shared/shared.module';
 import { PriceListComponent } from './price-list.component';
 import { ManipulationComponent } from './manipulation/manipulation.component';
-import { ManipulationService } from './manipulation/manipulation.service';
 import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
+import { ManipulationService } from './manipulation/manipulation.service';
 
 
 const priceListRoutes: Routes = [

@@ -34,7 +34,7 @@ export class DoctorService {
   }
 
   deleteDoctor(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/doctor/${id}`)
+    return this.http.delete(`${this.apiUrl}/doctor/delete/${id}`)
     .map(response => response.json());
   }
 

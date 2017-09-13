@@ -1,10 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
-import { Observable } from 'rxjs/Observable';
-
-import { ManipulationService } from '../manipulation/manipulation.service';
 import { Manipulation } from '../../../shared/models/manipulation.model';
+import { ManipulationService } from '../manipulation/manipulation.service';
 
 @Component({
   selector: 'app-manipulation-form',
@@ -16,7 +14,7 @@ export class ManipulationFormComponent implements OnInit {
   manipulation: Manipulation;
 
   constructor(
-    public dialogRef: MdDialogRef<ManipulationFormComponent>,
+    private modalDialogRef: MdDialogRef<ManipulationFormComponent>,
     private manipulationService: ManipulationService,
     @Inject(MD_DIALOG_DATA) public data: any) {}
 
@@ -38,12 +36,12 @@ export class ManipulationFormComponent implements OnInit {
     if (this.data.manipulationId) {
       this.manipulationService.editManipulation(this.manipulation)
       .subscribe(response => {
-        this.dialogRef.close('Edit');
+        this.modalDialogRef.close('Edit');
       })
     } else {
       this.manipulationService.createManipulation(this.manipulation)
       .subscribe(response => {
-        this.dialogRef.close('Create')
+        this.modalDialogRef.close('Create')
       })
     }
   }
@@ -51,7 +49,7 @@ export class ManipulationFormComponent implements OnInit {
   delete(): void {
     this.manipulationService.deleteManipulation(this.manipulation._id)
     .subscribe(response => {
-      this.dialogRef.close('Delete');
+      this.modalDialogRef.close('Delete');
     })
   }
 

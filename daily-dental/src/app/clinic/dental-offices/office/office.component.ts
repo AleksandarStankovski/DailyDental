@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Office } from '../../../shared/models/office.model';
 
@@ -10,10 +10,13 @@ import { Office } from '../../../shared/models/office.model';
 export class OfficeComponent implements OnInit {
 
   @Input() office: Office;
+  @Output() editOffice: EventEmitter<string> = new EventEmitter()
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  edit(): void {
+    this.editOffice.emit(this.office._id);
+  }
 }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MdDialog } from '@angular/material';
 
 import { Manipulation } from '../../shared/models/manipulation.model';
-import { ManipulationService } from './manipulation/manipulation.service';
 import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
+import { ManipulationService } from './manipulation/manipulation.service';
 
 @Component({
   selector: 'app-price-list',
@@ -16,8 +15,8 @@ export class PriceListComponent implements OnInit {
   manipulations: Manipulation[];
 
   constructor(
-    private manipulationService: ManipulationService,
-    private modalDialog: MdDialog) {}
+    private modalDialog: MdDialog,
+    private manipulationService: ManipulationService) {}
 
   ngOnInit() {
     this.getAllManipulations();
@@ -25,14 +24,16 @@ export class PriceListComponent implements OnInit {
 
   getAllManipulations(): void {
     this.manipulationService.getAllManipulations()
-    .subscribe(response => this.manipulations = response);
+    .subscribe(response => {
+      this.manipulations = response;
+    });
   }
 
   openModalDialog(manipulationId?: string): void {
     const id = manipulationId || undefined;
     const modalDialogRef = this.modalDialog.open(ManipulationFormComponent, {
-      data: { manipulationId: id}
-    })
+      data: { manipulationId: id }
+    });
     modalDialogRef.afterClosed().subscribe(result => {
       this.getAllManipulations();
     })
