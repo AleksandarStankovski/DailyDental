@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
 import { Clinic } from '../../shared/models/clinic.model';
+import { ClinicDetailsFormComponent } from './clinic-details-form/clinic-details-form.component';
 import { ClinicDetailsService } from './clinic-details/clinic-details.service';
 
 @Component({
@@ -28,15 +29,19 @@ export class ClinicInfoComponent implements OnInit {
     })
   }
 
-  openModalDialog(): void {
-
+  openModalDialog(clinicId?: string): void {
+    const id = clinicId || undefined;
+    const modalDialogRef = this.modalDialog.open(ClinicDetailsFormComponent, {
+      data: { clinicId: id }
+    })
   }
 
   addClinic(): void {
+    this.openModalDialog();
   }
 
-  editClinic(): void {
-
+  editClinic(clinicId): void {
+    this.openModalDialog(clinicId);
   }
 
 }

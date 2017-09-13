@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Clinic } from '../../../shared/models/clinic.model';
 
@@ -10,10 +10,14 @@ import { Clinic } from '../../../shared/models/clinic.model';
 export class ClinicDetailsComponent implements OnInit {
 
   @Input() clinic: Clinic;
+  @Output() editClinic: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  edit(): void {
+    this.editClinic.emit(this.clinic._id);
   }
 
 }

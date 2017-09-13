@@ -6,6 +6,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { ClinicInfoComponent } from './clinic-info.component';
 import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
 import { ClinicDetailsService } from './clinic-details/clinic-details.service';
+import { ClinicDetailsFormComponent } from './clinic-details-form/clinic-details-form.component';
 
 const clinicInfoRoutes: Routes = [
   {
@@ -22,10 +23,14 @@ const clinicInfoRoutes: Routes = [
   ],
   declarations: [
     ClinicInfoComponent,
-    ClinicDetailsComponent
+    ClinicDetailsComponent,
+    ClinicDetailsFormComponent
   ],
   providers: [
     ClinicDetailsService
+  ],
+  entryComponents: [
+    ClinicDetailsFormComponent
   ]
 })
 export class ClinicInfoModule { }
