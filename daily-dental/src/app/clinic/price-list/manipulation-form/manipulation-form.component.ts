@@ -21,8 +21,7 @@ export class ManipulationFormComponent implements OnInit {
     @Inject(MD_DIALOG_DATA) public data: any) {}
 
   ngOnInit() {
-    // tslint:disable-next-line:no-unused-expression
-    new Manipulation('', '', undefined, '');
+    this.manipulation = new Manipulation('', '', undefined, '');
     if (this.data.manipulationId) {
       this.getManipulation();
     }
@@ -50,7 +49,10 @@ export class ManipulationFormComponent implements OnInit {
   }
 
   delete(): void {
-    console.log(this.manipulation._id);
+    this.manipulationService.deleteManipulation(this.manipulation._id)
+    .subscribe(response => {
+      this.dialogRef.close('Delete');
+    })
   }
 
 }

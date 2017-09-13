@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
+import { DoctorService } from '../doctor/doctor.service';
+import { Doctor } from '../../../shared/models/doctor.model';
 
 @Component({
   selector: 'app-doctor-form',
@@ -7,12 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorFormComponent implements OnInit {
 
-  constructor() { }
+  doctor: Doctor;
+
+  constructor(
+    private doctorService: DoctorService,
+    private dialogRef: MdDialogRef<DoctorFormComponent>,
+    @Inject(MD_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    this.doctor = new Doctor('', '', '', '', '', '');
+    if (this.data.doctorId) {
+      this.getDoctor();
+    }
   }
 
-  save(): void {}
+  getDoctor(): void {
+    this.doctorService.getDoctor(this.data.doctorId)
+    .subscribe(response => {
+      this.doctor = response;
+    })
+  }
 
-  delete(): void {}
+  save(): void {
+    if (this.data.doctorId) {
+      this.doctorService.editDoctor(this.doctor)
+      .subscribe(response => {
+        this.dialogRef.close('Edit');
+      })
+    } else {
+      this.doctorService.createDoctor(this.doctor)
+      .subscribe(response => {
+        this.dialogRef.close('Create');
+      })
+    }
+  }
+
+  delete(): void {
+    this.doctorService.deleteDoctor(this.doctor._id)
+    .subscribe(response => {
+      this.dialogRef.close('Delete');
+    })
+  }
 }

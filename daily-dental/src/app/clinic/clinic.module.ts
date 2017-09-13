@@ -16,6 +16,10 @@ const clinicRoutes: Routes = [
       {
         path: 'price-list',
         loadChildren: 'app/clinic/price-list/price-list.module#PriceListModule'
+      },
+      {
+        path: 'dental-offices',
+        loadChildren: 'app/clinic/dental-offices/dental-offices.module#DentalOfficesModule'
       }
     ]
   }

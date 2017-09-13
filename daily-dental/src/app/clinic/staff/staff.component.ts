@@ -25,7 +25,9 @@ export class StaffComponent implements OnInit {
 
   getAllDoctors(): void {
     this.doctorService.getAllDoctors()
-    .subscribe(response => this.doctors = response);
+    .subscribe(response => {
+      this.doctors = response
+    });
   }
 
   openModalDialog(doctorId?: string): void {
@@ -43,6 +45,6 @@ export class StaffComponent implements OnInit {
   }
 
   editDoctor(doctorId: string): void {
-    this.openModalDialog();
+    this.openModalDialog(doctorId);
   }
 }
