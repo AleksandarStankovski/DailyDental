@@ -5,12 +5,13 @@ import { RouterModule } from '@angular/router';
 
 import 'hammerjs';
 
-import { MdDialogModule, MdButtonModule, MdInputModule } from '@angular/material';
+import { MdDialogModule, MdButtonModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule } from '@angular/material';
 
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 
 @NgModule({
   imports: [
@@ -19,13 +20,16 @@ import { FooterComponent } from './footer/footer.component';
     MdDialogModule,
     MdButtonModule,
     MdInputModule,
+    MdSnackBarModule,
+    MdProgressSpinnerModule,
     RouterModule
   ],
   declarations: [
     HeaderComponent,
     NavComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingOverlayComponent
   ],
   exports: [
     CommonModule,
@@ -33,10 +37,13 @@ import { FooterComponent } from './footer/footer.component';
     MdDialogModule,
     MdButtonModule,
     MdInputModule,
+    MdSnackBarModule,
+    MdProgressSpinnerModule,
     HeaderComponent,
     NavComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingOverlayComponent
   ]
 })
 export class SharedModule { }

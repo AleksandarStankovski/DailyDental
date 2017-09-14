@@ -2,6 +2,7 @@ const clinicController = require('../controllers/clinicController');
 const officeController = require('../controllers/officeController');
 const manipulationController = require('../controllers/manipulationController');
 const doctorController = require('../controllers/doctorController');
+const patientController = require('../controllers/patientController');
 
 module.exports = function (app, config) {
   app.get('/api/clinics', clinicController.getAll);
@@ -23,6 +24,11 @@ module.exports = function (app, config) {
   app.post('/api/manipulation/create', manipulationController.create);
   app.put('/api/manipulation/edit', manipulationController.edit);
   app.delete('/api/manipulation/delete/:id', manipulationController.delete);
+  app.get('/api/patients', patientController.getAll);
+  app.get('/api/patient/:id', patientController.getById);
+  app.post('/api/patient/create', patientController.create);
+  app.put('/api/patient/edit', patientController.edit);
+  app.delete('/api/patient/delete/:id', patientController.delete);
   app.get('/*', function (req, res) {
     res.sendFile(config.rootFolder + '/dist/index.html');
   });

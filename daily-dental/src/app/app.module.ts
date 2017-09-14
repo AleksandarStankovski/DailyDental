@@ -16,6 +16,10 @@ const appRoutes: Routes = [
     loadChildren: 'app/clinic/clinic.module#ClinicModule'
   },
   {
+    path: 'patients',
+    loadChildren: 'app/patients/patients.module#PatientsModule'
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
