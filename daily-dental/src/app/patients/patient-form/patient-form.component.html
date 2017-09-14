@@ -1,4 +1,4 @@
-<app-loading-overlay *ngIf="loadingOverlay" [config]="{ position: 'absolute', backgroundColor: 'white', spinnerWidth: 'medium' }"></app-loading-overlay>
+<app-loading-overlay></app-loading-overlay>
 <md-dialog-content>
   <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
     <div>

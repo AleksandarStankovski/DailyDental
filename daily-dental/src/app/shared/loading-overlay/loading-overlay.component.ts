@@ -14,7 +14,21 @@ export class LoadingOverlayComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.config);
+    this.config = new LoadingOverlayConfig();
+  }
+
+  setClass() {
+    const classes = {
+      'loading-overlay-fixed': this.config.position === 'fixed',
+      'loading-overlay-absolute': this.config.position === 'absolute',
+      'loading-overlay-white': this.config.backgroundColor === 'white',
+      'loading-overlayr-black': this.config.backgroundColor === 'black',
+      'loading-overlay-small': this.config.spinnerWidth === 'small',
+      'loading-overlay-medium': this.config.spinnerWidth === 'medium',
+      'loading-overlay-big': this.config.spinnerWidth === 'big'
+    }
+
+    return classes;
   }
 
 }

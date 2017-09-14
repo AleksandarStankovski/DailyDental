@@ -1,8 +1,31 @@
-div {
+.loading-overlay {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .8);
+    z-index: 1;
+    &-fixed {
+        position: absolute;
+    }
+    &-fixed {
+        position: fixed;
+    }
+    &-white {
+        background-color: rgba(255, 255, 255, .8);
+    }
+    &-black {
+        background-color: rgba(0, 0, 0, .8);
+    }
+    &-small {
+    }
+    &-medium {
+        
+    }
+    &-big {
+    }
 }
