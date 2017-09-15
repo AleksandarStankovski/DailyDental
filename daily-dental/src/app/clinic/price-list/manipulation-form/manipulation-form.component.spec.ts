@@ -6,23 +6,23 @@ import { DebugElement } from '@angular/core';
 import { ManipulationFormComponent } from './manipulation-form.component';
 
 describe('ManipulationFormComponent', () => {
-  let component: ManipulationFormComponent;
-  let fixture: ComponentFixture<ManipulationFormComponent>;
+    let component: ManipulationFormComponent;
+    let fixture: ComponentFixture<ManipulationFormComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ManipulationFormComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ ManipulationFormComponent ]
+        })
+        .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ManipulationFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ManipulationFormComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

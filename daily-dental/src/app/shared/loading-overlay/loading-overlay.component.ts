@@ -1,34 +1,37 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input } from '@angular/core';
 
 import { LoadingOverlayConfig } from '../models/loading-overlay-config.model';
 
 @Component({
-  selector: 'app-loading-overlay',
-  templateUrl: './loading-overlay.component.html',
-  styleUrls: ['./loading-overlay.component.scss']
+    selector: 'app-loading-overlay',
+    templateUrl: './loading-overlay.component.html',
+    styleUrls: ['./loading-overlay.component.scss']
 })
 export class LoadingOverlayComponent implements OnInit {
 
-  @Input() config: LoadingOverlayConfig;
+    @Input() config: LoadingOverlayConfig;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-    this.config = new LoadingOverlayConfig();
-  }
-
-  setClass() {
-    const classes = {
-      'loading-overlay-fixed': this.config.position === 'fixed',
-      'loading-overlay-absolute': this.config.position === 'absolute',
-      'loading-overlay-white': this.config.backgroundColor === 'white',
-      'loading-overlayr-black': this.config.backgroundColor === 'black',
-      'loading-overlay-small': this.config.spinnerWidth === 'small',
-      'loading-overlay-medium': this.config.spinnerWidth === 'medium',
-      'loading-overlay-big': this.config.spinnerWidth === 'big'
+    ngOnInit() {
+        this.config = new LoadingOverlayConfig();
     }
 
-    return classes;
-  }
+    setClass() {
+        const classes = {
+            'loading-overlay-fixed': this.config.position === 'fixed',
+            'loading-overlay-absolute': this.config.position === 'absolute',
+            'loading-overlay-white': this.config.backgroundColor === 'white',
+            'loading-overlayr-black': this.config.backgroundColor === 'black',
+            'loading-overlay-small': this.config.spinnerWidth === 'small',
+            'loading-overlay-medium': this.config.spinnerWidth === 'medium',
+            'loading-overlay-big': this.config.spinnerWidth === 'big'
+        }
+
+        return classes;
+    }
 
 }

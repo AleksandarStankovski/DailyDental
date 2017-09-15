@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    Output,
+    EventEmitter } from '@angular/core';
 
 import { Doctor } from '../../../shared/models/doctor.model';
 
@@ -9,14 +14,14 @@ import { Doctor } from '../../../shared/models/doctor.model';
 })
 export class DoctorComponent implements OnInit {
 
-  @Input() doctor: Doctor;
-  @Output() editDoctor: EventEmitter<string> = new EventEmitter();
+    @Input() doctor: Doctor;
+    @Output() editDoctor: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {}
+    ngOnInit() {}
 
-  edit(): void {
-    this.editDoctor.emit(this.doctor._id);
-  }
+    edit(): void {
+        this.editDoctor.emit(this.doctor._id);
+    }
 }

@@ -9,28 +9,28 @@ import { ClinicDetailsService } from './clinic-details/clinic-details.service';
 import { ClinicDetailsFormComponent } from './clinic-details-form/clinic-details-form.component';
 
 const clinicInfoRoutes: Routes = [
-  {
-    path: '',
-    component: ClinicInfoComponent
-  }
+    {
+        path: '',
+        component: ClinicInfoComponent
+    }
 ]
 
 @NgModule({
-  imports: [
-    HttpModule,
-    SharedModule,
-    RouterModule.forChild(clinicInfoRoutes)
-  ],
-  declarations: [
-    ClinicInfoComponent,
-    ClinicDetailsComponent,
-    ClinicDetailsFormComponent
-  ],
-  providers: [
-    ClinicDetailsService
-  ],
-  entryComponents: [
-    ClinicDetailsFormComponent
-  ]
+    imports: [
+        HttpModule,
+        SharedModule,
+        RouterModule.forChild(clinicInfoRoutes)
+    ],
+    declarations: [
+        ClinicInfoComponent,
+        ClinicDetailsComponent,
+        ClinicDetailsFormComponent
+    ],
+    providers: [
+        ClinicDetailsService
+    ],
+    entryComponents: [
+        ClinicDetailsFormComponent
+    ]
 })
 export class ClinicInfoModule { }

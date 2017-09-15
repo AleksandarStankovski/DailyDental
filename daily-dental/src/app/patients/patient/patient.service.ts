@@ -9,33 +9,33 @@ import { Patient } from '../../shared/models/patient.model';
 @Injectable()
 export class PatientService {
 
-  private apiUrl = 'api';
+    private apiUrl = 'api';
 
-  constructor(private http: Http) { }
+    constructor(private http: Http) { }
 
-  getAllPatients(): Observable<Patient[]> {
-    return this.http.get(`${this.apiUrl}/patients`)
-    .map(response => response.json() as Patient[]);
-  }
+    getAllPatients(): Observable<Patient[]> {
+        return this.http.get(`${this.apiUrl}/patients`)
+        .map(response => response.json() as Patient[]);
+    }
 
-  getPatient(id: string): Observable<Patient> {
-    return this.http.get(`${this.apiUrl}/patient/${id}`)
-    .map(response => response.json() as Patient);
-  }
+    getPatient(id: string): Observable<Patient> {
+        return this.http.get(`${this.apiUrl}/patient/${id}`)
+        .map(response => response.json() as Patient);
+    }
 
-  createPatient(data: Patient): Observable<any> {
-    return this.http.post(`${this.apiUrl}/patient/create`, data)
-    .map(response => response.json());
-  }
+    createPatient(data: Patient): Observable<any> {
+        return this.http.post(`${this.apiUrl}/patient/create`, data)
+        .map(response => response.json());
+    }
 
-  editPatient(data: Patient): Observable<any> {
-    return this.http.put(`${this.apiUrl}/patient/edit`, data)
-    .map(response => response.json());
-  }
+    editPatient(data: Patient): Observable<any> {
+        return this.http.put(`${this.apiUrl}/patient/edit`, data)
+        .map(response => response.json());
+    }
 
-  deletePatient(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/patient/delete/${id}`)
-    .map(response => response.json());
-  }
+    deletePatient(id: string): Observable<any> {
+        return this.http.delete(`${this.apiUrl}/patient/delete/${id}`)
+        .map(response => response.json());
+    }
 
 }

@@ -1,7 +1,7 @@
 <h3>Кабинети</h3>
 <button (click)="addOffice()" md-mini-fab>+</button>
 <ul>
-  <li *ngFor="let office of offices">
-    <app-office [office]="office" (editOffice)="editOffice($event)"></app-office>
-  </li>
+    <li *ngFor="let office of offices">
+        <app-office [office]="office" (editOffice)="editOffice($event)"></app-office>
+    </li>
 </ul>

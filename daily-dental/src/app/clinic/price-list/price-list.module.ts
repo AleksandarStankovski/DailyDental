@@ -10,28 +10,28 @@ import { ManipulationService } from './manipulation/manipulation.service';
 
 
 const priceListRoutes: Routes = [
-  {
-    path: '',
-    component: PriceListComponent
-  }
+    {
+        path: '',
+        component: PriceListComponent
+    }
 ]
 
 @NgModule({
-  imports: [
-    HttpModule,
-    SharedModule,
-    RouterModule.forChild(priceListRoutes)
-  ],
-  declarations: [
-    PriceListComponent,
-    ManipulationComponent,
-    ManipulationFormComponent
-  ],
-  providers: [
-    ManipulationService
-  ],
-  entryComponents: [
-    ManipulationFormComponent
-  ]
+    imports: [
+        HttpModule,
+        SharedModule,
+        RouterModule.forChild(priceListRoutes)
+    ],
+    declarations: [
+        PriceListComponent,
+        ManipulationComponent,
+        ManipulationFormComponent
+    ],
+    providers: [
+        ManipulationService
+    ],
+    entryComponents: [
+        ManipulationFormComponent
+    ]
 })
 export class PriceListModule { }

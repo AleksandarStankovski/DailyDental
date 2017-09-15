@@ -1,40 +1,40 @@
 <app-loading-overlay></app-loading-overlay>
 <md-dialog-content>
-  <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
-    <div>
-      <md-form-field>
-        <input mdInput [(ngModel)]="patient.code" name="code" required #patientCode="ngModel" placeholder="Код">
-      </md-form-field>
-    </div>
-    <div>
-      <md-form-field>
-        <input mdInput [(ngModel)]="patient.firstName" name="firstName" required #patientFirstName="ngModel" placeholder="Име">
-      </md-form-field>
-    </div>
-    <div>
-      <md-form-field>
-        <input mdInput [(ngModel)]="patient.lastName" name="lastName" required #patientLastName="ngModel" placeholder="Фамилия">
-      </md-form-field>
-    </div>
-    <div>
-      <md-form-field>
-        <input mdInput [(ngModel)]="patient.phone" name="phone" required #patientPhone="ngModel" placeholder="Телефон">
-      </md-form-field>
-    </div>
-    <div>
-      <md-form-field>
-        <input mdInput [(ngModel)]="patient.address" name="address" required #patientAddress="ngModel" placeholder="Адрес">
-      </md-form-field>
-    </div>
-    <div>
-      <md-form-field>
-        <input mdInput [(ngModel)]="patient.email" name="email" required #patientEmail="ngModel" placeholder="Е-mail">
-      </md-form-field>
-    </div>
-  </form>
+    <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
+        <div>
+            <md-form-field>
+                <input mdInput [(ngModel)]="patient.code" name="code" required #patientCode="ngModel" placeholder="Код">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field>
+                <input mdInput [(ngModel)]="patient.firstName" name="firstName" required #patientFirstName="ngModel" placeholder="Име">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field>
+                <input mdInput [(ngModel)]="patient.lastName" name="lastName" required #patientLastName="ngModel" placeholder="Фамилия">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field>
+                <input mdInput [(ngModel)]="patient.phone" name="phone" required #patientPhone="ngModel" placeholder="Телефон">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field>
+                <input mdInput [(ngModel)]="patient.address" name="address" required #patientAddress="ngModel" placeholder="Адрес">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field>
+                <input mdInput [(ngModel)]="patient.email" name="email" required #patientEmail="ngModel" placeholder="Е-mail">
+            </md-form-field>
+        </div>
+    </form>
 </md-dialog-content>
 <md-dialog-actions>
-  <button md-button [md-dialog-close]="'cancel'">Cancel</button>
-  <button *ngIf="data.patientId" md-button (click)="delete()">Delete</button>
-  <button md-button (click)="save()" [disabled]="patientForm.invalid">Save</button>
+    <button md-button [md-dialog-close]="'cancel'">Cancel</button>
+    <button *ngIf="data.patientId" md-button (click)="delete()">Delete</button>
+    <button md-button (click)="save()" [disabled]="patientForm.invalid">Save</button>
 </md-dialog-actions>

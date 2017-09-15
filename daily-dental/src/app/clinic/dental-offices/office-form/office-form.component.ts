@@ -1,5 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import {
+    Component,
+    OnInit,
+    Inject } from '@angular/core';
+import {
+    MdDialogRef,
+    MD_DIALOG_DATA } from '@angular/material';
 
 import { Office } from '../../../shared/models/office.model';
 import { OfficeService } from '../office/office.service';
@@ -11,46 +16,46 @@ import { OfficeService } from '../office/office.service';
 })
 export class OfficeFormComponent implements OnInit {
 
-  office: Office;
+    office: Office;
 
-  constructor(
-    private modalDialogRef: MdDialogRef<OfficeFormComponent>,
-    private officeService: OfficeService,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    constructor(
+        private modalDialogRef: MdDialogRef<OfficeFormComponent>,
+        private officeService: OfficeService,
+        @Inject(MD_DIALOG_DATA) public data: any) { }
 
-  ngOnInit() {
-    this.office = new Office('', '', '');
-    if (this.data.officeId) {
-      this.getOffice();
+    ngOnInit() {
+        this.office = new Office('', '', '');
+        if (this.data.officeId) {
+            this.getOffice();
+        }
     }
-  }
 
-  getOffice(): void {
-    this.officeService.getOffice(this.data.officeId)
-    .subscribe(response => {
-      this.office = response;
-    })
-  }
-
-  save(): void {
-    if (this.data.officeId) {
-      this.officeService.editOffice(this.office)
-      .subscribe(response => {
-        this.modalDialogRef.close('Edit');
-      })
-    } else {
-      this.officeService.createOffice(this.office)
-      .subscribe(response => {
-        this.modalDialogRef.close('Create');
-      })
+    getOffice(): void {
+        this.officeService.getOffice(this.data.officeId)
+        .subscribe(response => {
+            this.office = response;
+        })
     }
-  }
 
-  delete(): void {
-    this.officeService.deleteOffice(this.office._id)
-    .subscribe(response => {
-      this.modalDialogRef.close('Delete');
-    })
-  }
+    save(): void {
+        if (this.data.officeId) {
+            this.officeService.editOffice(this.office)
+            .subscribe(response => {
+                this.modalDialogRef.close('Edit');
+            })
+        } else {
+            this.officeService.createOffice(this.office)
+            .subscribe(response => {
+                this.modalDialogRef.close('Create');
+            })
+        }
+    }
+
+    delete(): void {
+        this.officeService.deleteOffice(this.office._id)
+        .subscribe(response => {
+            this.modalDialogRef.close('Delete');
+        })
+    }
 
 }

@@ -9,28 +9,28 @@ import { PatientService } from './patient/patient.service';
 import { PatientFormComponent } from './patient-form/patient-form.component';
 
 const patientsRoutes: Routes = [
-  {
-    path: '',
-    component: PatientsComponent
-  }
+    {
+        path: '',
+        component: PatientsComponent
+    }
 ]
 
 @NgModule({
-  imports: [
-    HttpModule,
-    SharedModule,
-    RouterModule.forChild(patientsRoutes)
-  ],
-  declarations: [
-    PatientsComponent,
-    PatientComponent,
-    PatientFormComponent
-  ],
-  providers: [
-    PatientService
-  ],
-  entryComponents: [
-    PatientFormComponent
-  ]
+    imports: [
+        HttpModule,
+        SharedModule,
+        RouterModule.forChild(patientsRoutes)
+    ],
+    declarations: [
+        PatientsComponent,
+        PatientComponent,
+        PatientFormComponent
+    ],
+    providers: [
+        PatientService
+    ],
+    entryComponents: [
+        PatientFormComponent
+    ]
 })
 export class PatientsModule { }

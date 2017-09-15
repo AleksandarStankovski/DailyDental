@@ -1,7 +1,7 @@
 <h3>Пациенти</h3>
 <button (click)="addPatient()" md-mini-fab>+</button>
 <ul>
-  <li *ngFor="let patient of patients">
-    <app-patient [patient]="patient" (editPatient)="editPatient($event)"></app-patient>
-  </li>
+    <li *ngFor="let patient of patients">
+        <app-patient [patient]="patient" (editPatient)="editPatient($event)"></app-patient>
+    </li>
 </ul>

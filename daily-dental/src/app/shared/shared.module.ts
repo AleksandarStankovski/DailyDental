@@ -5,7 +5,13 @@ import { RouterModule } from '@angular/router';
 
 import 'hammerjs';
 
-import { MdDialogModule, MdButtonModule, MdInputModule, MdSnackBarModule, MdProgressSpinnerModule } from '@angular/material';
+import {
+  MdDialogModule,
+  MdButtonModule,
+  MdInputModule,
+  MdSnackBarModule,
+  MdProgressSpinnerModule,
+  MdSlideToggleModule } from '@angular/material';
 
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
@@ -14,36 +20,38 @@ import { FooterComponent } from './footer/footer.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    MdDialogModule,
-    MdButtonModule,
-    MdInputModule,
-    MdSnackBarModule,
-    MdProgressSpinnerModule,
-    RouterModule
-  ],
-  declarations: [
-    HeaderComponent,
-    NavComponent,
-    SidebarComponent,
-    FooterComponent,
-    LoadingOverlayComponent
-  ],
-  exports: [
-    CommonModule,
-    FormsModule,
-    MdDialogModule,
-    MdButtonModule,
-    MdInputModule,
-    MdSnackBarModule,
-    MdProgressSpinnerModule,
-    HeaderComponent,
-    NavComponent,
-    SidebarComponent,
-    FooterComponent,
-    LoadingOverlayComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        MdDialogModule,
+        MdButtonModule,
+        MdInputModule,
+        MdSnackBarModule,
+        MdProgressSpinnerModule,
+        MdSlideToggleModule,
+        RouterModule
+    ],
+    declarations: [
+        HeaderComponent,
+        NavComponent,
+        SidebarComponent,
+        FooterComponent,
+        LoadingOverlayComponent
+    ],
+    exports: [
+        CommonModule,
+        FormsModule,
+        MdDialogModule,
+        MdButtonModule,
+        MdInputModule,
+        MdSnackBarModule,
+        MdProgressSpinnerModule,
+        MdSlideToggleModule,
+        HeaderComponent,
+        NavComponent,
+        SidebarComponent,
+        FooterComponent,
+        LoadingOverlayComponent
+    ]
 })
 export class SharedModule { }

@@ -9,28 +9,28 @@ import { OfficeFormComponent } from './office-form/office-form.component';
 import { OfficeService } from './office/office.service';
 
 const dentalOfficesRoutes: Routes = [
-  {
-    path: '',
-    component: DentalOfficesComponent
-  }
+    {
+        path: '',
+        component: DentalOfficesComponent
+    }
 ]
 
 @NgModule({
-  imports: [
-    HttpModule,
-    SharedModule,
-    RouterModule.forChild(dentalOfficesRoutes)
-  ],
-  declarations: [
-    DentalOfficesComponent,
-    OfficeComponent,
-    OfficeFormComponent
-  ],
-  providers: [
-    OfficeService
-  ],
-  entryComponents: [
-    OfficeFormComponent
-  ]
+    imports: [
+        HttpModule,
+        SharedModule,
+        RouterModule.forChild(dentalOfficesRoutes)
+    ],
+    declarations: [
+        DentalOfficesComponent,
+        OfficeComponent,
+        OfficeFormComponent
+    ],
+    providers: [
+        OfficeService
+    ],
+    entryComponents: [
+        OfficeFormComponent
+    ]
 })
 export class DentalOfficesModule { }

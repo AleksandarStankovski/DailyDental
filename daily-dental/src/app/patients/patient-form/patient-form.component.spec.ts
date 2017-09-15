@@ -3,23 +3,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PatientFormComponent } from './patient-form.component';
 
 describe('PatientFormComponent', () => {
-  let component: PatientFormComponent;
-  let fixture: ComponentFixture<PatientFormComponent>;
+    let component: PatientFormComponent;
+    let fixture: ComponentFixture<PatientFormComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PatientFormComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PatientFormComponent ]
+        })
+        .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PatientFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PatientFormComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(component).toBeTruthy();
+    });
 });

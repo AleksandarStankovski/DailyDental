@@ -9,28 +9,28 @@ import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { DoctorService } from './doctor/doctor.service';
 
 const staffRoutes: Routes = [
-  {
-    path: '',
-    component: StaffComponent
-  }
+    {
+        path: '',
+        component: StaffComponent
+    }
 ]
 
 @NgModule({
-  imports: [
-    HttpModule,
-    SharedModule,
-    RouterModule.forChild(staffRoutes)
-  ],
-  declarations: [
-    StaffComponent,
-    DoctorComponent,
-    DoctorFormComponent
-  ],
-  providers: [
-    DoctorService
-  ],
-  entryComponents: [
-    DoctorFormComponent
-  ]
+    imports: [
+        HttpModule,
+        SharedModule,
+        RouterModule.forChild(staffRoutes)
+    ],
+    declarations: [
+        StaffComponent,
+        DoctorComponent,
+        DoctorFormComponent
+    ],
+    providers: [
+        DoctorService
+    ],
+    entryComponents: [
+        DoctorFormComponent
+    ]
 })
 export class StaffModule { }

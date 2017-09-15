@@ -1,24 +1,29 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    Output,
+    EventEmitter } from '@angular/core';
 
 import { Patient } from '../../shared/models/patient.model';
 
 @Component({
-  selector: 'app-patient',
-  templateUrl: './patient.component.html',
-  styleUrls: ['./patient.component.scss']
+    selector: 'app-patient',
+    templateUrl: './patient.component.html',
+    styleUrls: ['./patient.component.scss']
 })
 export class PatientComponent implements OnInit {
 
-  @Input() patient: Patient;
-  @Output() editPatient: EventEmitter<string> = new EventEmitter();
+    @Input() patient: Patient;
+    @Output() editPatient: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  edit(): void {
-    this.editPatient.emit(this.patient._id);
-  }
+    edit(): void {
+        this.editPatient.emit(this.patient._id);
+    }
 
 }

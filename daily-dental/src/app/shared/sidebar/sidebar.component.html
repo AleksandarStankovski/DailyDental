@@ -1,18 +1,7 @@
 <nav>
-  <ul>
-    <li>
-      <a [routerLink]="['/clinic/clinic-info']">Клиника</a>
-    </li>
-    <li>
-      <a [routerLink]="['/clinic/dental-offices']">Кабинети</a>
-    </li>
-    <li>
-      <a [routerLink]="['/clinic/staff']">Персонал</a>
-    </li>
-
-    <li>
-      <a [routerLink]="['/clinic/price-list']">Ценова листа</a>
-    </li>
-
-  </ul>
+    <ul>
+        <li *ngFor="let nav of navList">
+            <a [routerLink]="nav.routerLink">{{nav.routerText}}</a>
+        </li>
+    </ul>
 </nav>

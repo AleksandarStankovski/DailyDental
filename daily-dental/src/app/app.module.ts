@@ -7,40 +7,40 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'home',
-    loadChildren: 'app/home/home.module#HomeModule'
-  },
-  {
-    path: 'clinic',
-    loadChildren: 'app/clinic/clinic.module#ClinicModule'
-  },
-  {
-    path: 'patients',
-    loadChildren: 'app/patients/patients.module#PatientsModule'
-  },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: '/clinic'
-  }
+    {
+        path: 'home',
+        loadChildren: 'app/home/home.module#HomeModule'
+    },
+    {
+        path: 'clinic',
+        loadChildren: 'app/clinic/clinic.module#ClinicModule'
+    },
+    {
+        path: 'patients',
+        loadChildren: 'app/patients/patients.module#PatientsModule'
+    },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: '/clinic'
+    }
 ]
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        SharedModule,
+        RouterModule.forRoot(appRoutes)
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
