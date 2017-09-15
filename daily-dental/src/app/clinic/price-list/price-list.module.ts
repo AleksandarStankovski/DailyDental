@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+import { PriceListRoutingModule } from './price-list-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { PriceListComponent } from './price-list.component';
 import { ManipulationComponent } from './manipulation/manipulation.component';
 import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
 import { ManipulationService } from './manipulation/manipulation.service';
 
-
-const priceListRoutes: Routes = [
-    {
-        path: '',
-        component: PriceListComponent
-    }
-]
-
 @NgModule({
     imports: [
         HttpModule,
         SharedModule,
-        RouterModule.forChild(priceListRoutes)
+        PriceListRoutingModule
     ],
     declarations: [
         PriceListComponent,

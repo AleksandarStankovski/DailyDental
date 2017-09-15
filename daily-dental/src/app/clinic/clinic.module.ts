@@ -1,38 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'
 
-import { ClinicComponent } from './clinic.component';
+import { ClinicRoutingModule } from './clinic-routing.module';
 import { SharedModule } from '../shared/shared.module';
-
-const clinicRoutes: Routes = [
-    {
-        path: '',
-        component: ClinicComponent,
-        children: [
-            {
-                path: 'clinic-info',
-                loadChildren: 'app/clinic/clinic-info/clinic-info.module#ClinicInfoModule'
-            },
-            {
-                path: 'dental-offices',
-                loadChildren: 'app/clinic/dental-offices/dental-offices.module#DentalOfficesModule'
-            },
-            {
-                path: 'staff',
-                loadChildren: 'app/clinic/staff/staff.module#StaffModule'
-            },
-            {
-                path: 'price-list',
-                loadChildren: 'app/clinic/price-list/price-list.module#PriceListModule'
-            }
-        ]
-    }
-]
+import { ClinicComponent } from './clinic.component';
 
 @NgModule({
     imports: [
         SharedModule,
-        RouterModule.forChild(clinicRoutes)
+        ClinicRoutingModule
     ],
     declarations: [
         ClinicComponent
