@@ -15,22 +15,22 @@ export class ClinicComponent implements OnInit {
 
     ngOnInit() {
         this.navList = [
-        {
-            routerLink: '/clinic/clinic-info',
-            routerText: 'Клиника'
-        },
-        {
-            routerLink: '/clinic/dental-offices',
-            routerText: 'Кабинети'
-        },
-        {
-            routerLink: '/clinic/staff',
-            routerText: 'Персонал'
-        },
-        {
-            routerLink: '/clinic/price-list',
-            routerText: 'Ценова листа'
-        }
+            {
+                routerLink: '/clinic/clinic-info',
+                routerText: 'Клиника'
+            },
+            {
+                routerLink: '/clinic/dental-offices',
+                routerText: 'Кабинети'
+            },
+            {
+                routerLink: '/clinic/staff',
+                routerText: 'Персонал'
+            },
+            {
+                routerLink: '/clinic/price-list',
+                routerText: 'Ценова листа'
+            }
         ]
     }
 }

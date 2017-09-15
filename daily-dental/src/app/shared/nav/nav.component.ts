@@ -1,6 +1,7 @@
 import {
     Component,
-    OnInit } from '@angular/core';
+    OnInit,
+    Input } from '@angular/core';
 
 @Component({
     selector: 'app-nav',
@@ -9,9 +10,10 @@ import {
 })
 export class NavComponent implements OnInit {
 
+    @Input() navList;
+
     constructor() { }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
 }

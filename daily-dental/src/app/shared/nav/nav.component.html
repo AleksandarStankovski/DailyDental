@@ -1,16 +1,7 @@
 <nav>
     <ul>
-        <li>
-            <a [routerLink]="['/home']" routerLinkActive="active">Начало</a>
-        </li>
-        <li>
-            <a [routerLink]="['/clinic/price-list']" routerLinkActive="active">Клиника</a>
-        </li>
-        <li>
-            <a [routerLink]="['/patients']">Пациенти</a>
-        </li>
-        <li>
-            <a>Рецепция</a>
+        <li *ngFor="let nav of navList">
+            <a [routerLink]="nav.routerLink">{{nav.routerText}}</a>
         </li>
     </ul>
 </nav>

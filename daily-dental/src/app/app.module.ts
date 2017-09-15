@@ -20,6 +20,10 @@ const appRoutes: Routes = [
         loadChildren: 'app/patients/patients.module#PatientsModule'
     },
     {
+        path: 'reception',
+        loadChildren: 'app/reception/reception.module#ReceptionModule'
+    },
+    {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
