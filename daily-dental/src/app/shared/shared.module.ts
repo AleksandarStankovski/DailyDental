@@ -6,12 +6,13 @@ import { FormsModule } from '@angular/forms';
 import 'hammerjs';
 
 import {
-  MdDialogModule,
-  MdButtonModule,
-  MdInputModule,
-  MdSnackBarModule,
-  MdProgressSpinnerModule,
-  MdSlideToggleModule } from '@angular/material';
+    MdDialogModule,
+    MdButtonModule,
+    MdInputModule,
+    MdSnackBarModule,
+    MdProgressSpinnerModule,
+    MdSlideToggleModule,
+    MdIconModule } from '@angular/material';
 
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
@@ -26,7 +27,8 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
         MdInputModule,
         MdSnackBarModule,
         MdProgressSpinnerModule,
-        MdSlideToggleModule
+        MdSlideToggleModule,
+        MdIconModule
     ],
     declarations: [
         SidebarComponent,
@@ -41,6 +43,7 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
         MdSnackBarModule,
         MdProgressSpinnerModule,
         MdSlideToggleModule,
+        MdIconModule,
         SidebarComponent,
         LoadingOverlayComponent
     ]
