@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import { Clinic } from '../../../shared/models/clinic.model';
 
 @Injectable()
-export class ClinicDetailsService {
+export class ClinicService {
 
     private apiUrl = 'api'
 

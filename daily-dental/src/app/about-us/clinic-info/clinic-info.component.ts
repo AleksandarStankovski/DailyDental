@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
 import { Clinic } from '../../shared/models/clinic.model';
-import { ClinicDetailsFormComponent } from './clinic-details-form/clinic-details-form.component';
-import { ClinicDetailsService } from './clinic-details/clinic-details.service';
+import { ClinicFormComponent } from './clinic-form/clinic-form.component';
+import { ClinicService } from './clinic/clinic.service';
 
 @Component({
     selector: 'app-clinic-info',
@@ -16,14 +16,14 @@ export class ClinicInfoComponent implements OnInit {
 
     constructor(
         private modalDialog: MdDialog,
-        private clinicDetailsService: ClinicDetailsService) { }
+        private clinicService: ClinicService) { }
 
     ngOnInit() {
         this.getAllClinics();
     }
 
     getAllClinics(): void {
-        this.clinicDetailsService.getAllClinics()
+        this.clinicService.getAllClinics()
         .subscribe(resolve => {
         this.clinics = resolve;
         })
@@ -31,7 +31,7 @@ export class ClinicInfoComponent implements OnInit {
 
     openModalDialog(clinicId?: string): void {
         const id = clinicId || undefined;
-        const modalDialogRef = this.modalDialog.open(ClinicDetailsFormComponent, {
+        const modalDialogRef = this.modalDialog.open(ClinicFormComponent, {
         data: { clinicId: id }
         })
     }

@@ -3,7 +3,13 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~app-variables.scss";
 
-// Material design icon
+/* Reset */
+h2, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Material design icon */
 /* Rules for sizing the icon. */
 .material-icons.md-18 { 
     font-size: 18px; 
@@ -45,10 +51,22 @@
     color: rgba(255, 255, 255, 0.3); 
 }
 
+/* Spinner global styles */
 .loading-overlay-container {
     position: relative;
     .mat-dialog-container {
         position: relative;
         color: $app-primary;
     }
+}
+
+.decoration-none {
+    text-decoration: none;
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+
+.body-container {
+    padding-top: 199px;
 }

@@ -8,11 +8,11 @@ import {
 import { Clinic } from '../../../shared/models/clinic.model';
 
 @Component({
-    selector: 'app-clinic-details',
-    templateUrl: './clinic-details.component.html',
-    styleUrls: ['./clinic-details.component.scss']
+    selector: 'app-clinic',
+    templateUrl: './clinic.component.html',
+    styleUrls: ['./clinic.component.scss']
 })
-export class ClinicDetailsComponent implements OnInit {
+export class ClinicComponent implements OnInit {
 
     @Input() clinic: Clinic;
     @Output() editClinic: EventEmitter<string> = new EventEmitter();

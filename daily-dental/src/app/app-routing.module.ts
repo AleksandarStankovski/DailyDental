@@ -7,8 +7,8 @@ const appRoutes: Routes = [
         loadChildren: 'app/home/home.module#HomeModule'
     },
     {
-        path: 'clinic',
-        loadChildren: 'app/clinic/clinic.module#ClinicModule'
+        path: 'about-us',
+        loadChildren: 'app/about-us/about-us.module#AboutUsModule'
     },
     {
         path: 'patients',
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/clinic'
+        redirectTo: '/home'
     }
 ]
 

@@ -1,5 +1,20 @@
 @import "~app-variables.scss";
 
 header {
-    background-color: $app-primary;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+    .header-top {
+        padding: 10px 15px;
+        &-toggle {
+            padding: 10px;
+        }
+    }
+    .header-title {
+        h2 {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
 }

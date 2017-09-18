@@ -3,11 +3,11 @@ import {
     OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-clinic',
-    templateUrl: './clinic.component.html',
-    styleUrls: ['./clinic.component.scss']
+    selector: 'app-about-us',
+    templateUrl: './about-us.component.html',
+    styleUrls: ['./about-us.component.scss']
 })
-export class ClinicComponent implements OnInit {
+export class AboutUsComponent implements OnInit {
 
     navList;
 
@@ -16,19 +16,19 @@ export class ClinicComponent implements OnInit {
     ngOnInit() {
         this.navList = [
             {
-                routerLink: '/clinic/clinic-info',
+                routerLink: '/about-us/clinic-info',
                 routerText: 'Клиника'
             },
             {
-                routerLink: '/clinic/dental-offices',
+                routerLink: '/about-us/dental-offices',
                 routerText: 'Кабинети'
             },
             {
-                routerLink: '/clinic/staff',
+                routerLink: '/about-us/staff',
                 routerText: 'Персонал'
             },
             {
-                routerLink: '/clinic/price-list',
+                routerLink: '/about-us/price-list',
                 routerText: 'Ценова листа'
             }
         ]

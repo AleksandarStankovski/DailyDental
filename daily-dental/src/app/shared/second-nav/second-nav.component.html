@@ -1,0 +1,9 @@
+<nav>
+    <div class="container">
+        <ul class="d-flex justify-content-center list-unstyled">
+            <li *ngFor="let nav of navList">
+                <a [routerLink]="nav.routerLink" class="d-block decoration-none" routerLinkActive="active">{{nav.routerText}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

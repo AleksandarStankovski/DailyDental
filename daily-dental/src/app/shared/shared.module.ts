@@ -14,7 +14,7 @@ import {
     MdSlideToggleModule,
     MdIconModule } from '@angular/material';
 
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
         MdIconModule
     ],
     declarations: [
-        SidebarComponent,
+        SecondNavComponent,
         LoadingOverlayComponent
     ],
     exports: [
@@ -44,7 +44,7 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
         MdProgressSpinnerModule,
         MdSlideToggleModule,
         MdIconModule,
-        SidebarComponent,
+        SecondNavComponent,
         LoadingOverlayComponent
     ]
 })

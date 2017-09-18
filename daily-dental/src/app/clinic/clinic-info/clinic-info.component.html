@@ -1,7 +1,0 @@
-<h3>Клиника</h3>
-<button (click)="addClinic()" md-mini-fab>+</button>
-<ul>
-    <li *ngFor="let clinic of clinics">
-        <app-clinic-details [clinic]="clinic" (editClinic)="editClinic($event)"></app-clinic-details>
-    </li>
-</ul>

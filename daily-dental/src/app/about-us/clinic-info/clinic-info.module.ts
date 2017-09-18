@@ -4,9 +4,9 @@ import { HttpModule } from '@angular/http';
 import { ClinicInfoRoutingModule } from './clinic-info-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ClinicInfoComponent } from './clinic-info.component';
-import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
-import { ClinicDetailsService } from './clinic-details/clinic-details.service';
-import { ClinicDetailsFormComponent } from './clinic-details-form/clinic-details-form.component';
+import { ClinicComponent } from './clinic/clinic.component';
+import { ClinicService } from './clinic/clinic.service';
+import { ClinicFormComponent } from './clinic-form/clinic-form.component';
 
 @NgModule({
     imports: [
@@ -16,14 +16,14 @@ import { ClinicDetailsFormComponent } from './clinic-details-form/clinic-details
     ],
     declarations: [
         ClinicInfoComponent,
-        ClinicDetailsComponent,
-        ClinicDetailsFormComponent
+        ClinicComponent,
+        ClinicFormComponent
     ],
     providers: [
-        ClinicDetailsService
+        ClinicService
     ],
     entryComponents: [
-        ClinicDetailsFormComponent
+        ClinicFormComponent
     ]
 })
 export class ClinicInfoModule { }
