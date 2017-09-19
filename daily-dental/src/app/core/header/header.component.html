@@ -1,16 +1,20 @@
-<header appScrollPageTransition [toggleClass]="'header-scroll'" class="header">
-    <div class="header-top">
-        <div class="d-flex justify-content-between align-items-center">
-            <a class="d-flex header-top-toggle">
-                <md-icon>menu</md-icon>
-            </a>
-            <a class="d-flex header-top-account">
-                <md-icon>account_circle</md-icon>
-            </a>
+<header>
+    <div appScrollPageTransition [toggleClass]="'header-fixed-scroll'" class="header-fixed">
+        <div class="header-top">
+            <div class="d-flex justify-content-between align-items-center">
+                <a class="d-flex header-top-toggle">
+                    <md-icon>menu</md-icon>
+                </a>
+                <a class="d-flex header-top-account">
+                    <md-icon>account_circle</md-icon>
+                </a>
+            </div>
+        </div>
+        <div class="header-title">
+            <h2>{{title}}</h2>
         </div>
     </div>
-    <div class="header-title">
-        <h2>{{title}}</h2>
+    <div class="header-background">
+        <div [style.background-image]="'url(assets/images/home.jpg)'"></div>
     </div>
-    <div [style.background-image]="'url(assets/images/home.jpg)'" class="header-background"></div>
 </header>

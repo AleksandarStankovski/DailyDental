@@ -10,7 +10,7 @@ export class PageNameService {
   getPageName(pageUrl): string {
     switch(pageUrl) {
         case '/home': {
-            this.title = 'Начална страница'
+            this.title = 'Material design'
             break;
         }
         case '/about-us/clinic-info': {
@@ -45,7 +45,7 @@ export class PageNameService {
             this.title = 'Default'
         }
     }
-    return this.title;
+    return 'Material design';
   }
 
 }

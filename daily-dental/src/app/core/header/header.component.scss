@@ -1,55 +1,57 @@
 @import "~app-variables.scss";
 
-.header {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    background-color: $app-primary;
-    .header-top {
+header {
+    .header-fixed {
+        position: fixed;
+        z-index: 1;
+        width: 100%;
         padding: 10px 15px;
-        &-toggle {
-            padding: 10px;
+        background-color: $app-primary-color;
+        color: $app-ligth-color;
+        .header-top {
+            &-toggle {
+                padding: 10px;
+            }
         }
-    }
-    .header-title {
-        width: 900px;
-        margin: auto;
-        transition: width .8s;
-        h2 {
-            position: absolute;
-            top: 170px;
-            margin-left: 0;
-            color: grey;
-            transition: top .8s, margin-left .8s, font-size .8s;
-        }
-    }
-    .header-background {
-        height: 190px;
-        transition: height .8s;
-        background-size: cover;
-        background-repeat: no-repeat;
-        &:after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 100%;
-            background-color: rgba($app-primary, .8)
-        }
-    }
-    &-scroll {
         .header-title {
-            width: 100%;
+            width: 900px;
+            margin: auto;
             transition: width .8s;
             h2 {
-                top: 20px;
-                margin-left: 70px;
-                font-size: 1.2rem;
+                position: absolute;
+                top: 170px;
+                margin-left: 0;
                 transition: top .8s, margin-left .8s, font-size .8s;
             }
         }
-        .header-background {
-            height: 0;
-            transition: height .8s;
-        }        
+        &-scroll {
+            .header-title {
+                width: 100%;
+                transition: width .8s;
+                h2 {
+                    top: 20px;
+                    margin-left: 70px;
+                    font-size: 1.2rem;
+                    transition: top .8s, margin-left .8s, font-size .8s;
+                }
+            }     
+        }
+    }
+    .header-background {
+        padding-top: 64px;
+        > div {
+            height: 190px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            &:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($app-primary-color, .7)
+            }
+        }
+
     }
 }

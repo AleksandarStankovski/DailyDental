@@ -1,9 +1,14 @@
 @import "~app-variables.scss";
 
 nav {
-    background-color: $app-primary;
+    background-color: $app-primary-color;
     a {
         padding: 13px 30px;
+        color: $app-ligth-color;
+        transition: color .4s;
+        &:hover {
+            color: darken($app-ligth-color, 10%);
+        }
         &.active {
             border-bottom: 2px solid grey; 
         }
