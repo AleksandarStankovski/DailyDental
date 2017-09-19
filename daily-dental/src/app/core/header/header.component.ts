@@ -3,6 +3,9 @@ import {
     OnInit } from '@angular/core';
 import { Router, NavigationStart } from "@angular/router";
 
+import { PageNameService } from '../page-name.service';
+import { PageImageService } from '../page-image.service';
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -10,52 +13,21 @@ import { Router, NavigationStart } from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-    title;
+    title: string;
+    image: string;
 
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private pageNameService: PageNameService,
+        private pageImageService: PageImageService) {}
+
+    ngOnInit() {
         this.router.events.subscribe(event => {
             if(event instanceof NavigationStart) {
-                switch(event.url) {
-                    case '/home': {
-                        this.title = 'Начална страница'
-                        break;
-                    }
-                    case '/about-us/clinic-info': {
-                        this.title = 'Клиника'
-                        break;
-                    }
-                    case '/about-us/dental-offices': {
-                        this.title = 'Кабинети'
-                        break;
-                    }
-                    case '/about-us/staff': {
-                        this.title = 'Персонал'
-                        break;
-                    }
-                    case '/about-us/price-list': {
-                        this.title = 'Ценова листа'
-                        break;
-                    }
-                    case '/about-us/staff': {
-                        this.title = 'Персонал'
-                        break;
-                    }
-                    case '/patients': {
-                        this.title = 'Пациенти'
-                        break;
-                    }
-                    case '/reception': {
-                        this.title = 'Рецепция'
-                        break;
-                    }
-                    default: {
-                        this.title = 'Default'
-                    }
-                }
+                this.title = this.pageNameService.getPageName(event.url);
+                this.image = this.pageImageService.getPageImage(event.url);
             }
         }); 
     }
-
-    ngOnInit() {}
 
 }

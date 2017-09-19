@@ -1,4 +1,7 @@
+@import "~app-variables.scss";
+
 nav {
+    background-color: $app-primary;
     a {
         padding: 13px 30px;
         &.active {

@@ -56,7 +56,6 @@ h2, ul {
     position: relative;
     .mat-dialog-container {
         position: relative;
-        color: $app-primary;
     }
 }
 
@@ -65,8 +64,4 @@ h2, ul {
     &:hover, &:focus {
         text-decoration: none;
     }
-}
-
-.body-container {
-    padding-top: 199px;
 }

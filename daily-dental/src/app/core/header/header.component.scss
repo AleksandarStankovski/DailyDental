@@ -1,10 +1,10 @@
 @import "~app-variables.scss";
 
-header {
+.header {
     position: fixed;
     width: 100%;
     z-index: 1;
-    background-color: #fff;
+    background-color: $app-primary;
     .header-top {
         padding: 10px 15px;
         &-toggle {
@@ -12,9 +12,44 @@ header {
         }
     }
     .header-title {
+        width: 900px;
+        margin: auto;
+        transition: width .8s;
         h2 {
-            padding-top: 50px;
-            padding-bottom: 50px;
+            position: absolute;
+            top: 170px;
+            margin-left: 0;
+            color: grey;
+            transition: top .8s, margin-left .8s, font-size .8s;
         }
+    }
+    .header-background {
+        height: 190px;
+        transition: height .8s;
+        background-size: cover;
+        background-repeat: no-repeat;
+        &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($app-primary, .8)
+        }
+    }
+    &-scroll {
+        .header-title {
+            width: 100%;
+            transition: width .8s;
+            h2 {
+                top: 20px;
+                margin-left: 70px;
+                font-size: 1.2rem;
+                transition: top .8s, margin-left .8s, font-size .8s;
+            }
+        }
+        .header-background {
+            height: 0;
+            transition: height .8s;
+        }        
     }
 }

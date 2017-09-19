@@ -1,4 +1,4 @@
-<header>
+<header appScrollPageTransition [toggleClass]="'header-scroll'" class="header">
     <div class="header-top">
         <div class="d-flex justify-content-between align-items-center">
             <a class="d-flex header-top-toggle">
@@ -12,4 +12,5 @@
     <div class="header-title">
         <h2>{{title}}</h2>
     </div>
+    <div [style.background-image]="'url(assets/images/home.jpg)'" class="header-background"></div>
 </header>

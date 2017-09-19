@@ -6,6 +6,9 @@ import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNameService } from './page-name.service';
+import { PageImageService } from './page-image.service';
+import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
 
 @NgModule({
   imports: [
@@ -16,12 +19,18 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HeaderComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollPageTransitionDirective
   ],
   exports: [
     HeaderComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollPageTransitionDirective
+  ],
+  providers: [
+    PageNameService,
+    PageImageService
   ]
 })
 export class CoreModule { }

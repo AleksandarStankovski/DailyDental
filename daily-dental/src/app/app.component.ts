@@ -1,8 +1,6 @@
 import {
     Component,
     OnInit } from '@angular/core';
-    
-import { ActivatedRoute }    from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -11,11 +9,8 @@ import { ActivatedRoute }    from '@angular/router';
 })
 export class AppComponent implements OnInit{
    
-    title = 'app';
-    navList;
-
-    constructor(private route: ActivatedRoute) {}
-    
+    title: string = 'app';
+    navList: [{}];
 
     ngOnInit() {
         this.navList = [
@@ -36,14 +31,5 @@ export class AppComponent implements OnInit{
                 routerText: 'Рецепция'
             }
         ]
-
-        this.route.data.subscribe(result => {
-            console.log(result)
-            console.log(result['name'])
-        })
-
-        const myData = this.route.snapshot.data['name'];
-        console.log(myData)
-
     }
 }
