@@ -1,10 +1,14 @@
-<div class="button-row">
-    <button (click)="addManipulation()" md-mini-fab>+</button>
-</div>
-<div>
-    <ul>
-        <li *ngFor="let manipulation of manipulations">
-            <app-manipulation [manipulation]="manipulation" (editManipulation)="editManipulation($event)"></app-manipulation>
-        </li>
-    </ul>
+<div class="price-list page-container container">
+    <div class="button-floating">
+        <a (click)="addManipulation()" md-fab>
+            <md-icon>add</md-icon>
+        </a>
+    </div>
+    <div>
+        <ul class="list-unstyled">
+            <li *ngFor="let manipulation of manipulations">
+                <app-manipulation [manipulation]="manipulation" (editManipulation)="editManipulation($event)"></app-manipulation>
+            </li>
+        </ul>
+    </div>
 </div>

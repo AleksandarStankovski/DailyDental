@@ -1,6 +1,15 @@
-<button (click)="addDoctor()" md-mini-fab>+</button>
-<ul>
-    <li *ngFor="let doctor of doctors">
-        <app-doctor [doctor]="doctor" (editDoctor)="editDoctor($event)"></app-doctor>
-    </li>
-</ul>
+<div class="staff page-container container">
+    <div class="button-floating">
+        <a (click)="addDoctor()" md-fab>
+            <md-icon>add</md-icon>
+        </a>
+    </div>
+    <div>
+        <ul class="list-unstyled">
+            <li *ngFor="let doctor of doctors">
+                <app-doctor [doctor]="doctor" (editDoctor)="editDoctor($event)"></app-doctor>
+            </li>
+        </ul>
+    </div>
+</div>
+

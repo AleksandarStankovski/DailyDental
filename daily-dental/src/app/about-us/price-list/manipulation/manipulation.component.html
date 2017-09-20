@@ -1,8 +1,12 @@
-<div>
-    <span>{{manipulation._id}}</span>
-    <p>{{manipulation.code}}</p>
-    <p>{{manipulation.name}}</p>
-    <p>{{manipulation.price}}</p>
-    <p>{{manipulation.currency}}</p>
-    <button (click)="edit()" md-raised-button>Преглед</button>
-</div>
+<a (click)="edit()" class="row manipulation">
+    <div class="col-3 col-sm-2 d-flex flex-column justify-content-between align-items-center manipulation-icon">
+        <div class="d-flex justify-content-center align-items-center rounded-circle">
+            <md-icon>inbox</md-icon>
+        </div>
+        <span>{{manipulation.code}}</span>
+    </div>
+    <div class="col d-flex flex-column justify-content-between manipulation-text">
+        <p>{{manipulation.name}}</p>
+        <p>{{manipulation.price}}</p>
+    </div>
+</a>

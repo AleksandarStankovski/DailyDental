@@ -7,6 +7,7 @@ export class Doctor {
         public phone: string,
         public address: string,
         public email: string,
+        public speciality: string,
         public active: boolean = true,
         public _id?: string) {}
 }

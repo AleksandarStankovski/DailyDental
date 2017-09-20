@@ -1,7 +1,9 @@
 import {
     Component,
     OnInit,
-    Input } from '@angular/core';
+    Input,
+    Output,
+    EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-nav',
@@ -11,9 +13,15 @@ import {
 export class NavComponent implements OnInit {
 
     @Input() navList;
+    @Input() isVisibleMenu: boolean;
+    @Output() toggleMenu: EventEmitter<boolean> = new EventEmitter();
 
     constructor() { }
 
     ngOnInit() {}
+
+    toggle() {
+        this.toggleMenu.emit();
+    }
 
 }

@@ -2,10 +2,10 @@
     <div appScrollPageTransition [toggleClass]="'header-fixed-scroll'" class="header-fixed">
         <div class="header-top">
             <div class="d-flex justify-content-between align-items-center">
-                <a class="d-flex header-top-toggle">
+                <a (click)="toggleMenu()" class="d-flex header-top-toggle cursor-pointer">
                     <md-icon>menu</md-icon>
                 </a>
-                <a class="d-flex header-top-account">
+                <a class="d-flex header-top-account cursor-pointer">
                     <md-icon>account_circle</md-icon>
                 </a>
             </div>
@@ -17,4 +17,5 @@
     <div class="header-background">
         <div [style.background-image]="'url(assets/images/home.jpg)'"></div>
     </div>
+    <app-nav [navList]="navList" [isVisibleMenu]="isVisibleMenu" (toggleMenu)="toggleMenu()"></app-nav>
 </header>

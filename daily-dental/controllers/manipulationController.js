@@ -3,21 +3,18 @@ let manipulations = [
         code: '1000',
         name: 'Вадене на зъб',
         price: 100,
-        currency: 'BGN',
          _id: '451521',
     },
     {
         code: '1001',
         name: 'Вадене на зъб 2',
         price: 101,
-        currency: 'BGN',
         _id: '414612'
     },
     {
         code: '1002',
         name: 'Вадене на зъб 3',
         price: 102,
-        currency: 'BGN',
         _id: '784545'
     }
 ]

@@ -3,6 +3,7 @@ import {
     OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
+import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Doctor } from '../../shared/models/doctor.model';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { DoctorService } from './doctor/doctor.service';
@@ -15,12 +16,14 @@ import { DoctorService } from './doctor/doctor.service';
 export class StaffComponent implements OnInit {
 
     doctors: Doctor[];
+    modalConfig: ModalConfig;
 
     constructor(
         private modalDialog: MdDialog,
         private doctorService: DoctorService) {}
 
     ngOnInit() {
+        this.modalConfig = new ModalConfig();
         this.getAllDoctors();
     }
 
@@ -34,6 +37,7 @@ export class StaffComponent implements OnInit {
     openModalDialog(doctorId?: string): void {
         const id = doctorId || undefined;
         const modalDialogRef = this.modalDialog.open(DoctorFormComponent, {
+            width: this.modalConfig.width,
             data: { doctorId: id }
         });
         modalDialogRef.afterClosed()

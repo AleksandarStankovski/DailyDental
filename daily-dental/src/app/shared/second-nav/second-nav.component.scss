@@ -1,4 +1,4 @@
-@import "~app-variables.scss";
+@import "~assets/styles/variables";
 
 nav {
     background-color: $app-primary-color;
@@ -10,7 +10,7 @@ nav {
             color: darken($app-ligth-color, 10%);
         }
         &.active {
-            border-bottom: 2px solid grey; 
+            border-bottom: 2px solid $app-primary-color;
         }
     }
     

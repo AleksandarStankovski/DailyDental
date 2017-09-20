@@ -1,6 +1,14 @@
-<button (click)="addOffice()" md-mini-fab>+</button>
-<ul>
-    <li *ngFor="let office of offices">
-        <app-office [office]="office" (editOffice)="editOffice($event)"></app-office>
-    </li>
-</ul>
+<div class="dental-offices page-container container">
+    <div class="button-floating">
+        <a (click)="addOffice()" md-fab>
+            <md-icon>add</md-icon>
+        </a>
+    </div>
+    <div>
+        <ul class="list-unstyled">
+            <li *ngFor="let office of offices">
+                <app-office [office]="office" (editOffice)="editOffice($event)"></app-office>
+            </li>
+        </ul>
+    </div>
+</div>

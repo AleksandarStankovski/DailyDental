@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
+import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Clinic } from '../../shared/models/clinic.model';
 import { ClinicFormComponent } from './clinic-form/clinic-form.component';
 import { ClinicService } from './clinic/clinic.service';
@@ -13,26 +14,29 @@ import { ClinicService } from './clinic/clinic.service';
 export class ClinicInfoComponent implements OnInit {
 
     clinics: Clinic[];
+    modalConfig: ModalConfig;
 
     constructor(
         private modalDialog: MdDialog,
         private clinicService: ClinicService) { }
 
     ngOnInit() {
+        this.modalConfig = new ModalConfig();
         this.getAllClinics();
     }
 
     getAllClinics(): void {
         this.clinicService.getAllClinics()
         .subscribe(resolve => {
-        this.clinics = resolve;
+            this.clinics = resolve;
         })
     }
 
     openModalDialog(clinicId?: string): void {
         const id = clinicId || undefined;
         const modalDialogRef = this.modalDialog.open(ClinicFormComponent, {
-        data: { clinicId: id }
+            width: this.modalConfig.width,
+            data: { clinicId: id }
         })
     }
 
@@ -43,4 +47,5 @@ export class ClinicInfoComponent implements OnInit {
     editClinic(clinicId): void {
         this.openModalDialog(clinicId);
     }
+
 }

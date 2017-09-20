@@ -1,4 +1,4 @@
-@import "~app-variables.scss";
+@import "~assets/styles/variables";
 
 header {
     .header-fixed {
@@ -16,23 +16,21 @@ header {
         .header-title {
             width: 900px;
             margin: auto;
-            transition: width .8s;
+            transition: width .4s;
             h2 {
                 position: absolute;
                 top: 170px;
                 margin-left: 0;
-                transition: top .8s, margin-left .8s, font-size .8s;
+                transition: top .4s, margin-left .4s, font-size .4s;
             }
         }
         &-scroll {
             .header-title {
                 width: 100%;
-                transition: width .8s;
                 h2 {
                     top: 20px;
                     margin-left: 70px;
                     font-size: 1.2rem;
-                    transition: top .8s, margin-left .8s, font-size .8s;
                 }
             }     
         }

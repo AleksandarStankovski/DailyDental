@@ -3,6 +3,7 @@ import {
     OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
+import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Manipulation } from '../../shared/models/manipulation.model';
 import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
 import { ManipulationService } from './manipulation/manipulation.service';
@@ -15,12 +16,14 @@ import { ManipulationService } from './manipulation/manipulation.service';
 export class PriceListComponent implements OnInit {
 
     manipulations: Manipulation[];
+    modalConfig: ModalConfig;
 
     constructor(
         private modalDialog: MdDialog,
         private manipulationService: ManipulationService) {}
 
     ngOnInit() {
+        this.modalConfig = new ModalConfig();
         this.getAllManipulations();
     }
 
@@ -34,6 +37,7 @@ export class PriceListComponent implements OnInit {
     openModalDialog(manipulationId?: string): void {
         const id = manipulationId || undefined;
         const modalDialogRef = this.modalDialog.open(ManipulationFormComponent, {
+            width: this.modalConfig.width,
             data: { manipulationId: id }
         });
         modalDialogRef.afterClosed().subscribe(result => {

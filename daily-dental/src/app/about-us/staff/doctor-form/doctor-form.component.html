@@ -1,38 +1,43 @@
 <md-dialog-content>
     <form (ngSubmit)="doctorForm.valid && save()" #doctorForm="ngForm" novalidate>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.code" name="code" required #doctorCode="ngModel" placeholder="Код">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.firstName" name="firstName" required #doctorFirstName="ngModel" placeholder="Име">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.lastName" name="lastName" required #doctorLastName="ngModel" placeholder="Фамилия">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.egn" name="egn" required #doctorEgn="ngModel" placeholder="ЕГН">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.address" name="address" required #doctorAddress="ngModel" placeholder="Адрес">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност">
             </md-form-field>
         </div>
         <div>
@@ -42,7 +47,7 @@
         </div>
     </form>
 </md-dialog-content>
-<md-dialog-actions>
+<md-dialog-actions class="justify-content-end">
     <button md-button [md-dialog-close]="'cancel'">Cancel</button>
     <button *ngIf="data.doctorId" md-button (click)="delete()">Delete</button>
     <button md-button (click)="save()" [disabled]="doctorForm.invalid">Save</button>

@@ -1,7 +1,15 @@
-<nav>
-    <ul>
-        <li *ngFor="let nav of navList">
-            <a [routerLink]="nav.routerLink">{{nav.routerText}}</a>
-        </li>
-    </ul>
+<nav [ngClass]="{'nav-open': isVisibleMenu}">
+    <div (click)="toggle()" class="nav-overlay"></div>
+    <div class="nav-container">
+        <div>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="DailyDental">
+            </div>
+            <ul>
+                <li *ngFor="let nav of navList">
+                    <a [routerLink]="nav.routerLink">{{nav.routerText}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

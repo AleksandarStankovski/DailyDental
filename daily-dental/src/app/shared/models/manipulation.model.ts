@@ -3,6 +3,5 @@ export class Manipulation {
         public code: string,
         public name: string,
         public price: number,
-        public currency: string,
         public _id?: string) {}
 }

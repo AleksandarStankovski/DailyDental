@@ -1,0 +1,10 @@
+/* Reset */
+h2, ul, p {
+    margin: 0;
+    padding: 0;
+}
+a, button {
+    &:hover, &:focus, &:active {
+        outline: 0;
+    }
+} 

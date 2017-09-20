@@ -1,33 +1,33 @@
 <md-dialog-content>
     <form (ngSubmit)="clinicForm.valid && save()" #clinicForm="ngForm" novalidate>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.code" name="code" required #clinicCode="ngModel" placeholder="Код">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.name" name="name" required #clinicName="ngModel" placeholder="Име">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.address" name="address" required #clinicAddress="ngModel" placeholder="Адрес">
             </md-form-field>
         </div>
         <div>
-            <md-form-field>
+            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.email" name="email" required #clinicEmail="ngModel" placeholder="E-mail">
             </md-form-field>
         </div>
     </form>
 </md-dialog-content>
-<md-dialog-actions>
+<md-dialog-actions class="justify-content-end">
     <button md-button [md-dialog-close]="'cancel'">Cancel</button>
     <button md-button (click)="save()" [disabled]="clinicForm.invalid">Save</button>
 </md-dialog-actions>
