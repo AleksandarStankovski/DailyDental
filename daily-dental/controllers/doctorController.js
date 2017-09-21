@@ -7,7 +7,7 @@ let doctors = [
         phone: '0876141091',
         address: 'София, Перник 90',
         email: 'test@tes.com',
-        email: 'Хирургия',
+        speciality: 'Хирургия',
         active: true,
         _id: '451521'
     },
@@ -19,7 +19,7 @@ let doctors = [
         phone: '0876141092',
         address: 'София, Перник 90',
         email: 'test@tes.com',
-        email: 'Хирургия',
+        speciality: 'Хирургия',
         active: true,
         _id: '1224354'
     }

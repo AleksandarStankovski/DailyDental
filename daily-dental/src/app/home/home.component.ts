@@ -9,8 +9,29 @@ import {
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    navList: [{}];
 
-  ngOnInit() { }
+    constructor() { }
+
+    ngOnInit() {
+
+        this.navList = [
+            {
+                routerLink: '/about-us/price-list',
+                routerText: 'Клиника',
+                routerIcon: 'dashboard'
+            },
+            {
+                routerLink: '/patients',
+                routerText: 'Пациенти',
+                routerIcon: 'dashboard'
+            },
+            {
+                routerLink: '/reception',
+                routerText: 'Рецепция',
+                routerIcon: 'dashboard'
+            }
+        ]
+     }
 
 }

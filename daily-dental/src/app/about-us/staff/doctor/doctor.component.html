@@ -1,13 +1,22 @@
-<div>
-	<span>{{doctor._id}}</span>
-	<p>{{doctor.code}}</p>
-	<p>{{doctor.firstName}}</p>
-	<p>{{doctor.lastName}}</p>
-	<p>{{doctor.egn}}</p>
-	<p>{{doctor.phone}}</p>
-	<p>{{doctor.address}}</p>
-	<p>{{doctor.email}}</p>
-	<p>{{doctor.speciality}}</p>
-	<p>{{doctor.active}}</p>
-	<button (click)="edit()" md-raised-button>Преглед</button>
-</div>
+
+<a (click)="edit()" class="doctor cursor-pointer d-flex flex-column justify-content-end">
+	<div class="doctor-fbox d-flex align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <div class="doctor-icon d-flex justify-content-center align-items-center rounded-circle">
+                    <md-icon class="md-32">person</md-icon>
+                </div>
+                <p>{{doctor.firstName}} {{doctor.lastName}}</p>
+            </div>
+		    <p>{{doctor.active}}</p>
+        </div>
+	</div>
+    <div class="doctor-sbox">
+        <p>{{doctor.speciality}}</p>
+        <span class="d-flex align-items-center mt-1">
+            <md-icon class="md-16">phone</md-icon>
+            {{doctor.phone}}
+        </span>
+    </div>
+</a>
+

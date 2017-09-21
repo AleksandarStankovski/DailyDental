@@ -7,7 +7,10 @@
             </div>
             <ul>
                 <li *ngFor="let nav of navList">
-                    <a [routerLink]="nav.routerLink">{{nav.routerText}}</a>
+                    <a [routerLink]="nav.routerLink" class="decoration-none d-flex align-items-center">
+                        <md-icon class="md-36">inbox</md-icon>
+                        {{nav.routerText}}
+                    </a>
                 </li>
             </ul>
         </div>

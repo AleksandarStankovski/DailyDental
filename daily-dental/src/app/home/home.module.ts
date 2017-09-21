@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
 
 import { HomeComponent } from './home.component';
+import { HomeNavComponent } from './home-nav/home-nav.component';
 
 const homeRoutes: Routes = [
   {
@@ -16,6 +17,6 @@ const homeRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(homeRoutes)
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, HomeNavComponent]
 })
 export class HomeModule { }

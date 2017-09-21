@@ -1,6 +1,10 @@
-<div>
-    <span>{{office.code}}</span>
-    <p>{{office.phone}}</p>
-    <p>{{office.color}}</p>
-    <button (click)="edit()" md-raised-button>Преглед</button>
-</div>
+<a (click)="edit()" class="office cursor-pointer d-flex flex-column justify-content-end">
+    <div class="office-sbox">
+        <p>{{office.code}}</p>
+        <span class="d-flex align-items-center mt-1">
+            <md-icon class="md-16">phone</md-icon>
+           {{office.phone}}
+        </span>
+    </div>
+</a>
+

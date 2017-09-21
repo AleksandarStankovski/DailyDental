@@ -1,5 +1,10 @@
 /* Material design icon */
 /* Rules for sizing the icon. */
+.material-icons.md-16 { 
+    font-size: 16px; 
+    height: 16px;
+    width: 16px;
+}
 .material-icons.md-18 { 
     font-size: 18px; 
     height: 18px;
@@ -9,6 +14,11 @@
     font-size: 24px; 
     height: 24px;
     width: 24px;
+}
+.material-icons.md-30 { 
+    font-size: 30px; 
+    height: 30px;
+    width: 30px;
 }
 .material-icons.md-32 { 
     font-size: 32px; 

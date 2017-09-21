@@ -1,3 +1,3 @@
 export class ModalConfig {
-    constructor(public width: string = '500px') {}
+    constructor(public width: string = '450px') {}
 }

@@ -1,0 +1,41 @@
+@import "~assets/styles/variables";
+
+nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba($app-ligth-color, .4);
+    h1 {
+        position: absolute;
+        bottom: -100px;
+        left: 100px;
+        img {
+            width: 90px;
+        }
+        &.finish-transition {
+            bottom: 45px;
+            transition: bottom .4s;
+        }
+    }
+    li {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        a {
+            padding: 10px 30px;
+            color: $app-ligth-color;
+            border-right: 1px solid $app-ligth-color;
+            transition: color .4s;
+            &:hover {
+                color: darken($app-ligth-color, 10%);
+            }
+        }
+        &:last-child {
+            a {
+                border-right: none;
+            }
+        }
+    }
+    
+}

@@ -5,8 +5,8 @@
         </a>
     </div>
     <div>
-        <ul class="list-unstyled">
-            <li *ngFor="let doctor of doctors">
+        <ul class="list-unstyled row">
+            <li *ngFor="let doctor of doctors" class="col-sm-6">
                 <app-doctor [doctor]="doctor" (editDoctor)="editDoctor($event)"></app-doctor>
             </li>
         </ul>

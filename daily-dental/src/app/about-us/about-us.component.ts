@@ -17,19 +17,23 @@ export class AboutUsComponent implements OnInit {
         this.navList = [
             {
                 routerLink: '/about-us/clinic-info',
-                routerText: 'Клиника'
+                routerText: 'Клиника',
+                routerIcon: 'dashboard'
             },
             {
                 routerLink: '/about-us/dental-offices',
-                routerText: 'Кабинети'
+                routerText: 'Кабинети',
+                routerIcon: 'dashboard'
             },
             {
                 routerLink: '/about-us/staff',
-                routerText: 'Персонал'
+                routerText: 'Персонал',
+                routerIcon: 'dashboard'
             },
             {
                 routerLink: '/about-us/price-list',
-                routerText: 'Ценова листа'
+                routerText: 'Ценова листа',
+                routerIcon: 'dashboard'
             }
         ]
     }

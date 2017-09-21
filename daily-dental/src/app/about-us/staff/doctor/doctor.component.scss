@@ -1,0 +1,33 @@
+@import "~assets/styles/variables";
+
+.doctor {
+    height: 100%;
+    background-color: #d4d4d4;
+    margin-bottom: 15px;
+    .doctor-fbox {
+        min-height: 150px;
+        color: $app-ligth-color;
+        > div {
+            width: 100%;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .doctor-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            background-color: #b3b3b3; 
+        }
+    }
+    .doctor-sbox {
+        padding: 15px;
+        background-color: rgba(#f1f1f1, .7);
+        color: $app-ligth-color;
+        span {
+            font-size: .8rem;
+            .mat-icon {
+                margin-right: 5px;
+            }
+        }
+    }
+}

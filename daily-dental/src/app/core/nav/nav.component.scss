@@ -1,3 +1,5 @@
+@import "~assets/styles/variables";
+
 nav {
     .nav-overlay {
         position: fixed;
@@ -34,10 +36,21 @@ nav {
         ul {
             padding-top: 15px;
             padding-bottom: 15px;
-            a {
+            li {
                 display: block;
-                padding: 15px;
+                .mat-icon {
+                    margin-right: 20px;
+                }
+                a {
+                    padding: 15px 20px;
+                    color: $app-dark-color;
+                    transition: color .4s;
+                    &:hover {
+                        color: darken($app-dark-color, 10%);
+                    }
+                }
             }
+
         }
     }
     &.nav-open {

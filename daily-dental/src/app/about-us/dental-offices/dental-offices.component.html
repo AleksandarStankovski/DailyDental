@@ -5,8 +5,8 @@
         </a>
     </div>
     <div>
-        <ul class="list-unstyled">
-            <li *ngFor="let office of offices">
+        <ul class="list-unstyled row">
+            <li *ngFor="let office of offices" class="col-2 col-md-4">
                 <app-office [office]="office" (editOffice)="editOffice($event)"></app-office>
             </li>
         </ul>

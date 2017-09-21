@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
     image: string;
     isVisibleMenu: boolean;
     navList: [{}];
+    pageName: string;
 
     constructor(
         private router: Router,
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
         this.router.events.subscribe(event => {
             if(event instanceof NavigationStart) {
+                this.pageName = event.url;
                 this.isVisibleMenu = false;
                 this.title = this.pageNameService.getPageName(event.url);
                 this.image = this.pageImageService.getPageImage(event.url);
@@ -37,19 +39,23 @@ export class HeaderComponent implements OnInit {
         this.navList = [
             {
                 routerLink: '/home',
-                routerText: 'Начало'
+                routerText: 'Начало',
+                routerIcon: 'dashboard'
             },
             {
                 routerLink: '/about-us/price-list',
-                routerText: 'Клиника'
+                routerText: 'Клиника',
+                routerIcon: 'dashboard'
             },
             {
                 routerLink: '/patients',
-                routerText: 'Пациенти'
+                routerText: 'Пациенти',
+                routerIcon: 'dashboard'
             },
             {
                 routerLink: '/reception',
-                routerText: 'Рецепция'
+                routerText: 'Рецепция',
+                routerIcon: 'dashboard'
             }
         ]
     }
