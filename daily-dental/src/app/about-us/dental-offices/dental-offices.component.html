@@ -1,11 +1,13 @@
-<div class="dental-offices page-container container">
-    <div class="button-floating">
-        <a (click)="addOffice()" md-fab>
-            <md-icon>add</md-icon>
-        </a>
+<div class="dental-offices page-container">
+    <div class="button-floating-container container">
+        <div class="button-floating">
+            <a (click)="addOffice()" md-fab>
+                <md-icon>add</md-icon>
+            </a>
+        </div>
     </div>
     <div>
-        <ul class="list-unstyled row">
+        <ul class="list-unstyled row gutters-6">
             <li *ngFor="let office of offices" class="col-2 col-md-4">
                 <app-office [office]="office" (editOffice)="editOffice($event)"></app-office>
             </li>

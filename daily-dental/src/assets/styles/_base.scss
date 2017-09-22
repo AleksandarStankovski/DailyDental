@@ -10,6 +10,11 @@
     height: 18px;
     width: 18px;
 }
+.material-icons.md-20 { 
+    font-size: 20px; 
+    height: 20px;
+    width: 20px;
+}
 .material-icons.md-24 { 
     font-size: 24px; 
     height: 24px;
@@ -75,16 +80,69 @@ h2 {
 
 .page-container {
     position: relative;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
-
+.button-floating-container {
+    position: relative;
+}
 .button-floating {
     position: absolute;
-    top: -110px;
+    top: -90px;
     right: 0;
+    z-index: 1;
 }
-
 .input-full-width {
     width: 100%;
+}
+.mat-dialog-container {
+    .md-dialog-header {
+        height: 40px;
+        margin-top: -24px;
+        margin-right: -24px;
+        margin-left: -24px;
+        background-color: $app-primary-color;
+        &.aesthetic {
+            background-color: $app-aesthetic;
+        }
+        &.parodontology {
+            background-color: $app-parodontology;
+        }
+        &.pediatrics {
+            background-color: $app-pediatrics;
+        }
+        &.endodontics {
+            background-color: $app-endodontics;
+        }
+        &.orthodontics {
+            background-color: $app-orthodontics;
+        }
+        &.surgery {
+            background-color: $app-surgery;
+        }
+    }
+    .mat-dialog-content {
+        padding-top: 24px;
+    }
+}
+
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+.row.gutters-6 {
+    margin-right: 3px;
+    margin-left: 3px;
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+        padding-top: 3px;
+        padding-right: 3px;
+        padding-bottom: 3px;
+        padding-left: 3px;
+    }
 }

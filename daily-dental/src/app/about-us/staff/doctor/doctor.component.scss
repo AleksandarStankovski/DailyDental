@@ -1,11 +1,13 @@
 @import "~assets/styles/variables";
 
 .doctor {
+    position: relative;
     height: 100%;
-    background-color: #d4d4d4;
-    margin-bottom: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
     .doctor-fbox {
-        min-height: 150px;
+        min-height: 200px;
+        z-index: 1;
         color: $app-ligth-color;
         > div {
             width: 100%;
@@ -13,21 +15,117 @@
             padding-right: 20px;
         }
         .doctor-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             margin-right: 15px;
-            background-color: #b3b3b3; 
         }
     }
     .doctor-sbox {
+        z-index: 1;
         padding: 15px;
-        background-color: rgba(#f1f1f1, .7);
         color: $app-ligth-color;
         span {
-            font-size: .8rem;
             .mat-icon {
                 margin-right: 5px;
             }
+        }
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &.aesthetic {
+        background-color: $app-aesthetic;
+        background-image: url('/assets/images/aesthetic.jpeg');
+        &:after {
+            background-color: rgba($app-aesthetic, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-aesthetic, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-aesthetic, .6);
+        }
+    }
+    &.parodontology {
+        background-color: $app-parodontology;
+        background-image: url('/assets/images/aesthetic.jpeg');
+        &:after {
+            background-color: rgba($app-parodontology, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-parodontology, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-parodontology, .6);
+        }
+    }
+    &.pediatrics {
+        background-color: $app-pediatrics;
+        background-image: url('/assets/images/aesthetic.jpeg');
+        &:after {
+            background-color: rgba($app-pediatrics, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-pediatrics, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-pediatrics, .6);
+        }
+    }
+    &.endodontics {
+        background-color: $app-endodontics;
+        background-image: url('/assets/images/aesthetic.jpeg');
+        &:after {
+            background-color: rgba($app-endodontics, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-endodontics, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-endodontics, .6);
+        }
+    }
+    &.orthodontics {
+        background-color: $app-orthodontics;
+        background-image: url('/assets/images/aesthetic.jpeg');
+        &:after {
+            background-color: rgba($app-orthodontics, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-orthodontics, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-orthodontics, .6);
+        }
+    }
+    &.surgery {
+        background-color: $app-surgery;
+        background-image: url('/assets/images/aesthetic.jpeg');
+        &:after {
+            background-color: rgba($app-surgery, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-surgery, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-surgery, .6);
         }
     }
 }

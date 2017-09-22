@@ -1,3 +1,4 @@
+<div [ngClass]=[doctor.speciality] class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="doctorForm.valid && save()" #doctorForm="ngForm" novalidate>
         <div>

@@ -1,8 +1,8 @@
-<a (click)="edit()" class="office cursor-pointer d-flex flex-column justify-content-end">
+<a (click)="edit()" [ngClass]=[office.type] class="office cursor-pointer d-flex flex-column justify-content-end">
     <div class="office-sbox">
         <p>{{office.code}}</p>
         <span class="d-flex align-items-center mt-1">
-            <md-icon class="md-16">phone</md-icon>
+            <md-icon class="md-20">phone</md-icon>
            {{office.phone}}
         </span>
     </div>

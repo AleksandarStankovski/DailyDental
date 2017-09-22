@@ -45,7 +45,7 @@ export class PageNameService {
             this.title = 'Default'
         }
     }
-    return 'Material design';
+    return this.title;
   }
 
 }

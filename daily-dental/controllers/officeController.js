@@ -2,14 +2,38 @@ let offices = [
     {
         code: '1000',
         phone: '0876141091',
-        color: '#fff',
-        _id: '4853412'
+        type: 'aesthetic',
+        _id: '1'
     },
     {
         code: '1001',
         phone: '0876141091',
-        color: '#fff',
-        _id: '786451'
+        type: 'parodontology',
+        _id: '2'
+    },
+    {
+        code: '1000',
+        phone: '0876141091',
+        type: 'pediatrics',
+        _id: '3'
+    },
+    {
+        code: '1001',
+        phone: '0876141091',
+        type: 'endodontics',
+        _id: '4'
+    },
+    {
+        code: '1001',
+        phone: '0876141091',
+        type: 'orthodontics',
+        _id: '5'
+    },
+    {
+        code: '1000',
+        phone: '0876141091',
+        type: 'surgery',
+        _id: '6'
     }
 ]
 

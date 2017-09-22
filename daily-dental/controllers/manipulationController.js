@@ -2,20 +2,44 @@ let manipulations = [
     {
         code: '1000',
         name: 'Вадене на зъб',
-        price: 100,
-         _id: '451521',
+        price: 240,
+        type: 'aesthetic',
+         _id: '1',
     },
     {
         code: '1001',
         name: 'Вадене на зъб 2',
-        price: 101,
-        _id: '414612'
+        price: 180,
+        type: 'parodontology',
+        _id: '2'
     },
     {
         code: '1002',
         name: 'Вадене на зъб 3',
-        price: 102,
-        _id: '784545'
+        price: 120,
+        type: 'pediatrics',
+        _id: '3'
+    },
+    {
+        code: '1003',
+        name: 'Вадене на зъб',
+        price: 340,
+        type: 'endodontics',
+         _id: '4',
+    },
+    {
+        code: '1004',
+        name: 'Вадене на зъб 2',
+        price: 250,
+        type: 'orthodontics',
+        _id: '5'
+    },
+    {
+        code: '1005',
+        name: 'Вадене на зъб 3',
+        price: 160,
+        type: 'surgery',
+        _id: '6'
     }
 ]
 

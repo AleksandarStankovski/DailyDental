@@ -1,4 +1,4 @@
-<a (click)="edit()" class="manipulation row cursor-pointer">
+<a (click)="edit()" [ngClass]=[manipulation.type] class="manipulation row cursor-pointer">
     <div class="manipulation-fbox col-3 col-sm-2 d-flex flex-column justify-content-between align-items-center">
         <div class="d-flex justify-content-center align-items-center rounded-circle">
             <md-icon class="md-36">inbox</md-icon>
@@ -6,8 +6,8 @@
         <span>{{manipulation.code}}</span>
     </div>
     <div class="manipulation-sbox col d-flex flex-column justify-content-between">
-        <!-- <p>{{manipulation.name}}</p> -->
-        <h6>Header</h6>
-        <span>{{manipulation.price}}</span>
+        <!-- <h5>Header</h5> -->
+        <h5>{{manipulation.name}}</h5>
+        <span>BGN {{manipulation.price}}</span>
     </div>
 </a>

@@ -1,3 +1,4 @@
+<div [ngClass]=[office.type] class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="officeForm.valid && save()" #officeForm="ngForm" novalidate>
         <div>
@@ -12,7 +13,7 @@
         </div>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="office.color" name="color" required #officeColor="ngModel" placeholder="Цвят">
+                <input mdInput [(ngModel)]="office.type" name="tyep" required #officeType="ngModel" placeholder="Тип">
             </md-form-field>
         </div>
     </form>

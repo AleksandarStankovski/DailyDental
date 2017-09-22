@@ -1,7 +1,8 @@
 @import "~assets/styles/variables";
 
 nav {
-    background-color: $app-primary-color;
+    margin-top: -52px;
+    background-color: rgba(#fff, .4);
     a {
         padding: 13px 30px;
         color: $app-ligth-color;

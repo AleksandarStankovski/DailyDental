@@ -1,20 +1,89 @@
 @import "~assets/styles/variables";
 
 .office {
-    min-height: 200px;
+    position: relative;
+    min-height: 250px;
     height: 100%;
-    background-color: #fff;
-    margin-bottom: 15px;
     .office-sbox {
         margin-top: 100px;
         padding: 15px;
-        background-color: #f1f1f1;
+        z-index: 1;
         color: $app-ligth-color;
+        opacity: .8;
         span {
-            font-size: .8rem;
             .mat-icon {
                 margin-right: 5px;
             }
+        }
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    &.aesthetic {
+        background-color: $app-aesthetic;
+        &:after {
+            background-image: url('/assets/images/offices/surgery.png');
+        }
+        .office-sbox {
+            $app-aesthetic-darken: darken($app-aesthetic, 10%);
+            background-color: rgba($app-aesthetic-darken, 10%);
+        }
+    }
+    &.parodontology {
+        background-color: $app-parodontology;
+        &:after {
+            background-image: url('/assets/images/offices/surgery.png');
+        }
+        .office-sbox {
+            $app-parodontology-darken: darken($app-parodontology, 10%);
+            background-color: rgba($app-parodontology-darken, 10%);
+        }
+    }
+    &.pediatrics {
+        background-color: $app-pediatrics;
+        &:after {
+            background-image: url('/assets/images/offices/surgery.png');
+        }
+        .office-sbox {
+            $app-pediatrics-darken: darken($app-pediatrics, 10%);
+            background-color: rgba($app-pediatrics-darken, 10%);
+        }
+    }
+    &.endodontics {
+        background-color: $app-endodontics;
+        &:after {
+            background-image: url('/assets/images/offices/surgery.png');
+        }
+        .office-sbox {
+            $app-endodontics-darken: darken($app-endodontics, 10%);
+            background-color: rgba($app-endodontics-darken, 10%);
+        }
+    }
+    &.orthodontics {
+        background-color: $app-orthodontics;
+        &:after {
+            background-image: url('/assets/images/offices/surgery.png');
+        }
+        .office-sbox {
+            $app-orthodontics-darken: darken($app-orthodontics, 10%);
+            background-color: rgba($app-orthodontics-darken, 10%);
+        }
+    }
+    &.surgery {
+        background-color: $app-surgery;
+        &:after {
+            background-image: url('/assets/images/offices/surgery.png');
+        }
+        .office-sbox {
+            $app-surgery-darken: darken($app-surgery, 10%);
+            background-color: rgba($app-surgery-darken, 10%);
         }
     }
 }
