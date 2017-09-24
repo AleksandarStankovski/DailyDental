@@ -29,7 +29,7 @@
     &.aesthetic {
         background-color: $app-aesthetic;
         &:after {
-            background-image: url('/assets/images/offices/surgery.png');
+            background-image: url('/assets/images/offices/aesthetic.png');
         }
         .office-sbox {
             $app-aesthetic-darken: darken($app-aesthetic, 10%);
@@ -39,7 +39,7 @@
     &.parodontology {
         background-color: $app-parodontology;
         &:after {
-            background-image: url('/assets/images/offices/surgery.png');
+            background-image: url('/assets/images/offices/parodontology.png');
         }
         .office-sbox {
             $app-parodontology-darken: darken($app-parodontology, 10%);
@@ -49,7 +49,7 @@
     &.pediatrics {
         background-color: $app-pediatrics;
         &:after {
-            background-image: url('/assets/images/offices/surgery.png');
+            background-image: url('/assets/images/offices/pediatrics.png');
         }
         .office-sbox {
             $app-pediatrics-darken: darken($app-pediatrics, 10%);
@@ -59,7 +59,7 @@
     &.endodontics {
         background-color: $app-endodontics;
         &:after {
-            background-image: url('/assets/images/offices/surgery.png');
+            background-image: url('/assets/images/offices/endodontics.png');
         }
         .office-sbox {
             $app-endodontics-darken: darken($app-endodontics, 10%);
@@ -69,7 +69,7 @@
     &.orthodontics {
         background-color: $app-orthodontics;
         &:after {
-            background-image: url('/assets/images/offices/surgery.png');
+            background-image: url('/assets/images/offices/orthodontics.png');
         }
         .office-sbox {
             $app-orthodontics-darken: darken($app-orthodontics, 10%);

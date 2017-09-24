@@ -40,7 +40,7 @@
     }
     &.aesthetic {
         background-color: $app-aesthetic;
-        background-image: url('/assets/images/aesthetic.jpeg');
+        background-image: url('/assets/images/staff/aesthetic.jpg');
         &:after {
             background-color: rgba($app-aesthetic, .6);
         }
@@ -55,7 +55,7 @@
     }
     &.parodontology {
         background-color: $app-parodontology;
-        background-image: url('/assets/images/aesthetic.jpeg');
+        background-image: url('/assets/images/staff/parodontology.jpeg');
         &:after {
             background-color: rgba($app-parodontology, .6);
         }
@@ -70,7 +70,7 @@
     }
     &.pediatrics {
         background-color: $app-pediatrics;
-        background-image: url('/assets/images/aesthetic.jpeg');
+        background-image: url('/assets/images/staff/pediatrics.jpg');
         &:after {
             background-color: rgba($app-pediatrics, .6);
         }
@@ -85,7 +85,7 @@
     }
     &.endodontics {
         background-color: $app-endodontics;
-        background-image: url('/assets/images/aesthetic.jpeg');
+        background-image: url('/assets/images/staff/endodontics.jpg');
         &:after {
             background-color: rgba($app-endodontics, .6);
         }
@@ -100,7 +100,7 @@
     }
     &.orthodontics {
         background-color: $app-orthodontics;
-        background-image: url('/assets/images/aesthetic.jpeg');
+        background-image: url('/assets/images/staff/orthodontics.jpeg');
         &:after {
             background-color: rgba($app-orthodontics, .6);
         }
@@ -115,7 +115,7 @@
     }
     &.surgery {
         background-color: $app-surgery;
-        background-image: url('/assets/images/aesthetic.jpeg');
+        background-image: url('/assets/images/staff/surgery.jpg');
         &:after {
             background-color: rgba($app-surgery, .6);
         }
