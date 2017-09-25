@@ -21,16 +21,18 @@ export class ScrollPageTransitionDirective {
     }
 
     toggleClassTransition(): void {
-        let hasClass = this.el.nativeElement.classList.contains(this.toggleClass)
-        if (window.pageYOffset > 0) {
-            if (!hasClass) {
-                this.rendered.addClass(this.el.nativeElement, this.toggleClass);
-            }
-        } else {
-            if (hasClass) {
-                this.rendered.removeClass(this.el.nativeElement, this.toggleClass);
+        let isModalOpen = this.el.nativeElement.ownerDocument.all[0].classList.contains('cdk-global-scrollblock');
+        let hasClass = this.el.nativeElement.classList.contains(this.toggleClass);
+        if (!isModalOpen) {
+            if (window.pageYOffset > 0) {
+                if (!hasClass) {
+                    this.rendered.addClass(this.el.nativeElement, this.toggleClass);
+                }
+            } else {
+                if (hasClass) {
+                    this.rendered.removeClass(this.el.nativeElement, this.toggleClass);
+                }
             }
         }
     }
-
 }

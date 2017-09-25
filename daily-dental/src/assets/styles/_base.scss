@@ -102,6 +102,9 @@ h2 {
         margin-right: -24px;
         margin-left: -24px;
         background-color: $app-primary-color;
+        &.default {
+            background-color: $app-default-speciality;
+        }
         &.aesthetic {
             background-color: $app-aesthetic;
         }

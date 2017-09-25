@@ -29,8 +29,8 @@ export class PatientFormComponent implements OnInit {
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
+        this.patient = new Patient('', '', '', '', '', '', '');
         this.snackbarConfig = new SnackbarConfig();
-        this.patient = new Patient('', '', '', '', '', '');
         if (this.data.patientId) {
             this.getPatient();
         }
@@ -48,7 +48,7 @@ export class PatientFormComponent implements OnInit {
         if (this.data.patientId) {
             this.patientService.editPatient(this.patient)
             .subscribe(resolve => {
-                const snackBarRef = this.snackBar.open('Данниете бяха запазени успешно', '', {
+                const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
                     duration: this.snackbarConfig.duration
                 });
                 setTimeout(() => {

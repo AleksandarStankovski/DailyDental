@@ -6,5 +6,6 @@ export class Patient {
         public phone: string,
         public address: string,
         public email: string,
+        public doctor: string,
         public _id?: string) {}
 }
