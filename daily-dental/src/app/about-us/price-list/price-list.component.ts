@@ -38,7 +38,8 @@ export class PriceListComponent implements OnInit {
         const id = manipulationId || undefined;
         const modalDialogRef = this.modalDialog.open(ManipulationFormComponent, {
             width: this.modalConfig.width,
-            data: { manipulationId: id }
+            data: { manipulationId: id },
+            panelClass: 'loading-overlay-container'
         });
         modalDialogRef.afterClosed().subscribe(result => {
             this.getAllManipulations();

@@ -16,6 +16,7 @@ import {
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
+import { SpecialityConverterPipe } from './speciality-converter.pipe';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
     ],
     declarations: [
         SecondNavComponent,
-        LoadingOverlayComponent
+        LoadingOverlayComponent,
+        SpecialityConverterPipe
     ],
     exports: [
         CommonModule,
@@ -45,7 +47,8 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
         MdSlideToggleModule,
         MdIconModule,
         SecondNavComponent,
-        LoadingOverlayComponent
+        LoadingOverlayComponent,
+        SpecialityConverterPipe
     ]
 })
 export class SharedModule { }

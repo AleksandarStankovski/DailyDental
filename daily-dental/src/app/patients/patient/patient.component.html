@@ -1,10 +1,11 @@
-<div>
-    <span>{{patient._id}}</span>
-    <p>{{patient.code}}</p>
-    <p>{{patient.firstName}}</p>
-    <p>{{patient.lastName}}</p>
-    <p>{{patient.phone}}</p>
-    <p>{{patient.address}}</p>
-    <p>{{patient.email}}</p>
-    <button (click)="edit()" md-raised-button>Преглед</button>
-</div>
+<a (click)="edit()"  [ngClass]="patient.doctor" class="patient cursor-pointer d-flex flex-column justify-content-end">
+    <div class="patient-fbox">
+        <h6>{{patient.firstName}} {{patient.lastName}}</h6>
+        <span class="d-flex align-items-center mt-1">
+            <md-icon class="md-20">phone</md-icon>
+            {{patient.phone}}
+        </span>
+    </div>
+    <div class="patient-sbox"></div>
+</a>
+

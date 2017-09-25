@@ -38,6 +38,20 @@
         bottom: 0;
         left: 0;
     }
+    &.default {
+        background-color: $app-default-speciality;
+        &:after {
+            background-color: rgba($app-default-speciality, .6);
+        }
+        .doctor-fbox {
+            .doctor-icon {
+                background-color: rgba($app-default-speciality, .6);
+            }
+        }
+        .doctor-sbox {
+            background-color: rgba($app-default-speciality, .6);
+        }
+    }
     &.aesthetic {
         background-color: $app-aesthetic;
         background-image: url('/assets/images/staff/aesthetic.jpg');
