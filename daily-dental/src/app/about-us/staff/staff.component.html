@@ -1,17 +1,14 @@
-<div class="staff page-container">
-    <div class="button-floating-container container">
-        <div class="button-floating">
-            <a (click)="addDoctor()" md-fab>
-                <md-icon>add</md-icon>
-            </a>
-        </div>
+<div class="staff page">
+    <div class="button-floating">
+        <a (click)="addDoctor()" md-fab>
+            <md-icon>add</md-icon>
+        </a>
     </div>
-    <div class="container-fluid">
+    <div class="page-container">
         <ul class="list-unstyled row no-gutters">
-            <li *ngFor="let doctor of doctors" class="col-sm-6">
+            <li *ngFor="let doctor of doctors" class="col-md-6">
                 <app-doctor [doctor]="doctor" (editDoctor)="editDoctor($event)"></app-doctor>
             </li>
         </ul>
     </div>
 </div>
-

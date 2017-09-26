@@ -11,7 +11,9 @@ header {
         color: $app-ligth-color;
         .header-top {
             &-toggle {
-                padding: 7px;
+                padding-top: 7px;
+                padding-right: 7px;
+                padding-bottom: 7px;
             }
         }
         .header-title {

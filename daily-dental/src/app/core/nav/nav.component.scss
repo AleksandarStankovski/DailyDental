@@ -1,4 +1,5 @@
 @import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
 
 nav {
     .nav-overlay {
@@ -25,28 +26,100 @@ nav {
         > div {
             opacity: 0;
             transition: opacity .2s;
+            @include media-breakpoint-down(xs) {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
         }
-        .logo {
-            padding: 15px;
-            border-bottom: 2px solid #000;
-            img {
-                width: 55px; 
+        .logo-close {
+            @include media-breakpoint-down(xs) {
+                background-color: $app-primary-color;
+            }
+            .logo {
+                padding: 9px 15px;
+                img {
+                    width: 45px; 
+                    &.desktop {
+                        @include media-breakpoint-down(xs) {
+                            display: none;
+                        }
+                    }
+                    &.mobile {
+                        display: none;
+                        @include media-breakpoint-down(xs) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            .close-nav {
+                display: none;
+                padding: 16px;
+                @include media-breakpoint-down(xs) {
+                    display: flex;
+                    color: $app-ligth-color;
+                }
             }
         }
         ul {
+            border-top: 2px solid #000;
             padding-top: 15px;
             padding-bottom: 15px;
+            @include media-breakpoint-down(xs) {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
             li {
                 display: block;
-                .mat-icon {
-                    margin-right: 20px;
+                @include media-breakpoint-down(xs) {
+                    display: flex;
+                    flex: 1;
                 }
                 a {
-                    padding: 15px 20px;
+                    padding: 15px;
                     color: $app-dark-color;
                     transition: color .4s;
+                    @include media-breakpoint-down(xs) {
+                        flex: 1;
+                        color: $app-ligth-color;
+                    }
                     &:hover {
                         color: darken($app-dark-color, 10%);
+                    }
+                    i {
+                        margin-right: 15px;
+                    }
+                }
+                &.list-0 {
+                    a {
+                        @include media-breakpoint-down(xs) {
+                            background-color: #4C99CF;
+                        }
+                    }
+                }
+                &.list-1 {
+                    a {
+                        @include media-breakpoint-down(xs) {
+                            background-color: #4873A6;
+                        }
+                    }
+                }
+                &.list-2 {
+                    a {
+                        @include media-breakpoint-down(xs) {
+                            background-color: #5A5386;
+                        }
+                    }
+                }
+                &.list-3 {
+                    a {
+                        @include media-breakpoint-down(xs) {
+                            background-color: #524364;
+                        }
                     }
                 }
             }
@@ -60,9 +133,15 @@ nav {
         }
         .nav-container {
             width: 300px; 
+            @include media-breakpoint-down(xs) {
+                width: 100%; 
+            }
             > div {
                 opacity: 1;
                 transition: opacity .4s .2s;
+            }
+            .close {
+                display: flex;
             }
         }
     }

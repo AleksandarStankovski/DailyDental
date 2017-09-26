@@ -2,13 +2,19 @@
     <div (click)="toggle()" class="nav-overlay"></div>
     <div class="nav-container">
         <div>
-            <div class="logo">
-                <img src="assets/images/logo.png" alt="DailyDental">
+            <div class="logo-close d-flex justify-content-between">
+                <div class="logo">
+                    <img src="assets/images/logo-black.png" class="desktop" alt="DailyDental">
+                    <img src="assets/images/logo-white.png"  class="mobile" alt="DailyDental">
+                </div>
+                <a (click)="toggle()" class="close-nav cursor-pointer d-flex align-items-center">
+                    <md-icon class="md-30">clear</md-icon>
+                </a>
             </div>
             <ul>
-                <li *ngFor="let nav of navList">
+                <li *ngFor="let nav of navList; let i = index" [ngClass]="['list-'+i]">
                     <a [routerLink]="nav.routerLink" class="decoration-none d-flex align-items-center">
-                        <md-icon class="md-36">inbox</md-icon>
+                        <i class="flaticon ft-36 flaticon-decay-in-a-tooth"></i>
                         {{nav.routerText}}
                     </a>
                 </li>

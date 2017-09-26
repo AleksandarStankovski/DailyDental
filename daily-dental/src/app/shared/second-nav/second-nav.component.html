@@ -1,9 +1,9 @@
 <nav>
     <ul class="d-flex justify-content-center list-unstyled">
         <li *ngFor="let nav of navList">
-            <a [routerLink]="nav.routerLink" class="d-flex align-items-center decoration-none" routerLinkActive="active">
-                <!-- <md-icon>inbox</md-icon> -->
-                {{nav.routerText}}
+            <a [routerLink]="nav.routerLink" routerLinkActive="active" class="d-flex align-items-center decoration-none">
+                <i class="flaticon ft-36 flaticon-decay-in-a-tooth mx-auto"></i>
+                <span>{{nav.routerText}}</span>
             </a>
         </li>
     </ul>

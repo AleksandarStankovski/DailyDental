@@ -39,7 +39,7 @@
     &.aesthetic {
         background-color: $app-aesthetic;
         &:after {
-            background-image: url('/assets/images/offices/aesthetic.png');
+            background-image: url('/assets/icons/icons-type-2/svg/027-molar.svg');
         }
         .office-sbox {
             $app-aesthetic-darken: darken($app-aesthetic, 10%);

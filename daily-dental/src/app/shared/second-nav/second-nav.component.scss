@@ -1,17 +1,37 @@
 @import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
 
 nav {
     margin-top: -52px;
     background-color: rgba(#fff, .4);
+    li {
+        @include media-breakpoint-down(sm) {
+            width: 25%;
+        }
+    }
     a {
         padding: 13px 30px;
         color: $app-ligth-color;
         transition: color .4s;
+        @include media-breakpoint-down(sm) {
+            padding: 7px 10px;
+        }
         &:hover {
             color: darken($app-ligth-color, 10%);
         }
         &.active {
             border-bottom: 2px solid $app-primary-color;
+        }
+        span {
+            @include media-breakpoint-down(sm) {
+                display: none;
+            } 
+        }
+        i {
+            display: none;
+            @include media-breakpoint-down(sm) {
+                display: block;
+            } 
         }
     }
 }
