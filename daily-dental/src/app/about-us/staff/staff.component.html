@@ -1,9 +1,5 @@
 <div class="staff page">
-    <div class="button-floating">
-        <a (click)="addDoctor()" md-fab>
-            <md-icon>add</md-icon>
-        </a>
-    </div>
+    <app-floating-button (openModalDialog)="addDoctor()"></app-floating-button>
     <div class="page-container">
         <ul class="list-unstyled row no-gutters">
             <li *ngFor="let doctor of doctors" class="col-md-6">

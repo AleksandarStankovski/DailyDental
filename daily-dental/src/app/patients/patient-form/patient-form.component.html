@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]=[patient.doctor] class="md-dialog-header"></div>
+<div [ngClass]="patient.doctor" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
         <div>

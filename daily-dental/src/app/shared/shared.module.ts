@@ -16,6 +16,7 @@ import {
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
+import { FloatingButtonComponent } from './floating-button/floating-button.component';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
     declarations: [
         SecondNavComponent,
         LoadingOverlayComponent,
-        SpecialityConverterPipe
+        SpecialityConverterPipe,
+        FloatingButtonComponent
     ],
     exports: [
         CommonModule,
@@ -48,6 +50,7 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         MdIconModule,
         SecondNavComponent,
         LoadingOverlayComponent,
+        FloatingButtonComponent,
         SpecialityConverterPipe
     ]
 })

@@ -1,4 +1,4 @@
-<div [ngClass]=[office.type] class="md-dialog-header"></div>
+<div [ngClass]="office.type" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="officeForm.valid && save()" #officeForm="ngForm" novalidate>
         <div>

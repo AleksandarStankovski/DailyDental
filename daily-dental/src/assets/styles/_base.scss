@@ -68,6 +68,7 @@
     }
 }
 
+/* Flaticon */
 .flaticon {
     line-height: 1;
     &.ft-22:before {
@@ -102,21 +103,6 @@
     }
 }
 
-/* Rules for using icons as black on a light background. */
-.material-icons.md-dark { 
-    color: rgba(0, 0, 0, 0.54); 
-}
-.material-icons.md-dark.md-inactive { 
-    color: rgba(0, 0, 0, 0.26); 
-}
-/* Rules for using icons as white on a dark background. */
-.material-icons.md-light { 
-    color: rgba(255, 255, 255, 1); 
-}
-.material-icons.md-light.md-inactive { 
-    color: rgba(255, 255, 255, 0.3); 
-}
-
 /* Spinner global styles */
 .loading-overlay-container {
     position: relative;
@@ -135,6 +121,26 @@
 .cursor-pointer {
     cursor: pointer;
 }
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+.row.gutters-6 {
+    margin-right: 3px;
+    margin-left: 3px;
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+        padding-top: 3px;
+        padding-right: 3px;
+        padding-bottom: 3px;
+        padding-left: 3px;
+    }
+}
 
 h2 {
     color: $app-ligth-color;
@@ -142,20 +148,20 @@ h2 {
 .page {
     position: relative;
 }
-.button-floating {
-    position: absolute;
-    top: -28px;
-    right: 10px;
-    z-index: 2;
-    @include media-breakpoint-down(sm) {
-        position: fixed;
-        top: auto;
-        bottom: 10px;
-    }
-}
 .input-full-width {
     width: 100%;
 }
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    margin-left: 0;
+}
+.container {
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Modal dialog */
 .mat-dialog-container {
     .md-dialog-header {
         height: 40px;
@@ -187,37 +193,5 @@ h2 {
     }
     .mat-dialog-content {
         padding-top: 24px;
-    }
-}
-
-.row.no-gutters {
-    margin-right: 0;
-    margin-left: 0;
-    & > [class^="col-"],
-    & > [class*=" col-"] {
-        padding-right: 0;
-        padding-left: 0;
-    }
-}
-.row.gutters-6 {
-    margin-right: 3px;
-    margin-left: 3px;
-    & > [class^="col-"],
-    & > [class*=" col-"] {
-        padding-top: 3px;
-        padding-right: 3px;
-        padding-bottom: 3px;
-        padding-left: 3px;
-    }
-}
-
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
-    margin-left: 0;
-}
-
-.container {
-    @include media-breakpoint-down(sm) {
-        width: 100%;
-        max-width: 100%;
     }
 }

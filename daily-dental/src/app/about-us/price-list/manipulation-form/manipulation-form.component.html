@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]=[manipulation.type] class="md-dialog-header"></div>
+<div [ngClass]="manipulation.type" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="manipulationForm.valid && save()" #manipulationForm="ngForm" novalidate>
         <div>

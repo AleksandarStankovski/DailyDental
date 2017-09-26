@@ -14,8 +14,6 @@ export class SecondNavComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit() {
-        
-    }
+    ngOnInit() {}
 
 }

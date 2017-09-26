@@ -1,9 +1,5 @@
 <div class="dental-offices page">
-    <div class="button-floating">
-        <a (click)="addOffice()" md-fab>
-            <md-icon>add</md-icon>
-        </a>
-    </div>
+    <app-floating-button (openModalDialog)="addOffice()"></app-floating-button>
     <div class="page-container">
         <ul class="list-unstyled row gutters-6">
             <li *ngFor="let office of offices" class="col-6 col-md-4">

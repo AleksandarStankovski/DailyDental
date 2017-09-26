@@ -1,9 +1,5 @@
 <div class="clinic-info page">
-    <div class="button-floating">
-        <a (click)="addClinic()" md-fab>
-            <md-icon>add</md-icon>
-        </a>
-    </div>
+    <app-floating-button (openModalDialog)="addClinic()"></app-floating-button>
     <div class="page-container container">
         <ul class="list-unstyled">
             <li *ngFor="let clinic of clinics">

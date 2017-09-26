@@ -12,9 +12,9 @@
                 </a>
             </div>
             <ul>
-                <li *ngFor="let nav of navList; let i = index" [ngClass]="['list-'+i]">
+                <li *ngFor="let nav of navList; let i = index" [ngClass]="'list-'+i">
                     <a [routerLink]="nav.routerLink" class="decoration-none d-flex align-items-center">
-                        <i class="flaticon ft-36 flaticon-decay-in-a-tooth"></i>
+                        <i [ngClass]="nav.routerIcon" class="flaticon ft-36"></i>
                         {{nav.routerText}}
                     </a>
                 </li>

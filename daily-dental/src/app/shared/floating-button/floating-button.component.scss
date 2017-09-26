@@ -1,0 +1,14 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
+.floating-button {
+    position: absolute;
+    top: -28px;
+    right: 10px;
+    z-index: 2;
+    @include media-breakpoint-down(sm) {
+        position: fixed;
+        top: auto;
+        bottom: 10px;
+    }
+}

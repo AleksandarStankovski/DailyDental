@@ -1,12 +1,8 @@
 <div class="patients page">
-    <div class="button-floating">
-        <a (click)="addPatient()" md-fab>
-            <md-icon>add</md-icon>
-        </a>
-    </div>
+    <app-floating-button (openModalDialog)="addPatient()"></app-floating-button>
     <div class="page-container">
         <ul class="list-unstyled row gutters-6">
-            <li *ngFor="let patient of patients" class="col-2 col-md-4">
+            <li *ngFor="let patient of patients" class="col-6 col-md-4">
                 <app-patient [patient]="patient" (editPatient)="editPatient($event)"></app-patient>
             </li>
         </ul>

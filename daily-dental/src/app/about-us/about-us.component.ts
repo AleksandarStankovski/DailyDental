@@ -18,22 +18,22 @@ export class AboutUsComponent implements OnInit {
             {
                 routerLink: '/about-us/clinic-info',
                 routerText: 'Клиника',
-                routerIcon: 'dashboard'
+                routerIcon: 'flaticon-decay-in-a-tooth'
             },
             {
                 routerLink: '/about-us/dental-offices',
                 routerText: 'Кабинети',
-                routerIcon: 'dashboard'
+                routerIcon: 'flaticon-decay-in-a-tooth'
             },
             {
                 routerLink: '/about-us/staff',
                 routerText: 'Персонал',
-                routerIcon: 'dashboard'
+                routerIcon: 'flaticon-decay-in-a-tooth'
             },
             {
                 routerLink: '/about-us/price-list',
                 routerText: 'Ценова листа',
-                routerIcon: 'dashboard'
+                routerIcon: 'flaticon-decay-in-a-tooth'
             }
         ]
     }
