@@ -29,31 +29,31 @@ export class ManipulationComponent implements OnInit {
     getIcon(): string {
         switch(this.manipulation.type) {
             case 'aesthetic': {
-                this.manipulationIcon = 'flaticon-008-health-care'
+                this.manipulationIcon = 'icon-tooth-3'
                 break;
             }
             case 'parodontology': {
-                this.manipulationIcon = 'flaticon-010-tooth-9'
+                this.manipulationIcon = 'icon-parodontology'
                 break;
             }
             case 'pediatrics': {
-                this.manipulationIcon = 'flaticon-024-toothbrush-1'
+                this.manipulationIcon = 'icon-pediatrics'
                 break;
             }
             case 'endodontics': {
-                this.manipulationIcon = 'flaticon-030-tooth-2'
+                this.manipulationIcon = 'icon-endodontics'
                 break;
             }
             case 'orthodontics': {
-                this.manipulationIcon = 'flaticon-038-brackets'
+                this.manipulationIcon = 'icon-braces-2'
                 break;
             }
             case 'surgery': {
-                this.manipulationIcon = 'flaticon-021-tooth-4'
+                this.manipulationIcon = 'icon-implant-2'
                 break;
             }
             default: {
-                this.manipulationIcon = 'flaticon-040-teeth'
+                this.manipulationIcon = 'icon-tooth-5'
             }
         }
         return this.manipulationIcon;
