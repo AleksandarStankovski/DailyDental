@@ -1,4 +1,5 @@
 @import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
 
 .patient {
     position: relative;
@@ -7,8 +8,17 @@
     padding: 25px;
     background-color: #fff;
     overflow: hidden;
+    @include media-breakpoint-down(md) {
+        padding: 15px;
+    }
     .patient-fbox {
         padding-right: 100px;
+        @include media-breakpoint-down(lg) {
+            padding-right: 30px;
+        }
+        @include media-breakpoint-down(md) {
+            padding-right: 0;
+        }
         span {
             .mat-icon {
                 margin-right: 5px;
@@ -23,40 +33,79 @@
         height: 230px;
         background-color: #c3c3c3;
         transform: rotate(45deg); 
+        @include media-breakpoint-down(lg) {
+            height: 170px;
+        }
+        @include media-breakpoint-down(md) {
+            transform: rotate(30deg);
+        }
+        @include media-breakpoint-down(xs) {
+            height: 130px;
+        }
+        &:after {
+            content: "";
+            display: block;
+            width: 75%;
+            height: 100%;
+            @include media-breakpoint-down(md) {
+                width: 70%;
+            }
+        }
     }
     &.default {
         .patient-sbox {
             background-color: $app-default-speciality;
+            &:after {
+                background-color: darken($app-default-speciality, 10);
+            }
         }
     }
     &.aesthetic {
         .patient-sbox {
             background-color: $app-aesthetic;
+            &:after {
+                background-color: darken($app-aesthetic, 10);
+            }
         }
     }
     &.parodontology {
         .patient-sbox {
             background-color: $app-parodontology;
+            &:after {
+                background-color: darken($app-parodontology, 10);
+            }
         }
     }
     &.pediatrics {
         .patient-sbox {
             background-color: $app-pediatrics;
+            &:after {
+                background-color: darken($app-pediatrics, 10);
+            }
         }
     }
     &.endodontics {
         .patient-sbox {
             background-color: $app-endodontics;
+            &:after {
+                background-color: darken($app-endodontics, 10);
+            }
         }
     }
     &.orthodontics {
         .patient-sbox {
             background-color: $app-orthodontics;
+            &:after {
+                background-color: darken($app-orthodontics, 10);
+            }
         }
     }
     &.surgery {
         .patient-sbox {
             background-color: $app-surgery;
+            &:after {
+                background-color: darken($app-surgery, 10);
+            }
         }
     }
 }

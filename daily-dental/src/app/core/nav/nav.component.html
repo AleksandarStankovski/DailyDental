@@ -4,8 +4,8 @@
         <div>
             <div class="logo-close d-flex justify-content-between">
                 <div class="logo">
-                    <img src="assets/images/logo-black.png" class="desktop" alt="DailyDental">
-                    <img src="assets/images/logo-white.png"  class="mobile" alt="DailyDental">
+                    <img src="assets/images/logo-black.png" class="d-none d-sm-block" alt="DailyDental">
+                    <img src="assets/images/logo-white.png" class="d-sm-none" alt="DailyDental">
                 </div>
                 <a (click)="toggle()" class="close-nav cursor-pointer d-flex align-items-center">
                     <md-icon class="md-30">clear</md-icon>
@@ -14,7 +14,8 @@
             <ul>
                 <li *ngFor="let nav of navList; let i = index" [ngClass]="'list-'+i">
                     <a [routerLink]="nav.routerLink" class="decoration-none d-flex align-items-center">
-                        <i [ngClass]="nav.routerIcon" class="flaticon ft-36"></i>
+                        <img [src]="'assets/icons/icons-type-4/svg/'+nav.routerIcon+'.svg'" class="d-none d-sm-block">
+                        <img [src]="'assets/icons/icons-type-4/svg/'+nav.routerIcon+'-white.svg'" class="d-sm-none">
                         {{nav.routerText}}
                     </a>
                 </li>

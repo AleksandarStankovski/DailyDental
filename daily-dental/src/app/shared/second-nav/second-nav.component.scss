@@ -10,6 +10,7 @@ nav {
         }
     }
     a {
+        min-height: 50px;
         padding: 13px 30px;
         color: $app-ligth-color;
         transition: color .4s;
@@ -22,16 +23,9 @@ nav {
         &.active {
             border-bottom: 2px solid $app-primary-color;
         }
-        span {
-            @include media-breakpoint-down(sm) {
-                display: none;
-            } 
-        }
-        i {
-            display: none;
-            @include media-breakpoint-down(sm) {
-                display: block;
-            } 
+        img {
+            width: 34px;
+            height: 34px;
         }
     }
 }

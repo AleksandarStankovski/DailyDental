@@ -40,22 +40,22 @@ export class HeaderComponent implements OnInit {
             {
                 routerLink: '/home',
                 routerText: 'Начало',
-                routerIcon: 'flaticon-decay-in-a-tooth'
+                routerIcon: 'home-icon'
             },
             {
-                routerLink: '/about-us/price-list',
+                routerLink: '/about-us/clinic',
                 routerText: 'Клиника',
-                routerIcon: 'flaticon-decay-in-a-tooth'
+                routerIcon: 'clinic-icon'
             },
             {
                 routerLink: '/patients',
                 routerText: 'Пациенти',
-                routerIcon: 'flaticon-decay-in-a-tooth'
+                routerIcon: 'patients-icon'
             },
             {
                 routerLink: '/reception',
                 routerText: 'Рецепция',
-                routerIcon: 'flaticon-decay-in-a-tooth'
+                routerIcon: 'reception-icon'
             }
         ]
     }
