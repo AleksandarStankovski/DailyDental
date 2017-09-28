@@ -18,7 +18,7 @@ export class PageImageService {
             break;
         }
         case '/about-us/dental-offices': {
-            this.image = 'dental-offices.jpeg'
+            this.image = 'dental-offices.jpg'
             break;
         }
         case '/about-us/staff': {
