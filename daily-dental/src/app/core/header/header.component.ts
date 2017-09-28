@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
                 routerIcon: 'icon-home'
             },
             {
-                routerLink: '/about-us/clinic',
+                routerLink: '/about-us/clinic-info',
                 routerText: 'Клиника',
                 routerIcon: 'icon-protection'
             },

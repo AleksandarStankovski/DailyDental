@@ -19,11 +19,6 @@
         @include media-breakpoint-down(md) {
             padding-right: 0;
         }
-        span {
-            .mat-icon {
-                margin-right: 5px;
-            }
-        }
     }
     .patient-sbox {
         position: absolute;

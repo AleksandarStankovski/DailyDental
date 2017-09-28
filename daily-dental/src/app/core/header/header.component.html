@@ -3,10 +3,10 @@
         <div class="header-top">
             <div class="d-flex justify-content-between align-items-center">
                 <a (click)="toggleMenu()" class="d-flex header-top-toggle cursor-pointer">
-                    <md-icon class="md-30">menu</md-icon>
+                    <i class="fontello ft-30 icon-menu-button"></i>
                 </a>
                 <a class="d-flex header-top-account cursor-pointer">
-                    <md-icon class="md-30">account_circle</md-icon>
+                    <i class="fontello ft-30 icon-user"></i>
                 </a>
             </div>
         </div>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="header-background" [hidden]="pageName === '/home'">
-        <div [style.background-image]="'url(assets/images/home1.jpg)'"></div>
+        <div [style.background-image]="'url(assets/images/'+image+')'"></div>
     </div>
     <app-nav [navList]="navList" [isVisibleMenu]="isVisibleMenu" (toggleMenu)="toggleMenu()"></app-nav>
 </header>

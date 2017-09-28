@@ -24,11 +24,6 @@
         z-index: 1;
         padding: 15px;
         color: $app-ligth-color;
-        span {
-            .mat-icon {
-                margin-right: 5px;
-            }
-        }
     }
     &:after {
         content: '';

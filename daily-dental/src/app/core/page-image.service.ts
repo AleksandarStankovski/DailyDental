@@ -14,35 +14,35 @@ export class PageImageService {
             break;
         }
         case '/about-us/clinic-info': {
-            this.image = 'home.jpg'
+            this.image = 'clinic.jpg'
             break;
         }
         case '/about-us/dental-offices': {
-            this.image = 'home.jpg'
+            this.image = 'dental-offices.jpeg'
             break;
         }
         case '/about-us/staff': {
-            this.image = 'staff'
+            this.image = 'staff.jpg'
             break;
         }
         case '/about-us/price-list': {
-            this.image = 'price-list'
+            this.image = 'price-list.jpg'
             break;
         }
         case '/about-us/staff': {
-            this.image = 'staff'
+            this.image = 'staff.jpg'
             break;
         }
         case '/patients': {
-            this.image = 'patients'
+            this.image = 'patients.jpg'
             break;
         }
         case '/reception': {
-            this.image = 'reception'
+            this.image = 'staff-2.jpg'
             break;
         }
         default: {
-            this.image = 'Default'
+            this.image = 'clinic-6.jpg'
         }
     }
     return this.image;

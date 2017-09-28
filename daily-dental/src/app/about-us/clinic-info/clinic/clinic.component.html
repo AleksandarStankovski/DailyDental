@@ -1,8 +1,44 @@
 <div>
-    <span>{{clinic.code}}</span>
-    <p>{{clinic.name}}</p>
-    <p>{{clinic.phone}}</p>
-    <p>{{clinic.address}}</p>
-    <p>{{clinic.email}}</p>
-    <button (click)="edit()" md-raised-button>Преглед</button>
+    <div (click)="edit()" class="clinic-circle clinic-circle-name cursor-pointer rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-protection"></i>
+            <span>{{clinic.name}}</span>
+        </div>
+    </div>
+    <div class="clinic-circle clinic-circle-offices rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-chair-fill"></i>
+            <span>4</span>
+        </div>
+    </div>
+    <div class="clinic-circle clinic-circle-patients rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-family"></i>
+            <span>25</span>
+        </div>
+    </div>
+    <div class="clinic-circle clinic-circle-address rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-address"></i>
+            <span>София</span>
+        </div>
+    </div>
+    <div class="clinic-circle clinic-circle-phone rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-phone"></i>
+            <span>{{clinic.phone}}</span>
+        </div>
+    </div>
+    <div class="clinic-circle clinic-circle-staff rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-doctor"></i>
+            <span>4</span>
+        </div>
+    </div>
+    <div class="clinic-circle clinic-circle-email rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
+            <i class="fontello icon-envelope"></i>
+            <span>{{clinic.email}}</span>
+        </div>
+    </div>
 </div>

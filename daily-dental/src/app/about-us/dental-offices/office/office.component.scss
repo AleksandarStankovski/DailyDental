@@ -10,11 +10,6 @@
         z-index: 1;
         color: $app-ligth-color;
         opacity: .8;
-        span {
-            .mat-icon {
-                margin-right: 5px;
-            }
-        }
     }
     &:after {
         content: '';
@@ -39,7 +34,7 @@
     &.aesthetic {
         background-color: $app-aesthetic;
         &:after {
-            background-image: url('/assets/icons/icon-svg/aesthetic-img.svg');
+            background-image: url('/assets/icons/svg/tooth.svg');
         }
         .office-sbox {
             $app-aesthetic-darken: darken($app-aesthetic, 10%);
@@ -49,7 +44,7 @@
     &.parodontology {
         background-color: $app-parodontology;
         &:after {
-            background-image: url('/assets/images/offices/parodontology.png');
+            background-image: url('/assets/icons/svg/parodontology.svg');
         }
         .office-sbox {
             $app-parodontology-darken: darken($app-parodontology, 10%);
@@ -59,7 +54,7 @@
     &.pediatrics {
         background-color: $app-pediatrics;
         &:after {
-            background-image: url('/assets/images/offices/pediatrics.png');
+            background-image: url('/assets/icons/svg/tooth.svg');
         }
         .office-sbox {
             $app-pediatrics-darken: darken($app-pediatrics, 10%);
@@ -69,7 +64,7 @@
     &.endodontics {
         background-color: $app-endodontics;
         &:after {
-            background-image: url('/assets/icons/icon-svg/endodontics-img.svg');
+            background-image: url('/assets/icons/svg/endodontics.svg');
         }
         .office-sbox {
             $app-endodontics-darken: darken($app-endodontics, 10%);
@@ -79,7 +74,7 @@
     &.orthodontics {
         background-color: $app-orthodontics;
         &:after {
-            background-image: url('/assets/icons/icon-svg/orthodontics-img.svg');
+            background-image: url('/assets/icons/svg/braces.svg');
         }
         .office-sbox {
             $app-orthodontics-darken: darken($app-orthodontics, 10%);
@@ -89,7 +84,7 @@
     &.surgery {
         background-color: $app-surgery;
         &:after {
-            background-image: url('/assets/icons/icon-svg/surgery-img.svg');
+            background-image: url('/assets/icons/svg/pliers-2.svg');
         }
         .office-sbox {
             $app-surgery-darken: darken($app-surgery, 10%);

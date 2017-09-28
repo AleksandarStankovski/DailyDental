@@ -23,7 +23,7 @@ export class AboutUsComponent implements OnInit {
             {
                 routerLink: '/about-us/dental-offices',
                 routerText: 'Кабинети',
-                routerIcon: 'icon-chair-2-fill'
+                routerIcon: 'icon-chair-fill'
             },
             {
                 routerLink: '/about-us/staff',

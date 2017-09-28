@@ -1,0 +1,243 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
+.clinic-circle {
+    position: absolute;
+    div {
+        height: 100%;
+        overflow: hidden;
+        background-color: grey;
+        color: $app-ligth-color;
+        transform: rotateY(0);
+        transition: all .7s;
+        span {
+            max-width: 65%;
+            padding-top: 2px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: .8rem;
+            height: 0;
+            opacity: 0;
+            transform: rotateY(180deg);
+            transition: opacity .8s, height .8s;
+            @include media-breakpoint-down(sm) {
+                height: 18px;
+                font-size: .7rem;
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+    }
+    &-name {
+        top: 150px;
+        left: 50%;
+        width: 250px;
+        height: 250px;
+        transform: translateX(-50%);
+        @include media-breakpoint-down(sm) {
+            width: 200px;
+            height: 200px;
+        }
+        @include media-breakpoint-down(xs) {
+            width: 140px;
+            height: 140px;
+        }
+        div {
+            i {
+                font-size: 100px;
+                @include media-breakpoint-down(xs) {
+                    font-size: 70px;
+                }
+            }
+            span {
+                font-size: 1rem;
+                @include media-breakpoint-down(sm) {
+                    font-size: .8rem;
+                    height: 21px;
+                }
+            }
+        }
+    }
+    &-offices {
+        top: 190px;
+        left: 10%;
+        width: 90px;
+        height: 90px;
+        @include media-breakpoint-down(sm) {
+            left: 30px;
+            width: 80px;
+            height: 80px;
+        }
+        @include media-breakpoint-down(xs) {
+            top: 120px;
+            left: 20px;
+            width: 65px;
+            height: 65px;
+        }
+        div {
+            i {
+                font-size: 35px;
+                @include media-breakpoint-down(xs) {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    &-patients {
+        top: 20px;
+        left: 25%;
+        width: 120px;
+        height: 120px;
+        @include media-breakpoint-down(sm) {
+            width: 100px;
+            height: 100px;
+        }
+        @include media-breakpoint-down(xs) {
+            left: 20%;
+            width: 80px;
+            height: 80px;
+        }
+        div {
+            i {
+                font-size: 50px;
+                @include media-breakpoint-down(sm) {
+                    font-size: 45px;
+                }
+                @include media-breakpoint-down(xs) {
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+    &-address {
+        top: 40px;
+        right: 24%;
+        width: 170px;
+        height: 170px;
+        @include media-breakpoint-down(md) {
+            right: 15%;
+        }
+        @include media-breakpoint-down(sm) {
+            width: 140px;
+            height: 140px;
+        }
+        @include media-breakpoint-down(xs) {
+            right: 10%;
+            width: 110px;
+            height: 110px;
+        }
+        div {
+            i {
+                font-size: 60px;
+                @include media-breakpoint-down(xs) {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+    &-phone {
+        top: 225px;
+        right: 10%;
+        width: 150px;
+        height: 150px;
+        @include media-breakpoint-down(md) {
+            right: 5%;
+        }
+        @include media-breakpoint-down(sm) {
+            right: 15px;
+            width: 130px;
+            height: 130px;
+        }
+        @include media-breakpoint-down(xs) {
+            top: 260px;
+            right: 15px;
+            width: 95px;
+            height: 95px;
+        }
+        div {
+            i {
+                font-size: 55px;
+                @include media-breakpoint-down(xs) {
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+    &-staff {
+        top: 400px;
+        right: 32%;
+        width: 80px;
+        height: 80px;
+        @include media-breakpoint-down(md) {
+            right: 25%;
+        }
+        @include media-breakpoint-down(sm) {
+            width: 70px;
+            height: 70px;
+        }
+        @include media-breakpoint-down(xs) {
+            top: 380px;
+            right: 30%;
+            width: 60px;
+            height: 60px;
+        }
+        div {
+            i {
+                font-size: 30px;
+                @include media-breakpoint-down(xs) {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    &-email {
+        top: 410px;
+        left: 30%;
+        width: 200px;
+        height: 200px;
+        @include media-breakpoint-down(md) {
+            left: 15%;
+        }
+        @include media-breakpoint-down(sm) {
+            top: 350px;
+            width: 160px;
+            height: 160px;
+        }
+        @include media-breakpoint-down(xs) {
+            top: 300px;
+            left: 8%;
+            width: 120px;
+            height: 120px;
+        }
+        div {
+            i {
+                font-size: 80px;
+                @include media-breakpoint-down(xs) {
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-up(md) {
+        &:hover {
+            div {
+                transform: rotateY(180deg);
+                span {
+                    height: 21px;
+                    opacity: 1;
+                }
+            }
+        }
+        &-name {
+            &:hover {
+                div {
+                    span {
+                        height: 25px;
+                    }
+                }
+            }
+        }
+    }
+}

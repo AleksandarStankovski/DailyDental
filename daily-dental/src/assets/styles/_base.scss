@@ -71,6 +71,9 @@
 /* Flaticon */
 .fontello {
     line-height: 1;
+    &.ft-16 {
+       font-size: 16px; 
+    }
     &.ft-22 {
        font-size: 22px; 
     }
@@ -141,7 +144,9 @@
         padding-left: 3px;
     }
 }
-
+html {
+    cursor: default;
+}
 h2 {
     color: $app-ligth-color;
 }
