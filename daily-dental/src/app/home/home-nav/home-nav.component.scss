@@ -2,40 +2,38 @@
 
 nav {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: -215px;
+    bottom: -120px;
     z-index: 1;
-    background-color: rgba($app-ligth-color, .4);
-    h1 {
-        position: absolute;
-        bottom: -100px;
-        left: 100px;
-        img {
-            width: 100px;
-        }
-        &.finish-transition {
-            bottom: 28px;
-            transition: bottom .4s;
-        }
-    }
-    li {
-        padding-top: 15px;
-        padding-bottom: 15px;
+    transform: rotate(-45deg);
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        width: 900px;
+        flex-wrap: wrap;
         a {
-            padding: 10px 30px;
-            color: $app-ligth-color;
-            border-right: 1px solid $app-ligth-color;
-            transition: color .4s;
-            &:hover {
-                color: darken($app-ligth-color, 10%);
+            width: 300px;
+            height: 300px;
+            color: #000;
+            span {
+                font-size: 1.2rem;
             }
-        }
-        &:last-child {
-            a {
-                border-right: none;
+            &.home-nav-box-0 {
+                background-color: rgba(255, 255, 255, .9);
+                span {
+                    transform: rotate(45deg);
+                }
+            }
+            &.home-nav-box-1 {
+                background-color: rgba(255, 255, 255, .4);
+            }
+            &.home-nav-box-2 {
+                background-color: rgba(255, 255, 255, .9);
+            }
+            &.home-nav-box-3 {
+                background-color: rgba(255, 255, 255, .9);
             }
         }
     }
-    
 }

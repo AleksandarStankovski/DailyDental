@@ -1,12 +1,12 @@
 <nav>
-    <h1 [ngClass]="{'finish-transition': transition}">
+    <!-- <h1 [ngClass]="{'finish-transition': transition}">
         <img src="assets/images/logo-white.png" alt="DailyDental">
-    </h1>
-    <ul class="d-flex justify-content-center list-unstyled">
-        <li *ngFor="let nav of navList">
-            <a [routerLink]="nav.routerLink" class="d-flex align-items-center decoration-none" routerLinkActive="active">
-                {{nav.routerText}}
-            </a>
+    </h1> -->
+    <ul class="list-unstyled">
+        <li *ngFor="let nav of navList; let i = index">
+            <a [routerLink]="nav.routerLink" [ngClass]="'home-nav-box-'+i" class="d-flex justify-content-center align-items-center">
+                <span>{{nav.routerText}}</span>
+            </a> 
         </li>
     </ul>
 </nav>

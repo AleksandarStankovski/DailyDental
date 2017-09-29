@@ -24,7 +24,6 @@
             transition: opacity .8s, height .8s;
             @include media-breakpoint-down(sm) {
                 height: 18px;
-                font-size: .7rem;
                 opacity: 1;
                 transform: rotateY(0);
             }

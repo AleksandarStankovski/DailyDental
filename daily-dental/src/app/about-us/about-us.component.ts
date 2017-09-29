@@ -33,7 +33,7 @@ export class AboutUsComponent implements OnInit {
             {
                 routerLink: '/about-us/price-list',
                 routerText: 'Ценова листа',
-                routerIcon: 'icon-clipboard-fill'
+                routerIcon: 'icon-clipboard-2'
             }
         ]
     }

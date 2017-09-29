@@ -17,19 +17,20 @@ export class HomeComponent implements OnInit {
 
         this.navList = [
             {
-                routerLink: '/about-us/price-list',
-                routerText: 'Клиника',
-                routerIcon: 'dashboard'
+                routerLink: '/reception',
+                routerText: 'Рецепция'
             },
             {
                 routerLink: '/patients',
-                routerText: 'Пациенти',
-                routerIcon: 'dashboard'
+                routerText: 'Пациенти'
             },
             {
-                routerLink: '/reception',
-                routerText: 'Рецепция',
-                routerIcon: 'dashboard'
+                routerLink: '/about-us/clinic-info',
+                routerText: 'Клиника'
+            },
+            {
+                routerLink: '/about-us/price-list',
+                routerText: 'Ценова листа'
             }
         ]
      }

@@ -43,9 +43,9 @@ export class HeaderComponent implements OnInit {
                 routerIcon: 'icon-home'
             },
             {
-                routerLink: '/about-us/clinic-info',
-                routerText: 'Клиника',
-                routerIcon: 'icon-protection'
+                routerLink: '/reception',
+                routerText: 'Рецепция',
+                routerIcon: 'icon-reception-2'
             },
             {
                 routerLink: '/patients',
@@ -53,9 +53,14 @@ export class HeaderComponent implements OnInit {
                 routerIcon: 'icon-family'
             },
             {
-                routerLink: '/reception',
-                routerText: 'Рецепция',
-                routerIcon: 'icon-reception-2'
+                routerLink: '/about-us/clinic-info',
+                routerText: 'Клиника',
+                routerIcon: 'icon-protection'
+            },
+            {
+                routerLink: '/about-us/price-list',
+                routerText: 'Ценова листа',
+                routerIcon: 'icon-clipboard-2'
             }
         ]
     }

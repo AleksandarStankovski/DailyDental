@@ -11,6 +11,9 @@
     @include media-breakpoint-down(md) {
         padding: 15px;
     }
+    @include media-breakpoint-down(xs) {
+        min-height: 185px;
+    }
     .patient-fbox {
         padding-right: 100px;
         @include media-breakpoint-down(lg) {
