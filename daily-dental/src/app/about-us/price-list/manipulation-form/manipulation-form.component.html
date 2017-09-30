@@ -14,7 +14,12 @@
         </div>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" placeholder="Цена">
+                <input mdInput [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" placeholder="Цена" type="number">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип">
             </md-form-field>
         </div>
     </form>

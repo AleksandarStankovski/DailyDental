@@ -13,4 +13,5 @@ module.exports = function (config) {
     })
 
     require('./../models/Clinic');
+    require('./../models/Manipulation');
 };

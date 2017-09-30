@@ -1,71 +1,55 @@
-let manipulations = [
-    {
-        code: '1000',
-        name: 'Вадене на зъб',
-        price: 240,
-        type: 'aesthetic',
-         _id: '1',
-    },
-    {
-        code: '1001',
-        name: 'Вадене на зъб 2',
-        price: 180,
-        type: 'parodontology',
-        _id: '2'
-    },
-    {
-        code: '1002',
-        name: 'Вадене на зъб 3',
-        price: 120,
-        type: 'pediatrics',
-        _id: '3'
-    },
-    {
-        code: '1003',
-        name: 'Вадене на зъб',
-        price: 340,
-        type: 'endodontics',
-         _id: '4',
-    },
-    {
-        code: '1004',
-        name: 'Вадене на зъб 2',
-        price: 250,
-        type: 'orthodontics',
-        _id: '5'
-    },
-    {
-        code: '1005',
-        name: 'Вадене на зъб 3',
-        price: 160,
-        type: 'surgery',
-        _id: '6'
-    }
-]
+const Manipulation = require('mongoose').model('Manipulation');
 
 module.exports = {
     getAll: (req, res) => { 
-        res.json(manipulations)
+        Manipulation.find({})
+        .then(manipulations => {
+            res.json(manipulations)
+        })
     },
 
     getById: (req, res) => {
-        let manipulationId = req.params.id;
-        let manipulation = manipulations.find(x => x._id === manipulationId);
-        res.json(manipulation);
+        let id = req.params.id;
+        Manipulation.findById(id)
+        .then(manipulation => {
+            res.json(manipulation);
+        })
     },
 
     create: (req, res) => {
         let newManipulation = req.body;
-        res.json(newManipulation);
+        Manipulation.create(newManipulation)
+        .then(result => {
+            res.json('Success');
+        }).catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     edit: (req, res) => {
         let newManipulation = req.body;
-        res.json(newManipulation);
+        Manipulation.findById(newManipulation._id)
+        .then(manipulation => {
+            manipulation.code = newManipulation.code;
+            manipulation.name = newManipulation.name;
+            manipulation.price = newManipulation.price;
+            manipulation.type = newManipulation.type;
+            manipulation.save()
+            .then(() => {
+                res.json('Success');
+            }).catch(error => {
+                res.status(400).send(error);
+            })
+        })
     },
 
     delete: (req, res) => {
-        let manipulationId = req.params.id;
-        res.json(manipulations);
+        let id = req.params.id;
+        Manipulation.findByIdAndRemove(id)
+        .then(() => {
+            res.json('Success');
+        }).catch(error => {
+            res.status(400).send(error);
+        })
     }
 }

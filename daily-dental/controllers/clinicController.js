@@ -42,6 +42,5 @@ module.exports = {
                 res.status(400).send(error);
             })
         })
-        res.json(newClinic);
     }
 }
