@@ -12,5 +12,5 @@ module.exports = function (config) {
         console.log('MongoDB ready');
     })
 
-    require('./../models/Heroe');
+    require('./../models/Clinic');
 };

@@ -2,17 +2,17 @@
     <form (ngSubmit)="clinicForm.valid && save()" #clinicForm="ngForm" novalidate>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="clinic.code" name="code" required #clinicCode="ngModel" placeholder="Код">
-            </md-form-field>
-        </div>
-        <div>
-            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.name" name="name" required #clinicName="ngModel" placeholder="Име">
             </md-form-field>
         </div>
         <div>
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="clinic.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="clinic.city" name="city" required #doctorCity="ngModel" placeholder="Град">
             </md-form-field>
         </div>
         <div>

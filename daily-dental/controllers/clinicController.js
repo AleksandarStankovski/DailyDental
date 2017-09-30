@@ -1,32 +1,47 @@
-let clinics = [
-    {
-        code: '1000',
-        name: 'Virtue',
-        phone: '0876141091',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        _id: '451521'
-    }
-]
+const Clinic = require('mongoose').model('Clinic');
 
 module.exports = {
     getAll: (req, res) => { 
-        res.json(clinics)
+        Clinic.find({})
+        .then(clinics => {
+            res.json(clinics)
+        })
     },
 
     getById: (req, res) => {
-        let clinicId = req.params.id;
-        let clinic = clinics.find(x => x._id === clinicId);
-        res.json(clinic);
+        let id = req.params.id;
+        Clinic.findById(id)
+        .then(clinic => {
+            res.json(clinic);
+        })
     },
 
     create: (req, res) => {
         let newClinic = req.body;
-        res.json(newClinic);
+        Clinic.create(newClinic)
+        .then(result => {
+            res.json('Success');
+        }).catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     edit: (req, res) => {
         let newClinic = req.body;
+        Clinic.findById(newClinic._id)
+        .then(clinic => {
+            clinic.name = newClinic.name;
+            clinic.phone = newClinic.phone;
+            clinic.city = newClinic.city;
+            clinic.address = newClinic.address;
+            clinic.email = newClinic.email;
+            clinic.save()
+            .then(() => {
+                res.json('Success');
+            }).catch(error => {
+                res.status(400).send(error);
+            })
+        })
         res.json(newClinic);
     }
 }
