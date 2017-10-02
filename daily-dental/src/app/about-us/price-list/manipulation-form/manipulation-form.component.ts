@@ -47,37 +47,51 @@ export class ManipulationFormComponent implements OnInit {
         this.loadingOverlay = true;
         if (this.data.manipulationId) {
             this.manipulationService.editManipulation(this.manipulation)
-            .subscribe(response => {
-                const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.modalDialogRef.close('Edit');
-                }, this.snackbarConfig.duration);
-            })
+            .subscribe(
+                response => {
+                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.modalDialogRef.close('Edit');
+                    }, this.snackbarConfig.duration);
+                }, error => {
+                    throw new Error(error);
+                }
+            );
         } else {
             this.manipulationService.createManipulation(this.manipulation)
-            .subscribe(response => {
-                const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.modalDialogRef.close('Create');
-                }, this.snackbarConfig.duration);
-            })
+            .subscribe(
+                response => {
+                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.modalDialogRef.close('Create');
+                    }, this.snackbarConfig.duration);
+                }, 
+                error => {
+                    throw new Error(error);
+                }
+            );
         }
     }
 
     delete(): void {
         this.loadingOverlay = true;
         this.manipulationService.deleteManipulation(this.manipulation._id)
-        .subscribe(response => {
-            const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
-                duration: this.snackbarConfig.duration
-            });
-            setTimeout(() => {
-                this.modalDialogRef.close('Delete');
-            }, this.snackbarConfig.duration);
-        })
+        .subscribe(
+            response => {
+                const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
+                    duration: this.snackbarConfig.duration
+                });
+                setTimeout(() => {
+                    this.modalDialogRef.close('Delete');
+                }, this.snackbarConfig.duration);
+            },
+            error => {
+                throw new Error(error);
+            }
+        );
     }
 }

@@ -38,7 +38,8 @@ export class StaffComponent implements OnInit {
         const id = doctorId || undefined;
         const modalDialogRef = this.modalDialog.open(DoctorFormComponent, {
             width: this.modalConfig.width,
-            data: { doctorId: id }
+            data: { doctorId: id },
+            panelClass: 'loading-overlay-container'
         });
         modalDialogRef.afterClosed()
         .subscribe(result => {

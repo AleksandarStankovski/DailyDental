@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const config = require('../config/config');
 
 let manipulationSchema = mongoose.Schema({
     code: {
@@ -15,7 +16,7 @@ let manipulationSchema = mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['aesthetic', 'parodontology', 'pediatrics', 'endodontics', 'orthodontics', 'surgery'],
+        enum: config.development.specialityType,
         required: true
     }
 

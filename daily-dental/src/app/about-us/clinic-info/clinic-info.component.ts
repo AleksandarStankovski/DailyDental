@@ -14,6 +14,7 @@ import { ClinicService } from './clinic/clinic.service';
 export class ClinicInfoComponent implements OnInit {
 
     clinics: Clinic[];
+    clinic: Clinic;
     modalConfig: ModalConfig;
 
     constructor(
@@ -29,14 +30,19 @@ export class ClinicInfoComponent implements OnInit {
         this.clinicService.getAllClinics()
         .subscribe(resolve => {
             this.clinics = resolve;
-        })
+            this.clinic = resolve[0];
+        });
     }
 
     openModalDialog(clinicId?: string): void {
         const id = clinicId || undefined;
         const modalDialogRef = this.modalDialog.open(ClinicFormComponent, {
             width: this.modalConfig.width,
-            data: { clinicId: id }
+            data: { clinicId: id },
+            panelClass: 'loading-overlay-container'
+        });
+        modalDialogRef.afterClosed().subscribe(result => {
+            this.getAllClinics();
         })
     }
 

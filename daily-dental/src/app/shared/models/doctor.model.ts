@@ -1,6 +1,5 @@
 export class Doctor {
     constructor(
-        public code: string,
         public firstName: string,
         public lastName: string,
         public egn: string,

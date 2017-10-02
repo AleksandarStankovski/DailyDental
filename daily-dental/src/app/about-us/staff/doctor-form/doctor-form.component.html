@@ -1,11 +1,7 @@
+<app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
 <div [ngClass]="doctor.speciality" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="doctorForm.valid && save()" #doctorForm="ngForm" novalidate>
-        <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.code" name="code" required #doctorCode="ngModel" placeholder="Код">
-            </md-form-field>
-        </div>
         <div>
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.firstName" name="firstName" required #doctorFirstName="ngModel" placeholder="Име">

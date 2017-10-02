@@ -1,8 +1,8 @@
 <div class="clinic-info page">
-    <app-floating-button (openModalDialog)="addClinic()"></app-floating-button>
+    <app-floating-button *ngIf="clinics?.length === 0" (openModalDialog)="addClinic()"></app-floating-button>
     <div class="page-container container">
         <ul class="list-unstyled">
-            <li *ngFor="let clinic of clinics">
+            <li *ngIf="clinic">
                 <app-clinic [clinic]="clinic" (editClinic)="editClinic($event)"></app-clinic>
             </li>
         </ul>

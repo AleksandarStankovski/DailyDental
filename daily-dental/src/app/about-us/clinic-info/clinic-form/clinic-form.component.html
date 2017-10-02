@@ -1,3 +1,5 @@
+<app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
+<div class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="clinicForm.valid && save()" #clinicForm="ngForm" novalidate>
         <div>

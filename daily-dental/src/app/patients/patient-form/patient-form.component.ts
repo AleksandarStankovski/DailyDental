@@ -29,7 +29,7 @@ export class PatientFormComponent implements OnInit {
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-        this.patient = new Patient('', '', '', '', '', '', '');
+        this.patient = new Patient('', '', '', '', '', '');
         this.snackbarConfig = new SnackbarConfig();
         if (this.data.patientId) {
             this.getPatient();

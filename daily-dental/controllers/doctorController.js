@@ -1,101 +1,59 @@
-let doctors = [
-    {
-        code: '1000',
-        firstName: 'Лидия',
-        lastName: 'Ситновска',
-        egn: '254871157',
-        phone: '0876141091',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        speciality: 'aesthetic',
-        active: true,
-        _id: '1'
-    },
-    {
-        code: '1001',
-        firstName: 'Александар',
-        lastName: 'Станковски',
-        egn: '254871157',
-        phone: '0876141092',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        speciality: 'parodontology',
-        active: true,
-        _id: '2'
-    },
-    {
-        code: '1000',
-        firstName: 'Лидия',
-        lastName: 'Ситновска',
-        egn: '254871157',
-        phone: '0876141091',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        speciality: 'pediatrics',
-        active: true,
-        _id: '3'
-    },
-    {
-        code: '1001',
-        firstName: 'Александар',
-        lastName: 'Станковски',
-        egn: '254871157',
-        phone: '0876141092',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        speciality: 'endodontics',
-        active: true,
-        _id: '4'
-    },
-    {
-        code: '1000',
-        firstName: 'Лидия',
-        lastName: 'Ситновска',
-        egn: '254871157',
-        phone: '0876141091',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        speciality: 'orthodontics',
-        active: true,
-        _id: '5'
-    },
-    {
-        code: '1001',
-        firstName: 'Александар',
-        lastName: 'Станковски',
-        egn: '254871157',
-        phone: '0876141092',
-        address: 'София, Перник 90',
-        email: 'test@tes.com',
-        speciality: 'surgery',
-        active: true,
-        _id: '6'
-    }
-]
+const Doctor = require('mongoose').model('Doctor');
 
 module.exports = {
     getAll: (req, res) => { 
-        res.json(doctors)
+        Doctor.find({})
+        .then(doctors => {
+            res.json(doctors);
+        })  
     },
 
     getById: (req, res) => {
-        let doctorId = req.params.id;
-        let doctor = doctors.find(x => x._id === doctorId);
-        res.json(doctor);
+        let id = req.params.id;
+        Doctor.findById(id)
+        .then(doctor => {
+            res.json(doctor);
+        })
     },
 
     create: (req, res) => {
         let newDoctor = req.body;
-        res.json(newDoctor);
+        Doctor.create(newDoctor)
+        .then(result => {
+            res.json('Success');
+        }).catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     edit: (req, res) => {
         let newDoctor = req.body;
-        res.json(newDoctor);
+        Doctor.findById(newDoctor._id)
+        .then(doctor => {
+            doctor.firstName = newDoctor.firstName;
+            doctor.lastName = newDoctor.lastName;
+            doctor.egn = newDoctor.egn;
+            doctor.phone = newDoctor.phone;
+            doctor.address = newDoctor.address;
+            doctor.email = newDoctor.email;
+            doctor.speciality = newDoctor.speciality;
+            doctor.active = newDoctor.active;
+            doctor.save()
+            .then(() => {
+                res.json('Success');
+            }).catch(error => {
+                res.status(400).send(error);
+            })
+        })
     },
 
     delete: (req, res) => {
-        let doctorId = req.params.id;
-        res.json(doctors);
+        let id = req.params.id;
+        Doctor.findByIdAndRemove(id)
+        .then(() => {
+            res.json('Success');
+        }).catch(error => {
+            res.status(400).send(error);
+        })
     }
 }
