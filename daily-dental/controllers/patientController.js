@@ -4,6 +4,7 @@ const Doctor = require('mongoose').model('Doctor');
 module.exports = {
     getAll: (req, res) => { 
         Patient.find({})
+        .populate('doctor', 'speciality')
         .then(patients => {
             res.json(patients);
         })  
@@ -12,6 +13,7 @@ module.exports = {
     getById: (req, res) => {
         let id = req.params.id;
         Patient.findById(id)
+        .populate('doctor', 'speciality')
         .then(patient => {
             res.json(patient);
         })
@@ -36,91 +38,36 @@ module.exports = {
 
     edit: (req, res) => {
         let newPatient = req.body;
-        Patient.findById(newPatient._id)
+        Patient.findByIdAndUpdate({ _id: newPatient._id }, newPatient, { upsert: true })
         .then(patient => {
-            let oldDoctor = patient.doctor;
-            patient.firstName = newPatient.firstName;
-            patient.lastName = newPatient.lastName;
-            patient.phone = newPatient.phone;
-            patient.address = newPatient.address;
-            patient.email = newPatient.email;
-            patient.doctor = newPatient.doctor;
-            // patient.save()
-            // .then(result => {
-            //     if(oldDoctor !== result.doctor) {
-            //         Doctor.update(
-            //             { _id: oldDoctor },
-            //             { $pull: { patients: result._id } }
-            //         ).then(() => {
-            //             Doctor.update(
-            //                 { _id: result.doctor },
-            //                 { $push: { patients: result._id } }
-            //             ).then(() => {
-            //                 res.json('Success');
-            //             })
-            //         }) 
-            //     } else {
-            //         res.json('Success');
-            //     }
-            // })
-            return new Promise((resolve, reject) => {
-                patient.save()
-                .then(result => {
-                    let obj = {
-                        patientId: result._id,
-                        doctor: result.doctor,
-                        oldDoctor: oldDoctor
-                    }
-                    resolve(obj);
+            if (patient.doctor != newPatient.doctor) {
+                return Doctor.update(
+                    { _id: patient.doctor },
+                    { $pull: { patients: newPatient._id } }
+                )
+                .then (() => {
+                    return patient;
                 })
-                .catch(error => {
-                    reject(error);
-                })
-            });
+            } else {
+                return patient;
+            }
         })
-        .then(result => {
-            return new Promise((resolve, reject) => {
-                if(result.oldDoctor !== result.doctor) {
-                    Doctor.update(
-                        { _id: result.oldDoctor },
-                        { $pull: { patients: result.patientId } }
-                    )
-                    .then(() => {
-                        resolve(result);
-                    })
-                    .catch(error => {
-                        reject(error);
-                    })
-                } else {
-                    resolve(result);
-                }
-            });
-        })
-        .then(result => {
-            return new Promise((resolve, reject) => {
-                if(result.oldDoctor !== result.doctor) {
-                    Doctor.update(
-                        { _id: result.doctor },
-                        { $push: { patients: result.patientId } }
-                    )
-                    .then(() => {
-                        resolve();
-                    })
-                    .catch(error => {
-                        reject(error);
-                    })
-                } else {
-                    resolve();
-                }
-            })
+        .then(patient => {
+            if (patient.doctor != newPatient.doctor) {
+                return Doctor.update(
+                    { _id: newPatient.doctor },
+                    { $push: { patients: newPatient._id } }
+                )
+            } else {
+                return patient;
+            }
         })
         .then(() => {
             res.json('Success');
         })
         .catch(error => {
-            res.status(400).send(error);
+            res.status(400).send(error); 
         })
-
     },
 
     delete: (req, res) => {

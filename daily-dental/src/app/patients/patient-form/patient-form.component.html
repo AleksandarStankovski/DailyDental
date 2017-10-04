@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="patient.doctor" class="md-dialog-header"></div>
+<div [ngClass]="patient.doctor.speciality" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
         <div>
@@ -27,11 +27,12 @@
                 <input mdInput [(ngModel)]="patient.email" name="email" required #patientEmail="ngModel" placeholder="Е-mail">
             </md-form-field>
         </div>
-        <md-select [(ngModel)]="patient.doctor" name="doctor" required #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">
+        <md-select [(ngModel)]="patient.doctor._id" name="doctor" required #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">
             <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
                 {{doctor.firstName}}
             </md-option>
         </md-select>
+        {{patient | json}}
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
