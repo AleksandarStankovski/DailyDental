@@ -6,7 +6,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { StaffComponent } from './staff.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
-import { DoctorService } from './doctor/doctor.service';
+
 
 @NgModule({
     imports: [
@@ -19,9 +19,7 @@ import { DoctorService } from './doctor/doctor.service';
         DoctorComponent,
         DoctorFormComponent
     ],
-    providers: [
-        DoctorService
-    ],
+    providers: [],
     entryComponents: [
         DoctorFormComponent
     ]

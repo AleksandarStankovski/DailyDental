@@ -4,11 +4,6 @@
     <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.code" name="code" required #patientCode="ngModel" placeholder="Код">
-            </md-form-field>
-        </div>
-        <div>
-            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="patient.firstName" name="firstName" required #patientFirstName="ngModel" placeholder="Име">
             </md-form-field>
         </div>
@@ -32,6 +27,11 @@
                 <input mdInput [(ngModel)]="patient.email" name="email" required #patientEmail="ngModel" placeholder="Е-mail">
             </md-form-field>
         </div>
+        <md-select [(ngModel)]="patient.doctor" name="doctor" required #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">
+            <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
+                {{doctor.firstName}}
+            </md-option>
+        </md-select>
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">

@@ -12,7 +12,8 @@ import {
     MdSnackBarModule,
     MdProgressSpinnerModule,
     MdSlideToggleModule,
-    MdIconModule } from '@angular/material';
+    MdIconModule,
+    MdSelectModule } from '@angular/material';
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
@@ -30,7 +31,8 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         MdSnackBarModule,
         MdProgressSpinnerModule,
         MdSlideToggleModule,
-        MdIconModule
+        MdIconModule,
+        MdSelectModule
     ],
     declarations: [
         SecondNavComponent,
@@ -48,6 +50,7 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         MdProgressSpinnerModule,
         MdSlideToggleModule,
         MdIconModule,
+        MdSelectModule,
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,

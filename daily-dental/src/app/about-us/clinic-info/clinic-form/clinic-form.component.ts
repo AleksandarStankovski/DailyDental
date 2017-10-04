@@ -24,8 +24,8 @@ export class ClinicFormComponent implements OnInit {
 
     constructor(
         private modalDialogRef: MdDialogRef<ClinicFormComponent>,
-        private clinicService: ClinicService,
         private snackBar: MdSnackBar,
+        private clinicService: ClinicService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
@@ -40,7 +40,7 @@ export class ClinicFormComponent implements OnInit {
         this.clinicService.getClinic(this.data.clinicId)
         .subscribe(response => {
             this.clinic = response;
-        })
+        });
     }
 
     save(): void {
