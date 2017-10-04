@@ -20,6 +20,26 @@ let clinicSchema = mongoose.Schema({
     email: {
         type: String,
         required: true
+    },
+    offices: {
+        type: [mongoose.Schema.Types.ObjectId],
+        default: [],
+        ref: 'Office'
+    },
+    manipulations: {
+        type: [mongoose.Schema.Types.ObjectId],
+        default: [],
+        ref: 'Manipulation'
+    },
+    doctors: {
+        type: [mongoose.Schema.Types.ObjectId],
+        default: [],
+        ref: 'Doctor'
+    },
+    patients: {
+        type: [mongoose.Schema.Types.ObjectId],
+        default: [],
+        ref: 'Patient'
     }
 });
 

@@ -24,8 +24,8 @@ export class ClinicFormComponent implements OnInit {
 
     constructor(
         private modalDialogRef: MdDialogRef<ClinicFormComponent>,
-        private snackBar: MdSnackBar,
         private clinicService: ClinicService,
+        private snackBar: MdSnackBar,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
@@ -55,6 +55,12 @@ export class ClinicFormComponent implements OnInit {
                     this.modalDialogRef.close('Edit');
                 }, this.snackbarConfig.duration);
             }, error => {
+                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                    duration: this.snackbarConfig.duration
+                });
+                setTimeout(() => {
+                    this.loadingOverlay = false;
+                }, this.snackbarConfig.duration);
                 throw new Error(error);
             })
         } else {
@@ -69,6 +75,12 @@ export class ClinicFormComponent implements OnInit {
                     }, this.snackbarConfig.duration);
                 }, 
                 error => {
+                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.loadingOverlay = false;
+                    }, this.snackbarConfig.duration);
                     throw new Error(error);
                 }
             )

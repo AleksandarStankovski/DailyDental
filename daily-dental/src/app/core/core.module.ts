@@ -28,8 +28,7 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
     exports: [
         HeaderComponent,
         NavComponent,
-        FooterComponent,
-        ScrollPageTransitionDirective
+        FooterComponent
     ],
     providers: [
         PageNameService,

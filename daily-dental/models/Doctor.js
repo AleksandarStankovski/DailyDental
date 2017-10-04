@@ -33,7 +33,8 @@ let doctorSchema = mongoose.Schema({
     },
     patients: {
         type: [mongoose.Schema.Types.ObjectId],
-        default: []
+        default: [],
+        ref: 'Patient' 
     },
     active: {
         type: Boolean,

@@ -1,3 +1,4 @@
+const Clinic = require('mongoose').model('Clinic');
 const Patient = require('mongoose').model('Patient');
 const Doctor = require('mongoose').model('Doctor');
 
@@ -27,8 +28,17 @@ module.exports = {
                 { _id: patient.doctor },
                 { $push: { patients: patient._id } }
             )
+            .then(() => {
+                return patient
+            })
         })
-        .then(result => {
+        .then(patient => {
+            return Clinic.update(
+                { },
+                { $push: { patients: patient._id } }
+            )  
+        })
+        .then(() => {
             res.json('Success');
         })
         .catch(error => {
@@ -78,9 +88,15 @@ module.exports = {
                 { _id: patient.doctor },
                 { $pull: { patients: patient._id } }
             )
+            .then(() => {
+                return patient
+            })
         })
-        .then(result => {
-            res.json('Success');
+        .then(patient => {
+            return Clinic.update(
+                { },
+                { $pull: { patients: patient._id } }
+            ) 
         })
         .catch(error => {
             res.status(400).send(error);

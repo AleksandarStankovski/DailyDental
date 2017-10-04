@@ -1,4 +1,7 @@
 <div class="home">    
-    <div class="home-video"></div>
+    <video autoplay loop class="home-video d-none d-md-block">
+        <source src="assets/videos/home.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        <source src="assets/videos/home.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
     <app-home-nav [navList]="navList"></app-home-nav>
 </div>

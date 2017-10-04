@@ -7,8 +7,8 @@ require('./config/database')(config[env]);
 require('./config/express')(app, config[env]);
 require('./config/routes')(app, config[env]);
 
-app.listen(config[env].port, function() {
-  console.log('Port ' + config[env].port);
+app.listen(config[env].port, () => {
+    console.log('Port ' + config[env].port);
 })
 
 module.exports = app;

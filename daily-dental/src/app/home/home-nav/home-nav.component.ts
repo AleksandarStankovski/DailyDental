@@ -10,15 +10,10 @@ import {
 })
 export class HomeNavComponent implements OnInit {
 
-    transition: boolean;
     @Input() navList;
     
     constructor() { }
 
-    ngOnInit() {
-        setTimeout(() => {
-           this.transition = true;
-        }, 200); 
-    }
+    ngOnInit() { }
 
 }

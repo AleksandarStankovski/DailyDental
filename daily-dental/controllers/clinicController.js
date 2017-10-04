@@ -4,7 +4,7 @@ module.exports = {
     getAll: (req, res) => { 
         Clinic.find({})
         .then(clinics => {
-            res.json(clinics)
+            res.json(clinics);
         })
     },
 

@@ -24,8 +24,8 @@ export class ManipulationFormComponent implements OnInit {
 
     constructor(
         private modalDialogRef: MdDialogRef<ManipulationFormComponent>,
-        private manipulationService: ManipulationService,
         private snackBar: MdSnackBar,
+        private manipulationService: ManipulationService,
         @Inject(MD_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
@@ -40,7 +40,7 @@ export class ManipulationFormComponent implements OnInit {
         this.manipulationService.getManipultion(this.data.manipulationId)
         .subscribe(response => {
             this.manipulation = response;
-        })
+        });
     }
 
     save(): void {
@@ -56,6 +56,12 @@ export class ManipulationFormComponent implements OnInit {
                         this.modalDialogRef.close('Edit');
                     }, this.snackbarConfig.duration);
                 }, error => {
+                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.loadingOverlay = false;
+                    }, this.snackbarConfig.duration);
                     throw new Error(error);
                 }
             );
@@ -71,6 +77,12 @@ export class ManipulationFormComponent implements OnInit {
                     }, this.snackbarConfig.duration);
                 }, 
                 error => {
+                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.loadingOverlay = false;
+                    }, this.snackbarConfig.duration);
                     throw new Error(error);
                 }
             );
@@ -90,6 +102,12 @@ export class ManipulationFormComponent implements OnInit {
                 }, this.snackbarConfig.duration);
             },
             error => {
+                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                    duration: this.snackbarConfig.duration
+                });
+                setTimeout(() => {
+                    this.loadingOverlay = false;
+                }, this.snackbarConfig.duration);
                 throw new Error(error);
             }
         );

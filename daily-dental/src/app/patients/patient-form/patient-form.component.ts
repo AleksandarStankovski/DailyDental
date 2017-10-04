@@ -27,9 +27,9 @@ export class PatientFormComponent implements OnInit {
 
     constructor(
         private modalDialogRef: MdDialogRef<PatientFormComponent>,
-        private snackBar: MdSnackBar,
         private patientService: PatientService,
         private doctorService: DoctorService,
+        private snackBar: MdSnackBar,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
@@ -67,6 +67,12 @@ export class PatientFormComponent implements OnInit {
                     this.modalDialogRef.close('Edit');
                 }, this.snackbarConfig.duration);
             }, error => {
+                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                    duration: this.snackbarConfig.duration
+                });
+                setTimeout(() => {
+                    this.loadingOverlay = false;
+                }, this.snackbarConfig.duration);
                 throw new Error(error);
             })
         } else {
@@ -81,6 +87,12 @@ export class PatientFormComponent implements OnInit {
                     }, this.snackbarConfig.duration);
                 }, 
                 error => {
+                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.loadingOverlay = false;
+                    }, this.snackbarConfig.duration);
                     throw new Error(error);
                 }
             )
@@ -100,6 +112,12 @@ export class PatientFormComponent implements OnInit {
                 }, this.snackbarConfig.duration);
             },
             error => {
+                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                    duration: this.snackbarConfig.duration
+                });
+                setTimeout(() => {
+                    this.loadingOverlay = false;
+                }, this.snackbarConfig.duration);
                 throw new Error(error);
             }
         );

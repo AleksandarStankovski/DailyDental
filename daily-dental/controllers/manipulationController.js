@@ -1,3 +1,4 @@
+const Clinic = require('mongoose').model('Clinic');
 const Manipulation = require('mongoose').model('Manipulation');
 
 module.exports = {
@@ -19,36 +20,44 @@ module.exports = {
     create: (req, res) => {
         let newManipulation = req.body;
         Manipulation.create(newManipulation)
-        .then(result => {
+        .then(manipulation => {
+            return Clinic.update(
+                { },
+                { $push: { manipulations: manipulation._id } }
+            )  
+        })
+        .then(() => {
             res.json('Success');
-        }).catch(error => {
+        })
+        .catch(error => {
             res.status(400).send(error);
         });
     },
 
     edit: (req, res) => {
         let newManipulation = req.body;
-        Manipulation.findById(newManipulation._id)
-        .then(manipulation => {
-            manipulation.code = newManipulation.code;
-            manipulation.name = newManipulation.name;
-            manipulation.price = newManipulation.price;
-            manipulation.type = newManipulation.type;
-            manipulation.save()
-            .then(() => {
-                res.json('Success');
-            }).catch(error => {
-                res.status(400).send(error);
-            })
+        Manipulation.findByIdAndUpdate({ _id: newManipulation._id }, newManipulation, { upsert: true })
+        .then(() => {
+            res.json('Success');
+        })
+        .catch(error => {
+            res.status(400).send(error);
         })
     },
 
     delete: (req, res) => {
         let id = req.params.id;
         Manipulation.findByIdAndRemove(id)
+        .then(manipulation => {
+            return Clinic.update(
+                { },
+                { $pull: { manipulations: manipulation._id } }
+            ) 
+        })
         .then(() => {
             res.json('Success');
-        }).catch(error => {
+        })
+        .catch(error => {
             res.status(400).send(error);
         })
     }

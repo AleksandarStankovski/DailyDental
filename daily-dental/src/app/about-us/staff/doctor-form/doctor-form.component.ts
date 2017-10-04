@@ -7,7 +7,7 @@ import {
     MD_DIALOG_DATA,
     MdSnackBar } from '@angular/material';
 
-    import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
+import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
 import { DoctorService } from '../doctor/doctor.service';
 
@@ -24,8 +24,8 @@ export class DoctorFormComponent implements OnInit {
 
     constructor(
         private modalDialogRef: MdDialogRef<DoctorFormComponent>,
-        private doctorService: DoctorService,
         private snackBar: MdSnackBar,
+        private doctorService: DoctorService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
@@ -40,7 +40,7 @@ export class DoctorFormComponent implements OnInit {
         this.doctorService.getDoctor(this.data.doctorId)
         .subscribe(response => {
             this.doctor = response;
-        })
+        });
     }
 
     save(): void {
@@ -57,6 +57,12 @@ export class DoctorFormComponent implements OnInit {
                     }, this.snackbarConfig.duration);
                 }, 
                 error => {
+                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.loadingOverlay = false;
+                    }, this.snackbarConfig.duration);
                     throw new Error(error);
                 }
             )
@@ -72,6 +78,12 @@ export class DoctorFormComponent implements OnInit {
                     }, this.snackbarConfig.duration);
                 }, 
                 error => {
+                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                        duration: this.snackbarConfig.duration
+                    });
+                    setTimeout(() => {
+                        this.loadingOverlay = false;
+                    }, this.snackbarConfig.duration);
                     throw new Error(error);
                 }
             );
@@ -79,6 +91,7 @@ export class DoctorFormComponent implements OnInit {
     }
 
     delete(): void {
+        this.loadingOverlay = true;
         this.doctorService.deleteDoctor(this.doctor._id)
         .subscribe(
             response => {
@@ -90,6 +103,12 @@ export class DoctorFormComponent implements OnInit {
                 }, this.snackbarConfig.duration);
             },
             error => {
+                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                    duration: this.snackbarConfig.duration
+                });
+                setTimeout(() => {
+                    this.loadingOverlay = false;
+                }, this.snackbarConfig.duration);
                 throw new Error(error);
             }
         );

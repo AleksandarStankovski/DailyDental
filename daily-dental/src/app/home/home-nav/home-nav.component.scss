@@ -1,38 +1,101 @@
+@import "~bootstrap/scss/bootstrap-grid";
 @import "~assets/styles/variables";
 
 nav {
     position: absolute;
-    right: -215px;
-    bottom: -120px;
+    right: -240px;
+    bottom: -90px;
     z-index: 1;
     transform: rotate(-45deg);
+    @include media-breakpoint-down(lg) {
+        right: -210px;
+    }
+    @include media-breakpoint-down(md) {
+        right: -155px;
+        bottom: -60px;
+    }
+    @include media-breakpoint-down(sm) {
+        right: -115px;
+        bottom: -50px;
+    }
     ul {
         display: flex;
         justify-content: center;
         list-style: none;
         width: 900px;
         flex-wrap: wrap;
+        @include media-breakpoint-down(lg) {
+            width: 750px;
+        }
+        @include media-breakpoint-down(md) {
+            width: 600px;
+        }
+        @include media-breakpoint-down(sm) {
+            width: 450px;
+        }
         a {
+            position: relative;
             width: 300px;
             height: 300px;
-            color: #000;
+            color: $app-ligth-color;
+            transition: top .8s, right .8s, bottom .8s, left .8s; 
+            @include media-breakpoint-down(lg) {
+                width: 250px;
+                height: 250px;
+            }
+            @include media-breakpoint-down(md) {
+                width: 200px;
+                height: 200px;
+            }
+            @include media-breakpoint-down(sm) {
+                width: 150px;
+                height: 150px;
+            }
             span {
                 font-size: 1.2rem;
+                @include media-breakpoint-down(lg) {
+                    font-size: 1rem;
+                }
             }
             &.home-nav-box-0 {
-                background-color: rgba(255, 255, 255, .9);
+                top: -40px;
+                left: -40px;
+                background-color: $app-secondary;
                 span {
                     transform: rotate(45deg);
                 }
             }
             &.home-nav-box-1 {
-                background-color: rgba(255, 255, 255, .4);
+                top: -20px;
+                background-color: rgba(255, 255, 255, .2);
             }
             &.home-nav-box-2 {
-                background-color: rgba(255, 255, 255, .9);
+                top: -60px;
+                right: -60px;
+                background-color: $app-secondary;
             }
             &.home-nav-box-3 {
-                background-color: rgba(255, 255, 255, .9);
+                bottom: -30px;
+                color: #000;
+                background-color: #fff;
+            }
+        }
+        &.finish-transition {
+            a {
+                &.home-nav-box-0 {
+                    top: 0;
+                    left: 0;
+                }
+                &.home-nav-box-1 {
+                    top: 0;
+                }
+                &.home-nav-box-2 {
+                    top: 0;
+                    right: 0;
+                }
+                &.home-nav-box-3 {
+                    bottom: 0;
+                }
             }
         }
     }
