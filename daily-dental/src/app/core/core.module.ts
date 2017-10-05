@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNameService } from './page-name.service';
 import { PageImageService } from './page-image.service';
+import { SpecialityService } from './speciality.service';
 import { DoctorService } from '../about-us/staff/doctor/doctor.service';
 import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
 
@@ -33,6 +34,7 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
     providers: [
         PageNameService,
         PageImageService,
+        SpecialityService,
         DoctorService
     ]
 })

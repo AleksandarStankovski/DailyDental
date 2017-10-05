@@ -98,6 +98,9 @@ module.exports = {
                 { $pull: { patients: patient._id } }
             ) 
         })
+        .then(() => {
+            res.json('Success');
+        })
         .catch(error => {
             res.status(400).send(error);
         })

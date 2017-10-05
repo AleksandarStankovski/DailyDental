@@ -17,6 +17,7 @@ export class PriceListComponent implements OnInit {
 
     manipulations: Manipulation[];
     modalConfig: ModalConfig;
+    tutorialText: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -31,6 +32,11 @@ export class PriceListComponent implements OnInit {
         this.manipulationService.getAllManipulations()
         .subscribe(response => {
             this.manipulations = response;
+            if (this.manipulations.length === 0) {
+                this.tutorialText = 'Кликнете тук за да създадете манипулация';
+            } else {
+                this.tutorialText = undefined;
+            }
         });
     }
 

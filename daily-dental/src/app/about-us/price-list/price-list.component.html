@@ -1,5 +1,5 @@
 <div class="price-lis page">
-    <app-floating-button (openModalDialog)="addManipulation()"></app-floating-button>
+    <app-floating-button [tutorialText]="tutorialText" (openModalDialog)="addManipulation()"></app-floating-button>
     <div class="page-container container">
         <ul class="list-unstyled">
             <li *ngFor="let manipulation of manipulations">

@@ -5,7 +5,7 @@ header {
     .header-fixed {
         position: fixed;
         top: 0;
-        z-index: 2;
+        z-index: 4;
         width: 100%;
         min-height: 63px;
         padding: 10px 15px;
@@ -29,17 +29,16 @@ header {
             }
         }
         .header-title {
-            width: 900px;
-            max-width: 100%;
-            margin: auto;
-            transition: width .4s;
             h1 {
                 position: absolute;
                 top: 175px;
-                margin-left: 0;
-                transition: top .4s, margin-left .4s, font-size .4s;
+                left: 150px;
+                right: 150px;
+                transition: top .4s, left .4s, right .4s, font-size .4s;
                 @include media-breakpoint-down(sm) {
-                    top: 145px
+                    top: 145px;
+                    left: 15px;
+                    right: 15px;
                 }  
             }
         }
@@ -47,11 +46,14 @@ header {
             .header-title {
                 width: 100%;
                 h1 {
-                    top: 22px;
-                    margin-left: 70px;
+                    top: 20px;
+                    left: 70px;
+                    right: 70px;
                     font-size: 1.2rem;
                     @include media-breakpoint-down(sm) {
                         top: 17px;
+                        left: 70px;
+                        right: 70px;
                     }  
                 }
             }     

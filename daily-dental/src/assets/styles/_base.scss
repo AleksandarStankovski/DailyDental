@@ -180,6 +180,9 @@ h2 {
 
 /* Modal dialog */
 .mat-dialog-container {
+    @include media-breakpoint-down(xs) {
+        margin: 0 auto;
+    }
     .md-dialog-header {
         height: 40px;
         margin-top: -24px;

@@ -15,6 +15,7 @@ export class DentalOfficesComponent implements OnInit {
 
     offices: Office[];
     modalConfig: ModalConfig;
+    tutorialText: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -29,6 +30,11 @@ export class DentalOfficesComponent implements OnInit {
         this.officeService.getAllOffices()
         .subscribe(response => {
             this.offices = response;
+            if (this.offices.length === 0) {
+                this.tutorialText = 'Кликнете тук за да създадете кабинет';
+            } else {
+                this.tutorialText = undefined;
+            }
         });
     }
 

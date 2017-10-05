@@ -17,6 +17,7 @@ export class StaffComponent implements OnInit {
 
     doctors: Doctor[];
     modalConfig: ModalConfig;
+    tutorialText: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -31,6 +32,11 @@ export class StaffComponent implements OnInit {
         this.doctorService.getAllDoctors()
         .subscribe(response => {
             this.doctors = response;
+            if (this.doctors.length === 0) {
+                this.tutorialText = 'Кликнете тук за да създадете лекар';
+            } else {
+                this.tutorialText = undefined;
+            }
         });
     }
 

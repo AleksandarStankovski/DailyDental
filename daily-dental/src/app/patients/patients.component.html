@@ -1,5 +1,5 @@
 <div class="patients page">
-    <app-floating-button (openModalDialog)="addPatient()"></app-floating-button>
+    <app-floating-button [tutorialText]="tutorialText" (openModalDialog)="addPatient()"></app-floating-button>
     <div class="page-container">
         <ul class="list-unstyled row gutters-6">
             <li *ngFor="let patient of patients" class="col-6 col-md-4">

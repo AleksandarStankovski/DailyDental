@@ -17,6 +17,7 @@ export class PatientsComponent implements OnInit {
 
     patients: Patient[];
     modalConfig: ModalConfig;
+    tutorialText: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -31,6 +32,11 @@ export class PatientsComponent implements OnInit {
         this.patientService.getAllPatients()
         .subscribe(response => {
             this.patients = response;
+            if (this.patients.length === 0) {
+                this.tutorialText = 'Кликнете тук за да създадете пациент';
+            } else {
+                this.tutorialText = undefined;
+            }
         })
     }
 

@@ -10,6 +10,7 @@ import {
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ManipulationService } from '../manipulation/manipulation.service';
+import { SpecialityService } from '../../../core/speciality.service';
 
 @Component({
     selector: 'app-manipulation-form',
@@ -21,16 +22,19 @@ export class ManipulationFormComponent implements OnInit {
     manipulation: Manipulation;
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
+    specialities: {type: string, name: string}[];
 
     constructor(
         private modalDialogRef: MdDialogRef<ManipulationFormComponent>,
         private snackBar: MdSnackBar,
         private manipulationService: ManipulationService,
+        private specialityService: SpecialityService,
         @Inject(MD_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
         this.manipulation = new Manipulation('', '', undefined, '');
         this.snackbarConfig = new SnackbarConfig();
+        this.getAllSpecialities();
         if (this.data.manipulationId) {
             this.getManipulation();
         }
@@ -41,6 +45,10 @@ export class ManipulationFormComponent implements OnInit {
         .subscribe(response => {
             this.manipulation = response;
         });
+    }
+
+    getAllSpecialities(): void {
+        this.specialities = this.specialityService.getAllSpecialities();
     }
 
     save(): void {

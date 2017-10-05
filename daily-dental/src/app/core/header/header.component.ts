@@ -1,7 +1,9 @@
 import {
     Component,
     OnInit } from '@angular/core';
-import { Router, NavigationStart } from "@angular/router";
+import { 
+    Router, 
+    NavigationEnd } from "@angular/router";
 
 import { PageNameService } from '../page-name.service';
 import { PageImageService } from '../page-image.service';
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
         this.isVisibleMenu = false;
 
         this.router.events.subscribe(event => {
-            if(event instanceof NavigationStart) {
+            if(event instanceof NavigationEnd) {
                 this.pageName = event.url;
                 this.isVisibleMenu = false;
                 this.title = this.pageNameService.getPageName(event.url);

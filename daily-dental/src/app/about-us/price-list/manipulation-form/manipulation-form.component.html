@@ -18,9 +18,9 @@
             </md-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип">
-            </md-form-field>
+            <md-select [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип" class="input-full-width">
+                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
+            </md-select>
         </div>
     </form>
 </md-dialog-content>

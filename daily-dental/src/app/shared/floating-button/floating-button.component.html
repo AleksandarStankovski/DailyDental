@@ -1,5 +1,9 @@
-<div class="floating-button">
-    <a (click)="floatingButtonClick()" md-fab>
+<div class="floating-button d-flex flex-column">
+    <a (click)="floatingButtonClick()" md-fab class="align-self-end">
         <md-icon>add</md-icon>
     </a>
+    <div *ngIf="tutorialText" class="floating-button-tutorial d-flex flex-column">
+        <i class="fontello icon-b-arrow-up-arrow align-self-end"></i>
+        <p>{{tutorialText}}</p>
+    </div>
 </div>

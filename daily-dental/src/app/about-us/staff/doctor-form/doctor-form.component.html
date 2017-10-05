@@ -33,15 +33,15 @@
             </md-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност">
-            </md-form-field>
+            <md-select [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност" class="input-full-width">
+                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
+            </md-select>
         </div>
-        <div>
+         <div>
             <md-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
                 Slide me!
             </md-slide-toggle>
-        </div>
+        </div> 
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">

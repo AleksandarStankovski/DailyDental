@@ -16,6 +16,7 @@ export class ClinicInfoComponent implements OnInit {
     clinics: Clinic[];
     clinic: Clinic;
     modalConfig: ModalConfig;
+    tutorialText: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -31,6 +32,11 @@ export class ClinicInfoComponent implements OnInit {
         .subscribe(resolve => {
             this.clinics = resolve;
             this.clinic = resolve[0];
+            if (this.clinics.length === 0) {
+                this.tutorialText = 'Кликнете тук за да създадете клиника';
+            } else {
+                this.tutorialText = undefined;
+            }
         });
     }
 

@@ -10,6 +10,7 @@ import {
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
 import { DoctorService } from '../doctor/doctor.service';
+import { SpecialityService } from '../../../core/speciality.service';
 
 @Component({
   selector: 'app-doctor-form',
@@ -21,16 +22,19 @@ export class DoctorFormComponent implements OnInit {
     doctor: Doctor;
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
+    specialities: {type: string, name: string}[];
 
     constructor(
         private modalDialogRef: MdDialogRef<DoctorFormComponent>,
         private snackBar: MdSnackBar,
         private doctorService: DoctorService,
+        private specialityService: SpecialityService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.doctor = new Doctor('', '', '', '', '', '', '');
         this.snackbarConfig = new SnackbarConfig();
+        this.getAllSpecialities();
         if (this.data.doctorId) {
             this.getDoctor();
         }
@@ -41,6 +45,10 @@ export class DoctorFormComponent implements OnInit {
         .subscribe(response => {
             this.doctor = response;
         });
+    }
+
+    getAllSpecialities(): void {
+        this.specialities = this.specialityService.getAllSpecialities();
     }
 
     save(): void {

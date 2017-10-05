@@ -1,5 +1,5 @@
 <header>
-    <div appScrollPageTransition [toggleClass]="'header-fixed-scroll'" [hidden]="pageName === '/home'" class="header-fixed">
+    <div appScrollPageTransition [toggleClass]="'header-fixed-scroll'" [hidden]="pageName === '/home' || pageName === '/'" class="header-fixed">
         <div class="header-top">
             <div class="d-flex justify-content-between align-items-center">
                 <a (click)="toggleMenu()" class="d-flex header-top-toggle cursor-pointer">

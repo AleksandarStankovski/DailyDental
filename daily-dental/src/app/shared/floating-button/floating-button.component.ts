@@ -1,6 +1,7 @@
 import { 
     Component, 
     OnInit,
+    Input,
     Output,
     EventEmitter } from '@angular/core';
 
@@ -11,12 +12,12 @@ import {
 })
 export class FloatingButtonComponent implements OnInit {
 
+    @Input() tutorialText: string;
     @Output() openModalDialog: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
     floatingButtonClick() {
         this.openModalDialog.emit();
