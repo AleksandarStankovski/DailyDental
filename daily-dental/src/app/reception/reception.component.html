@@ -1,5 +1,19 @@
-<div class="reception page-container container">
-    <div>
-        Рецепция
+<div class="reception page">
+    <app-floating-button (openModalDialog)="addAppointment()"></app-floating-button>
+    <div class="page-container">
+        <md-form-field class="example-full-width">
+            <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
+            <md-datepicker-toggle mdSuffix [for]="datepicker"></md-datepicker-toggle>
+            <md-datepicker touchUi="true" #datepicker></md-datepicker>
+        </md-form-field>
+    </div>
+
+    <div class="page-container">
+        <ul class="list-unstyled row gutters-6">
+            <li *ngFor="let appointment of appointments" class="col-6 col-md-4">
+                <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>
+            </li>
+        </ul>
     </div>
 </div>
+

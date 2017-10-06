@@ -11,6 +11,7 @@ import { PageNameService } from './page-name.service';
 import { PageImageService } from './page-image.service';
 import { SpecialityService } from './speciality.service';
 import { DoctorService } from '../about-us/staff/doctor/doctor.service';
+import { ManipulationService } from '../about-us/price-list/manipulation/manipulation.service';
 import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
         PageNameService,
         PageImageService,
         SpecialityService,
-        DoctorService
+        DoctorService,
+        ManipulationService
     ]
 })
 export class CoreModule { }

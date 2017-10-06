@@ -6,7 +6,6 @@ import { SharedModule } from '../../shared/shared.module';
 import { PriceListComponent } from './price-list.component';
 import { ManipulationComponent } from './manipulation/manipulation.component';
 import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
-import { ManipulationService } from './manipulation/manipulation.service';
 
 @NgModule({
     imports: [
@@ -18,9 +17,6 @@ import { ManipulationService } from './manipulation/manipulation.service';
         PriceListComponent,
         ManipulationComponent,
         ManipulationFormComponent
-    ],
-    providers: [
-        ManipulationService
     ],
     entryComponents: [
         ManipulationFormComponent

@@ -1,0 +1,61 @@
+<app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
+<div class="md-dialog-header"></div>
+<md-dialog-content>
+    <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
+        <div>
+            <md-form-field>
+                <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly placeholder="Дата">
+                <md-datepicker-toggle mdSuffix [for]="datepicker"></md-datepicker-toggle>
+                <md-datepicker #datepicker></md-datepicker>
+            </md-form-field>
+        </div>
+        <div>
+            <md-select [(ngModel)]="appointment.startTime" name="startTime" required #appointmentStartTime="ngModel" placeholder="startTime" class="input-full-width">
+                <md-option *ngFor="let hour of hours" [value]="hour.value">
+                    {{hour.name}}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-select [(ngModel)]="appointment.endTime" name="endTime" required #appointmentEndTime="ngModel" placeholder="endTime" class="input-full-width">
+                <md-option *ngFor="let hour of hours" [value]="hour.value">
+                    {{hour.name}}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="appointment.firstName" name="firstName" required #appointmentFirstName="ngModel" placeholder="Име">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="appointment.lastName" name="lastName" required #appointmentLastName="ngModel" placeholder="Фамилия">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="appointment.phone" name="phone" required #appointmentPhone="ngModel" placeholder="Телефон">
+            </md-form-field>
+        </div>
+        <div>
+            <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
+                <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
+                    д-р. {{doctor.lastName}}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-select [(ngModel)]="appointment.manipulations" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
+                <md-option *ngFor="let manipulation of manipulations" [value]="manipulation._id">
+                    {{manipulation.name}}
+                </md-option>
+            </md-select>
+        </div>
+    </form>
+</md-dialog-content>
+<md-dialog-actions class="justify-content-end">
+    <button md-button [md-dialog-close]="'cancel'">Cancel</button>
+    <button *ngIf="data.appointmentId" md-button (click)="delete()">Delete</button>
+    <button md-button (click)="save()" [disabled]="appointmentForm.invalid">Save</button>
+</md-dialog-actions>

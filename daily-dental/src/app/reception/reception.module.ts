@@ -4,6 +4,9 @@ import { HttpModule } from '@angular/http';
 import { ReceptionRoutingModule } from './reception-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReceptionComponent } from './reception.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
+import { AppointmentService } from './appointment/appointment.service';
 
 @NgModule({
     imports: [
@@ -12,7 +15,15 @@ import { ReceptionComponent } from './reception.component';
         ReceptionRoutingModule
     ],
     declarations: [
-        ReceptionComponent
+        ReceptionComponent,
+        AppointmentFormComponent,
+        AppointmentComponent
+    ],
+    providers: [
+        AppointmentService
+    ],
+    entryComponents: [
+        AppointmentFormComponent
     ]
 })
 export class ReceptionModule { }
