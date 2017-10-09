@@ -31,6 +31,7 @@ module.exports = function (app, config) {
 	app.put('/api/patient/edit', patientController.edit);
 	app.delete('/api/patient/delete/:id', patientController.delete);
 	app.get('/api/appointments', appointmentController.getAll);
+	app.get('/api/appointments/:date', appointmentController.getByDate);
 	app.get('/api/appointment/:id', appointmentController.getById);
 	app.post('/api/appointment/create', appointmentController.create);
 	app.put('/api/appointment/edit', appointmentController.edit);

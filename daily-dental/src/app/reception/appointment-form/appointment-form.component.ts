@@ -43,6 +43,9 @@ export class AppointmentFormComponent implements OnInit {
         this.getAllDoctors();
         this.getAllManipulations();
         this.getHours();
+        if (this.data.receptionData) {
+            this.appointment.date = this.data.receptionData;
+        }
         if (this.data.appointmentId) {
             this.getAppointment();
         }
@@ -51,9 +54,7 @@ export class AppointmentFormComponent implements OnInit {
     getAppointment(): void {
         this.appointmentService.getAppointment(this.data.appointmentId)
         .subscribe(resolve => {
-            console.log(typeof(resolve.date))
-            this.appointment = resolve;
-            
+            this.appointment = resolve;  
         });
     }
 
@@ -69,10 +70,6 @@ export class AppointmentFormComponent implements OnInit {
         .subscribe(response => {
             this.manipulations = response;
         });
-    }
-
-    changeDate(date): void{
-        this.appointment.date = date;
     }
 
     save(): void {

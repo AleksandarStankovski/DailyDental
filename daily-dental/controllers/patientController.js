@@ -24,15 +24,6 @@ module.exports = {
         let newPatient = req.body;
         Patient.create(newPatient)
         .then(patient => {
-            return Doctor.update(
-                { _id: patient.doctor },
-                { $push: { patients: patient._id } }
-            )
-            .then(() => {
-                return patient
-            })
-        })
-        .then(patient => {
             return Clinic.update(
                 { },
                 { $push: { patients: patient._id } }
@@ -49,29 +40,6 @@ module.exports = {
     edit: (req, res) => {
         let newPatient = req.body;
         Patient.findByIdAndUpdate({ _id: newPatient._id }, newPatient, { upsert: true })
-        .then(patient => {
-            if (patient.doctor != newPatient.doctor) {
-                return Doctor.update(
-                    { _id: patient.doctor },
-                    { $pull: { patients: newPatient._id } }
-                )
-                .then (() => {
-                    return patient;
-                })
-            } else {
-                return patient;
-            }
-        })
-        .then(patient => {
-            if (patient.doctor != newPatient.doctor) {
-                return Doctor.update(
-                    { _id: newPatient.doctor },
-                    { $push: { patients: newPatient._id } }
-                )
-            } else {
-                return patient;
-            }
-        })
         .then(() => {
             res.json('Success');
         })
@@ -83,15 +51,6 @@ module.exports = {
     delete: (req, res) => {
         let id = req.params.id;
         Patient.findByIdAndRemove(id)
-        .then(patient => {
-            return Doctor.update(
-                { _id: patient.doctor },
-                { $pull: { patients: patient._id } }
-            )
-            .then(() => {
-                return patient
-            })
-        })
         .then(patient => {
             return Clinic.update(
                 { },

@@ -19,7 +19,6 @@ let manipulationSchema = mongoose.Schema({
         enum: config.development.specialityType,
         required: true
     }
-
 });
 
 const Manipulation = mongoose.model('Manipulation', manipulationSchema);

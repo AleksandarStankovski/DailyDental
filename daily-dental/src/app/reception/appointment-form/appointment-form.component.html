@@ -3,13 +3,6 @@
 <md-dialog-content>
     <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
         <div>
-            <md-form-field>
-                <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly placeholder="Дата">
-                <md-datepicker-toggle mdSuffix [for]="datepicker"></md-datepicker-toggle>
-                <md-datepicker #datepicker></md-datepicker>
-            </md-form-field>
-        </div>
-        <div>
             <md-select [(ngModel)]="appointment.startTime" name="startTime" required #appointmentStartTime="ngModel" placeholder="startTime" class="input-full-width">
                 <md-option *ngFor="let hour of hours" [value]="hour.value">
                     {{hour.name}}

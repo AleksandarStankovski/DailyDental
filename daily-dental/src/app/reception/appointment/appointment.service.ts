@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { Appointment } from '../../shared/models/appointment.model';
+import { Doctor } from '../../shared/models/doctor.model';
 
 @Injectable()
 export class AppointmentService {
@@ -16,6 +17,11 @@ export class AppointmentService {
     getAllAppointments(): Observable<Appointment[]> {
         return this.http.get(`${this.apiUrl}/appointments`)
         .map(response => response.json() as Appointment[]);
+    }
+
+    getAppointmentByDate(date: Date): Observable<Doctor[]> {
+        return this.http.get(`${this.apiUrl}/appointments/${date}`)
+        .map(response => response.json() as Doctor[]);
     }
 
     getAppointment(id: string): Observable<Appointment> {

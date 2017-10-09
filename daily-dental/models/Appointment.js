@@ -4,7 +4,8 @@ const config = require('../config/config');
 let appointmentSchema = mongoose.Schema({
     date: {
         type: Date,
-        required: true
+        required: true,
+        default: new Date
     },
     startTime: {
         type: Number,

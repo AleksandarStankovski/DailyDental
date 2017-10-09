@@ -21,26 +21,26 @@ let clinicSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    offices: {
-        type: [mongoose.Schema.Types.ObjectId],
+    offices: [{
+        type: mongoose.Schema.Types.ObjectId,
         default: [],
         ref: 'Office'
-    },
-    manipulations: {
-        type: [mongoose.Schema.Types.ObjectId],
+    }],
+    manipulations: [{
+        type: mongoose.Schema.Types.ObjectId,
         default: [],
         ref: 'Manipulation'
-    },
-    doctors: {
-        type: [mongoose.Schema.Types.ObjectId],
+    }],
+    doctors: [{
+        type: mongoose.Schema.Types.ObjectId,
         default: [],
         ref: 'Doctor'
-    },
-    patients: {
-        type: [mongoose.Schema.Types.ObjectId],
+    }],
+    patients: [{
+        type: mongoose.Schema.Types.ObjectId,
         default: [],
         ref: 'Patient'
-    }
+    }]
 });
 
 const Clinic = mongoose.model('Clinic', clinicSchema);

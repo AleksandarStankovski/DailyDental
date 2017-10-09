@@ -4,7 +4,7 @@ import {
 import { MdDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
-import { Appointment } from '../shared/models/appointment.model';
+import { Doctor } from '../shared/models/doctor.model';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { AppointmentService } from './appointment/appointment.service';
 
@@ -16,7 +16,7 @@ import { AppointmentService } from './appointment/appointment.service';
 export class ReceptionComponent implements OnInit {
 
     modalConfig: ModalConfig;
-    appointments: Appointment[];
+    doctors: Doctor[];
     receptionData: Date;
 
     constructor(
@@ -26,31 +26,33 @@ export class ReceptionComponent implements OnInit {
     ngOnInit() {
         this.modalConfig = new ModalConfig();
         this.receptionData = new Date();
-        this.getAllAppointments();
+        console.log(new Date())
+        this.getAppointmentByDate(this.receptionData);
     }
 
-    getAllAppointments(): void {
-        this.appointmentService.getAllAppointments()
+    getAppointmentByDate(date): void {
+        this.appointmentService.getAppointmentByDate(date)
         .subscribe(response => {
-            this.appointments = response;
+            this.doctors = response;
         })
     }
 
-    openModalDialog(appointmentId?: string): void {
+    openModalDialog(appointmentId?: string, receptionData?: Date): void {
         const id = appointmentId || undefined;
+        const date = receptionData || undefined;
         const modalDialogRef = this.modalDialog.open(AppointmentFormComponent, {
-            data: { appointmentId: id },
+            data: { appointmentId: id, receptionData: date },
             width: this.modalConfig.width,
             panelClass: 'loading-overlay-container'
         });
         modalDialogRef.afterClosed()
         .subscribe(result => {
-            this.getAllAppointments();
+            // this.getAppointmentByDate();
         })
     }
 
     addAppointment(): void {
-        this.openModalDialog();
+        this.openModalDialog(undefined, this.receptionData);
     }
 
     editAppointment(appointmentId): void {
@@ -59,6 +61,7 @@ export class ReceptionComponent implements OnInit {
 
     changeDate(value): void {
         this.receptionData = value;
+        this.getAppointmentByDate(this.receptionData);
     }
 
 }

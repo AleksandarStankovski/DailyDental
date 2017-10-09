@@ -5,6 +5,6 @@ export class Patient {
         public phone: string,
         public address: string,
         public email: string,
-        public doctor: { },
+        public doctor: {},
         public _id?: string) {}
 }

@@ -1,13 +1,27 @@
 const Appointment = require('mongoose').model('Appointment');
+const Doctor = require('mongoose').model('Doctor');
+const moment= require('moment');
 
 module.exports = {
     getAll: (req, res) => { 
-        Appointment.find({})
-        .then(appointments => {
-            res.json(appointments)
+        Doctor.find({})
+        .populate('appointments')
+        .then(doctors => {
+            res.json(doctors)
         })
     },
 
+    getByDate: (req, res) => { 
+        let date = req.params.date;
+        console.log(date)
+        console.log(moment(new Date(date)).format('ddd MMM DD YYYY, HH:mm:ss'))
+        Doctor.find({})
+        .populate('appointments')
+        .then(doctors => {
+            res.json(doctors)
+        })
+    },
+    
     getById: (req, res) => {
         let id = req.params.id;
         Appointment.findById(id)
@@ -19,6 +33,12 @@ module.exports = {
     create: (req, res) => {
         let newAppointment = req.body;
         Appointment.create(newAppointment)
+        .then(appointment => {
+            return Doctor.update(
+                { _id: appointment.doctor },
+                { $push: { appointments: appointment._id } }
+            )
+        })
         .then(() => {
             res.json('Success');
         })
@@ -30,6 +50,29 @@ module.exports = {
     edit: (req, res) => {
         let newAppointment = req.body;
         Appointment.findByIdAndUpdate({ _id: newAppointment._id }, newAppointment, { upsert: true })
+        .then(appointment => {
+            if (appointment.doctor != newAppointment.doctor) {
+                return Doctor.update(
+                    { _id: appointment.doctor },
+                    { $pull: { appointments: newAppointment._id } }
+                )
+                .then (() => {
+                    return appointment;
+                })
+            } else {
+                return appointment;
+            }
+        })
+        .then(appointment => {
+            if (appointment.doctor != newAppointment.doctor) {
+                return Doctor.update(
+                    { _id: newAppointment.doctor },
+                    { $push: { appointments: newAppointment._id } }
+                )
+            } else {
+                return appointment;
+            }
+        })
         .then(() => {
             res.json('Success');
         })
@@ -41,6 +84,12 @@ module.exports = {
     delete: (req, res) => {
         let id = req.params.id;
         Appointment.findByIdAndRemove(id)
+        .then(appointment => {
+            return Doctor.update(
+                { _id: appointment.doctor },
+                { $pull: { appointments: appointment._id } }
+            )
+        })
         .then(() => {
             res.json('Success');
         })

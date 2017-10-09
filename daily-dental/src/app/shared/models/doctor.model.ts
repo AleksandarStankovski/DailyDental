@@ -8,5 +8,6 @@ export class Doctor {
         public email: string,
         public speciality: string,
         public active: boolean = true,
+        public appointments?: [{}],
         public _id?: string) {}
 }

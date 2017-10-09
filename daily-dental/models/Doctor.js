@@ -31,11 +31,11 @@ let doctorSchema = mongoose.Schema({
         enum: config.development.specialityType,
         required: true
     },
-    patients: {
-        type: [mongoose.Schema.Types.ObjectId],
+    appointments: [{
+        type: mongoose.Schema.Types.ObjectId,
         default: [],
-        ref: 'Patient' 
-    },
+        ref: 'Appointment' 
+    }],
     active: {
         type: Boolean,
         required: true,
