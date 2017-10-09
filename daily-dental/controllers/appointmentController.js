@@ -13,8 +13,7 @@ module.exports = {
 
     getByDate: (req, res) => { 
         let date = req.params.date;
-        console.log(date)
-        console.log(moment(new Date(date)).format('ddd MMM DD YYYY, HH:mm:ss'))
+        console.log(new Date(date))
         Doctor.find({})
         .populate('appointments')
         .then(doctors => {

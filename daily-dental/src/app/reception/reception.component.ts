@@ -26,7 +26,6 @@ export class ReceptionComponent implements OnInit {
     ngOnInit() {
         this.modalConfig = new ModalConfig();
         this.receptionData = new Date();
-        console.log(new Date())
         this.getAppointmentByDate(this.receptionData);
     }
 
@@ -61,6 +60,7 @@ export class ReceptionComponent implements OnInit {
 
     changeDate(value): void {
         this.receptionData = value;
+        console.log(this.receptionData.toISOString())
         this.getAppointmentByDate(this.receptionData);
     }
 
