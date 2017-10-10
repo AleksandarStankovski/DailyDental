@@ -7,12 +7,22 @@
             <md-datepicker touchUi="true" #datepicker></md-datepicker>
         </md-form-field>
     </div>
-    {{receptionData}}
-
     <div class="page-container">
         <ul class="list-unstyled row gutters-6">
-            <li *ngFor="let doctor of doctors" class="col-6 col-md-4">
-                {{doctor.lastName}}
+            <li *ngFor="let doctor of doctors" class="calendar col-6 col-md-4">
+                <!-- <h6>{{doctor.lastName}}</h6> -->
+                <div class="calendar-block calendar-block-8"></div>
+                <div class="calendar-block calendar-block-9"></div>
+                <div class="calendar-block calendar-block-10"></div>
+                <div class="calendar-block calendar-block-11"></div>
+                <div class="calendar-block calendar-block-12"></div>
+                <div class="calendar-block calendar-block-13"></div>
+                <div class="calendar-block calendar-block-14"></div>
+                <div class="calendar-block calendar-block-15"></div>
+                <div class="calendar-block calendar-block-16"></div>
+                <div class="calendar-block calendar-block-17"></div>
+                <div class="calendar-block calendar-block-18"></div>
+                <div class="calendar-block calendar-block-19"></div>
                 <div *ngFor="let appointment of doctor.appointments">
                     <div>-----------------------------------------------</div>
                     <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>

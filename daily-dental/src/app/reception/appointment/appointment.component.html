@@ -1,4 +1,4 @@
-<a (click)="edit()">
+<a (click)="edit()" [ngClass]="['appointment-start-time-'+appointment?.startTime, 'appointment-duration-'+appointment?.duration]" class="appointment appointment-duration appointment-start-time">
     {{appointment | json}}
 </a>
 

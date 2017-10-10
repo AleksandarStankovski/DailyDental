@@ -28,6 +28,7 @@ export class AppointmentFormComponent implements OnInit {
     doctors: Doctor[];
     manipulations: Manipulation[];
     hours;
+    durationHours;
 
     constructor(
         private modalDialogRef: MdDialogRef<AppointmentFormComponent>,
@@ -39,7 +40,7 @@ export class AppointmentFormComponent implements OnInit {
 
     ngOnInit() {
         this.snackbarConfig = new SnackbarConfig();
-        this.appointment = new Appointment(new Date, 8, 9, '', '', '', '', []);
+        this.appointment = new Appointment(new Date, 8, undefined, '', '', '', '', [], '');
         this.getAllDoctors();
         this.getAllManipulations();
         this.getHours();
@@ -48,6 +49,8 @@ export class AppointmentFormComponent implements OnInit {
         }
         if (this.data.appointmentId) {
             this.getAppointment();
+        } else {
+            this.getDuration();
         }
     }
 
@@ -55,6 +58,7 @@ export class AppointmentFormComponent implements OnInit {
         this.appointmentService.getAppointment(this.data.appointmentId)
         .subscribe(resolve => {
             this.appointment = resolve;  
+            this.getDuration();
         });
     }
 
@@ -140,6 +144,17 @@ export class AppointmentFormComponent implements OnInit {
         );
     }
 
+    getDuration(): number[]{
+        let hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        this.durationHours = hours.filter(x => x <= (20 - this.appointment.startTime));
+        return this.durationHours;
+    }
+
+    durationFilter() {
+        this.appointment.duration = undefined;
+        this.getDuration();
+    }
+
     getHours() {
         this.hours = [
             {
@@ -189,10 +204,6 @@ export class AppointmentFormComponent implements OnInit {
             {
                 name: '19:00',
                 value: 19
-            },
-            {
-                name: '20:00',
-                value: 20
             }
         ]
         return this.hours;

@@ -25,12 +25,13 @@ export class ReceptionComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.receptionData = new Date();
-        this.getAppointmentByDate(this.receptionData);
+        let newDate = new Date().setHours(13, 0, 0, 0);
+        this.receptionData = new Date(newDate);
+        this.getAppointmentByDate();
     }
 
-    getAppointmentByDate(date): void {
-        this.appointmentService.getAppointmentByDate(date)
+    getAppointmentByDate(): void {
+        this.appointmentService.getAppointmentByDate(this.receptionData)
         .subscribe(response => {
             this.doctors = response;
         })
@@ -46,7 +47,7 @@ export class ReceptionComponent implements OnInit {
         });
         modalDialogRef.afterClosed()
         .subscribe(result => {
-            // this.getAppointmentByDate();
+            this.getAppointmentByDate();
         })
     }
 
@@ -59,9 +60,9 @@ export class ReceptionComponent implements OnInit {
     }
 
     changeDate(value): void {
-        this.receptionData = value;
-        console.log(this.receptionData.toISOString())
-        this.getAppointmentByDate(this.receptionData);
+        let newDate = new Date(value).setHours(13, 0, 0, 0);
+        this.receptionData =  new Date(newDate);
+        this.getAppointmentByDate();
     }
 
 }

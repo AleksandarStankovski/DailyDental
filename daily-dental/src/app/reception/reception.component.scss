@@ -1,0 +1,12 @@
+.calendar {
+    position: relative;
+    .calendar-block {
+        border: 1px solid #000;
+        height: 100px;
+    }
+    .appointment-block {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}

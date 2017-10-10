@@ -11,7 +11,7 @@ let appointmentSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    endTime: {
+    duration: {
         type: Number,
         required: true
     },
@@ -34,8 +34,10 @@ let appointmentSchema = mongoose.Schema({
     manipulations: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'Manipulation' 
-    }
-
+    },
+    comment: {
+        type: String
+    },
 });
 
 const Appointment = mongoose.model('Appointment', appointmentSchema);

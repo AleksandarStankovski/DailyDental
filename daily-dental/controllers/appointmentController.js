@@ -13,9 +13,12 @@ module.exports = {
 
     getByDate: (req, res) => { 
         let date = req.params.date;
-        console.log(new Date(date))
+        let queryDate = new Date(date);
         Doctor.find({})
-        .populate('appointments')
+        .populate({
+            path: 'appointments',
+            match: { date:  queryDate}
+        })
         .then(doctors => {
             res.json(doctors)
         })
