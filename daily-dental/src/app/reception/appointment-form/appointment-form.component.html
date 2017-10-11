@@ -3,6 +3,13 @@
 <md-dialog-content>
     <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
         <div>
+            <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
+                <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
+                    д-р. {{doctor.lastName}}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
             <md-select [(ngModel)]="appointment.startTime" (change)="durationFilter()" name="startTime" required #appointmentStartTime="ngModel" placeholder="Час" class="input-full-width">
                 <md-option *ngFor="let hour of hours" [value]="hour.value">
                     {{hour.name}}
@@ -30,13 +37,6 @@
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="appointment.phone" name="phone" required #appointmentPhone="ngModel" placeholder="Телефон">
             </md-form-field>
-        </div>
-        <div>
-            <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
-                <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
-                    д-р. {{doctor.lastName}}
-                </md-option>
-            </md-select>
         </div>
         <div>
             <md-select [(ngModel)]="appointment.manipulations" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">

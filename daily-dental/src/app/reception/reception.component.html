@@ -11,18 +11,18 @@
         <ul class="list-unstyled row gutters-6">
             <li *ngFor="let doctor of doctors" class="calendar col-6 col-md-4">
                 <!-- <h6>{{doctor.lastName}}</h6> -->
-                <div class="calendar-block calendar-block-8"></div>
-                <div class="calendar-block calendar-block-9"></div>
-                <div class="calendar-block calendar-block-10"></div>
-                <div class="calendar-block calendar-block-11"></div>
-                <div class="calendar-block calendar-block-12"></div>
-                <div class="calendar-block calendar-block-13"></div>
-                <div class="calendar-block calendar-block-14"></div>
-                <div class="calendar-block calendar-block-15"></div>
-                <div class="calendar-block calendar-block-16"></div>
-                <div class="calendar-block calendar-block-17"></div>
-                <div class="calendar-block calendar-block-18"></div>
-                <div class="calendar-block calendar-block-19"></div>
+                <div (click)="addAppointment(doctor._id, 8)" class="calendar-block calendar-block-8"></div>
+                <div (click)="addAppointment(doctor._id, 9)" class="calendar-block calendar-block-9"></div>
+                <div (click)="addAppointment(doctor._id, 10)" class="calendar-block calendar-block-10"></div>
+                <div (click)="addAppointment(doctor._id, 11)" class="calendar-block calendar-block-11"></div>
+                <div (click)="addAppointment(doctor._id, 12)" class="calendar-block calendar-block-12"></div>
+                <div (click)="addAppointment(doctor._id, 13)" class="calendar-block calendar-block-13"></div>
+                <div (click)="addAppointment(doctor._id, 14)" class="calendar-block calendar-block-14"></div>
+                <div (click)="addAppointment(doctor._id, 15)" class="calendar-block calendar-block-15"></div>
+                <div (click)="addAppointment(doctor._id, 16)" class="calendar-block calendar-block-16"></div>
+                <div (click)="addAppointment(doctor._id, 17)" class="calendar-block calendar-block-17"></div>
+                <div (click)="addAppointment(doctor._id, 18)" class="calendar-block calendar-block-18"></div>
+                <div (click)="addAppointment(doctor._id, 19)" class="calendar-block calendar-block-19"></div>
                 <div *ngFor="let appointment of doctor.appointments">
                     <div>-----------------------------------------------</div>
                     <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>

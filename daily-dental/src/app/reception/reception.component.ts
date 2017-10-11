@@ -37,11 +37,13 @@ export class ReceptionComponent implements OnInit {
         })
     }
 
-    openModalDialog(appointmentId?: string, receptionData?: Date): void {
-        const id = appointmentId || undefined;
-        const date = receptionData || undefined;
+    openModalDialog(appointmentId?: string, receptionData?: Date, doctorId?: string, startTime?: number): void {
+        const appointment = appointmentId;
+        const date = receptionData;
+        const doctor = doctorId;
+        const start = startTime;
         const modalDialogRef = this.modalDialog.open(AppointmentFormComponent, {
-            data: { appointmentId: id, receptionData: date },
+            data: { appointmentId: appointment, receptionData: date, doctorId: doctor, startTime: start },
             width: this.modalConfig.width,
             panelClass: 'loading-overlay-container'
         });
@@ -51,8 +53,8 @@ export class ReceptionComponent implements OnInit {
         })
     }
 
-    addAppointment(): void {
-        this.openModalDialog(undefined, this.receptionData);
+    addAppointment(doctorId?: string, startTime?: number): void {
+        this.openModalDialog(undefined, this.receptionData, doctorId, startTime);
     }
 
     editAppointment(appointmentId): void {
