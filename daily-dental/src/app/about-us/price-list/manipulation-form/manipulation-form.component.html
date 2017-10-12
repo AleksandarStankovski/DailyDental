@@ -13,14 +13,17 @@
             </md-form-field>
         </div>
         <div>
+            <md-select [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип" class="input-full-width">
+                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
+            </md-select>
+        </div>
+        <div>
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" placeholder="Цена" type="number">
             </md-form-field>
         </div>
         <div>
-            <md-select [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип" class="input-full-width">
-                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
-            </md-select>
+            <md-slider (change)="changePrice($event.value)" [value]="manipulation.price" max="1000" min="0" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></md-slider>
         </div>
     </form>
 </md-dialog-content>

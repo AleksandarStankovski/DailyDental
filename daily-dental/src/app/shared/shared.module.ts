@@ -15,7 +15,9 @@ import {
     MdIconModule,
     MdSelectModule,
     MdDatepickerModule,
-MdNativeDateModule } from '@angular/material';
+    MdNativeDateModule,
+    MdMenuModule,
+    MdSliderModule } from '@angular/material';
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
@@ -38,7 +40,9 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         MdIconModule,
         MdSelectModule,
         MdDatepickerModule,
-        MdNativeDateModule
+        MdNativeDateModule,
+        MdMenuModule,
+        MdSliderModule
     ],
     declarations: [
         SecondNavComponent,
@@ -60,6 +64,8 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         MdIconModule,
         MdSelectModule,
         MdDatepickerModule,
+        MdMenuModule,
+        MdSliderModule,
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,

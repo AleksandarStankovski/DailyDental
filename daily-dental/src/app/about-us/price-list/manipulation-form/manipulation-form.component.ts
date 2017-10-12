@@ -51,6 +51,10 @@ export class ManipulationFormComponent implements OnInit {
         this.specialities = this.specialityService.getAllSpecialities();
     }
 
+    changePrice(value: number): void {
+        this.manipulation.price = value;
+    }
+
     save(): void {
         this.loadingOverlay = true;
         if (this.data.manipulationId) {

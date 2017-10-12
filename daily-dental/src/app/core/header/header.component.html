@@ -5,11 +5,21 @@
                 <a (click)="toggleMenu()" class="d-flex header-top-toggle cursor-pointer">
                     <i class="fontello ft-26 icon-menu-button"></i>
                 </a>
-                <a class="d-flex header-top-account cursor-pointer">
+                <a [mdMenuTriggerFor]="profileMenu" class="d-flex header-top-account cursor-pointer">
                     <i class="fontello ft-28 icon-user"></i>
                 </a>
             </div>
         </div>
+        <md-menu #profileMenu="mdMenu" xPosition="before" yPosition="below">
+            <a md-menu-item>
+                <md-icon>voicemail</md-icon>
+                <span>Профил</span>
+            </a>
+            <a md-menu-item>
+                <md-icon>notifications_off</md-icon>
+                <span>Изход</span>
+            </a>
+        </md-menu>
         <div class="header-title">
             <h1>{{title}}</h1>
         </div>
