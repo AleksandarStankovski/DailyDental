@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap-grid";
 
 .patient {
+    $patient-darken: 10%;
     position: relative;
     min-height: 250px;
     height: 100%;
@@ -54,7 +55,7 @@
         .patient-sbox {
             background-color: $app-default-speciality;
             &:after {
-                background-color: darken($app-default-speciality, 10);
+                background-color: darken($app-default-speciality, $patient-darken);
             }
         }
     }
@@ -62,7 +63,7 @@
         .patient-sbox {
             background-color: $app-aesthetic;
             &:after {
-                background-color: darken($app-aesthetic, 10);
+                background-color: darken($app-aesthetic, $patient-darken);
             }
         }
     }
@@ -70,7 +71,7 @@
         .patient-sbox {
             background-color: $app-parodontology;
             &:after {
-                background-color: darken($app-parodontology, 10);
+                background-color: darken($app-parodontology, $patient-darken);
             }
         }
     }
@@ -78,7 +79,7 @@
         .patient-sbox {
             background-color: $app-pediatrics;
             &:after {
-                background-color: darken($app-pediatrics, 10);
+                background-color: darken($app-pediatrics, $patient-darken);
             }
         }
     }
@@ -86,7 +87,7 @@
         .patient-sbox {
             background-color: $app-endodontics;
             &:after {
-                background-color: darken($app-endodontics, 10);
+                background-color: darken($app-endodontics, $patient-darken);
             }
         }
     }
@@ -94,7 +95,7 @@
         .patient-sbox {
             background-color: $app-orthodontics;
             &:after {
-                background-color: darken($app-orthodontics, 10);
+                background-color: darken($app-orthodontics, $patient-darken);
             }
         }
     }
@@ -102,7 +103,7 @@
         .patient-sbox {
             background-color: $app-surgery;
             &:after {
-                background-color: darken($app-surgery, 10);
+                background-color: darken($app-surgery, $patient-darken);
             }
         }
     }

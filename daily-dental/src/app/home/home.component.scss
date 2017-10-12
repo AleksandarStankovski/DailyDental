@@ -6,11 +6,11 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 7;
     background-image: url('/assets/images/home-bck.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    z-index: 7;
     &:after {
         content: '';
         position: absolute;

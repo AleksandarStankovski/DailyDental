@@ -2,13 +2,14 @@
 @import "~bootstrap/scss/bootstrap-grid";
 
 .doctor {
+    $doctor-opacity: .6;
     position: relative;
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     .doctor-fbox {
-        min-height: 200px;
         z-index: 1;
+        min-height: 200px;
         color: $app-ligth-color;
         @include media-breakpoint-down(xs) {
             min-height: 150px;
@@ -47,105 +48,105 @@
     &.default {
         background-color: $app-default-speciality;
         &:after {
-            background-color: rgba($app-default-speciality, .6);
+            background-color: rgba($app-default-speciality, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-default-speciality, .6);
+                background-color: rgba($app-default-speciality, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-default-speciality, .6);
+            background-color: rgba($app-default-speciality, $doctor-opacity);
         }
     }
     &.aesthetic {
         background-color: $app-aesthetic;
         background-image: url('/assets/images/staff/aesthetic.jpg');
         &:after {
-            background-color: rgba($app-aesthetic, .6);
+            background-color: rgba($app-aesthetic, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-aesthetic, .6);
+                background-color: rgba($app-aesthetic, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-aesthetic, .6);
+            background-color: rgba($app-aesthetic, $doctor-opacity);
         }
     }
     &.parodontology {
         background-color: $app-parodontology;
         background-image: url('/assets/images/staff/parodontology.jpeg');
         &:after {
-            background-color: rgba($app-parodontology, .6);
+            background-color: rgba($app-parodontology, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-parodontology, .6);
+                background-color: rgba($app-parodontology, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-parodontology, .6);
+            background-color: rgba($app-parodontology, $doctor-opacity);
         }
     }
     &.pediatrics {
         background-color: $app-pediatrics;
         background-image: url('/assets/images/staff/pediatrics.jpg');
         &:after {
-            background-color: rgba($app-pediatrics, .6);
+            background-color: rgba($app-pediatrics, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-pediatrics, .6);
+                background-color: rgba($app-pediatrics, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-pediatrics, .6);
+            background-color: rgba($app-pediatrics, $doctor-opacity);
         }
     }
     &.endodontics {
         background-color: $app-endodontics;
         background-image: url('/assets/images/staff/endodontics.jpg');
         &:after {
-            background-color: rgba($app-endodontics, .6);
+            background-color: rgba($app-endodontics, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-endodontics, .6);
+                background-color: rgba($app-endodontics, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-endodontics, .6);
+            background-color: rgba($app-endodontics, $doctor-opacity);
         }
     }
     &.orthodontics {
         background-color: $app-orthodontics;
         background-image: url('/assets/images/staff/orthodontics.jpeg');
         &:after {
-            background-color: rgba($app-orthodontics, .6);
+            background-color: rgba($app-orthodontics, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-orthodontics, .6);
+                background-color: rgba($app-orthodontics, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-orthodontics, .6);
+            background-color: rgba($app-orthodontics, $doctor-opacity);
         }
     }
     &.surgery {
         background-color: $app-surgery;
         background-image: url('/assets/images/staff/surgery.jpg');
         &:after {
-            background-color: rgba($app-surgery, .6);
+            background-color: rgba($app-surgery, $doctor-opacity);
         }
         .doctor-fbox {
             .doctor-icon {
-                background-color: rgba($app-surgery, .6);
+                background-color: rgba($app-surgery, $doctor-opacity);
             }
         }
         .doctor-sbox {
-            background-color: rgba($app-surgery, .6);
+            background-color: rgba($app-surgery, $doctor-opacity);
         }
     }
 }

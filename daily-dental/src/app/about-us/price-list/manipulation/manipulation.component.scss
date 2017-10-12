@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap-grid";
 
 .manipulation {
+    $manipulation-darken: 10%;
     min-height: 150px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -24,7 +25,7 @@
         .manipulation-fbox {
             background-color: $app-default-speciality;
             > div {
-                background-color: darken($app-default-speciality, 10%);
+                background-color: darken($app-default-speciality, $manipulation-darken);
             }
         }
     }
@@ -32,7 +33,7 @@
         .manipulation-fbox {
             background-color: $app-aesthetic;
             > div {
-                background-color: darken($app-aesthetic, 10%);
+                background-color: darken($app-aesthetic, $manipulation-darken);
             }
         }
     }
@@ -40,7 +41,7 @@
         .manipulation-fbox {
             background-color: $app-parodontology;
             > div {
-                background-color: darken($app-parodontology, 10%);
+                background-color: darken($app-parodontology, $manipulation-darken);
             }
         }
     }
@@ -48,7 +49,7 @@
         .manipulation-fbox {
             background-color: $app-pediatrics;
             > div {
-                background-color: darken($app-pediatrics, 10%);
+                background-color: darken($app-pediatrics, $manipulation-darken);
             }
         }
     }
@@ -56,7 +57,7 @@
         .manipulation-fbox {
             background-color: $app-endodontics;
             > div {
-                background-color: darken($app-endodontics, 10%);
+                background-color: darken($app-endodontics, $manipulation-darken);
             }
         }
     }
@@ -64,7 +65,7 @@
         .manipulation-fbox {
             background-color: $app-orthodontics;
             > div {
-                background-color: darken($app-orthodontics, 10%);
+                background-color: darken($app-orthodontics, $manipulation-darken);
             }
         }
     }
@@ -72,7 +73,7 @@
         .manipulation-fbox {
             background-color: $app-surgery;
             > div {
-                background-color: darken($app-surgery, 10%);
+                background-color: darken($app-surgery, $manipulation-darken);
             }
         }
     }

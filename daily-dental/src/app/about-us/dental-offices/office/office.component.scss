@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap-grid";
 
 .office {
+    $office-darken: 10%;
     position: relative;
     min-height: 250px;
     height: 100%;
@@ -9,9 +10,9 @@
         min-height: 185px;
     }
     .office-sbox {
+        z-index: 1;
         margin-top: 100px;
         padding: 15px;
-        z-index: 1;
         color: $app-ligth-color;
         opacity: .8;
     }
@@ -31,8 +32,8 @@
             background-color: $app-default-speciality;
         }
         .office-sbox {
-            $app-aesthetic-darken: darken($app-default-speciality, 10%);
-            background-color: rgba($app-default-speciality, 10%);
+            $app-aesthetic-darken: darken($app-default-speciality, $office-darken);
+            background-color: rgba($app-default-speciality, $office-darken);
         }
     }
     &.aesthetic {
@@ -41,8 +42,8 @@
             background-image: url('/assets/icons/svg/tooth.svg');
         }
         .office-sbox {
-            $app-aesthetic-darken: darken($app-aesthetic, 10%);
-            background-color: rgba($app-aesthetic-darken, 10%);
+            $app-aesthetic-darken: darken($app-aesthetic, $office-darken);
+            background-color: rgba($app-aesthetic-darken, $office-darken);
         }
     }
     &.parodontology {
@@ -51,8 +52,8 @@
             background-image: url('/assets/icons/svg/parodontology.svg');
         }
         .office-sbox {
-            $app-parodontology-darken: darken($app-parodontology, 10%);
-            background-color: rgba($app-parodontology-darken, 10%);
+            $app-parodontology-darken: darken($app-parodontology, $office-darken);
+            background-color: rgba($app-parodontology-darken, $office-darken);
         }
     }
     &.pediatrics {
@@ -61,8 +62,8 @@
             background-image: url('/assets/icons/svg/tooth.svg');
         }
         .office-sbox {
-            $app-pediatrics-darken: darken($app-pediatrics, 10%);
-            background-color: rgba($app-pediatrics-darken, 10%);
+            $app-pediatrics-darken: darken($app-pediatrics, $office-darken);
+            background-color: rgba($app-pediatrics-darken, $office-darken);
         }
     }
     &.endodontics {
@@ -71,8 +72,8 @@
             background-image: url('/assets/icons/svg/endodontics.svg');
         }
         .office-sbox {
-            $app-endodontics-darken: darken($app-endodontics, 10%);
-            background-color: rgba($app-endodontics-darken, 10%);
+            $app-endodontics-darken: darken($app-endodontics, $office-darken);
+            background-color: rgba($app-endodontics-darken, $office-darken);
         }
     }
     &.orthodontics {
@@ -81,8 +82,8 @@
             background-image: url('/assets/icons/svg/braces.svg');
         }
         .office-sbox {
-            $app-orthodontics-darken: darken($app-orthodontics, 10%);
-            background-color: rgba($app-orthodontics-darken, 10%);
+            $app-orthodontics-darken: darken($app-orthodontics, $office-darken);
+            background-color: rgba($app-orthodontics-darken, $office-darken);
         }
     }
     &.surgery {
@@ -91,8 +92,8 @@
             background-image: url('/assets/icons/svg/pliers-2.svg');
         }
         .office-sbox {
-            $app-surgery-darken: darken($app-surgery, 10%);
-            background-color: rgba($app-surgery-darken, 10%);
+            $app-surgery-darken: darken($app-surgery, $office-darken);
+            background-color: rgba($app-surgery-darken, $office-darken);
         }
     }
 }
