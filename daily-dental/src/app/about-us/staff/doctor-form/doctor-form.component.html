@@ -45,8 +45,8 @@
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
-    <button md-button [md-dialog-close]="'cancel'">Cancel</button>
-    <button *ngIf="data.doctorId" md-button (click)="delete()">Delete</button>
-    <button md-button (click)="save()" [disabled]="doctorForm.invalid">Save</button>
+    <button md-button [md-dialog-close]="'cancel'">Затвори</button>
+    <button *ngIf="data.doctorId" md-button (click)="delete()">Изтрий</button>
+    <button md-button (click)="save()" [disabled]="doctorForm.invalid">Запази</button>
 </md-dialog-actions>
 
