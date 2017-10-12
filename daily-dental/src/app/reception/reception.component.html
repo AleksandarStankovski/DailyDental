@@ -1,34 +1,32 @@
-<div class="reception page">
-    <app-floating-button (openModalDialog)="addAppointment()"></app-floating-button>
-    <div class="page-container">
-        <md-form-field class="example-full-width">
-            <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
-            <md-datepicker-toggle mdSuffix [for]="datepicker"></md-datepicker-toggle>
-            <md-datepicker touchUi="true" #datepicker></md-datepicker>
-        </md-form-field>
-    </div>
-    <div class="page-container">
-        <ul class="list-unstyled row gutters-6">
-            <li *ngFor="let doctor of doctors" class="calendar col-6 col-md-4">
-                <!-- <h6>{{doctor.lastName}}</h6> -->
-                <div (click)="addAppointment(doctor._id, 8)" class="calendar-block calendar-block-8"></div>
-                <div (click)="addAppointment(doctor._id, 9)" class="calendar-block calendar-block-9"></div>
-                <div (click)="addAppointment(doctor._id, 10)" class="calendar-block calendar-block-10"></div>
-                <div (click)="addAppointment(doctor._id, 11)" class="calendar-block calendar-block-11"></div>
-                <div (click)="addAppointment(doctor._id, 12)" class="calendar-block calendar-block-12"></div>
-                <div (click)="addAppointment(doctor._id, 13)" class="calendar-block calendar-block-13"></div>
-                <div (click)="addAppointment(doctor._id, 14)" class="calendar-block calendar-block-14"></div>
-                <div (click)="addAppointment(doctor._id, 15)" class="calendar-block calendar-block-15"></div>
-                <div (click)="addAppointment(doctor._id, 16)" class="calendar-block calendar-block-16"></div>
-                <div (click)="addAppointment(doctor._id, 17)" class="calendar-block calendar-block-17"></div>
-                <div (click)="addAppointment(doctor._id, 18)" class="calendar-block calendar-block-18"></div>
-                <div (click)="addAppointment(doctor._id, 19)" class="calendar-block calendar-block-19"></div>
-                <div *ngFor="let appointment of doctor.appointments">
-                    <div>-----------------------------------------------</div>
-                    <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>
-                </div>
+<div class="reception">
+    <nav class="reception-nav">
+        <ul class="d-flex justify-content-center list-unstyled">
+            <li *ngFor="let doctor of doctors" [ngClass]="{'full-width': doctors?.length > 3}">
+                <a (click)="getAppointmentByDoctor(doctor._id, false)" class="cursor-pointer decoration-none d-flex justify-content-center align-items-center">
+                    <app-avatar [color]="doctor.speciality" [firstName]="doctor.firstName" [lastName]="doctor.lastName"></app-avatar>
+                    <span class="d-none d-md-block ml-2">др. {{doctor.lastName}}</span>
+                </a>
             </li>
         </ul>
+    </nav>
+    <div class="page">
+        <app-floating-button *ngIf="doctors?.length > 0" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
+        <div class="page-container">
+            <div *ngIf="doctors?.length > 0">
+                <md-form-field class="example-full-width">
+                    <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
+                    <md-datepicker-toggle mdSuffix [for]="datepicker"></md-datepicker-toggle>
+                    <md-datepicker touchUi="true" #datepicker></md-datepicker>
+                </md-form-field>
+            </div>
+            <ul class="list-unstyled row gutters-6">
+                <li *ngFor="let appointment of appointments">
+                    <div>-----------------------------------------------</div>
+                    <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+
 

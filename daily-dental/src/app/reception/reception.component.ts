@@ -5,6 +5,7 @@ import { MdDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
 import { Doctor } from '../shared/models/doctor.model';
+import { Appointment } from '../shared/models/appointment.model';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { AppointmentService } from './appointment/appointment.service';
 
@@ -18,6 +19,9 @@ export class ReceptionComponent implements OnInit {
     modalConfig: ModalConfig;
     doctors: Doctor[];
     receptionData: Date;
+    appointments: Appointment[];
+    tutorialText: string;
+    activeDoctor: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -34,16 +38,38 @@ export class ReceptionComponent implements OnInit {
         this.appointmentService.getAppointmentByDate(this.receptionData)
         .subscribe(response => {
             this.doctors = response;
+            if (this.doctors.length > 0) {
+                if (!this.activeDoctor) {
+                    this.activeDoctor = this.doctors[0]._id;
+                }
+                this.getAppointmentByDoctor(this.activeDoctor, true);
+            }
         })
     }
 
-    openModalDialog(appointmentId?: string, receptionData?: Date, doctorId?: string, startTime?: number): void {
+    getAppointmentByDoctor(doctorId: string, reload: boolean): void {
+        if ((this.activeDoctor !== doctorId) || ((this.activeDoctor === doctorId) && reload)) {
+            console.log('dsadasdas')
+            this.activeDoctor = doctorId;
+            this.doctors.forEach(doctor => {
+                if (doctor._id === doctorId) {
+                    this.appointments = doctor.appointments;
+                    if (this.appointments.length === 0) {
+                        this.tutorialText = 'Кликнете тук за да запишете час';
+                    } else {
+                        this.tutorialText = undefined;
+                    }
+                }
+            })
+        }
+    }
+
+    openModalDialog(appointmentId?: string, receptionData?: Date, activeDoctor?: string): void {
         const appointment = appointmentId;
         const date = receptionData;
-        const doctor = doctorId;
-        const start = startTime;
+        const doctor = activeDoctor;
         const modalDialogRef = this.modalDialog.open(AppointmentFormComponent, {
-            data: { appointmentId: appointment, receptionData: date, doctorId: doctor, startTime: start },
+            data: { appointmentId: appointment, receptionData: date, activeDoctor: doctor },
             width: this.modalConfig.width,
             panelClass: 'loading-overlay-container'
         });
@@ -53,8 +79,8 @@ export class ReceptionComponent implements OnInit {
         })
     }
 
-    addAppointment(doctorId?: string, startTime?: number): void {
-        this.openModalDialog(undefined, this.receptionData, doctorId, startTime);
+    addAppointment(): void {
+        this.openModalDialog(undefined, this.receptionData, this.activeDoctor);
     }
 
     editAppointment(appointmentId): void {

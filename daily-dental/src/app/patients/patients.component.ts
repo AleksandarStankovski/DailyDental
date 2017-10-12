@@ -41,7 +41,7 @@ export class PatientsComponent implements OnInit {
     }
 
     openModalDialog(patientId?: string): void {
-        const id = patientId || undefined;
+        const id = patientId;
         const modalDialogRef = this.modalDialog.open(PatientFormComponent, {
             data: { patientId: id },
             width: this.modalConfig.width,
@@ -57,7 +57,7 @@ export class PatientsComponent implements OnInit {
         this.openModalDialog();
     }
 
-    editPatient(patientId): void {
+    editPatient(patientId: string): void {
         this.openModalDialog(patientId);
     }
 

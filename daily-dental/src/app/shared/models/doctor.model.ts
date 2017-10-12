@@ -1,3 +1,5 @@
+import { Appointment } from './appointment.model';
+
 export class Doctor {
     constructor(
         public firstName: string,
@@ -8,6 +10,6 @@ export class Doctor {
         public email: string,
         public speciality: string,
         public active: boolean = true,
-        public appointments?: [{}],
+        public appointments?: Appointment[],
         public _id?: string) {}
 }

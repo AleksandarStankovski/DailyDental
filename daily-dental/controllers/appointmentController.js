@@ -17,7 +17,8 @@ module.exports = {
         Doctor.find({})
         .populate({
             path: 'appointments',
-            match: { date:  queryDate}
+            match: { date:  queryDate },
+            options: { sort: { startTime: 1 } }
         })
         .then(doctors => {
             res.json(doctors)

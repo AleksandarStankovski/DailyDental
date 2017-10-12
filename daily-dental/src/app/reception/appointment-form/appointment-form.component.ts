@@ -44,11 +44,8 @@ export class AppointmentFormComponent implements OnInit {
         if (this.data.receptionData) {
             this.appointment.date = this.data.receptionData;
         }
-        if (this.data.doctorId) {
-            this.appointment.doctor = this.data.doctorId;
-        }
-        if (this.data.startTime) {
-            this.appointment.startTime = this.data.startTime;
+        if (this.data.activeDoctor) {
+            this.appointment.doctor = this.data.activeDoctor;
         }
         if (this.data.appointmentId) {
             this.getAppointment();

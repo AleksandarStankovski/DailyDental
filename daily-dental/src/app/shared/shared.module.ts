@@ -20,6 +20,7 @@ MdNativeDateModule } from '@angular/material';
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 import { FloatingButtonComponent } from './floating-button/floating-button.component';
+import { AvatarComponent } from './avatar/avatar.component';
 import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 
@@ -43,6 +44,7 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,
+        AvatarComponent,
         TransitionElementDirective,
         SpecialityConverterPipe
     ],
@@ -61,6 +63,7 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,
+        AvatarComponent,
         TransitionElementDirective,
         SpecialityConverterPipe
     ]

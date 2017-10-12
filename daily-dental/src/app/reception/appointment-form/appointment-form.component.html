@@ -2,6 +2,7 @@
 <div class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
+        <p [hidden]="manipulations?.length > 0">Моля, преди да запишете час, създайте манипулация.</p>
         <div>
             <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
                 <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
@@ -38,7 +39,7 @@
                 <input mdInput [(ngModel)]="appointment.phone" name="phone" required #appointmentPhone="ngModel" placeholder="Телефон">
             </md-form-field>
         </div>
-        <div>
+        <div [hidden]="manipulations?.length === 0">
             <md-select [(ngModel)]="appointment.manipulations" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
                 <md-option *ngFor="let manipulation of manipulations" [value]="manipulation._id">
                     {{manipulation.name}}

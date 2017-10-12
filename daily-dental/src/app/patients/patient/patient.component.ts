@@ -19,8 +19,7 @@ export class PatientComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
     edit(): void {
         this.editPatient.emit(this.patient._id);

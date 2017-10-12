@@ -1,0 +1,27 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    font-style: normal;
+    &.aesthetic {
+        background-color: $app-aesthetic;
+    }
+    &.parodontology {
+        background-color: $app-parodontology;
+    }
+    &.pediatrics {
+        background-color: $app-pediatrics;
+    }
+    &.endodontics {
+        background-color: $app-endodontics;
+    }
+    &.orthodontics {
+        background-color: $app-orthodontics;
+    }
+    &.surgery {
+        background-color: $app-surgery;
+    }
+}
