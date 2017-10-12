@@ -1,3 +1,4 @@
+
 html {
     cursor: default;
     @include media-breakpoint-down(xs) {
@@ -19,112 +20,15 @@ h2 {
     margin-left: 0;
 }
 
-/* Material design icon */
-/* Rules for sizing the icon. */
-.material-icons { 
-    &.md-16 {
-        font-size: 16px; 
-        height: 16px;
-        width: 16px;
-    }
-    &.md-18 {
-        font-size: 18px; 
-        height: 18px;
-        width: 18px;
-    }
-    &.md-20 {
-        font-size: 20px; 
-        height: 20px;
-        width: 20px;
-    }
-    &.md-22 {
-        font-size: 22px; 
-        height: 22px;
-        width: 22px;
-    }
-    &.md-24 {
-        font-size: 24px; 
-        height: 24px;
-        width: 24px;
-    }
-    &.md-26 {
-        font-size: 26px; 
-        height: 26px;
-        width: 26px;
-    }
-    &.md-28 {
-        font-size: 28px; 
-        height: 28px;
-        width: 28px;
-    }
-    &.md-30 {
-        font-size: 30px; 
-        height: 30px;
-        width: 30px;
-    }
-    &.md-32 {
-        font-size: 32px; 
-        height: 32px;
-        width: 32px;
-    }
-    &.md-34 {
-        font-size: 34px; 
-        height: 34px;
-        width: 34px;
-    }
-    &.md-36 {
-        font-size: 36px; 
-        height: 36px;
-        width: 36px;
-    }
-    &.md-38 {
-        font-size: 38px; 
-        height: 38px;
-        width: 38px;
-    }
-    &.md-40 {
-        font-size: 40px; 
-        height: 40px;
-        width: 40px;
-    }
-}
-
-/* Flaticon */
+/* Generates a list of fontello sizes*/
 .fontello {
     line-height: 1;
-    &.ft-16 {
-       font-size: 16px; 
-    }
-    &.ft-22 {
-       font-size: 22px; 
-    }
-    &.ft-24 {
-       font-size: 24px; 
-    }
-    &.ft-26 {
-       font-size: 26px; 
-    }
-    &.ft-28 {
-       font-size: 28px; 
-    }
-    &.ft-30 {
-       font-size: 30px; 
-    }
-    &.ft-32 {
-       font-size: 32px; 
-    }
-    &.ft-34 {
-       font-size: 34px; 
-    }
-    &.ft-36 {
-       font-size: 36px; 
-    }
-    &.ft-38 {
-       font-size: 38px; 
-    }
-    &.ft-40 {
-       font-size: 40px; 
-    }
+    @include generate-fontello-size($fontello-sizes);
+}
+
+/* Generates a list of fontello sizes*/
+.material-icons {
+    @include generate-material-icon-size($material-icon-sizes);
 }
 
 /* Spinner global styles */

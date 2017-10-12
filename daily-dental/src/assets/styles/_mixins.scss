@@ -1,0 +1,17 @@
+@mixin generate-fontello-size($sizes) {
+    @each $size in $sizes {
+        &.ft-#{$size} {
+            font-size: #{$size}px;
+        }
+    }
+}
+
+@mixin generate-material-icon-size($sizes) {
+    @each $size in $sizes {
+        &.md-#{$size} {
+            font-size: #{$size}px;
+            height: #{$size}px;
+            width: #{$size}px;
+        }
+    }
+}
