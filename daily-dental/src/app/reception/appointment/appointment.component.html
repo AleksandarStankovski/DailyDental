@@ -1,4 +1,18 @@
-<a (click)="edit()" [ngClass]="['appointment-start-time-'+appointment?.startTime, 'appointment-duration-'+appointment?.duration]" class="appointment appointment-duration appointment-start-time">
-    {{appointment | json}}
+<a (click)="edit()" class="appointment cursor-pointer d-flex">
+    <div class="appointment-fbox d-flex flex-column justify-content-between">
+        <div class="d-flex justify-content-center align-items-center rounded-circle">
+            <i class="fontello ft-34 icon-doctor"></i>
+        </div>
+        <span></span>
+    </div>
+    <div class="appointment-sbox col">
+        <div class="d-flex justify-content-between">
+            <span class="phone"><i class="fontello icon-phone-fill ft-14"></i> {{appointment.patient.phone}}</span>
+            <span class="time">{{appointment.startTime | timeConverter}}ч. - {{endTime | timeConverter}}ч.</span>
+        </div>
+        <h5 class="mb-2">{{appointment.patient.firstName}} {{appointment.patient.lastName}}</h5> 
+        <p><span *ngFor="let manipulation of appointment.manipulations" class="mr-1">{{manipulation.name}} </span></p>
+        <p class="d-block text-right mt-3">Дължима сума: <span class="bold-text">{{totalPrice | number:'2.2'}} лв.</span></p>
+    </div>    
 </a>
 

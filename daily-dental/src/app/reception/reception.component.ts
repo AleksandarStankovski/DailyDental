@@ -49,7 +49,6 @@ export class ReceptionComponent implements OnInit {
 
     getAppointmentByDoctor(doctorId: string, reload: boolean): void {
         if ((this.activeDoctor !== doctorId) || ((this.activeDoctor === doctorId) && reload)) {
-            console.log('dsadasdas')
             this.activeDoctor = doctorId;
             this.doctors.forEach(doctor => {
                 if (doctor._id === doctorId) {

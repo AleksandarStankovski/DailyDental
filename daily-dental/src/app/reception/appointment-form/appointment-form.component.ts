@@ -40,7 +40,7 @@ export class AppointmentFormComponent implements OnInit {
 
     ngOnInit() {
         this.snackbarConfig = new SnackbarConfig();
-        this.appointment = new Appointment(new Date, 8, undefined, '', '', '', '', [], '');
+        this.appointment = new Appointment(new Date, 8, undefined, { firstName: '', lastName: '', phone: ''}, '', [], '');
         if (this.data.receptionData) {
             this.appointment.date = this.data.receptionData;
         }

@@ -1,31 +1,55 @@
 @import "~assets/styles/variables";
 @import "~bootstrap/scss/bootstrap-grid";
 
-nav {
-    margin-top: -50px;
-    background-color: rgba(#fff, .4);
-    min-height: 50px;
-    li {
-        &.full-width {
-            flex: 1;
+.reception {
+    nav {
+        margin-top: -50px;
+        background-color: rgba(#fff, .4);
+        min-height: 50px;
+        li {
+            &.full-width {
+                flex: 1;
+            }
+            @include media-breakpoint-down(sm) {
+                flex: 1;
+            }
         }
-        @include media-breakpoint-down(sm) {
-            flex: 1;
+        a {
+            min-height: 50px;
+            padding: 5px 30px;
+            color: $app-ligth-color;
+            transition: color .4s;
+            @include media-breakpoint-down(sm) {
+                padding: 5px 10px;
+            }
+            &:hover {
+                color: darken($app-ligth-color, 10%);
+            }
+            &.active {
+                border-bottom: 2px solid $app-primary;
+            }
         }
     }
-    a {
-        min-height: 50px;
-        padding: 5px 30px;
-        color: $app-ligth-color;
-        transition: color .4s;
-        @include media-breakpoint-down(sm) {
-            padding: 5px 10px;
+    .page-container {
+        width: 700px;
+        max-width: 100%;
+        padding-top: 45px;
+        padding-bottom: 15px;
+        > div {
+            border-radius: 5px;
+            background-color: #fff;
         }
-        &:hover {
-            color: darken($app-ligth-color, 10%);
+        .timeline-date {
+            padding-right: 15px;
+            padding-bottom: 30px;
+            padding-left: 15px;
+            .btn-datepicker {
+                margin-top: -28px;
+            }
+            .reception-data {
+                font-size: 2rem;
+            }
         }
-        &.active {
-            border-bottom: 2px solid $app-primary;
-        }
+
     }
 }

@@ -25,6 +25,7 @@ import { FloatingButtonComponent } from './floating-button/floating-button.compo
 import { AvatarComponent } from './avatar/avatar.component';
 import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
+import { TimeConverterPipe } from './time-converter.pipe';
 
 @NgModule({
     imports: [
@@ -50,7 +51,8 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         FloatingButtonComponent,
         AvatarComponent,
         TransitionElementDirective,
-        SpecialityConverterPipe
+        SpecialityConverterPipe,
+        TimeConverterPipe
     ],
     exports: [
         CommonModule,
@@ -71,7 +73,8 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
         FloatingButtonComponent,
         AvatarComponent,
         TransitionElementDirective,
-        SpecialityConverterPipe
+        SpecialityConverterPipe,
+        TimeConverterPipe
     ]
 })
 export class SharedModule { }

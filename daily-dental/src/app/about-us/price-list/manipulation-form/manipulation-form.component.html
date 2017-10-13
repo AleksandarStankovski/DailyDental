@@ -4,11 +4,6 @@
     <form (ngSubmit)="manipulationForm.valid && save()" #manipulationForm="ngForm" novalidate>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="manipulation.code" name="code" required #manipulationCode="ngModel" placeholder="Код">
-            </md-form-field>
-        </div>
-        <div>
-            <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="manipulation.name" name="name" required #manipulationName="ngModel" placeholder="Име">
             </md-form-field>
         </div>

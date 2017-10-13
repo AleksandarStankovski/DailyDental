@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const config = require('../config/config');
 
 let manipulationSchema = mongoose.Schema({
-    code: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true

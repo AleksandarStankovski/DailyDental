@@ -18,7 +18,12 @@ module.exports = {
         .populate({
             path: 'appointments',
             match: { date:  queryDate },
-            options: { sort: { startTime: 1 } }
+            options: { sort: { startTime: 1 } },
+            populate: {
+                path: 'manipulations',
+                model: 'Manipulation',
+                select: 'name price'
+            }
         })
         .then(doctors => {
             res.json(doctors)

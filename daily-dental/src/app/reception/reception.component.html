@@ -11,20 +11,28 @@
     </nav>
     <div class="page">
         <app-floating-button *ngIf="doctors?.length > 0" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
-        <div class="page-container">
-            <div *ngIf="doctors?.length > 0">
-                <md-form-field class="example-full-width">
-                    <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
-                    <md-datepicker-toggle mdSuffix [for]="datepicker"></md-datepicker-toggle>
+        <div class="page-container mx-auto">
+            <div>
+                <div *ngIf="doctors?.length > 0" class="timeline-date">
+                    <md-form-field class="example-full-width d-none">
+                        <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
+                    </md-form-field>
                     <md-datepicker touchUi="true" #datepicker></md-datepicker>
-                </md-form-field>
+                    <div class="d-flex flex-column align-items-center">
+                        <a (click)="datepicker.open()" md-fab class="btn-datepicker">
+                            <md-icon>date_range</md-icon>
+                        </a>
+                        <span class="reception-data mt-2">{{receptionData | date: 'dd/MM/y'}}</span>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <ul class="list-unstyled">
+                        <li *ngFor="let appointment of appointments">
+                            <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <ul class="list-unstyled row gutters-6">
-                <li *ngFor="let appointment of appointments">
-                    <div>-----------------------------------------------</div>
-                    <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>
-                </li>
-            </ul>
         </div>
     </div>
 </div>

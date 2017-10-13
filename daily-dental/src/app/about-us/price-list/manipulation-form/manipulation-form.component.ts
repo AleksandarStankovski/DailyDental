@@ -32,7 +32,7 @@ export class ManipulationFormComponent implements OnInit {
         @Inject(MD_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
-        this.manipulation = new Manipulation('', '', undefined, '');
+        this.manipulation = new Manipulation('', undefined, '');
         this.snackbarConfig = new SnackbarConfig();
         this.getAllSpecialities();
         if (this.data.manipulationId) {

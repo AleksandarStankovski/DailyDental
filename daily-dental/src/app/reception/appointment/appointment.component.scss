@@ -1,0 +1,35 @@
+.appointment {
+    padding-left: 15px;
+    padding-right: 15px;
+    .appointment-fbox {
+        position: relative;
+        div {
+            width: 60px;
+            height: 60px;  
+            background-color: #4fefff;
+            color: #fff;
+        }
+        span {
+            position: absolute;
+            top: 70px;
+            bottom: 10px; 
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background: #d8d8d8;   
+        }
+    }
+    .appointment-sbox {
+        padding-bottom: 50px;
+        .phone {
+            flex: 1;
+        }
+        .time {
+            color: #48b8f3;
+        }
+        h5 {
+            color: #4eeeff;
+        }
+
+    }
+}
