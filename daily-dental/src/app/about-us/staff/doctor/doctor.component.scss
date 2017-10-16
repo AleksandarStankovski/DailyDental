@@ -9,8 +9,11 @@
     background-repeat: no-repeat;
     .doctor-fbox {
         z-index: 1;
-        min-height: 200px;
+        min-height: 250px;
         color: $app-ligth-color;
+        @include media-breakpoint-down(lg) {
+            min-height: 200px;
+        }
         @include media-breakpoint-down(xs) {
             min-height: 150px;
         }
