@@ -13,6 +13,7 @@ module.exports = function (config) {
     })
 
     require('./../models/Clinic');
+    require('./../models/Office');
     require('./../models/Doctor');
     require('./../models/Manipulation');
     require('./../models/Patient');

@@ -32,7 +32,7 @@ export class SpecialityConverterPipe implements PipeTransform {
             break;
         }
         default: {
-            value = ''
+            value = 'Общ'
         }
     }
     return value;

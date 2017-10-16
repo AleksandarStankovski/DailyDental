@@ -7,6 +7,8 @@ import { ReceptionComponent } from './reception.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentStatusService } from './appointment-form/appointment-status.service';
+import { AppointmentHoursService } from './appointment-form/appointment-hours.service';
 
 @NgModule({
     imports: [
@@ -20,7 +22,9 @@ import { AppointmentService } from './appointment/appointment.service';
         AppointmentComponent
     ],
     providers: [
-        AppointmentService
+        AppointmentService,
+        AppointmentStatusService,
+        AppointmentHoursService
     ],
     entryComponents: [
         AppointmentFormComponent

@@ -6,6 +6,7 @@ export class Appointment {
         public patient: { firstName: string, lastName: string, phone: string },
         public doctor: string,
         public manipulations: any[],
+        public status: string,
         public comment: string,
         public _id?: string) {}
 }

@@ -60,7 +60,7 @@ export class TimeConverterPipe implements PipeTransform {
             break;
         }
         default: {
-            value = ''
+            value = 'Невалиден час'
         }
     }
     return value;

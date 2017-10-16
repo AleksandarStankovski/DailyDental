@@ -1,65 +1,50 @@
-let offices = [
-    {
-        code: '1000',
-        phone: '0876141091',
-        type: 'aesthetic',
-        _id: '1'
-    },
-    {
-        code: '1001',
-        phone: '0876141091',
-        type: 'parodontology',
-        _id: '2'
-    },
-    {
-        code: '1000',
-        phone: '0876141091',
-        type: 'pediatrics',
-        _id: '3'
-    },
-    {
-        code: '1001',
-        phone: '0876141091',
-        type: 'endodontics',
-        _id: '4'
-    },
-    {
-        code: '1001',
-        phone: '0876141091',
-        type: 'orthodontics',
-        _id: '5'
-    },
-    {
-        code: '1000',
-        phone: '0876141091',
-        type: 'surgery',
-        _id: '6'
-    }
-]
+const Office = require('mongoose').model('Office');
 
 module.exports = {
     getAll: (req, res) => { 
-        res.json(offices)
+        Office.find({})
+        .then(offces => {
+            res.json(offces);
+        })  
     },
 
     getById: (req, res) => {
-        let officeId = req.params.id;
-        let office = offices.find(x => x._id === officeId);
-        res.json(office);
+        let id = req.params.id;
+        Office.findById(id)
+        .then(office => {
+            res.json(office);
+        })
     },
 
     create: (req, res) => {
         let newOffice = req.body;
-        res.json(newOffice);
+        Office.create(newOffice)
+        .then(result => {
+            res.json('Success');
+        }).catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     edit: (req, res) => {
         let newOffice = req.body;
-        res.json(newOffice);
+        Office.findByIdAndUpdate({ _id: newOffice._id }, newOffice, { upsert: true })
+        .then(() => {
+            res.json('Success');
+        })
+        .catch(error => {
+            res.status(400).send(error);
+        })
     },
 
     delete: (req, res) => {
-        let officeId = req.params.id;
-        res.json(offices);
+        let id = req.params.id;
+        Office.findByIdAndRemove(id)
+        .then(() => {
+            res.json('Success');
+        })
+        .catch(error => {
+            res.status(400).send(error);
+        })
     }
 }

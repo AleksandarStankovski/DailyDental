@@ -14,48 +14,51 @@ import { Manipulation } from '../../../shared/models/manipulation.model';
 })
 export class ManipulationComponent implements OnInit {
 
+    manipulationIcon: string;
     @Input() manipulation: Manipulation;
     @Output() editManipulation: EventEmitter<string> = new EventEmitter();
-    manipulationIcon: string;
-
+    
     constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.getIcon();
+    }
 
     edit(): void {
         this.editManipulation.emit(this.manipulation._id);
     }
 
-    getIcon(): string {
+    getIcon(): void {
+        let icon;
         switch(this.manipulation.type) {
             case 'aesthetic': {
-                this.manipulationIcon = 'icon-tooth-3'
+                icon = 'icon-tooth-3'
                 break;
             }
             case 'parodontology': {
-                this.manipulationIcon = 'icon-parodontology'
+                icon = 'icon-parodontology'
                 break;
             }
             case 'pediatrics': {
-                this.manipulationIcon = 'icon-pediatrics'
+                icon = 'icon-pediatrics'
                 break;
             }
             case 'endodontics': {
-                this.manipulationIcon = 'icon-endodontics'
+                icon = 'icon-endodontics'
                 break;
             }
             case 'orthodontics': {
-                this.manipulationIcon = 'icon-braces-2'
+                icon = 'icon-braces-2'
                 break;
             }
             case 'surgery': {
-                this.manipulationIcon = 'icon-implant-2'
+                icon = 'icon-implant-2'
                 break;
             }
             default: {
-                this.manipulationIcon = 'icon-tooth-5'
+                icon = 'icon-tooth-5'
             }
         }
-        return this.manipulationIcon;
+        this.manipulationIcon = icon;
     }
 }

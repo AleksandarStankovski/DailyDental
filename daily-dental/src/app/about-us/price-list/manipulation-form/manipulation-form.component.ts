@@ -15,14 +15,14 @@ import { SpecialityService } from '../../../core/speciality.service';
 @Component({
     selector: 'app-manipulation-form',
     templateUrl: './manipulation-form.component.html',
-    styleUrls: ['./manipulation-form.component.css']
+    styleUrls: ['./manipulation-form.component.scss']
 })
 export class ManipulationFormComponent implements OnInit {
 
     manipulation: Manipulation;
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
-    specialities: {type: string, name: string}[];
+    specialities: { type: string, name: string }[];
 
     constructor(
         private modalDialogRef: MdDialogRef<ManipulationFormComponent>,

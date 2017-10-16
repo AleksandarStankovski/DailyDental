@@ -17,7 +17,8 @@ import {
     MdDatepickerModule,
     MdNativeDateModule,
     MdMenuModule,
-    MdSliderModule } from '@angular/material';
+    MdSliderModule,
+    MdTooltipModule } from '@angular/material';
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
@@ -26,6 +27,7 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
+import { StatusConverterPipe } from './status-converter.pipe';
 
 @NgModule({
     imports: [
@@ -43,7 +45,8 @@ import { TimeConverterPipe } from './time-converter.pipe';
         MdDatepickerModule,
         MdNativeDateModule,
         MdMenuModule,
-        MdSliderModule
+        MdSliderModule,
+        MdTooltipModule
     ],
     declarations: [
         SecondNavComponent,
@@ -52,7 +55,8 @@ import { TimeConverterPipe } from './time-converter.pipe';
         AvatarComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
-        TimeConverterPipe
+        TimeConverterPipe,
+        StatusConverterPipe
     ],
     exports: [
         CommonModule,
@@ -68,13 +72,15 @@ import { TimeConverterPipe } from './time-converter.pipe';
         MdDatepickerModule,
         MdMenuModule,
         MdSliderModule,
+        MdTooltipModule,
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,
         AvatarComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
-        TimeConverterPipe
+        TimeConverterPipe,
+        StatusConverterPipe
     ]
 })
 export class SharedModule { }

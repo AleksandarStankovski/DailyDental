@@ -10,6 +10,7 @@ import {
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Office } from '../../../shared/models/office.model';
 import { OfficeService } from '../office/office.service';
+import { SpecialityService } from '../../../core/speciality.service';
 
 @Component({
   selector: 'app-office-form',
@@ -21,15 +22,19 @@ export class OfficeFormComponent implements OnInit {
     office: Office;
     snackbarConfig: SnackbarConfig
     loadingOverlay: boolean;
+    specialities: { type: string, name: string }[];
 
     constructor(
         private modalDialogRef: MdDialogRef<OfficeFormComponent>,
-        private officeService: OfficeService,
         private snackBar: MdSnackBar,
+        private officeService: OfficeService,
+        private specialityService: SpecialityService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.office = new Office('', '', '');
+        this.snackbarConfig = new SnackbarConfig();
+        this.getAllSpecialities();
         if (this.data.officeId) {
             this.getOffice();
         }
@@ -40,6 +45,10 @@ export class OfficeFormComponent implements OnInit {
         .subscribe(response => {
             this.office = response;
         });
+    }
+
+    getAllSpecialities(): void {
+        this.specialities = this.specialityService.getAllSpecialities();
     }
 
     save(): void {

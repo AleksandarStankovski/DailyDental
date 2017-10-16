@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div class="md-dialog-header"></div>
+<div [ngClass]="appointment.status" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
         <p [hidden]="manipulations?.length > 0">Моля, преди да запишете час, създайте манипулация.</p>
@@ -43,6 +43,13 @@
             <md-select [(ngModel)]="appointment.manipulations" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
                 <md-option *ngFor="let manipulation of manipulations" [value]="manipulation._id">
                     {{manipulation.name}}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-select [(ngModel)]="appointment.status" name="status" required #appointmentStatus="ngModel" placeholder="Статус" class="input-full-width">
+                <md-option *ngFor="let status of statuses" [value]="status.type">
+                    {{status.name}}
                 </md-option>
             </md-select>
         </div>

@@ -42,7 +42,8 @@ export class DentalOfficesComponent implements OnInit {
         const id = officeId || undefined;
         const modalDialogRef = this.modalDialog.open(OfficeFormComponent, {
             width: this.modalConfig.width,
-            data: { officeId: id }
+            data: { officeId: id },
+            panelClass: 'loading-overlay-container'
         })
         modalDialogRef.afterClosed()
         .subscribe(result => {

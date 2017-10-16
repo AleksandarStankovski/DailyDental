@@ -1,9 +1,10 @@
+<app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
 <div [ngClass]="office.type" class="md-dialog-header"></div>
 <md-dialog-content>
     <form (ngSubmit)="officeForm.valid && save()" #officeForm="ngForm" novalidate>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="office.code" name="code" required #officeCode="ngModel" placeholder="Код">
+                <input mdInput [(ngModel)]="office.name" name="name" required #officeName="ngModel" placeholder="Име">
             </md-form-field>
         </div>
         <div>
@@ -12,9 +13,9 @@
             </md-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="office.type" name="tyep" required #officeType="ngModel" placeholder="Тип">
-            </md-form-field>
+            <md-select [(ngModel)]="office.type" name="type" required #officeType="ngModel" placeholder="Тип" class="input-full-width">
+                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
+            </md-select>
         </div>
     </form>
 </md-dialog-content>

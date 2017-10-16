@@ -11,13 +11,23 @@ $app-primary: #3f51b5;
 $app-secondary: #ff4081;
 $app-ligth-color: #f5f7ff; 
 $app-dark-color: #212529;
-$app-default-speciality: #3f51b5;
+$app-default-speciality: $app-primary;
 $app-aesthetic: #C457A2;
 $app-parodontology: #3cd469;
 $app-pediatrics: #FF6F94;
 $app-endodontics: #F9DD57;
 $app-orthodontics: #8D57C4;
 $app-surgery: #37C0FF;
+$app-default-status: $app-primary;
+$app-confirmed: #9575CD;
+$app-unconfirmed: #9E9E9E;
+$app-arrived: #03A9F4;
+$app-current: #00BCD4;
+$app-finished: #8BC34A;
+$app-late: #FFC107;
+$app-missing: #607D8B;
+$app-canceled: #D50000;
+$app-urgent: #FF5722;
 
 // Fontello sizes
 $fontello-sizes: (14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40);

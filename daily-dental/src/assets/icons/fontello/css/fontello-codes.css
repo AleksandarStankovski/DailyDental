@@ -98,3 +98,13 @@
 .icon-b-arrow-up-arrow:before { content: '\e860'; } /* '' */
 .icon-b-arrow-curved:before { content: '\e861'; } /* '' */
 .icon-b-arrow-right-up:before { content: '\e862'; } /* '' */
+.icon-danger:before { content: '\e863'; } /* '' */
+.icon-danger-fill:before { content: '\e864'; } /* '' */
+.icon-blocked:before { content: '\e865'; } /* '' */
+.icon-current:before { content: '\e866'; } /* '' */
+.icon-home-1:before { content: '\e868'; } /* '' */
+.icon-question:before { content: '\e86a'; } /* '' */
+.icon-time:before { content: '\e86b'; } /* '' */
+.icon-done:before { content: '\e86c'; } /* '' */
+.icon-home-fill:before { content: '\e86d'; } /* '' */
+.icon-like:before { content: '\e86e'; } /* '' */

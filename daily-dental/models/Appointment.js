@@ -38,6 +38,11 @@ let appointmentSchema = mongoose.Schema({
         default: [],
         ref: 'Manipulation' 
     }],
+    status: {
+        type: String,
+        enum: config.development.appointmentStatus,
+        require: true
+    },
     comment: {
         type: String
     },

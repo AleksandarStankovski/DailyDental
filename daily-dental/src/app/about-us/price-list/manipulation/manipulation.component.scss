@@ -15,16 +15,14 @@
     .manipulation-fbox {
         padding: 15px;
         color: $app-ligth-color;
+        background-color: $app-default-speciality;
         > div {
             width: 60px;
             height: 60px;
-        }
-    }
-    &.default {
-        .manipulation-fbox {
-            background-color: $app-default-speciality;
-            > div {
-                background-color: darken($app-default-speciality, $manipulation-darken);
+            background-color: darken($app-default-speciality, $manipulation-darken);
+            @include media-breakpoint-down(xs) {
+                width: 55px;
+                height: 55px;
             }
         }
     }

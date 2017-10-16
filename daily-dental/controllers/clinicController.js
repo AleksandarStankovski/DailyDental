@@ -28,19 +28,12 @@ module.exports = {
 
     edit: (req, res) => {
         let newClinic = req.body;
-        Clinic.findById(newClinic._id)
-        .then(clinic => {
-            clinic.name = newClinic.name;
-            clinic.phone = newClinic.phone;
-            clinic.city = newClinic.city;
-            clinic.address = newClinic.address;
-            clinic.email = newClinic.email;
-            clinic.save()
-            .then(() => {
-                res.json('Success');
-            }).catch(error => {
-                res.status(400).send(error);
-            })
+        Clinic.findByIdAndUpdate({ _id: newClinic._id }, newClinic, { upsert: true })
+        .then(() => {
+            res.json('Success');
+        })
+        .catch(error => {
+            res.status(400).send(error);
         })
     }
 }

@@ -5,6 +5,7 @@ module.exports = {
         port: 3000,
         rootFolder: path.normalize(path.join(__dirname, '/../')),
         connectionString: 'mongodb://localhost:27017/dailyDental',
-        specialityType: ['aesthetic', 'parodontology', 'pediatrics', 'endodontics', 'orthodontics', 'surgery']
+        specialityType: ['aesthetic', 'parodontology', 'pediatrics', 'endodontics', 'orthodontics', 'surgery'],
+        appointmentStatus: ['confirmed', 'unconfirmed', 'arrived', 'current', 'finished', 'late', 'missing', 'canceled', 'urgent']
     }
 };

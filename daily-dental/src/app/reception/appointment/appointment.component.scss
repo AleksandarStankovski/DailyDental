@@ -1,3 +1,6 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
 .appointment {
     padding-left: 15px;
     padding-right: 15px;
@@ -6,8 +9,12 @@
         div {
             width: 60px;
             height: 60px;  
-            background-color: #4fefff;
+            background-color: $app-default-status;
             color: #fff;
+            @include media-breakpoint-down(xs) {
+                width: 55px;
+                height: 55px;
+            }
         }
         span {
             position: absolute;
@@ -28,8 +35,115 @@
             color: #48b8f3;
         }
         h5 {
-            color: #4eeeff;
+            color: $app-default-status;
         }
-
+    }
+    &.confirmed {
+        .appointment-fbox {
+           div {
+              background-color: $app-confirmed; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-confirmed;
+            }
+        }
+    }
+    &.unconfirmed {
+        .appointment-fbox {
+           div {
+              background-color: $app-unconfirmed; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-unconfirmed;
+            }
+        }
+    }
+    &.arrived {
+        .appointment-fbox {
+           div {
+              background-color: $app-arrived; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-arrived;
+            }
+        }
+    }
+    &.current {
+        .appointment-fbox {
+           div {
+              background-color: $app-current; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-current;
+            }
+        }
+    }
+    &.finished {
+        .appointment-fbox {
+           div {
+              background-color: $app-finished; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-finished;
+            }
+        }
+    }
+    &.late {
+        .appointment-fbox {
+           div {
+              background-color: $app-late; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-late;
+            }
+        }
+    }
+    &.missing {
+        .appointment-fbox {
+           div {
+              background-color: $app-missing; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-missing;
+            }
+        }
+    }
+    &.canceled {
+        .appointment-fbox {
+           div {
+              background-color: $app-canceled; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-canceled;
+            }
+        }
+    }
+    &.urgent {
+        .appointment-fbox {
+           div {
+              background-color: $app-urgent; 
+           }
+        }
+        .appointment-sbox {
+            h5 {
+                color: $app-urgent;
+            }
+        }
     }
 }

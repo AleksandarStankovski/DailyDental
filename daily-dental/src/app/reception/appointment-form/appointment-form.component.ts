@@ -10,6 +10,8 @@ import {
 import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
 import { Appointment } from '../../shared/models/appointment.model';
 import { AppointmentService } from '../appointment/appointment.service';
+import { AppointmentStatusService } from './appointment-status.service';
+import { AppointmentHoursService } from './appointment-hours.service';
 import { Doctor } from '../../shared/models/doctor.model';
 import { Manipulation } from '../../shared/models/manipulation.model';
 import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
@@ -27,20 +29,28 @@ export class AppointmentFormComponent implements OnInit {
     appointment: Appointment;
     doctors: Doctor[];
     manipulations: Manipulation[];
-    hours;
+    statuses: { type: string, name: string }[];
+    hours: { name: string, value: number }[];
     durationHours;
 
     constructor(
         private modalDialogRef: MdDialogRef<AppointmentFormComponent>,
         private snackBar: MdSnackBar,
         private appointmentService: AppointmentService,
+        private appointmentStatusService: AppointmentStatusService,
+        private appointmentHoursService: AppointmentHoursService,
         private doctorService: DoctorService,
         private manipulationService: ManipulationService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.snackbarConfig = new SnackbarConfig();
-        this.appointment = new Appointment(new Date, 8, undefined, { firstName: '', lastName: '', phone: ''}, '', [], '');
+        this.appointment = new Appointment(new Date, 8, undefined, { firstName: '', lastName: '', phone: ''}, '', [], 'confirmed', '');
+        this.getAllDoctors();
+        this.getAllHours();
+        this.getAllManipulations();
+        this.getAllStatuses();
+
         if (this.data.receptionData) {
             this.appointment.date = this.data.receptionData;
         }
@@ -52,10 +62,6 @@ export class AppointmentFormComponent implements OnInit {
         } else {
             this.getDuration();
         }
-
-        this.getAllDoctors();
-        this.getAllManipulations();
-        this.getHours();
     }
 
     getAppointment(): void {
@@ -73,34 +79,6 @@ export class AppointmentFormComponent implements OnInit {
         })
     }
 
-    // hoursFilter() {
-    //     let selectedDoctor;
-    //     let arr = [];
-    //     let newHours = this.getHours();
-        
-    //     this.doctors.forEach(doctor => {
-    //         if (doctor._id === this.appointment.doctor) {
-    //             doctor.appointments.forEach((appointment:any) => {
-    //                 let sum = appointment.startTime + appointment.duration;
-    //                 for(let i = appointment.startTime; i <= sum; i++) {
-    //                     arr.push(i);
-    //                 }
-    //             })
-                
-    //         }
-    //     })
-    //     if (arr.length > 0) {
-    //         newHours.forEach((x, index) => {
-    //             console.log(newHours)
-    //             arr.forEach(y => {
-    //                 if (x.value == y) {
-    //                     this.hours.splice(index, 1)
-    //                 }
-    //             })
-    //         })
-    //     }
-    // }
-
     getAllDoctors(): void {
         this.doctorService.getAllDoctors()
         .subscribe(response => {
@@ -108,11 +86,34 @@ export class AppointmentFormComponent implements OnInit {
         });
     }
 
+    getAllHours(): void {
+        this.hours = this.appointmentHoursService.getAllHours();
+    }
+
     getAllManipulations(): void {
         this.manipulationService.getAllManipulations()
         .subscribe(response => {
             this.manipulations = response;
         });
+    }
+
+    getAllStatuses(): void {
+        this.statuses = this.appointmentStatusService.getAllStatuses();
+    }
+
+    getDuration(): number[]{
+        let duration = [];
+        let lastHour = this.hours[this.hours.length - 1].value + 1;
+        for (let i = 1; i <= this.hours.length; i++) {
+            duration.push(i);
+        }
+        this.durationHours = duration.filter(x => x <= (lastHour - this.appointment.startTime));
+        return this.durationHours;
+    }
+
+    durationFilter(): void {
+        this.appointment.duration = undefined;
+        this.getDuration();
     }
 
     save(): void {
@@ -183,69 +184,32 @@ export class AppointmentFormComponent implements OnInit {
         );
     }
 
-    getDuration(): number[]{
-        let hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-        this.durationHours = hours.filter(x => x <= (20 - this.appointment.startTime));
-        return this.durationHours;
-    }
-
-    durationFilter(): void {
-        this.appointment.duration = undefined;
-        this.getDuration();
-    }
-
-    getHours(): [{}] {
-        this.hours = [
-            {
-                name: '08:00',
-                value: 8
-            },
-            {
-                name: '09:00',
-                value: 9
-            },
-            {
-                name: '10:00',
-                value: 10
-            },
-            {
-                name: '11:00',
-                value: 11
-            },
-            {
-                name: '12:00',
-                value: 12
-            },
-            {
-                name: '13:00',
-                value: 13
-            },
-            {
-                name: '14:00',
-                value: 14
-            },
-            {
-                name: '15:00',
-                value: 15
-            },
-            {
-                name: '16:00',
-                value: 16
-            },
-            {
-                name: '17:00',
-                value: 17
-            },
-            {
-                name: '18:00',
-                value: 18
-            },
-            {
-                name: '19:00',
-                value: 19
-            }
-        ]
-        return this.hours;
-    }
+    // hoursFilter() {
+    //     let selectedDoctor;
+    //     let arr = [];
+    //     let newHours = this.getHours();
+        
+    //     this.doctors.forEach(doctor => {
+    //         if (doctor._id === this.appointment.doctor) {
+    //             doctor.appointments.forEach((appointment:any) => {
+    //                 let sum = appointment.startTime + appointment.duration;
+    //                 for(let i = appointment.startTime; i <= sum; i++) {
+    //                     arr.push(i);
+    //                 }
+    //             })
+                
+    //         }
+    //     })
+    //     if (arr.length > 0) {
+    //         newHours.forEach((x, index) => {
+    //             console.log(newHours)
+    //             arr.forEach(y => {
+    //                 if (x.value == y) {
+    //                     this.hours.splice(index, 1)
+    //                 }
+    //             })
+    //         })
+    //     }
+    // }
 
 }
