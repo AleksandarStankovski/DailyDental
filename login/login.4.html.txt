@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NAT2010 Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        html, body, p, fieldset{
+        	margin: 0;
+        	padding: 0;
+        }
+        *{
+    		-webkit-box-sizing: border-box;
+    		-moz-box-sizing: border-box;
+    		box-sizing: border-box;
+		}
+		label, p{
+			color: #333;
+		}
+		fieldset{
+			border: 0;
+		}
+		.clearfix:after{
+    		clear: both;
+    		content: "";
+    		display: block;
+		}
+        .container{
+        	width: 1500px;
+        	max-width: 100%;
+        	margin: auto;
+        	padding-left: 15px;
+        	padding-right: 15px;
+        }
+        .login-header{
+        	padding-top: 8px;
+        	padding-bottom: 8px;
+        	background-color: #212121;
+        	min-height: 50px;
+        }
+            .login-header img{
+            	width: 50px;
+            	max-width: 100%;
+            }
+        .login-section-container{
+        	width: 320px;
+        	max-width: 100%;
+        	margin-left: auto;
+        	margin-right: auto;
+        	margin-top: 80px;
+        	margin-bottom: 20px;
+        }
+        .admin-form-header{
+    		padding: 10px 15px;
+    		border: 1px solid #ddd;
+    		background-color: #f5f5f5;
+		}
+		    .admin-form-header p{
+		    	font-size: 16px;
+		    } 
+		.admin-form-body{
+    		padding: 15px;
+    		border-left: 1px solid #ddd;
+    		border-right: 1px solid #ddd;
+		}
+			.admin-form-body .form-group{
+				margin-bottom: 15px;
+			}
+			.admin-form-body label{
+				display: block;
+				margin-bottom: 5px;
+				font-size: 14px;
+			}
+			.admin-form-body input{
+				display: block;
+				width: 100%;
+				height: 30px;
+    			padding: 5px 10px;
+    			font-size: 12px;
+    			line-height: 1.5;
+    			border: 1px solid #ccc;
+    			border-radius: 0;
+			}
+			.admin-form-body input:focus{
+    			outline-offset: 0;
+    			outline: 0;
+			}
+		.admin-form-footer{
+   	 		padding: 10px 15px;
+    		border: 1px solid #ddd;
+    		background-color: #f5f5f5;
+		}
+			.admin-form-footer button{
+				background-color: #337ab7;
+				border: 1px solid transparent;
+    			border-color: #2e6da4;
+				color: #fff;
+				display: inline-block;
+    			margin-bottom: 0;
+    			text-align: center;
+    			vertical-align: middle;
+    			cursor: pointer;
+    			background-image: none;
+    			white-space: nowrap;
+    			padding: 6px 12px;
+    			font-size: 12px;
+    			border-radius: 0;
+    			min-width: 80px;
+    			float: right;
+    		}
+    		.admin-form-footer button:hover{
+    			color: #fff;
+    			background-color: #286090;
+    			border-color: #204d74;
+			}
+			.admin-form-footer button:focus, .admin-form-footer button:focus:active{
+				outline-offset: 0;
+				outline: 0;
+			}
+		@media (max-width: 400px){
+    		.admin-form-footer button{
+       			width: 100%;
+       			padding: 8px 12px;
+       		}
+       	}		
+    </style>
+</head>
+<body>
+	<div class="login-header">
+		<div class="container">
+			<img src="../images/logo-white.png">
+		</div>
+	</div>
+	<div class="login-section">
+		<div class="container">
+			<div class="login-section-container">
+				<form method="POST" action="/administration/login">
+    			    <header class="admin-form-header">
+    			        <p>Вход</p>
+    			    </header>
+    			    <fieldset class="admin-form-body">
+    			        <section>
+    			            <div class="form-group">
+    			                <label>Потребителско име</label>
+    			                <input type="text" class="form-control input-sm" name="userName"> 
+    			            </div>
+    			            <div>
+    			                <label>Парола</label> 
+    			                <input type="password" class="form-control input-sm" name="password"> 
+    			            </div> 
+    			        </section>
+    			    </fieldset>
+    			    <footer class="admin-form-footer clearfix">
+    			        <button type="submit" class="btn btn-xs btn-custom">Вход</button>
+    			    </footer>
+    			</form>
+    		</div>
+		</div>	
+	</div>
+</body>

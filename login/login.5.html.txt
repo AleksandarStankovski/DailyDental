@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spetema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: sans-serif;
+            background-color: #eeeeee;
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        html,
+        body,
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .error {
+            display: none;
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            padding: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .header-login {
+            background-color: #172a48;
+            min-height: 37px;
+        }
+        
+        .header-logo {
+            text-align: center;
+            padding-top: 10px;
+        }
+        
+        .header-logo a {
+            color: #ffffff;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: default
+        }
+        
+        .section-login {
+            width: 430px;
+            max-width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+        }
+        
+        .section-login header {
+            padding: 15px;
+            background-color: #e0e0e0;
+        }
+        
+        .section-login header h2 {
+            text-align: center;
+            color: #333333;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: normal;
+            cursor: default;
+        }
+        
+        .section-login section {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 55px;
+            padding-right: 55px;
+            background-color: #ffffff;
+        }
+        
+        .section-login div {
+            margin-bottom: 20px;
+        }
+        
+        .section-login div:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-login section input {
+            height: 40px;
+            width: 100%;
+            border: 1px solid #d7d7d7;
+            border-left: 3px solid #333333;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .section-login section input:hover,
+        .section-login section input:focus,
+        .section-login section input:focus:active {
+            outline: none;
+        }
+        
+        .section-login section button {
+            width: 100%;
+            cursor: pointer;
+            background-color: #535353;
+            border: none;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 14px;
+            -webkit-transition: background-color .3s;
+            -moz-transition: background-color .3s;
+            -o-transition: background-color .3s;
+            transition: background-color .5s;
+        }
+        
+        .section-login section button:hover,
+        .section-login section button:focus,
+        .section-login section button:focus:active {
+            outline: 0;
+        }
+        
+        .section-login section button:hover {
+            background-color: #333333;
+        }
+        
+        .footer-login {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .footer-login a {
+            color: #858585;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .section-login {
+                width: inherit;
+                left: 20px;
+                right: 20px;
+                transform: translateX(0) translateY(-50%);
+                -ms-transform: translateX(0) translateY(-50%);
+                -webkit-transform: translateX(0) translateY(-50%);
+                -moz-transform: translateX(0) translateY(-50%);
+            }
+            .section-login section {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+        }
+        
+        @media screen and (max-height: 500px) {
+            .section-login {
+                top: 80px;
+                margin-bottom: 20px;
+                transform: translateX(-50%) translateY(0);
+                -ms-transform: translateX(-50%) translateY(0);
+                -webkit-transform: translateX(-50%) translateY(0);
+                -moz-transform: translateX(-50%) translateY(0);
+            }
+            .footer-login {
+                display: none;
+            }
+        }
+        
+        @media screen and (max-width: 600px) and (max-height: 500px) {
+            .section-login {
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                width: inherit;
+                margin-bottom: 20px;
+                transform: translateX(0) translateY(0);
+                -ms-transform: translateX(0) translateY(0);
+                -webkit-transform: translateX(0) translateY(0);
+                -moz-transform: translateX(0) translateY(0);
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        function getUser(evt) {
+            var user = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var params = 'username=' + user + '&pass=' + password;
+            var url = window.location.origin + '/administration/login';
+            var xhttp = new XMLHttpRequest();
+            
+            xhttp.open("POST", url, true);
+            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhttp.send(params);
+            xhttp.onreadystatechange = function() {
+                if (this.status == 401) {
+                    document.getElementById("error").innerHTML = this.responseText;
+                }
+                if (this.status == 200) {
+                    location.reload();
+                }
+            };
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <header class="header-login">
+        <div class="header-logo">
+            <a>Spetema</a>
+        </div>
+    </header>
+    <section class="section-login">
+        <header>
+            <h2>Вход в системата</h2>
+        </header>
+        <section>
+            <form onsubmit="return getUser()" method="POST">
+                <div id="error" class="error">
+                </div>
+                <div>
+                    <input type="text" placeholder="Потребителско име" id="username" name="username">
+                </div>
+                <div>
+                    <input type="password" placeholder="Парола" id="password" name="password">
+                </div>
+                <div>
+                    <button type="submit" class="login-btn">Вход</button>
+                </div>
+            </form>
+        </section>
+    </section>
+    <footer class="footer-login">
+        <a href="http://cdots.bg/" target="_blank">SOLUTION DELIVERED BY CDOTS LTD.</a>
+    </footer>
+</body>
