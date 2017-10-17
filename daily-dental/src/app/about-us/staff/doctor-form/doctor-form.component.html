@@ -28,16 +28,27 @@
             </md-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
-            </md-form-field>
-        </div>
-        <div>
             <md-select [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност" class="input-full-width">
                 <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
             </md-select>
         </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
+            </md-form-field>
+        </div>
          <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="doctor.password" type="password" name="password" required #doctorPassword="ngModel" placeholder="Парола">
+            </md-form-field>
+        </div> 
+        <div>
+            <md-radio-group [(ngModel)]="doctor.role" name="role" #doctorRole="ngModel" >
+                <md-radio-button value="admin">Администратор</md-radio-button>
+                <md-radio-button value="user">Служител</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div>
             <md-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
                 Slide me!
             </md-slide-toggle>

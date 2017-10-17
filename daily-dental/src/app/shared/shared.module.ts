@@ -18,7 +18,8 @@ import {
     MdNativeDateModule,
     MdMenuModule,
     MdSliderModule,
-    MdTooltipModule } from '@angular/material';
+    MdTooltipModule,
+    MdRadioModule } from '@angular/material';
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
@@ -46,7 +47,8 @@ import { StatusConverterPipe } from './status-converter.pipe';
         MdNativeDateModule,
         MdMenuModule,
         MdSliderModule,
-        MdTooltipModule
+        MdTooltipModule,
+        MdRadioModule
     ],
     declarations: [
         SecondNavComponent,
@@ -73,6 +75,7 @@ import { StatusConverterPipe } from './status-converter.pipe';
         MdMenuModule,
         MdSliderModule,
         MdTooltipModule,
+        MdRadioModule,
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,

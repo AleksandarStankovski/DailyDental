@@ -32,7 +32,7 @@ export class DoctorFormComponent implements OnInit {
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-        this.doctor = new Doctor('', '', '', '', '', '', '');
+        this.doctor = new Doctor('', '', '', '', '', '', '', '' ,'');
         this.snackbarConfig = new SnackbarConfig();
         this.getAllSpecialities();
         if (this.data.doctorId) {

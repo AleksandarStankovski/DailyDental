@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('../config/config');
+const encryption = require('../utilities/encryption');
 
 let doctorSchema = mongoose.Schema({
     firstName: {
@@ -22,13 +23,27 @@ let doctorSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true
-    },
     speciality: {
         type: String,
         enum: config.development.specialityType,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    passwordHash: {
+        type: String, 
+        required: true
+    },
+    salt: { 
+        type: String,
+        required: true
+    },
+    role: { 
+        type: String,
+        enum: ['admin', 'user'],
         required: true
     },
     appointments: [{
@@ -40,6 +55,15 @@ let doctorSchema = mongoose.Schema({
         type: Boolean,
         required: true,
         default: true
+    }
+});
+
+doctorSchema.method ({
+    authenticate: function (password) {
+        let inputPasswordHash = encryption.hashPassword(password, this.salt);
+        let isSamePasswordHash = inputPasswordHash === this.passwordHash;
+
+        return isSamePasswordHash;
     }
 });
 

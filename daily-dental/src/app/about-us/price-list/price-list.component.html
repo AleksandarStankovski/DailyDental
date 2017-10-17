@@ -1,7 +1,6 @@
 <div class="price-lis page">
     <app-floating-button [tutorialText]="tutorialText" (openModalDialog)="addManipulation()"></app-floating-button>
     <div class="page-container container">
-        <input type="text" [(ngModel)]="search" name="search">
         <ul class="list-unstyled">
             <li *ngFor="let manipulation of manipulations">
                 <app-manipulation [manipulation]="manipulation" (editManipulation)="editManipulation($event)"></app-manipulation>
