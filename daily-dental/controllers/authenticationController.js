@@ -14,5 +14,10 @@ module.exports = {
             user.role = res.locals.user.role;
         }
         res.json(user)
+    },
+
+    logout: (req, res) => {
+        req.logOut();
+        res.redirect('/');
     }
 }

@@ -8,6 +8,7 @@ const appointmentController = require('../controllers/appointmentController');
 
 module.exports = function (app, config) {
 	app.get('/api/user', authenticationController.getUser);
+	app.get('/logout', authenticationController.logout);
   	app.get('/api/clinics', clinicController.getAll);
 	app.get('/api/clinic/:id', clinicController.getById);
 	app.post('/api/clinic/create', clinicController.create);
