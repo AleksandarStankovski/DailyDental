@@ -1,5 +1,5 @@
 const passport = require('passport');
-const LocalPassport = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 const Doctor = require('../models/Doctor');
 
 const authenticateDoctor = (email, password, done) => {
@@ -16,8 +16,8 @@ const authenticateDoctor = (email, password, done) => {
     });
 };
 
-module.exports = () => {
-    passport.use(new LocalPassport({
+module.exports = () => {    
+    passport.use(new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password'
     }, authenticateDoctor));
@@ -26,7 +26,6 @@ module.exports = () => {
         if (!doctor) {
             return done(null, false);
         }
-
         return done(null, doctor.id);
     });
 

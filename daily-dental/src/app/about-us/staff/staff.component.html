@@ -3,7 +3,7 @@
     <div class="page-container">
         <ul class="list-unstyled row no-gutters">
             <li *ngFor="let doctor of doctors" class="col-md-6">
-                <app-doctor [doctor]="doctor" (editDoctor)="editDoctor($event)"></app-doctor>
+                <app-doctor [doctor]="doctor" [isAdmin]="isAdmin" (editDoctor)="editDoctor($event)"></app-doctor>
             </li>
         </ul>
     </div>

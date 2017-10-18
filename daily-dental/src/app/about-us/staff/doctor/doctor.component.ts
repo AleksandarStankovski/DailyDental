@@ -15,11 +15,12 @@ import { Doctor } from '../../../shared/models/doctor.model';
 export class DoctorComponent implements OnInit {
 
     @Input() doctor: Doctor;
+    @Input() isAdmin: boolean;
     @Output() editDoctor: EventEmitter<string> = new EventEmitter();
 
     constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     edit(): void {
         this.editDoctor.emit(this.doctor._id);

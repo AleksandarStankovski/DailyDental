@@ -1,3 +1,4 @@
+const authenticationController = require('../controllers/authenticationController');
 const clinicController = require('../controllers/clinicController');
 const officeController = require('../controllers/officeController');
 const manipulationController = require('../controllers/manipulationController');
@@ -6,6 +7,7 @@ const patientController = require('../controllers/patientController');
 const appointmentController = require('../controllers/appointmentController');
 
 module.exports = function (app, config) {
+	app.get('/api/user', authenticationController.getUser);
   	app.get('/api/clinics', clinicController.getAll);
 	app.get('/api/clinic/:id', clinicController.getById);
 	app.post('/api/clinic/create', clinicController.create);

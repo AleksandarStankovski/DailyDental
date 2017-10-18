@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
-const bodyParser = require('body-parser');
 
 module.exports = function (app, config) {
     // This set up which is the parser for the request's data.
@@ -20,14 +20,16 @@ module.exports = function (app, config) {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    // app.use((req, res, next) => {
-    //     console.log(req)
-    //     if(req.doctor){
-    //         res.locals.user = req.doctor;
-    //     }
+    app.post("/login", passport.authenticate('local', {successRedirect: '/', failureRedirect: '/'}));
 
-    //     next();
-    // });
+    app.use((req, res, next) => {
+        if (req.user) {
+            res.locals.user = req.user;
+        } else {
+            return res.sendFile(config.rootFolder + '/login/login.html');
+        }
+        next();
+    });
 
     app.use(express.static(path.join(config.rootFolder, 'dist')));
 };

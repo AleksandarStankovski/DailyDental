@@ -7,6 +7,7 @@ import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Doctor } from '../../shared/models/doctor.model';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { DoctorService } from './doctor/doctor.service';
+import { AuthenticationService } from '../../core/authentication.service';
 
 @Component({
   selector: 'app-staff',
@@ -18,14 +19,29 @@ export class StaffComponent implements OnInit {
     doctors: Doctor[];
     modalConfig: ModalConfig;
     tutorialText: string;
+    isAdmin: boolean;
 
     constructor(
         private modalDialog: MdDialog,
-        private doctorService: DoctorService) {}
+        private doctorService: DoctorService,
+        private authenticationService: AuthenticationService) {}
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
+        this.isAdminCheck();
+    }
+
+    isAdminCheck(): void {
+        this.authenticationService.isAdmin()
+        .subscribe(response => {
+            console.log(response)
+        });
         this.getAllDoctors();
+        // this.authenticationService.isAdmin()
+        // .subscribe(response => {
+        //     this.isAddmin = response;
+            
+        // });
     }
 
     getAllDoctors(): void {
