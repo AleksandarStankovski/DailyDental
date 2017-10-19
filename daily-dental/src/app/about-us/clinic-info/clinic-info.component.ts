@@ -52,10 +52,6 @@ export class ClinicInfoComponent implements OnInit {
         })
     }
 
-    addClinic(): void {
-        this.openModalDialog();
-    }
-
     editClinic(clinicId): void {
         this.openModalDialog(clinicId);
     }

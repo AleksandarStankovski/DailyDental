@@ -5,6 +5,10 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 
+const Clinic = require('mongoose').model('Clinic');
+const Doctor = require('mongoose').model('Doctor');
+const encryption = require('../utilities/encryption');
+
 module.exports = function (app, config) {
     // This set up which is the parser for the request's data.
     app.use(bodyParser.json());
@@ -26,6 +30,54 @@ module.exports = function (app, config) {
         if (req.user) {
             res.locals.user = req.user;
         } else {
+            Clinic.find({})
+            .then(clinics => {
+                if (clinics.length === 0) {
+                    let clinic = {
+                        name: 'Clinic name'
+                    }
+                    return Clinic.create(clinic)
+                    .then(clinic => {
+                        return clinic;  
+                    })
+                }
+            })
+            .then(() => {
+                return Doctor.find()
+                .then(doctors => {
+                    if (doctors.length === 0) {
+                        let salt = encryption.generateSalt();
+                        let passwordHash = encryption.hashPassword('admin', salt);
+                        let doctor = {
+                            firstName: 'Admin',
+                            lastName: 'Admin',
+                            speciality: 'aesthetic',
+                            email: 'admin@admin.com',
+                            role: 'admin',
+                            salt: salt,
+                            passwordHash: passwordHash
+
+                        }
+                        return Doctor.create(doctor)
+                        .then(doctor => {
+                            return doctor;  
+                        })
+                    }
+                })
+            })
+            .then(doctor => {
+                if (doctor) {
+                    return Clinic.update(
+                        { },
+                        { $push: { doctors: doctor._id } }
+                    ) 
+                }
+            })
+            .then(() => {})
+            .catch(error => {
+                console.log(error)
+            });
+
             return res.sendFile(config.rootFolder + '/login/login.html');
         }
         next();

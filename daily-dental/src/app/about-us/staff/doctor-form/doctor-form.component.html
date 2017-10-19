@@ -37,27 +37,31 @@
                 <input mdInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
             </md-form-field>
         </div>
-         <div>
+        <div *ngIf="user?._id !== data.doctorId">
+            <md-select [(ngModel)]="doctor.role" name="role" required #doctorRole="ngModel" placeholder="Роля" class="input-full-width">
+                <md-option value="admin">Администратор</md-option>
+                <md-option value="user">Служител</md-option>
+            </md-select>
+        </div>
+        <div *ngIf="showPassword">
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="doctor.password" type="password" name="password" required #doctorPassword="ngModel" placeholder="Парола">
             </md-form-field>
         </div> 
-        <div>
-            <md-radio-group [(ngModel)]="doctor.role" name="role" #doctorRole="ngModel" >
-                <md-radio-button value="admin">Администратор</md-radio-button>
-                <md-radio-button value="user">Служител</md-radio-button>
-            </md-radio-group>
+        <div *ngIf="data.doctorId" class="d-flex justify-content-end">
+            <a md-button (click)="passwordToggle()">Смяна на парола</a>
         </div>
-        <div>
+        
+        <!-- <div>
             <md-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
                 Slide me!
             </md-slide-toggle>
-        </div> 
+        </div>  -->
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
     <button md-button [md-dialog-close]="'cancel'">Затвори</button>
-    <button *ngIf="data.doctorId" md-button (click)="delete()">Изтрий</button>
+    <button *ngIf="data.doctorId && (user?._id !== data.doctorId)" md-button (click)="delete()">Изтрий</button>
     <button md-button (click)="save()" [disabled]="doctorForm.invalid">Запази</button>
 </md-dialog-actions>
 

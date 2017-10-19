@@ -6,20 +6,16 @@ let clinicSchema = mongoose.Schema({
         required: true
     },
     phone: {
-        type: String,
-        required: true
+        type: String
     },
     city: {
-        type: String,
-        required: true
+        type: String
     },
     address: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
-        type: String,
-        required: true
+        type: String
     },
     offices: [{
         type: mongoose.Schema.Types.ObjectId,

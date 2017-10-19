@@ -36,9 +36,13 @@
         }
     }
     .doctor-sbox {
+        min-height: 75px;
         z-index: 1;
         padding: 15px;
         color: $app-ligth-color;
+        @include media-breakpoint-down(xs) {
+            min-height: 70px;
+        }
     }
     &:after {
         content: '';

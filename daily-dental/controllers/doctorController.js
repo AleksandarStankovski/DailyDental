@@ -27,7 +27,7 @@ module.exports = {
                 errorMsg = 'User with the same username exists!';
             } 
             if (errorMsg) {
-                res.status(400).send(error);
+                throw (errorMsg);
             } else {
                 let salt = encryption.generateSalt();
                 let passwordHash = encryption.hashPassword(newDoctor.password, salt);
@@ -55,8 +55,17 @@ module.exports = {
 
     edit: (req, res) => {
         let newDoctor = req.body;
+        if (newDoctor.password) {
+            let salt = encryption.generateSalt();
+            let passwordHash = encryption.hashPassword(newDoctor.password, salt);
+            newDoctor.passwordHash = passwordHash;
+            newDoctor.salt = salt;
+        }
         Doctor.findByIdAndUpdate({ _id: newDoctor._id }, newDoctor, { upsert: true })
-        .then(() => {
+        .then(doctor => {
+            if ((newDoctor.email !== doctor.email) || newDoctor.password) {
+                req.logOut();
+            } 
             res.json('Success');
         })
         .catch(error => {
@@ -66,18 +75,23 @@ module.exports = {
 
     delete: (req, res) => {
         let id = req.params.id;
-        Doctor.findByIdAndRemove(id)
-        .then(doctor => {
-            return Clinic.update(
-                { },
-                { $pull: { doctors: doctor._id } }
-            ) 
-        })
-        .then(() => {
-            res.json('Success');
-        })
-        .catch(error => {
-            res.status(400).send(error);
-        })
+        if (res.locals.user._id != req.params.id) {
+            Doctor.findByIdAndRemove(id)
+            .then(doctor => {
+                return Clinic.update(
+                    { },
+                    { $pull: { doctors: doctor._id } }
+                ) 
+            })
+            .then(() => {
+                res.json('Success');
+            })
+            .catch(error => {
+                res.status(400).send(error);
+            })
+        } else {
+            res.status(400).send('Unauthorized!');
+        }
+
     }
 }

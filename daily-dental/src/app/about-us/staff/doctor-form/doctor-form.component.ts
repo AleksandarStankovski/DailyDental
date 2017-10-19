@@ -9,8 +9,10 @@ import {
 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
+import { User } from '../../../shared/models/user.model';
 import { DoctorService } from '../doctor/doctor.service';
 import { SpecialityService } from '../../../core/speciality.service';
+import { AuthenticationService } from '../../../core/authentication.service';
 
 @Component({
   selector: 'app-doctor-form',
@@ -23,21 +25,34 @@ export class DoctorFormComponent implements OnInit {
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
     specialities: {type: string, name: string}[];
+    showPassword: boolean;
+    user: User;
 
     constructor(
         private modalDialogRef: MdDialogRef<DoctorFormComponent>,
         private snackBar: MdSnackBar,
         private doctorService: DoctorService,
         private specialityService: SpecialityService,
+        private authenticationService: AuthenticationService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-        this.doctor = new Doctor('', '', '', '', '', '', '', '' ,'');
+        this.showPassword = true;
+        this.doctor = new Doctor('', '', '', '', '', true, '', '' ,'', '');
         this.snackbarConfig = new SnackbarConfig();
         this.getAllSpecialities();
+        this.getUser();
         if (this.data.doctorId) {
+            this.showPassword = false;
             this.getDoctor();
         }
+    }
+
+    getUser(): void {
+        this.authenticationService.getUser()
+        .subscribe(response => {
+            this.user = response;
+        })
     }
 
     getDoctor(): void {
@@ -124,5 +139,9 @@ export class DoctorFormComponent implements OnInit {
 
     slideToggle(event): void {
         this.doctor.active = event.checked;
+    }
+
+    passwordToggle(): void {
+        this.showPassword = !this.showPassword;
     }
 }

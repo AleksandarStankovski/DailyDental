@@ -12,16 +12,13 @@ let doctorSchema = mongoose.Schema({
         required: true
     },
     egn: {
-        type: String,
-        required: true
+        type: String
     },
     phone: {
-        type: String,
-        required: true
+        type: String
     },
     address: {
-        type: String,
-        required: true
+        type: String
     },
     speciality: {
         type: String,

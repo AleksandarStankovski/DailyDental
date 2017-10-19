@@ -3,18 +3,106 @@
 <head>
     <meta charset="utf-8">
     <title>DailyDental</title>
+    <base href="/">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+                background: #ececec;
+                background-image: url('https://wallperz.com/wp-content/uploads/2017/02/09/wallperz.com-20170209044517.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+                .form {
+                    width: 400px;
+                    max-width: 100%;
+                    padding: 40px 50px;
+                    background-color: rgba(255, 255, 255, .8);
+                    box-shadow: 0px 5px 30px #1b1b1b;
+                }
+                    .input-container {
+                        margin-bottom: 20px;
+                    }
+                        .input-container label {
+                            color: rgba(0, 0, 0, .6);
+                        }
+                        .input-container input {
+                            width: 100%;
+                            max-width: 100%;
+                            height: 32px;
+                            padding: 7px 0;
+                            border-top: none;
+                            border-right: none;
+                            border-left: none;
+                            border-color: #919191;
+                            background-color: transparent;
+                        }
+                        .input-container input:focus {
+                            border-color: #3f51b5;
+                        }
+                        .input-container input:hover, .input-container input:focus, .input-container input:focus:active {
+                            outline: 0;
+                        }
+                    .btn-container {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                        .btn-container button {
+                            min-width: 88px;
+                            padding: 10px 16px;
+                            border: none;
+                            border-radius: 2px;
+                            background-color: #ff4081;
+                            color: #fff;  
+                            cursor: pointer;    
+                            transition: opacity .4s;      
+                        }
+                        .btn-container button:hover, .btn-container button:focus, .btn-container button:focus:active {
+                            outline: none;
+                        }
+                        .btn-container button:hover {
+                            opacity: .8;        
+                        }
+    </style>
 </head>
 <body>
-    <form method="POST" action="/login">
-        <div>
-            <input type="text" name="email" id="email" placeholder="email">
+    <div class="container">
+        <div class="form">
+            <form method="POST" action="/login">
+                <div class="input-container">
+                    <label for="email">E-mail</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="input-container">
+                    <label for="password">Парола</label>
+                    <input type="text" name="password" id="password">
+                </div>
+                <div class="btn-container">
+                    <button>Вход</button>
+                </div>
+                
+            </form>
         </div>
-        <div>
-            <input type="text" name="password" id="password" placeholder="password">
-        </div>
-        <button type="submit">Вход</button>
-    </form>
+    </div>
 </body>
 </html>

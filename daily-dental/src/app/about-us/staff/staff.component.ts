@@ -34,14 +34,9 @@ export class StaffComponent implements OnInit {
     isAdminCheck(): void {
         this.authenticationService.isAdmin()
         .subscribe(response => {
-            console.log(response)
+            this.isAdmin = response;
         });
         this.getAllDoctors();
-        // this.authenticationService.isAdmin()
-        // .subscribe(response => {
-        //     this.isAddmin = response;
-            
-        // });
     }
 
     getAllDoctors(): void {
