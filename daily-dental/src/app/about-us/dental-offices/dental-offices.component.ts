@@ -5,6 +5,7 @@ import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Office } from '../../shared/models/office.model';
 import { OfficeFormComponent } from './office-form/office-form.component';
 import { OfficeService } from './office/office.service';
+import { UserService } from '../../core/user.service';
 
 @Component({
     selector: 'app-dental-offices',
@@ -16,13 +17,23 @@ export class DentalOfficesComponent implements OnInit {
     offices: Office[];
     modalConfig: ModalConfig;
     tutorialText: string;
+    isAdmin: boolean;
 
     constructor(
         private modalDialog: MdDialog,
-        private officeService: OfficeService) { }
+        private officeService: OfficeService,
+        private userService: UserService) { }
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
+        this.isAdminCheck();
+    }
+
+    isAdminCheck(): void {
+        this.userService.isAdmin()
+        .subscribe(response => {
+            this.isAdmin = response;
+        });
         this.getAllOffices();
     }
 

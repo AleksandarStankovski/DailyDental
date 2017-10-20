@@ -7,7 +7,7 @@ import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Doctor } from '../../shared/models/doctor.model';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { DoctorService } from './doctor/doctor.service';
-import { AuthenticationService } from '../../core/authentication.service';
+import { UserService } from '../../core/user.service';
 
 @Component({
   selector: 'app-staff',
@@ -24,7 +24,7 @@ export class StaffComponent implements OnInit {
     constructor(
         private modalDialog: MdDialog,
         private doctorService: DoctorService,
-        private authenticationService: AuthenticationService) {}
+        private userService: UserService) {}
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
@@ -32,7 +32,7 @@ export class StaffComponent implements OnInit {
     }
 
     isAdminCheck(): void {
-        this.authenticationService.isAdmin()
+        this.userService.isAdmin()
         .subscribe(response => {
             this.isAdmin = response;
         });

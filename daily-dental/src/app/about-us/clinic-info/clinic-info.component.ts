@@ -5,6 +5,7 @@ import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Clinic } from '../../shared/models/clinic.model';
 import { ClinicFormComponent } from './clinic-form/clinic-form.component';
 import { ClinicService } from './clinic/clinic.service';
+import { UserService } from '../../core/user.service';
 
 @Component({
     selector: 'app-clinic-info',
@@ -17,13 +18,23 @@ export class ClinicInfoComponent implements OnInit {
     clinic: Clinic;
     modalConfig: ModalConfig;
     tutorialText: string;
+    isAdmin: boolean;
 
     constructor(
         private modalDialog: MdDialog,
-        private clinicService: ClinicService) { }
+        private clinicService: ClinicService,
+        private userService: UserService) { }
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
+        this.isAdminCheck();
+    }
+
+    isAdminCheck(): void {
+        this.userService.isAdmin()
+        .subscribe(response => {
+            this.isAdmin = response;
+        });
         this.getAllClinics();
     }
 

@@ -16,6 +16,7 @@ export class ManipulationComponent implements OnInit {
 
     manipulationIcon: string;
     @Input() manipulation: Manipulation;
+    @Input() isAdmin: boolean;
     @Output() editManipulation: EventEmitter<string> = new EventEmitter();
     
     constructor() { }

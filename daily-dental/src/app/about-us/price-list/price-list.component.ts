@@ -7,6 +7,7 @@ import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Manipulation } from '../../shared/models/manipulation.model';
 import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
 import { ManipulationService } from './manipulation/manipulation.service';
+import { UserService } from '../../core/user.service';
 
 @Component({
   selector: 'app-price-list',
@@ -18,13 +19,23 @@ export class PriceListComponent implements OnInit {
     manipulations: Manipulation[];
     modalConfig: ModalConfig;
     tutorialText: string;
+    isAdmin: boolean;
 
     constructor(
         private modalDialog: MdDialog,
-        private manipulationService: ManipulationService) {}
+        private manipulationService: ManipulationService,
+        private userService: UserService) {}
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
+        this.isAdminCheck();
+    }
+
+    isAdminCheck(): void {
+        this.userService.isAdmin()
+        .subscribe(response => {
+            this.isAdmin = response;
+        });
         this.getAllManipulations();
     }
 

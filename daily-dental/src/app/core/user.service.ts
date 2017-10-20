@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 import { User } from '../shared/models/user.model';
 
 @Injectable()
-export class AuthenticationService {
+export class UserService {
 
     private apiUrl: string = 'api';
 
@@ -17,6 +17,11 @@ export class AuthenticationService {
     getUser(): Observable<User> {
         return this.http.get(`${this.apiUrl}/user`)
         .map(response => response.json() as User);
+    }
+
+    editUser(data: User): Observable<any> {
+        return this.http.put(`${this.apiUrl}/user/edit`, data)
+        .map(response => response.json());
     }
 
     isAdmin(): Observable<boolean>{

@@ -5,18 +5,18 @@
                 <a (click)="toggleMenu()" class="d-flex header-top-toggle cursor-pointer">
                     <i class="fontello ft-26 icon-menu-button"></i>
                 </a>
-                <a [mdMenuTriggerFor]="profileMenu" class="d-flex header-top-account cursor-pointer">
+                <a [mdMenuTriggerFor]="userMenu" class="d-flex header-top-account cursor-pointer">
                     <i class="fontello ft-28 icon-user"></i>
                 </a>
             </div>
         </div>
-        <md-menu #profileMenu="mdMenu" xPosition="before" yPosition="below">
-            <a md-menu-item>
-                <md-icon>voicemail</md-icon>
+        <md-menu #userMenu="mdMenu" xPosition="before" yPosition="below" class="user-menu">
+            <a (click)="openProfile()" md-menu-item class="decoration-none d-flex align-items-center">
+                <i class="fontello ft-26 icon-doctor mr-1"></i>
                 <span>Профил</span>
             </a>
-            <a href="logout" md-menu-item>
-                <md-icon>notifications_off</md-icon>
+            <a href="logout" md-menu-item class="decoration-none d-flex align-items-center">
+                <i class="fontello ft-22 icon-logout mr-1"></i>
                 <span>Изход</span>
             </a>
         </md-menu>

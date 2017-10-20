@@ -149,3 +149,13 @@ h2 {
         padding-top: 24px;
     }
 }
+.user-menu {
+    .mat-menu-item {
+        min-width: 150px;
+        padding: 0 10px;
+        font-size: .9rem;
+        i {
+            min-width: 37px;
+        }
+    }
+}

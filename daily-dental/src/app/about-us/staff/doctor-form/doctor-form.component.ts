@@ -12,7 +12,7 @@ import { Doctor } from '../../../shared/models/doctor.model';
 import { User } from '../../../shared/models/user.model';
 import { DoctorService } from '../doctor/doctor.service';
 import { SpecialityService } from '../../../core/speciality.service';
-import { AuthenticationService } from '../../../core/authentication.service';
+import { UserService } from '../../../core/user.service';
 
 @Component({
   selector: 'app-doctor-form',
@@ -33,7 +33,7 @@ export class DoctorFormComponent implements OnInit {
         private snackBar: MdSnackBar,
         private doctorService: DoctorService,
         private specialityService: SpecialityService,
-        private authenticationService: AuthenticationService,
+        private userService: UserService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
@@ -49,7 +49,7 @@ export class DoctorFormComponent implements OnInit {
     }
 
     getUser(): void {
-        this.authenticationService.getUser()
+        this.userService.getUser()
         .subscribe(response => {
             this.user = response;
         })

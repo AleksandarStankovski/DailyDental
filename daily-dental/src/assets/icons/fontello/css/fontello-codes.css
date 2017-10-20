@@ -104,6 +104,7 @@
 .icon-current:before { content: '\e866'; } /* '' */
 .icon-calendar:before { content: '\e867'; } /* '' */
 .icon-home-1:before { content: '\e868'; } /* '' */
+.icon-logout:before { content: '\e869'; } /* '' */
 .icon-question:before { content: '\e86a'; } /* '' */
 .icon-time:before { content: '\e86b'; } /* '' */
 .icon-done:before { content: '\e86c'; } /* '' */

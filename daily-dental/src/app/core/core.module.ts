@@ -10,10 +10,11 @@ import { FooterComponent } from './footer/footer.component';
 import { PageNameService } from './page-name.service';
 import { PageImageService } from './page-image.service';
 import { SpecialityService } from './speciality.service';
-import { AuthenticationService } from './authentication.service';
+import { UserService } from './user.service';
 import { DoctorService } from '../about-us/staff/doctor/doctor.service';
 import { ManipulationService } from '../about-us/price-list/manipulation/manipulation.service';
 import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
         HeaderComponent,
         NavComponent,
         FooterComponent,
-        ScrollPageTransitionDirective
+        ScrollPageTransitionDirective,
+        UserFormComponent
     ],
     exports: [
         HeaderComponent,
@@ -37,9 +39,12 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
         PageNameService,
         PageImageService,
         SpecialityService,
-        AuthenticationService,
+        UserService,
         DoctorService,
         ManipulationService
+    ],
+    entryComponents: [
+        UserFormComponent
     ]
 })
 export class CoreModule { }

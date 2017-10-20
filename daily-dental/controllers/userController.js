@@ -1,4 +1,6 @@
 
+const Doctor = require('mongoose').model('Doctor');
+
 module.exports = {
     getUser: (req, res) => { 
         let user = {};
@@ -14,6 +16,17 @@ module.exports = {
             user.role = res.locals.user.role;
         }
         res.json(user)
+    },
+
+    edit: (req, res) => {
+        let newUser = req.body;
+        Doctor.findByIdAndUpdate({ _id: newUser._id }, newUser, { upsert: true })
+        .then(() => {
+            res.json('Success');
+        })
+        .catch(error => {
+            res.status(400).send(error);
+        })
     },
 
     logout: (req, res) => {
