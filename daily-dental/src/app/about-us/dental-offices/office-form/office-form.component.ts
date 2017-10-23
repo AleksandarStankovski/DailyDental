@@ -52,6 +52,7 @@ export class OfficeFormComponent implements OnInit {
     }
 
     save(): void {
+        let errorMsg = 'Моля, опитайте отново';
         this.loadingOverlay = true;
         if (this.data.officeId) {
             this.officeService.editOffice(this.office)
@@ -63,7 +64,11 @@ export class OfficeFormComponent implements OnInit {
                     this.modalDialogRef.close('Edit');
                 }, this.snackbarConfig.duration);
             }, error => {
-                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                let errorObj = JSON.parse(error._body);
+                if (errorObj.code === 11000) {
+                    errorMsg = 'Моля, въведете различно име';
+                }
+                const snackBarRef = this.snackBar.open(errorMsg, '', {
                     duration: this.snackbarConfig.duration
                 });
                 setTimeout(() => {
@@ -83,7 +88,11 @@ export class OfficeFormComponent implements OnInit {
                     }, this.snackbarConfig.duration);
                 }, 
                 error => {
-                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+                    let errorObj = JSON.parse(error._body);
+                    if (errorObj.code === 11000) {
+                        errorMsg = 'Моля, въведете различно име';
+                    }
+                    const snackBarRef = this.snackBar.open(errorMsg, '', {
                         duration: this.snackbarConfig.duration
                     });
                     setTimeout(() => {

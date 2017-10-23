@@ -4,7 +4,8 @@ const config = require('../config/config');
 let officeSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     phone: {
         type: String,

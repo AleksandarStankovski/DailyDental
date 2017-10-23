@@ -20,25 +20,11 @@ module.exports = {
 
     create: (req, res) => {
         let newDoctor = req.body;
-        Doctor.findOne({email: newDoctor.email})
-        .then(doctor => {
-            let errorMsg = '';
-            if (doctor) {
-                errorMsg = 'User with the same username exists!';
-            } 
-            if (errorMsg) {
-                throw (errorMsg);
-            } else {
-                let salt = encryption.generateSalt();
-                let passwordHash = encryption.hashPassword(newDoctor.password, salt);
-                newDoctor.passwordHash = passwordHash;
-                newDoctor.salt = salt;
-                return Doctor.create(newDoctor)
-                .then(doctor => {
-                    return doctor;  
-                })
-            }
-        })
+        let salt = encryption.generateSalt();
+        let passwordHash = encryption.hashPassword(newDoctor.password, salt);
+        newDoctor.passwordHash = passwordHash;
+        newDoctor.salt = salt;
+        Doctor.create(newDoctor)
         .then(doctor => {
             return Clinic.update(
                 { },
@@ -63,9 +49,9 @@ module.exports = {
         }
         Doctor.findByIdAndUpdate({ _id: newDoctor._id }, newDoctor, { upsert: true })
         .then(doctor => {
-            if ((newDoctor.email !== doctor.email) || newDoctor.password) {
+            if (res.locals.user._id == newDoctor._id) {
                 req.logOut();
-            } 
+            }
             res.json('Success');
         })
         .catch(error => {

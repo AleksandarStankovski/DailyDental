@@ -2,7 +2,7 @@
     <nav class="reception-nav">
         <ul class="d-flex justify-content-center list-unstyled">
             <li *ngFor="let doctor of doctors" [ngClass]="{'full-width': doctors?.length > 3}">
-                <a (click)="getAppointmentByDoctor(doctor._id, false)" class="cursor-pointer decoration-none d-flex justify-content-center align-items-center">
+                <a (click)="getAppointmentByDoctor(doctor._id, false)" [ngClass]="{'active': activeDoctor === doctor._id}" class="cursor-pointer decoration-none d-flex justify-content-center align-items-center">
                     <app-avatar [color]="doctor.speciality" [firstName]="doctor.firstName" [lastName]="doctor.lastName"></app-avatar>
                     <span class="d-none d-md-block ml-2">др. {{doctor.lastName}}</span>
                 </a>

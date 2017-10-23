@@ -78,6 +78,9 @@ h2 {
 .input-full-width {
     width: 100%;
 }
+.mat-select {
+    padding-bottom: 20px;
+}
 .container {
     @include media-breakpoint-down(sm) {
         width: 100%;
@@ -96,6 +99,12 @@ h2 {
         margin-right: -24px;
         margin-left: -24px;
         background-color: $app-primary;
+        .close-modal {
+            width: 40px;
+            color: $app-ligth-color;
+            border: none;
+            background-color: transparent;
+        }
         &.default {
             background-color: $app-default-speciality;
         }

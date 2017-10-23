@@ -1,5 +1,9 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="patient.doctor.speciality" class="md-dialog-header"></div>
+<div [ngClass]="patient.doctor.speciality" class="md-dialog-header d-flex justify-content-end">
+    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+        <i class="fontello icon-close ft-14"></i>
+    </button>
+</div>
 <md-dialog-content>
     <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
         <p [hidden]="doctors?.length > 0">Моля, преди да създадете нов пациент създайте лекар.</p>
@@ -36,7 +40,6 @@
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
-    <button md-button [md-dialog-close]="'cancel'">Затвори</button>
-    <button *ngIf="data.patientId" md-button (click)="delete()">Изтрий</button>
-    <button md-button (click)="save()" [disabled]="patientForm.invalid">Запази</button>
+    <button *ngIf="data.patientId" md-button (click)="delete()" md-raised-button>Изтрий</button>
+    <button md-button (click)="save()" [disabled]="patientForm.invalid" md-raised-button>Запази</button>
 </md-dialog-actions>

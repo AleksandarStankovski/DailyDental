@@ -1,5 +1,9 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div class="md-dialog-header"></div>
+<div class="md-dialog-header d-flex justify-content-end">
+    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+        <i class="fontello icon-close ft-14"></i>
+    </button>
+</div>
 <md-dialog-content>
     <form (ngSubmit)="clinicForm.valid && save()" #clinicForm="ngForm" novalidate>
         <div>
@@ -30,7 +34,6 @@
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
-    <button md-button [md-dialog-close]="'cancel'">Затвори</button>
-    <button md-button (click)="save()" [disabled]="clinicForm.invalid">Запази</button>
+    <button md-button (click)="save()" [disabled]="clinicForm.invalid" md-raised-button>Запази</button>
 </md-dialog-actions>
 

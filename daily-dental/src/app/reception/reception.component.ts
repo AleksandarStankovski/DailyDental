@@ -8,6 +8,7 @@ import { Doctor } from '../shared/models/doctor.model';
 import { Appointment } from '../shared/models/appointment.model';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { AppointmentService } from './appointment/appointment.service';
+import { UserService } from '../core/user.service';
 
 @Component({
     selector: 'app-reception',
@@ -22,16 +23,26 @@ export class ReceptionComponent implements OnInit {
     appointments: Appointment[];
     tutorialText: string;
     activeDoctor: string;
+    userId: string;
 
     constructor(
         private modalDialog: MdDialog,
-        private appointmentService: AppointmentService) { }
+        private appointmentService: AppointmentService,
+        private userService: UserService) { }
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
         let newDate = new Date().setHours(13, 0, 0, 0);
         this.receptionData = new Date(newDate);
-        this.getAppointmentByDate();
+        this.getUser();
+    }
+
+    getUser(): void {
+        this.userService.getUser()
+        .subscribe(response => {
+            this.userId = response._id;
+            this.getAppointmentByDate();
+        })
     }
 
     getAppointmentByDate(): void {
@@ -40,7 +51,7 @@ export class ReceptionComponent implements OnInit {
             this.doctors = response;
             if (this.doctors.length > 0) {
                 if (!this.activeDoctor) {
-                    this.activeDoctor = this.doctors[0]._id;
+                    this.activeDoctor = this.userId;
                 }
                 this.getAppointmentByDoctor(this.activeDoctor, true);
             }
