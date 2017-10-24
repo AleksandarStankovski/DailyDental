@@ -15,7 +15,7 @@ import { Office } from '../../../shared/models/office.model';
 export class OfficeComponent implements OnInit {
 
     @Input() office: Office;
-    @Input() isAdmin: boolean;
+    @Input() isRoleUser: boolean;
     @Output() editOffice: EventEmitter<string> = new EventEmitter()
 
     constructor() { }

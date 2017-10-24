@@ -6,6 +6,7 @@ import {
     EventEmitter } from '@angular/core';
 
 import { Manipulation } from '../../../shared/models/manipulation.model';
+import { ManipulationService } from './manipulation.service';
 
 @Component({
     selector: 'app-manipulation',
@@ -16,10 +17,10 @@ export class ManipulationComponent implements OnInit {
 
     manipulationIcon: string;
     @Input() manipulation: Manipulation;
-    @Input() isAdmin: boolean;
+    @Input() isRoleUser: boolean;
     @Output() editManipulation: EventEmitter<string> = new EventEmitter();
     
-    constructor() { }
+    constructor(private manipulationService: ManipulationService) { }
 
     ngOnInit() {
         this.getIcon();
@@ -30,36 +31,6 @@ export class ManipulationComponent implements OnInit {
     }
 
     getIcon(): void {
-        let icon;
-        switch(this.manipulation.type) {
-            case 'aesthetic': {
-                icon = 'icon-tooth-3'
-                break;
-            }
-            case 'parodontology': {
-                icon = 'icon-parodontology'
-                break;
-            }
-            case 'pediatrics': {
-                icon = 'icon-pediatrics'
-                break;
-            }
-            case 'endodontics': {
-                icon = 'icon-endodontics'
-                break;
-            }
-            case 'orthodontics': {
-                icon = 'icon-braces-2'
-                break;
-            }
-            case 'surgery': {
-                icon = 'icon-implant-2'
-                break;
-            }
-            default: {
-                icon = 'icon-tooth-5'
-            }
-        }
-        this.manipulationIcon = icon;
+        this.manipulationIcon = this.manipulationService.getIcon(this.manipulation.type);
     }
 }

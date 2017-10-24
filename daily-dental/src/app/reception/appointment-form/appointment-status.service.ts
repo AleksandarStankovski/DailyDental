@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppointmentStatusService {
-    constructor() { }
     
     getAllStatuses(): { type: string, name: string }[] {
         let statuses = [

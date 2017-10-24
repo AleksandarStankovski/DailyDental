@@ -19,7 +19,7 @@ export class PriceListComponent implements OnInit {
     manipulations: Manipulation[];
     modalConfig: ModalConfig;
     tutorialText: string;
-    isAdmin: boolean;
+    isRoleUser: boolean;
 
     constructor(
         private modalDialog: MdDialog,
@@ -28,13 +28,13 @@ export class PriceListComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.isAdminCheck();
+        this.isRoleUserCheck();
     }
 
-    isAdminCheck(): void {
-        this.userService.isAdmin()
+    isRoleUserCheck(): void {
+        this.userService.isRoleUser()
         .subscribe(response => {
-            this.isAdmin = response;
+            this.isRoleUser = response;
         });
         this.getAllManipulations();
     }

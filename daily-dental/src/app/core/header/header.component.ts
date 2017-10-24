@@ -7,6 +7,8 @@ import {
 import { MdDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
+import { NavModel } from '../../shared/models/nav.model';
+import { NavService } from '../nav.service';
 import { PageNameService } from '../page-name.service';
 import { PageImageService } from '../page-image.service';
 import { UserFormComponent } from "../user-form/user-form.component";
@@ -21,7 +23,7 @@ export class HeaderComponent implements OnInit {
     title: string;
     image: string;
     isVisibleMenu: boolean;
-    navList: [{}];
+    navList: NavModel[]
     pageName: string;
     modalConfig: ModalConfig;
 
@@ -29,11 +31,13 @@ export class HeaderComponent implements OnInit {
         private router: Router,
         private modalDialog: MdDialog,
         private pageNameService: PageNameService,
-        private pageImageService: PageImageService) {}
+        private pageImageService: PageImageService,
+        private navService: NavService) {}
 
     ngOnInit() {
         this.isVisibleMenu = false;
         this.modalConfig = new ModalConfig();
+        this.getNavList();
 
         this.router.events.subscribe(event => {
             if(event instanceof NavigationEnd) {
@@ -43,35 +47,11 @@ export class HeaderComponent implements OnInit {
                 this.image = this.pageImageService.getPageImage(event.url);
             }
         }); 
-
-        this.navList = [
-            {
-                routerLink: '/home',
-                routerText: 'Начало',
-                routerIcon: 'icon-home'
-            },
-            {
-                routerLink: '/reception',
-                routerText: 'Рецепция',
-                routerIcon: 'icon-reception-2'
-            },
-            {
-                routerLink: '/patients',
-                routerText: 'Пациенти',
-                routerIcon: 'icon-family'
-            },
-            {
-                routerLink: '/about-us/clinic-info',
-                routerText: 'Клиника',
-                routerIcon: 'icon-protection'
-            },
-            {
-                routerLink: '/about-us/price-list',
-                routerText: 'Ценова листа',
-                routerIcon: 'icon-clipboard-2'
-            }
-        ]
     }
+
+    getNavList(): void {
+        this.navList = this.navService.getHeaderNavList();
+    } 
 
     toggleMenu(): void {
         this.isVisibleMenu = !this.isVisibleMenu;

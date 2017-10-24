@@ -1,19 +1,21 @@
 <div class="reception">
     <nav class="reception-nav">
         <ul class="d-flex justify-content-center list-unstyled">
-            <li *ngFor="let doctor of doctors" [ngClass]="{'full-width': doctors?.length > 3}">
-                <a (click)="getAppointmentByDoctor(doctor._id, false)" [ngClass]="{'active': activeDoctor === doctor._id}" class="cursor-pointer decoration-none d-flex justify-content-center align-items-center">
-                    <app-avatar [color]="doctor.speciality" [firstName]="doctor.firstName" [lastName]="doctor.lastName"></app-avatar>
-                    <span class="d-none d-md-block ml-2">др. {{doctor.lastName}}</span>
-                </a>
-            </li>
+            <ng-container *ngFor="let doctor of doctors">
+                <li *ngIf="doctor.role !== 'reception'" [ngClass]="{'full-width': doctors?.length > 4}">
+                    <a (click)="getAppointmentByDoctor(doctor._id, false)" [ngClass]="{'active': activeDoctor === doctor._id}" class="cursor-pointer decoration-none d-flex justify-content-center align-items-center">
+                        <app-avatar [color]="doctor.speciality" [firstName]="doctor.firstName" [lastName]="doctor.lastName"></app-avatar>
+                        <span class="d-none d-md-block ml-2">др. {{doctor.lastName}}</span>
+                    </a>
+                </li>
+            </ng-container>
         </ul>
     </nav>
     <div class="page">
-        <app-floating-button *ngIf="doctors?.length > 0" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
+        <app-floating-button *ngIf="doctors?.length > 1" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
         <div class="page-container mx-auto">
             <div>
-                <div *ngIf="doctors?.length > 0" class="timeline-date">
+                <div *ngIf="doctors?.length > 1" class="timeline-date">
                     <md-form-field class="example-full-width d-none">
                         <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
                     </md-form-field>

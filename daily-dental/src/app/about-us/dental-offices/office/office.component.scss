@@ -6,6 +6,7 @@
     position: relative;
     min-height: 250px;
     height: 100%;
+    background-color: $app-default-speciality;
     @include media-breakpoint-down(xs) {
         min-height: 185px;
     }
@@ -15,6 +16,8 @@
         padding: 15px;
         color: $app-ligth-color;
         opacity: .8;
+        $app-aesthetic-darken: darken($app-default-speciality, $office-darken);
+        background-color: rgba($app-default-speciality, $office-darken);
     }
     &:after {
         content: '';
@@ -25,16 +28,7 @@
         left: 0;
         background-size: contain;
         background-repeat: no-repeat;
-    }
-    &.default {
         background-color: $app-default-speciality;
-        &:after {
-            background-color: $app-default-speciality;
-        }
-        .office-sbox {
-            $app-aesthetic-darken: darken($app-default-speciality, $office-darken);
-            background-color: rgba($app-default-speciality, $office-darken);
-        }
     }
     &.aesthetic {
         background-color: $app-aesthetic;

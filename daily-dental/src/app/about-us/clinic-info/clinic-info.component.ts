@@ -18,7 +18,7 @@ export class ClinicInfoComponent implements OnInit {
     clinic: Clinic;
     modalConfig: ModalConfig;
     tutorialText: string;
-    isAdmin: boolean;
+    isRoleUser: boolean;
 
     constructor(
         private modalDialog: MdDialog,
@@ -27,13 +27,13 @@ export class ClinicInfoComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.isAdminCheck();
+        this.isisRoleUserCheck();
     }
 
-    isAdminCheck(): void {
-        this.userService.isAdmin()
+    isisRoleUserCheck(): void {
+        this.userService.isRoleUser()
         .subscribe(response => {
-            this.isAdmin = response;
+            this.isRoleUser = response;
         });
         this.getAllClinics();
     }

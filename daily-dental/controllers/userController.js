@@ -22,6 +22,7 @@ module.exports = {
         let newUser = req.body;
         Doctor.findByIdAndUpdate({ _id: newUser._id }, newUser, { upsert: true })
         .then(() => {
+            req.logOut();
             res.json('Success');
         })
         .catch(error => {

@@ -1,5 +1,5 @@
 <div>
-    <div (click)="isAdmin && edit()" class="clinic-circle clinic-circle-name cursor-pointer rounded-circle">
+    <div (click)="!isRoleUser && edit()" class="clinic-circle clinic-circle-name cursor-pointer rounded-circle">
         <div class="d-flex flex-column justify-content-center align-items-center rounded-circle">
             <i class="fontello icon-protection"></i>
             <span>{{clinic.name}}</span>

@@ -43,17 +43,16 @@ module.exports = function (app, config) {
                 }
             })
             .then(() => {
-                return Doctor.find()
-                .then(doctors => {
-                    if (doctors.length === 0) {
+                return Doctor.findOne({role: 'reception'})
+                .then(result => {
+                    if (!result) {
                         let salt = encryption.generateSalt();
-                        let passwordHash = encryption.hashPassword('admin', salt);
+                        let passwordHash = encryption.hashPassword('reception', salt);
                         let doctor = {
-                            firstName: 'Admin',
-                            lastName: 'Admin',
-                            speciality: 'aesthetic',
-                            email: 'admin@admin.com',
-                            role: 'admin',
+                            firstName: 'Рецепция',
+                            lastName: 'Рецепция',
+                            email: 'reception',
+                            role: 'reception',
                             salt: salt,
                             passwordHash: passwordHash
 
@@ -64,14 +63,6 @@ module.exports = function (app, config) {
                         })
                     }
                 })
-            })
-            .then(doctor => {
-                if (doctor) {
-                    return Clinic.update(
-                        { },
-                        { $push: { doctors: doctor._id } }
-                    ) 
-                }
             })
             .then(() => {})
             .catch(error => {

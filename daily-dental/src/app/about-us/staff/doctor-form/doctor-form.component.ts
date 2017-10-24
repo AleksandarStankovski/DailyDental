@@ -27,6 +27,7 @@ export class DoctorFormComponent implements OnInit {
     specialities: {type: string, name: string}[];
     showPassword: boolean;
     user: User;
+    isRoleReception: boolean;
 
     constructor(
         private modalDialogRef: MdDialogRef<DoctorFormComponent>,
@@ -59,6 +60,7 @@ export class DoctorFormComponent implements OnInit {
         this.doctorService.getDoctor(this.data.doctorId)
         .subscribe(response => {
             this.doctor = response;
+            this.isRoleReception = this.doctor.role === 'reception';
         });
     }
 

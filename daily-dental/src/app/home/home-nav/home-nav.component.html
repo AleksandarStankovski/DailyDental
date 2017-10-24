@@ -1,7 +1,4 @@
 <nav>
-    <!-- <h1 [ngClass]="{'finish-transition': transition}">
-        <img src="assets/images/logo-white.png" alt="DailyDental">
-    </h1> -->
      <ul appTransitionElement class="list-unstyled">
         <li *ngFor="let nav of navList; let i = index">
             <a [routerLink]="nav.routerLink" [ngClass]="'home-nav-box-'+i" class="decoration-none d-flex justify-content-center align-items-center">

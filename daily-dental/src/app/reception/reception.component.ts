@@ -5,6 +5,7 @@ import { MdDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
 import { Doctor } from '../shared/models/doctor.model';
+import { User } from '../shared/models/user.model';
 import { Appointment } from '../shared/models/appointment.model';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { AppointmentService } from './appointment/appointment.service';
@@ -23,7 +24,7 @@ export class ReceptionComponent implements OnInit {
     appointments: Appointment[];
     tutorialText: string;
     activeDoctor: string;
-    userId: string;
+    user: User;
 
     constructor(
         private modalDialog: MdDialog,
@@ -40,7 +41,7 @@ export class ReceptionComponent implements OnInit {
     getUser(): void {
         this.userService.getUser()
         .subscribe(response => {
-            this.userId = response._id;
+            this.user = response;
             this.getAppointmentByDate();
         })
     }
@@ -49,9 +50,14 @@ export class ReceptionComponent implements OnInit {
         this.appointmentService.getAppointmentByDate(this.receptionData)
         .subscribe(response => {
             this.doctors = response;
-            if (this.doctors.length > 0) {
+            if (this.doctors.length > 1) {
                 if (!this.activeDoctor) {
-                    this.activeDoctor = this.userId;
+                    if (this.user.role === 'reception') {
+                        this.activeDoctor = this.doctors[1]._id;
+                    } else {
+                        this.activeDoctor = this.user._id;
+                    }
+                    
                 }
                 this.getAppointmentByDoctor(this.activeDoctor, true);
             }

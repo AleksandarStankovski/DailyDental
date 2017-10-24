@@ -7,6 +7,7 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: $app-default-speciality;
     .doctor-fbox {
         z-index: 1;
         min-height: 250px;
@@ -29,6 +30,7 @@
         .doctor-icon {
             width: 60px;
             height: 60px;
+            background-color: rgba($app-default-speciality, $doctor-opacity);
             @include media-breakpoint-down(xs) {
                 width: 55px;
                 height: 55px;
@@ -39,6 +41,7 @@
         min-height: 75px;
         z-index: 1;
         padding: 15px;
+        background-color: rgba($app-default-speciality, $doctor-opacity);
         color: $app-ligth-color;
         @include media-breakpoint-down(xs) {
             min-height: 70px;
@@ -51,20 +54,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-    }
-    &.default {
-        background-color: $app-default-speciality;
-        &:after {
-            background-color: rgba($app-default-speciality, $doctor-opacity);
-        }
-        .doctor-fbox {
-            .doctor-icon {
-                background-color: rgba($app-default-speciality, $doctor-opacity);
-            }
-        }
-        .doctor-sbox {
-            background-color: rgba($app-default-speciality, $doctor-opacity);
-        }
+        background-color: rgba($app-default-speciality, $doctor-opacity);
     }
     &.aesthetic {
         background-color: $app-aesthetic;

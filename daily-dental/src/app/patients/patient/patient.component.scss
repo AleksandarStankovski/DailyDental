@@ -30,7 +30,7 @@
         right: -130px;
         width: 450px;
         height: 230px;
-        background-color: #c3c3c3;
+        background-color: $app-default-speciality;
         transform: rotate(45deg); 
         @include media-breakpoint-down(lg) {
             height: 170px;
@@ -46,16 +46,9 @@
             display: block;
             width: 75%;
             height: 100%;
+            background-color: darken($app-default-speciality, $patient-darken);
             @include media-breakpoint-down(md) {
                 width: 70%;
-            }
-        }
-    }
-    &.default {
-        .patient-sbox {
-            background-color: $app-default-speciality;
-            &:after {
-                background-color: darken($app-default-speciality, $patient-darken);
             }
         }
     }

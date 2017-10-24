@@ -1,12 +1,12 @@
 
-<a (click)="isAdmin && edit()" [ngClass]="doctor.speciality" class="doctor cursor-pointer d-flex flex-column justify-content-end">
+<a (click)="!isRoleUser && edit()" [ngClass]="doctor.speciality" class="doctor cursor-pointer d-flex flex-column justify-content-end">
 	<div class="doctor-fbox d-flex align-items-center">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
                 <div class="doctor-icon d-flex justify-content-center align-items-center rounded-circle mr-3">
                     <i class="fontello ft-30 icon-doctor"></i>
                 </div>
-                <h5 class="mr-2">{{doctor.firstName}} {{doctor.lastName}}</h5>
+                <h5 class="mr-2">{{doctor.firstName}} <span *ngIf="!isRoleReception">{{doctor.lastName}}</span></h5>
             </div>
             <md-icon *ngIf="doctor.active" class="md-30">visibility</md-icon>
             <md-icon *ngIf="!doctor.active" class="md-30">visibility_off</md-icon>

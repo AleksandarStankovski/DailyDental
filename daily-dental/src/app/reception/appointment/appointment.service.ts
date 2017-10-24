@@ -44,4 +44,50 @@ export class AppointmentService {
         .map(response => response.json());
     }
 
+    getIcon(status: string): string {
+        let icon;
+        switch(status) {
+            case 'confirmed': {
+                icon = 'icon-like'
+                break;
+            }
+            case 'unconfirmed': {
+                icon = 'icon-question'
+                break;
+            }
+            case 'arrived': {
+                icon = 'icon-home-fill'
+                break;
+            }
+            case 'current': {
+                icon = 'icon-current'
+                break;
+            }
+            case 'finished': {
+                icon = 'icon-done'
+                break;
+            }
+            case 'late': {
+                icon = 'icon-time'
+                break;
+            }
+            case 'missing': {
+                icon = 'icon-blocked'
+                break;
+            }
+            case 'canceled': {
+                icon = 'icon-close'
+                break;
+            }
+            case 'urgent': {
+                icon = 'icon-danger'
+                break;
+            }
+            default: {
+                icon = 'icon-home-fill'
+            }
+        }
+        return icon;
+    }
+
 }

@@ -26,6 +26,13 @@
             }
         }
     }
+    .manipulation-sbox {
+        padding: 15px;
+        span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
     &.aesthetic {
         .manipulation-fbox {
             background-color: $app-aesthetic;
@@ -72,13 +79,6 @@
             > div {
                 background-color: darken($app-surgery, $manipulation-darken);
             }
-        }
-    }
-    .manipulation-sbox {
-        padding: 15px;
-        span {
-            font-size: 1.2rem;
-            font-weight: bold;
         }
     }
 }

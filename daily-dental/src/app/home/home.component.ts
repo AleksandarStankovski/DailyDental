@@ -2,6 +2,9 @@ import {
     Component,
     OnInit } from '@angular/core';
 
+import { NavModel } from '../shared/models/nav.model';
+import { NavService } from '../core/nav.service';
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -9,30 +12,16 @@ import {
 })
 export class HomeComponent implements OnInit {
 
-    navList: [{}];
+    navList: NavModel[]
 
-    constructor() { }
+    constructor(private navService: NavService) { }
 
     ngOnInit() {
+        this.getNavList();
+    }
 
-        this.navList = [
-            {
-                routerLink: '/reception',
-                routerText: 'Рецепция'
-            },
-            {
-                routerLink: '/patients',
-                routerText: 'Пациенти'
-            },
-            {
-                routerLink: '/about-us/clinic-info',
-                routerText: 'Клиника'
-            },
-            {
-                routerLink: '/about-us/price-list',
-                routerText: 'Ценова листа'
-            }
-        ]
-     }
+    getNavList(): void {
+        this.navList = this.navService.getHomeNavList();
+    } 
 
 }

@@ -7,12 +7,12 @@
                 <input mdInput [ngModel]="readonlyUser.firstName" name="firstName" readonly #userFirstName="ngModel" placeholder="Име">
             </md-form-field>
         </div>
-        <div>
+        <div *ngIf="!isRoleReception">
             <md-form-field class="input-full-width">
                 <input mdInput [ngModel]="readonlyUser.lastName" name="lastName" readonly #userLastName="ngModel" placeholder="Фамилия">
             </md-form-field>
         </div>
-        <div>
+        <div *ngIf="!isRoleReception">
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="user.egn" name="egn" required #userEgn="ngModel" placeholder="ЕГН">
             </md-form-field>
@@ -22,12 +22,12 @@
                 <input mdInput [(ngModel)]="user.phone" name="phone" required #userPhone="ngModel" placeholder="Телефон">
             </md-form-field>
         </div>
-        <div>
+        <div *ngIf="!isRoleReception">
             <md-form-field class="input-full-width">
                 <input mdInput [(ngModel)]="user.address" name="address" required #userAddress="ngModel" placeholder="Адрес">
             </md-form-field>
         </div>
-        <div>
+        <div *ngIf="!isRoleReception">
             <md-form-field class="input-full-width">
                 <input mdInput [ngModel]="readonlyUser.speciality | specialityConverter" readonly name="speciality" #userSpeciality="ngModel" placeholder="Специалност">
             </md-form-field>
@@ -40,7 +40,7 @@
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
-    <button md-button [md-dialog-close]="'cancel'">Затвори</button>
-    <button md-button (click)="save()" [disabled]="userForm.invalid">Запази</button>
+    <button md-button [md-dialog-close]="'cancel'" md-raised-button>Затвори</button>
+    <button md-button (click)="save()" [disabled]="userForm.invalid" md-raised-button>Запази</button>
 </md-dialog-actions>
 

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SpecialityService {
-    constructor() { }
 
     getAllSpecialities(): { type: string, name: string }[]{
         let specialities = [

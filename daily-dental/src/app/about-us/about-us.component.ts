@@ -2,6 +2,9 @@ import {
     Component,
     OnInit } from '@angular/core';
 
+import { NavModel } from '../shared/models/nav.model';
+import { NavService } from '../core/nav.service';
+
 @Component({
     selector: 'app-about-us',
     templateUrl: './about-us.component.html',
@@ -9,32 +12,15 @@ import {
 })
 export class AboutUsComponent implements OnInit {
 
-    navList;
+    navList: NavModel[]
 
-    constructor() { }
+    constructor(private navService: NavService) { }
 
     ngOnInit() {
-        this.navList = [
-            {
-                routerLink: '/about-us/clinic-info',
-                routerText: 'Клиника',
-                routerIcon: 'icon-protection'
-            },
-            {
-                routerLink: '/about-us/dental-offices',
-                routerText: 'Кабинети',
-                routerIcon: 'icon-chair-fill'
-            },
-            {
-                routerLink: '/about-us/staff',
-                routerText: 'Персонал',
-                routerIcon: 'icon-doctor'
-            },
-            {
-                routerLink: '/about-us/price-list',
-                routerText: 'Ценова листа',
-                routerIcon: 'icon-clipboard-2'
-            }
-        ]
+        this.getNavList();
     }
+
+    getNavList(): void {
+        this.navList = this.navService.getAboutUsNavList();
+    } 
 }

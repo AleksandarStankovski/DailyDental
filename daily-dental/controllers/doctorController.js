@@ -61,7 +61,7 @@ module.exports = {
 
     delete: (req, res) => {
         let id = req.params.id;
-        if (res.locals.user._id != req.params.id) {
+        if (res.locals.user.role === 'admin' || res.locals.user.role === 'reception') {
             Doctor.findByIdAndRemove(id)
             .then(doctor => {
                 return Clinic.update(

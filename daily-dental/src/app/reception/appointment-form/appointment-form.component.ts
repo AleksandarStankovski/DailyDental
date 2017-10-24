@@ -1,6 +1,7 @@
 import { 
     Component,
     OnInit,
+    OnDestroy,
     Inject } from '@angular/core';
 import {
     MdDialogRef,
@@ -22,7 +23,7 @@ import { ManipulationService } from '../../about-us/price-list/manipulation/mani
     templateUrl: './appointment-form.component.html',
     styleUrls: ['./appointment-form.component.scss']
 })
-export class AppointmentFormComponent implements OnInit {
+export class AppointmentFormComponent implements OnInit, OnDestroy {
 
     snackbarConfig: SnackbarConfig
     loadingOverlay: boolean;
@@ -64,6 +65,10 @@ export class AppointmentFormComponent implements OnInit {
         }
     }
 
+    ngOnDestroy() {
+        this.snackBar.dismiss();
+    }
+
     getAppointment(): void {
         this.appointmentService.getAppointment(this.data.appointmentId)
         .subscribe(resolve => {
@@ -94,6 +99,9 @@ export class AppointmentFormComponent implements OnInit {
         this.manipulationService.getAllManipulations()
         .subscribe(response => {
             this.manipulations = response;
+            if (this.manipulations.length === 0) {
+                const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте манипулация');
+            }
         });
     }
 

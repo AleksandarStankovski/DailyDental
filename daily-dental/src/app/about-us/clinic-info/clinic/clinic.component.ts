@@ -15,7 +15,7 @@ import { Clinic } from '../../../shared/models/clinic.model';
 export class ClinicComponent implements OnInit {
 
     @Input() clinic: Clinic;
-    @Input() isAdmin: boolean;
+    @Input() isRoleUser: boolean;
     @Output() editClinic: EventEmitter<string> = new EventEmitter();
 
     constructor() { }

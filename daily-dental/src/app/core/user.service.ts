@@ -24,15 +24,15 @@ export class UserService {
         .map(response => response.json());
     }
 
-    isAdmin(): Observable<boolean>{
+    isRoleUser(): Observable<boolean>{
         return this.http.get(`${this.apiUrl}/user`)
         .map(response => {
             let user: User = response.json() as User;
-            let isAdmin: boolean = false;
-            if (user.role === 'admin') {
-                isAdmin = true;
+            let isRoleUser: boolean = false;
+            if (user.role === 'user') {
+                isRoleUser = true;
             } 
-            return isAdmin;
+            return isRoleUser;
         })
     }
 

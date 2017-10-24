@@ -23,7 +23,6 @@ let doctorSchema = mongoose.Schema({
     speciality: {
         type: String,
         enum: config.development.specialityType,
-        required: true
     },
     email: {
         type: String,
@@ -40,7 +39,7 @@ let doctorSchema = mongoose.Schema({
     },
     role: { 
         type: String,
-        enum: ['admin', 'user'],
+        enum: ['admin', 'user', 'reception'],
         required: true
     },
     appointments: [{

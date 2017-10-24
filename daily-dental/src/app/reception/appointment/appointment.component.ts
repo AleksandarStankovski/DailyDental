@@ -6,6 +6,7 @@ import {
     EventEmitter } from '@angular/core';
 
 import { Appointment } from '../../shared/models/appointment.model';
+import { AppointmentService } from './appointment.service';
 
 @Component({
   selector: 'app-appointment',
@@ -20,7 +21,7 @@ export class AppointmentComponent implements OnInit {
     @Input() appointment: Appointment;
     @Output() editAppointment: EventEmitter<string> = new EventEmitter();
 
-    constructor() { }
+    constructor(private appointmentService: AppointmentService) { }
 
     ngOnInit() { 
         this.getEndTime();
@@ -45,49 +46,7 @@ export class AppointmentComponent implements OnInit {
     }
 
     getIcon(): void {
-        let icon;
-        switch(this.appointment.status) {
-            case 'confirmed': {
-                icon = 'icon-like'
-                break;
-            }
-            case 'unconfirmed': {
-                icon = 'icon-question'
-                break;
-            }
-            case 'arrived': {
-                icon = 'icon-home-fill'
-                break;
-            }
-            case 'current': {
-                icon = 'icon-current'
-                break;
-            }
-            case 'finished': {
-                icon = 'icon-done'
-                break;
-            }
-            case 'late': {
-                icon = 'icon-time'
-                break;
-            }
-            case 'missing': {
-                icon = 'icon-blocked'
-                break;
-            }
-            case 'canceled': {
-                icon = 'icon-close'
-                break;
-            }
-            case 'urgent': {
-                icon = 'icon-danger'
-                break;
-            }
-            default: {
-                icon = 'icon-home-fill'
-            }
-        }
-        this.appointmentIcon = icon;
+        this.appointmentIcon = this.appointmentService.getIcon(this.appointment.status);
     }
 
 }

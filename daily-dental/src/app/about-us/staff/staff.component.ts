@@ -19,7 +19,7 @@ export class StaffComponent implements OnInit {
     doctors: Doctor[];
     modalConfig: ModalConfig;
     tutorialText: string;
-    isAdmin: boolean;
+    isRoleUser: boolean;
 
     constructor(
         private modalDialog: MdDialog,
@@ -28,13 +28,13 @@ export class StaffComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.isAdminCheck();
+        this.isRoleUserCheck();
     }
 
-    isAdminCheck(): void {
-        this.userService.isAdmin()
+    isRoleUserCheck(): void {
+        this.userService.isRoleUser()
         .subscribe(response => {
-            this.isAdmin = response;
+            this.isRoleUser = response;
         });
         this.getAllDoctors();
     }
@@ -52,7 +52,7 @@ export class StaffComponent implements OnInit {
     }
 
     openModalDialog(doctorId?: string): void {
-        const id = doctorId || undefined;
+        const id = doctorId;
         const modalDialogRef = this.modalDialog.open(DoctorFormComponent, {
             width: this.modalConfig.width,
             data: { doctorId: id },

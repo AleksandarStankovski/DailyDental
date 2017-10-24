@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit {
     readonlyUser = { firstName: '', lastName: '', speciality: '', email: ''};
     snackbarConfig: SnackbarConfig;
     loadingOverlay = false;
+    isRoleReception: boolean;
 
     constructor(
         private modalDialogRef: MdDialogRef<UserFormComponent>,
@@ -36,6 +37,7 @@ export class UserFormComponent implements OnInit {
         this.userService.getUser()
         .subscribe(resolve => {
             this.user = resolve;
+            this.isRoleReception = this.user.role === 'reception';
             this.readonlyUser = { 
                 firstName: this.user.firstName, 
                 lastName: this.user.lastName, 
@@ -54,6 +56,7 @@ export class UserFormComponent implements OnInit {
             });
             setTimeout(() => {
                 this.modalDialogRef.close('Edit');
+                window.location.reload();
             }, this.snackbarConfig.duration);
         }, error => {
             const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {

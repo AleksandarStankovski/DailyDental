@@ -14,13 +14,16 @@ import { Doctor } from '../../../shared/models/doctor.model';
 })
 export class DoctorComponent implements OnInit {
 
+    isRoleReception: boolean;
     @Input() doctor: Doctor;
-    @Input() isAdmin: boolean;
+    @Input() isRoleUser: boolean;
     @Output() editDoctor: EventEmitter<string> = new EventEmitter();
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.isRoleReception = this.doctor.role === 'reception';
+    }
 
     edit(): void {
         this.editDoctor.emit(this.doctor._id);

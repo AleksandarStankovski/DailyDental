@@ -6,12 +6,13 @@
 </div>
 <md-dialog-content>
     <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
-        <p [hidden]="manipulations?.length > 0">Моля, преди да запишете час, създайте манипулация.</p>
         <div>
             <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
-                <md-option *ngFor="let doctor of doctors" [value]="doctor._id">
-                    д-р. {{doctor.lastName}}
-                </md-option>
+                <ng-container *ngFor="let doctor of doctors">
+                    <md-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
+                        д-р. {{doctor.lastName}}
+                    </md-option>
+                </ng-container>
             </md-select>
         </div>
         <div>
