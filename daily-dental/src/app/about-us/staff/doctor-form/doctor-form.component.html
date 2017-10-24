@@ -52,15 +52,14 @@
                 <input mdInput [(ngModel)]="doctor.password" type="password" name="password" required #doctorPassword="ngModel" placeholder="Парола">
             </md-form-field>
         </div> 
+        <div *ngIf="!isRoleReception && (user?._id !== data.doctorId)">
+            <md-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
+                {{doctor.active | doctorActiveConverter}}
+            </md-slide-toggle>
+        </div> 
         <div *ngIf="data.doctorId" class="d-flex justify-content-end">
             <a md-button (click)="passwordToggle()">Смяна на парола</a>
         </div>
-        
-        <!-- <div>
-            <md-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
-                Slide me!
-            </md-slide-toggle>
-        </div>  -->
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">

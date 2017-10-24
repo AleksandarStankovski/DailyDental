@@ -3,8 +3,13 @@ const LocalStrategy = require('passport-local').Strategy;
 const Doctor = require('../models/Doctor');
 
 const authenticateDoctor = (email, password, done) => {
-    Doctor.findOne({email: email}).then(doctor => {
-        if(!doctor){
+    Doctor.findOne({email: email})
+    .then(doctor => {
+        if (!doctor) {
+            return done(null, false);
+        }
+
+        if (!doctor.active) {
             return done(null, false);
         }
 

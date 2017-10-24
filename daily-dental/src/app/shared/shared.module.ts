@@ -29,6 +29,7 @@ import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
 import { StatusConverterPipe } from './status-converter.pipe';
+import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
 
 @NgModule({
     imports: [
@@ -58,7 +59,8 @@ import { StatusConverterPipe } from './status-converter.pipe';
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
-        StatusConverterPipe
+        StatusConverterPipe,
+        DoctorActiveConverterPipe
     ],
     exports: [
         CommonModule,
@@ -83,7 +85,8 @@ import { StatusConverterPipe } from './status-converter.pipe';
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
-        StatusConverterPipe
+        StatusConverterPipe,
+        DoctorActiveConverterPipe
     ]
 })
 export class SharedModule { }

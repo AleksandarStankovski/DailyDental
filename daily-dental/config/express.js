@@ -53,6 +53,7 @@ module.exports = function (app, config) {
                             lastName: 'Рецепция',
                             email: 'reception',
                             role: 'reception',
+                            active: true,
                             salt: salt,
                             passwordHash: passwordHash
 
