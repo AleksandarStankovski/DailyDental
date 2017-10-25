@@ -12,7 +12,7 @@
         </ul>
     </nav>
     <div class="page">
-        <app-floating-button *ngIf="doctors?.length > 1" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
+        <app-floating-button *ngIf="doctors?.length > 1 && (receptionDataDay >= todayDate)" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
         <div class="page-container mx-auto">
             <div>
                 <div *ngIf="doctors?.length > 1" class="timeline-date">

@@ -1,0 +1,30 @@
+VisualStudioCode tools:
+
+1.Configuration:
+- tsconfig.json
+- launch.json
+- tasks.json
+
+2.Extensions:
+- TSLint
+- Typings auto install
+- Debugger for Chrome
+- Path intellisense
+
+3.Angular 2 extensions:
+- Angular language service // intellisense in templates
+- Angular Snippets (angular-typescript-snippets or angular-snippets)
+- Angular files (we can create angular cli with mouse right click)
+- Type Lens (plugin which adds reference counter code lenses to typescript, js, scss and less)
+- Types Auto Installer (any time you save either package.json or bower.json to typings packages will be installed/unistalled automatically in the background)
+- Auto import
+
+
+Angular 2 tools:
+
+1.Angular cli
+2.Augury angular (chrome extension for debugging and profiling angular applications)
+3.Compodoc (documentation tool for angular applications)
+4.Angular Material
+5.Angular Resources (angular.io/resources)
+6.List of many components (awesome-angular-component)

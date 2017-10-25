@@ -29,24 +29,16 @@
                 </md-option>
             </md-select>
         </div>
-        <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="appointment.patient.firstName" name="patientFirstName" required #appointmentPatientFirstName="ngModel" placeholder="Име на пациента">
-            </md-form-field>
+        <div *ngIf="receptionDataDay >= todayDate" [hidden]="patients?.length === 0">
+            <md-select [(ngModel)]="appointment.patient" [compareWith]="selectPatient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
+                <md-option *ngFor="let patient of patients" [value]="patient">
+                    {{patient.firstName}} {{patient.lastName}}
+                </md-option>
+            </md-select>
         </div>
-        <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="appointment.patient.lastName" name="patientLastName" required #appointmentPatientLastName="ngModel" placeholder="Фамилия на пациента">
-            </md-form-field>
-        </div>
-        <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="appointment.patient.phone" name="patientPhone" required #appointmentPatientPhone="ngModel" placeholder="Телефон на пациента">
-            </md-form-field>
-        </div>
-        <div [hidden]="manipulations?.length === 0">
-            <md-select [(ngModel)]="appointment.manipulations" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
-                <md-option *ngFor="let manipulation of manipulations" [value]="manipulation._id">
+        <div *ngIf="receptionDataDay >= todayDate" [hidden]="manipulations?.length === 0">
+            <md-select [(ngModel)]="appointment.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
+                <md-option *ngFor="let manipulation of manipulations" [value]="manipulation">
                     {{manipulation.name}}
                 </md-option>
             </md-select>
@@ -69,3 +61,29 @@
     <button *ngIf="data.appointmentId" md-button (click)="delete()" md-raised-button>Изтрий</button>
     <button md-button (click)="save()" [disabled]="appointmentForm.invalid" md-raised-button>Запази</button>
 </md-dialog-actions>
+
+
+        <!-- <div [hidden]="patients?.length === 0">
+            <md-select [(ngModel)]="appointment.patient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
+                <md-option *ngFor="let patient of patients" [value]="patient._id">
+                    {{patient.firstName}} {{patient.lastName}}
+                </md-option>
+            </md-select>
+        </div> -->
+
+
+        <!-- <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="appointment.patient.firstName" name="patientFirstName" required #appointmentPatientFirstName="ngModel" placeholder="Име на пациента">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="appointment.patient.lastName" name="patientLastName" required #appointmentPatientLastName="ngModel" placeholder="Фамилия на пациента">
+            </md-form-field>
+        </div>
+        <div>
+            <md-form-field class="input-full-width">
+                <input mdInput [(ngModel)]="appointment.patient.phone" name="patientPhone" required #appointmentPatientPhone="ngModel" placeholder="Телефон на пациента">
+            </md-form-field>
+        </div> -->

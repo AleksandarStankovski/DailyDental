@@ -21,6 +21,8 @@ export class ReceptionComponent implements OnInit {
     modalConfig: ModalConfig;
     doctors: Doctor[];
     receptionData: Date;
+    todayDate: number;
+    receptionDataDay: number;
     appointments: Appointment[];
     tutorialText: string;
     activeDoctor: string;
@@ -34,7 +36,9 @@ export class ReceptionComponent implements OnInit {
     ngOnInit() {
         this.modalConfig = new ModalConfig();
         let newDate = new Date().setHours(13, 0, 0, 0);
+        this.todayDate = new Date().getDate();
         this.receptionData = new Date(newDate);
+        this.receptionDataDay = this.receptionData.getDate();
         this.getUser();
     }
 
@@ -106,6 +110,7 @@ export class ReceptionComponent implements OnInit {
     changeDate(value): void {
         let newDate = new Date(value).setHours(13, 0, 0, 0);
         this.receptionData =  new Date(newDate);
+        this.receptionDataDay = this.receptionData.getDate();
         this.getAppointmentByDate();
     }
 

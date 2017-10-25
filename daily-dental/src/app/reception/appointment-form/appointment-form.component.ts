@@ -15,8 +15,10 @@ import { AppointmentStatusService } from './appointment-status.service';
 import { AppointmentHoursService } from './appointment-hours.service';
 import { Doctor } from '../../shared/models/doctor.model';
 import { Manipulation } from '../../shared/models/manipulation.model';
+import { Patient } from '../../shared/models/patient.model';
 import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
 import { ManipulationService } from '../../about-us/price-list/manipulation/manipulation.service';
+import { PatientService } from '../../patients/patient/patient.service';
 
 @Component({
     selector: 'app-appointment-form',
@@ -30,9 +32,12 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     appointment: Appointment;
     doctors: Doctor[];
     manipulations: Manipulation[];
+    patients: Patient[];
     statuses: { type: string, name: string }[];
     hours: { name: string, value: number }[];
     durationHours;
+    todayDate: number;
+    receptionDataDay: number;
 
     constructor(
         private modalDialogRef: MdDialogRef<AppointmentFormComponent>,
@@ -42,18 +47,24 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         private appointmentHoursService: AppointmentHoursService,
         private doctorService: DoctorService,
         private manipulationService: ManipulationService,
+        private patientService: PatientService,
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
+        this.todayDate = 0;
+        this.receptionDataDay = 0;
         this.snackbarConfig = new SnackbarConfig();
-        this.appointment = new Appointment(new Date, 8, undefined, { firstName: '', lastName: '', phone: ''}, '', [], 'confirmed', '');
+        this.appointment = new Appointment(new Date, 8, undefined, { firstName: '', lastName: '', phone: '' }, '', [{ name: '', price: undefined }], 'confirmed', '');
         this.getAllDoctors();
         this.getAllHours();
         this.getAllManipulations();
+        this.getAllPatients();
         this.getAllStatuses();
 
         if (this.data.receptionData) {
             this.appointment.date = this.data.receptionData;
+            this.todayDate = new Date().getDate();
+            this.receptionDataDay = this.data.receptionData.getDate();
         }
         if (this.data.activeDoctor) {
             this.appointment.doctor = this.data.activeDoctor;
@@ -100,7 +111,17 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         .subscribe(response => {
             this.manipulations = response;
             if (this.manipulations.length === 0) {
-                const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте манипулация');
+                const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте манипулация и пациент');
+            }
+        });
+    }
+
+    getAllPatients(): void {
+        this.patientService.getAllPatients()
+        .subscribe(response => {
+            this.patients = response;
+            if (this.patients.length === 0) {
+                const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте пациент и манипулация');
             }
         });
     }
@@ -190,6 +211,14 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
                 throw new Error(error);
             }
         );
+    }
+
+    selectPatient(optionValue, selectedValue) {
+        return optionValue._id === selectedValue._id;
+    }
+
+    selectManipulation(optionValue, selectedValue) {
+        return optionValue._id === selectedValue._id;
     }
 
     // hoursFilter() {

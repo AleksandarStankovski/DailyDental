@@ -15,12 +15,10 @@ let patientSchema = mongoose.Schema({
         required: true
     },
     address: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
-        type: String,
-        required: true
+        type: String
     },
     doctor: { 
         type: mongoose.Schema.Types.ObjectId, 

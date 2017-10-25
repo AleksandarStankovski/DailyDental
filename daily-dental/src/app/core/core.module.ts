@@ -13,6 +13,7 @@ import { SpecialityService } from './speciality.service';
 import { UserService } from './user.service';
 import { DoctorService } from '../about-us/staff/doctor/doctor.service';
 import { ManipulationService } from '../about-us/price-list/manipulation/manipulation.service';
+import { PatientService } from '../patients/patient/patient.service';
 import { NavService } from './nav.service';
 import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
 import { UserFormComponent } from './user-form/user-form.component';
@@ -43,6 +44,7 @@ import { UserFormComponent } from './user-form/user-form.component';
         UserService,
         DoctorService,
         ManipulationService,
+        PatientService,
         NavService
     ],
     entryComponents: [

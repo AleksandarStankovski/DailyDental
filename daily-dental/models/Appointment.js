@@ -16,28 +16,44 @@ let appointmentSchema = mongoose.Schema({
         required: true
     },
     patient: {
+        _id: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true 
+        },
         firstName: {
             type: String,
-            required: true
+            required: true 
         },
         lastName: {
             type: String,
-            required: true
+            required: true 
         },
         phone: {
             type: String,
-            required: true
+            required: true 
         }
     },
     doctor: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Doctor' 
+        ref: 'Doctor',
+        required: true 
     },
-    manipulations: [{
-        type: mongoose.Schema.Types.ObjectId,
-        default: [],
-        ref: 'Manipulation' 
-    }],
+    manipulations: [
+        {
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true 
+            },
+            name: {
+                type: String,
+                required: true 
+            },
+            price: {
+                type: Number,
+                required: true 
+            }
+        }
+    ],
     status: {
         type: String,
         enum: config.development.appointmentStatus,

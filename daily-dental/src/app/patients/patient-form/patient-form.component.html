@@ -23,12 +23,12 @@
         </div>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.address" name="address" required #patientAddress="ngModel" placeholder="Адрес">
+                <input mdInput [(ngModel)]="patient.address" name="address" #patientAddress="ngModel" placeholder="Адрес">
             </md-form-field>
         </div>
         <div>
             <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.email" name="email" required #patientEmail="ngModel" placeholder="Е-mail">
+                <input mdInput [(ngModel)]="patient.email" name="email" #patientEmail="ngModel" placeholder="Е-mail">
             </md-form-field>
         </div>
         <md-select [hidden]="doctors?.length <= 1" [(ngModel)]="patient.doctor._id" name="doctor" required #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">

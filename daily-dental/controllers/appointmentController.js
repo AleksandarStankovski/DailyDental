@@ -1,6 +1,5 @@
 const Appointment = require('mongoose').model('Appointment');
 const Doctor = require('mongoose').model('Doctor');
-const moment= require('moment');
 
 module.exports = {
     getAll: (req, res) => { 
@@ -18,12 +17,7 @@ module.exports = {
         .populate({
             path: 'appointments',
             match: { date:  queryDate },
-            options: { sort: { startTime: 1 } },
-            populate: {
-                path: 'manipulations',
-                model: 'Manipulation',
-                select: 'name price'
-            }
+            options: { sort: { startTime: 1 } }
         })
         .then(doctors => {
             res.json(doctors)
