@@ -18,6 +18,11 @@ export class ManipulationService {
         .map(response => response.json() as Manipulation[]);
     }
 
+    getAllManipulationsByPage(page: number): Observable<any> {
+        return this.http.get(`${this.apiUrl}/manipulations/page/${page}`)
+        .map(response => response.json());
+    }
+
     getManipultion(id: string): Observable<Manipulation> {
         return this.http.get(`${this.apiUrl}/manipulation/${id}`)
         .map(response => response.json() as Manipulation);

@@ -123,7 +123,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.patientService.getAllPatients()
         .subscribe(response => {
             this.patients = response;
-            if (this.patients.length === 0 &&) {
+            if (this.patients.length === 0) {
                 const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте пациент и манипулация');
             }
             this.filteredPatients = this.myControl.valueChanges

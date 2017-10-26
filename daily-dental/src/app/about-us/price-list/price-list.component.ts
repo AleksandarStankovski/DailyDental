@@ -20,6 +20,8 @@ export class PriceListComponent implements OnInit {
     modalConfig: ModalConfig;
     tutorialText: string;
     isRoleUser: boolean;
+    page: number;
+    countPage: number;
 
     constructor(
         private modalDialog: MdDialog,
@@ -27,6 +29,8 @@ export class PriceListComponent implements OnInit {
         private userService: UserService) {}
 
     ngOnInit() {
+        this.page = 1;
+        this.manipulations = [];
         this.modalConfig = new ModalConfig();
         this.isRoleUserCheck();
     }
@@ -36,19 +40,41 @@ export class PriceListComponent implements OnInit {
         .subscribe(response => {
             this.isRoleUser = response;
         });
-        this.getAllManipulations();
+        this.getManipulationsByPage();
     }
 
-    getAllManipulations(): void {
-        this.manipulationService.getAllManipulations()
+    // getAllManipulations(): void {
+    //     this.manipulationService.getAllManipulations()
+    //     .subscribe(response => {
+    //         this.manipulations = response;
+    //         if (this.manipulations.length === 0) {
+    //             this.tutorialText = 'Кликнете тук за да създадете манипулация';
+    //         } else {
+    //             this.tutorialText = undefined;
+    //         }
+    //     });
+    // }
+
+    getManipulationsByPage() {
+        this.manipulationService.getAllManipulationsByPage(this.page)
         .subscribe(response => {
-            this.manipulations = response;
-            if (this.manipulations.length === 0) {
-                this.tutorialText = 'Кликнете тук за да създадете манипулация';
-            } else {
-                this.tutorialText = undefined;
+            this.manipulations = response.manipulations;
+            this.countPage = response.countPage;
+        })
+    }
+
+    changePage(type: string): void {
+        if (type === 'prev') {
+            if (this.page > 1) {
+                this.page --;
             }
-        });
+        }
+        if (type === 'next') {
+            if (this.page < this.countPage) {
+                this.page ++;
+            }
+        }
+        this.getManipulationsByPage();
     }
 
     openModalDialog(manipulationId?: string): void {
@@ -59,7 +85,7 @@ export class PriceListComponent implements OnInit {
             panelClass: 'loading-overlay-container'
         });
         modalDialogRef.afterClosed().subscribe(result => {
-            this.getAllManipulations();
+            this.getManipulationsByPage();
         })
     }
 
@@ -70,4 +96,5 @@ export class PriceListComponent implements OnInit {
     editManipulation(manipulationId: string): void {
         this.openModalDialog(manipulationId);
     }
+
 }

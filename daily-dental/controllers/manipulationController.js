@@ -5,7 +5,21 @@ module.exports = {
     getAll: (req, res) => { 
         Manipulation.find({})
         .then(manipulations => {
-            res.json(manipulations)
+            res.json(manipulations);
+        })
+    },
+
+    getByPage: function (req, res) {
+        let page = req.params.page || 1
+        let perPage = 6;
+        Manipulation.find({}).count().then(function (count) {
+            let countPage = Math.ceil(count / perPage);
+            Manipulation.find({})
+            .skip(perPage * (page - 1))
+            .limit(perPage)
+            .then(manipulations => {
+                res.json({countPage: countPage, manipulations: manipulations});
+            })
         })
     },
 
