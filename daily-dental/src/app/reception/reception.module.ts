@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { ReceptionRoutingModule } from './reception-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -14,6 +15,8 @@ import { AppointmentHoursService } from './appointment-form/appointment-hours.se
     imports: [
         HttpModule,
         SharedModule,
+        FormsModule,
+        ReactiveFormsModule,
         ReceptionRoutingModule
     ],
     declarations: [

@@ -1,7 +1,6 @@
 import {
     Component,
     OnInit,
-    OnDestroy,
     Inject } from '@angular/core';
 import {
     MdDialogRef,
@@ -19,7 +18,7 @@ import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
     templateUrl: './patient-form.component.html',
     styleUrls: ['./patient-form.component.scss']
 })
-export class PatientFormComponent implements OnInit, OnDestroy {
+export class PatientFormComponent implements OnInit {
 
     patient: Patient;
     doctors: Doctor[];
@@ -34,7 +33,7 @@ export class PatientFormComponent implements OnInit, OnDestroy {
         @Inject(MD_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-        this.patient = new Patient('', '', '', '', '', {});
+        this.patient = new Patient('', '', '', '', '', { _id: ''});
         this.snackbarConfig = new SnackbarConfig();
         this.getAllDoctors();
         if (this.data.patientId) {
@@ -42,14 +41,15 @@ export class PatientFormComponent implements OnInit, OnDestroy {
         }
     }
 
-    ngOnDestroy() {
-        this.snackBar.dismiss();
-    }
-
     getPatient(): void {
         this.patientService.getPatient(this.data.patientId)
         .subscribe(resolve => {
             this.patient = resolve;
+            if (!this.patient.doctor) {
+                this.patient.doctor = {
+                    _id: ''
+                }
+            }
         });
     }
 
@@ -57,9 +57,6 @@ export class PatientFormComponent implements OnInit, OnDestroy {
         this.doctorService.getAllDoctors()
         .subscribe(response => {
             this.doctors = response;
-            if (this.doctors.length <= 1) {
-                const snackBarRef = this.snackBar.open('Моля, преди да създадете нов пациент, създайте лекар');
-            }
         });
     }
 

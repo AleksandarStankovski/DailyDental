@@ -5,7 +5,7 @@
     </button>
 </div>
 <md-dialog-content>
-    <form (ngSubmit)="appointmentForm.valid && save()" #appointmentForm="ngForm" novalidate>
+    <form (ngSubmit)="appointmentForm.valid && isValidPatient && save()" #appointmentForm="ngForm" novalidate>
         <div>
             <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
                 <ng-container *ngFor="let doctor of doctors">
@@ -29,14 +29,17 @@
                 </md-option>
             </md-select>
         </div>
-        <div *ngIf="receptionDataDay >= todayDate" [hidden]="patients?.length === 0">
-            <md-select [(ngModel)]="appointment.patient" [compareWith]="selectPatient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
-                <md-option *ngFor="let patient of patients" [value]="patient">
-                    {{patient.firstName}} {{patient.lastName}}
+        <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
+            <md-form-field class="input-full-width">
+                <input type="text" mdInput [mdAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient"  (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
+            </md-form-field>
+            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayPatient">
+                <md-option *ngFor="let patient of filteredPatients | async" [value]="patient">
+                    {{patient.firstName}} {{patient.lastName }}
                 </md-option>
-            </md-select>
+            </md-autocomplete>
         </div>
-        <div *ngIf="receptionDataDay >= todayDate" [hidden]="manipulations?.length === 0">
+        <div *ngIf="appointmentDataDay >= todayDate" [hidden]="manipulations?.length === 0">
             <md-select [(ngModel)]="appointment.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
                 <md-option *ngFor="let manipulation of manipulations" [value]="manipulation">
                     {{manipulation.name}}
@@ -58,11 +61,28 @@
     </form>
 </md-dialog-content>
 <md-dialog-actions class="justify-content-end">
-    <button *ngIf="data.appointmentId" md-button (click)="delete()" md-raised-button>Изтрий</button>
-    <button md-button (click)="save()" [disabled]="appointmentForm.invalid" md-raised-button>Запази</button>
+    <button *ngIf="data.appointmentId && appointmentDataDay >= todayDate" md-button (click)="delete()" md-raised-button>Изтрий</button>
+    <button md-button (click)="save()" [disabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" md-raised-button>Запази</button>
 </md-dialog-actions>
 
 
+        <!-- <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
+            <md-select [(ngModel)]="appointment.patient" [compareWith]="selectPatient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
+                <md-option *ngFor="let patient of patients" [value]="patient">
+                    {{patient.firstName}} {{patient.lastName}}
+                </md-option>
+            </md-select>
+        </div> -->
+
+
+        <!-- <md-form-field>
+            <input type="text" mdInput [mdAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient" name="patient" placeholder="Пациент">
+        </md-form-field>
+        <md-autocomplete #auto="mdAutocomplete">
+            <md-option *ngFor="let patient of filteredPatients | async" [value]="patient">
+                {{patient.firstName}} {{patient.lastName }}
+            </md-option>
+        </md-autocomplete> -->
         <!-- <div [hidden]="patients?.length === 0">
             <md-select [(ngModel)]="appointment.patient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
                 <md-option *ngFor="let patient of patients" [value]="patient._id">

@@ -1,6 +1,5 @@
 const Clinic = require('mongoose').model('Clinic');
 const Patient = require('mongoose').model('Patient');
-const Doctor = require('mongoose').model('Doctor');
 
 module.exports = {
     getAll: (req, res) => { 
@@ -22,6 +21,9 @@ module.exports = {
 
     create: (req, res) => {
         let newPatient = req.body;
+        if (newPatient.doctor._id.length === 0) {
+            newPatient.doctor = undefined;
+        }
         Patient.create(newPatient)
         .then(patient => {
             return Clinic.update(

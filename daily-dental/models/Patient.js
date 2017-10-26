@@ -22,7 +22,6 @@ let patientSchema = mongoose.Schema({
     },
     doctor: { 
         type: mongoose.Schema.Types.ObjectId, 
-        required: true,
         ref: 'Doctor' 
     }
 });

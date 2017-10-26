@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="patient.doctor.speciality" class="md-dialog-header d-flex justify-content-end">
+<div [ngClass]="patient.doctor?.speciality" class="md-dialog-header d-flex justify-content-end">
     <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
@@ -31,7 +31,7 @@
                 <input mdInput [(ngModel)]="patient.email" name="email" #patientEmail="ngModel" placeholder="Е-mail">
             </md-form-field>
         </div>
-        <md-select [hidden]="doctors?.length <= 1" [(ngModel)]="patient.doctor._id" name="doctor" required #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">
+        <md-select *ngIf="doctors?.length > 0" [(ngModel)]="patient.doctor._id" name="doctor" #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">
             <ng-container *ngFor="let doctor of doctors">
                 <md-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
                     д-р. {{doctor.lastName}}
