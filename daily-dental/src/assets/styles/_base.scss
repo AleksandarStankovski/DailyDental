@@ -87,6 +87,13 @@ h2 {
         max-width: 100%;
     }
 }
+.mat-mini-fab {
+    &.md-mini-fab-basic {
+        background-color: #fff;
+        color: rgba(0,0,0,.87);
+    }
+}
+
 
 /* Modal dialog */
 .mat-dialog-container {

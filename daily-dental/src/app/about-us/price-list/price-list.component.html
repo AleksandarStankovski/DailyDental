@@ -5,9 +5,15 @@
             <li *ngFor="let manipulation of manipulations">
                 <app-manipulation [manipulation]="manipulation" [isRoleUser]="isRoleUser" (editManipulation)="editManipulation($event)"></app-manipulation>
             </li>
-            <p>{{page}} / {{countPage}}</p>
-			<a (click)="changePage('prev')">Предишна</a><br/>
-			<a (click)="changePage('next')">Следваща</a>
+            <div class="d-flex justify-content-end align-items-center mt-4">
+                <button (click)="changePage('prev')" [disabled]="page <= 1" md-mini-fab class="md-mini-fab-basic">
+                    <i class="fontello ft-14 icon-arrow-left"></i>
+                </button>
+                <span class="ml-2 mr-2">{{page}} / {{countPage}}</span>
+                <button (click)="changePage('next')" [disabled]="page === countPage" md-mini-fab class="md-mini-fab-basic">
+                    <i class="fontello ft-14 icon-arrow-right"></i>
+                </button>
+            </div>
         </ul>
     </div>
 </div>

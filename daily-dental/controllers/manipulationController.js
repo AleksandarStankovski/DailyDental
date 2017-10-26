@@ -11,7 +11,7 @@ module.exports = {
 
     getByPage: function (req, res) {
         let page = req.params.page || 1
-        let perPage = 6;
+        let perPage = 18;
         Manipulation.find({}).count().then(function (count) {
             let countPage = Math.ceil(count / perPage);
             Manipulation.find({})
