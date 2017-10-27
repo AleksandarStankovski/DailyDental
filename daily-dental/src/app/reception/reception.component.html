@@ -12,7 +12,7 @@
         </ul>
     </nav>
     <div class="page">
-        <app-floating-button *ngIf="doctors?.length > 1 && (receptionDataDay >= todayDate)" [tutorialText]="tutorialText" (openModalDialog)="addAppointment()"></app-floating-button>
+        <app-floating-button *ngIf="doctors?.length > 1 && (receptionDataDay >= todayDate)" [tutorialText]="tutorialText" (floatingButtonActionEvent)="addAppointment()"></app-floating-button>
         <div class="page-container mx-auto">
             <div>
                 <div *ngIf="doctors?.length > 1" class="timeline-date">
@@ -30,7 +30,7 @@
                 <div class="timeline">
                     <ul class="list-unstyled">
                         <li *ngFor="let appointment of appointments">
-                            <app-appointment [appointment]="appointment" (editAppointment)="editAppointment($event)"></app-appointment>
+                            <app-appointment [appointment]="appointment" (editAppointmentEvent)="editAppointment($event)"></app-appointment>
                         </li>
                     </ul>
                 </div>

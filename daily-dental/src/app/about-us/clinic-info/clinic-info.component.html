@@ -2,7 +2,7 @@
     <div class="page-container container">
         <ul class="list-unstyled">
             <li *ngIf="clinic">
-                <app-clinic [clinic]="clinic" [isRoleUser]="isRoleUser" (editClinic)="editClinic($event)"></app-clinic>
+                <app-clinic [clinic]="clinic" [isRoleUser]="isRoleUser" (editClinicEvent)="editClinic($event)"></app-clinic>
             </li>
         </ul>
     </div>

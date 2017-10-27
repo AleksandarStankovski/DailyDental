@@ -13,14 +13,14 @@ import {
 export class FloatingButtonComponent implements OnInit {
 
     @Input() tutorialText: string;
-    @Output() openModalDialog: EventEmitter<any> = new EventEmitter();
+    @Output() floatingButtonActionEvent: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
     ngOnInit() { }
 
-    floatingButtonClick() {
-        this.openModalDialog.emit();
+    floatingButtonAction() {
+        this.floatingButtonActionEvent.emit();
     }
 
 }

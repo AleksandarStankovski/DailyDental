@@ -88,6 +88,10 @@ export class PriceListComponent implements OnInit {
         })
     }
 
+    test(event) {
+        console.log(event);
+    }
+
 }
 
 // getAllManipulations(): void {

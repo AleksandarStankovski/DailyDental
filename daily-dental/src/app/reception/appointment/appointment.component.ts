@@ -19,7 +19,7 @@ export class AppointmentComponent implements OnInit {
     totalPrice: number;
     appointmentIcon: string;
     @Input() appointment: Appointment;
-    @Output() editAppointment: EventEmitter<string> = new EventEmitter();
+    @Output() editAppointmentEvent: EventEmitter<string> = new EventEmitter();
 
     constructor(private appointmentService: AppointmentService) { }
 
@@ -41,8 +41,8 @@ export class AppointmentComponent implements OnInit {
         this.totalPrice = total;
     }
 
-    edit(): void {
-        this.editAppointment.emit(this.appointment._id);
+    editAppointment(): void {
+        this.editAppointmentEvent.emit(this.appointment._id);
     }
 
     getIcon(): void {

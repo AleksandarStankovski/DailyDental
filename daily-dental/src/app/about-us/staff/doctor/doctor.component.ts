@@ -17,7 +17,7 @@ export class DoctorComponent implements OnInit {
     isRoleReception: boolean;
     @Input() doctor: Doctor;
     @Input() isRoleUser: boolean;
-    @Output() editDoctor: EventEmitter<string> = new EventEmitter();
+    @Output() editDoctorEvent: EventEmitter<string> = new EventEmitter();
 
     constructor() { }
 
@@ -25,7 +25,7 @@ export class DoctorComponent implements OnInit {
         this.isRoleReception = this.doctor.role === 'reception';
     }
 
-    edit(): void {
-        this.editDoctor.emit(this.doctor._id);
+    editDoctor(): void {
+        this.editDoctorEvent.emit(this.doctor._id);
     }
 }

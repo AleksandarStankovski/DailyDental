@@ -1,4 +1,4 @@
-<a (click)="edit()" [ngClass]="appointment.status" class="appointment cursor-pointer d-flex">
+<a (click)="editAppointment()" [ngClass]="appointment.status" class="appointment cursor-pointer d-flex">
     <div class="appointment-fbox d-flex flex-column justify-content-between">
         <div [mdTooltip]="appointment.status | statusConverter" mdTooltipPosition="above" class="d-flex justify-content-center align-items-center rounded-circle">
             <i [ngClass]="appointmentIcon" class="fontello ft-28"></i>

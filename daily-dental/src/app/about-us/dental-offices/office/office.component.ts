@@ -16,13 +16,13 @@ export class OfficeComponent implements OnInit {
 
     @Input() office: Office;
     @Input() isRoleUser: boolean;
-    @Output() editOffice: EventEmitter<string> = new EventEmitter()
+    @Output() editOfficeEvent: EventEmitter<string> = new EventEmitter()
 
     constructor() { }
 
     ngOnInit() {}
 
-    edit(): void {
-        this.editOffice.emit(this.office._id);
+    editOffice(): void {
+        this.editOfficeEvent.emit(this.office._id);
     }
 }

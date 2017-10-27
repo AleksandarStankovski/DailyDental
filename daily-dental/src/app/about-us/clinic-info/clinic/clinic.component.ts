@@ -16,13 +16,13 @@ export class ClinicComponent implements OnInit {
 
     @Input() clinic: Clinic;
     @Input() isRoleUser: boolean;
-    @Output() editClinic: EventEmitter<string> = new EventEmitter();
+    @Output() editClinicEvent: EventEmitter<string> = new EventEmitter();
 
     constructor() { }
 
     ngOnInit() { }
 
-    edit(): void {
-        this.editClinic.emit(this.clinic._id);
+    editClinic(): void {
+        this.editClinicEvent.emit(this.clinic._id);
     }
 }

@@ -15,7 +15,7 @@ import { PaginationConfig } from '../models/pagination-config-model';
 export class PaginationComponent implements OnInit {
 
     @Input() paginationConfig: PaginationConfig;
-    @Output() getDataByPage: EventEmitter<any> = new EventEmitter();
+    @Output() changePageEvent: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
@@ -32,7 +32,7 @@ export class PaginationComponent implements OnInit {
                 this.paginationConfig.currentPage ++;
             }
         }
-        this.getDataByPage.emit(this.paginationConfig);
+        this.changePageEvent.emit(this.paginationConfig);
     }
 
 }

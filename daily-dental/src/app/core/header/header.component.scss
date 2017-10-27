@@ -13,13 +13,11 @@ header {
         color: $app-ligth-color;
         @include media-breakpoint-down(sm) {
             min-height: 53px;
-            padding-top: 6px;
-            padding-bottom: 6px;
+            padding: 6px 10px;
         }
         .header-top {
             &-toggle {
                 padding-top: 7px;
-                padding-right: 7px;
                 padding-bottom: 7px;
             }
             .fontello {
@@ -47,13 +45,13 @@ header {
                 width: 100%;
                 h1 {
                     top: 20px;
-                    left: 70px;
-                    right: 70px;
+                    left: 67px;
+                    right: 115px;
                     font-size: 1.2rem;
                     @include media-breakpoint-down(sm) {
                         top: 17px;
-                        left: 70px;
-                        right: 70px;
+                        left: 60px;
+                        right: 105px;
                     }  
                 }
             }     

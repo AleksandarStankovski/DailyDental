@@ -18,7 +18,7 @@ export class ManipulationComponent implements OnInit {
     manipulationIcon: string;
     @Input() manipulation: Manipulation;
     @Input() isRoleUser: boolean;
-    @Output() editManipulation: EventEmitter<string> = new EventEmitter();
+    @Output() editManipulationEvent: EventEmitter<string> = new EventEmitter();
     
     constructor(private manipulationService: ManipulationService) { }
 
@@ -26,8 +26,8 @@ export class ManipulationComponent implements OnInit {
         this.getIcon();
     }
 
-    edit(): void {
-        this.editManipulation.emit(this.manipulation._id);
+    editManipulation(): void {
+        this.editManipulationEvent.emit(this.manipulation._id);
     }
 
     getIcon(): void {

@@ -15,14 +15,14 @@ import { Patient } from '../../shared/models/patient.model';
 export class PatientComponent implements OnInit {
 
     @Input() patient: Patient;
-    @Output() editPatient: EventEmitter<string> = new EventEmitter();
+    @Output() editPatientEvent: EventEmitter<string> = new EventEmitter();
 
     constructor() { }
 
     ngOnInit() { }
 
-    edit(): void {
-        this.editPatient.emit(this.patient._id);
+    editPatient(): void {
+        this.editPatientEvent.emit(this.patient._id);
     }
 
 }

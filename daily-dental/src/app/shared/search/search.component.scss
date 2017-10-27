@@ -1,0 +1,66 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
+.search {
+    position: fixed;
+    top: 12px;
+    right: 60px;
+    z-index: 4;
+    @include media-breakpoint-down(sm) {
+        top: 8px;
+        right: 50px;
+    }  
+    > a {
+        display: block;
+        padding: 5px;
+        color: $app-ligth-color;
+        i {
+            @include media-breakpoint-down(sm) {
+                font-size: 26px;
+            } 
+        }
+    }
+    .search-input {
+        position: fixed;
+        top: 63px;
+        left: 0;
+        right: 0;
+        padding: 10px 22px;
+        background-color: $app-ligth-color;
+        @include media-breakpoint-down(sm) {
+            top: 53px;
+            padding: 7px 15px;
+        } 
+        button {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            i {
+                @include media-breakpoint-down(sm) {
+                    font-size: 24px;
+                } 
+            }
+        }
+        input {
+            flex: 1;
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+            @include media-breakpoint-down(sm) {
+                height: 30px;
+                font-size: 1rem;
+            } 
+        }
+        a {
+            padding: 2px;
+            color: $app-dark-color;
+            i {
+                @include media-breakpoint-down(sm) {
+                    font-size: 16px;
+                } 
+            }
+        }
+    }
+}

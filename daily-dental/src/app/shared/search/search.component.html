@@ -1,0 +1,18 @@
+<div class="search">
+    <a (click)="toggleSearch()" class="cursor-pointer">
+        <i class="fontello ft-28 icon-search"></i>
+    </a>
+    <div *ngIf="isVisibleSearch" class="search-input">
+        <form (ngSubmit)="search()">
+            <div class="d-flex align-content-center">
+                <button class="cursor-pointer d-flex justify-content-center align-items-center mr-2">
+                    <i class="fontello ft-24 icon-search"></i>
+                </button>
+                <input type="text" [(ngModel)]="searchText" name="searchText" [placeholder]="placeholder" autofocus>
+                <a (click)="toggleSearch()" class="cursor-pointer d-flex justify-content-center align-items-center ml-2">
+                    <i class="fontello ft-16 icon-close"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

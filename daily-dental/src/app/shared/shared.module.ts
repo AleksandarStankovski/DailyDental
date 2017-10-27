@@ -26,12 +26,13 @@ import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 import { FloatingButtonComponent } from './floating-button/floating-button.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { SearchComponent } from './search/search.component';
+import { PaginationComponent } from './pagination/pagination.component';
 import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
 import { StatusConverterPipe } from './status-converter.pipe';
 import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
-import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
     imports: [
@@ -60,6 +61,7 @@ import { PaginationComponent } from './pagination/pagination.component';
         FloatingButtonComponent,
         AvatarComponent,
         PaginationComponent,
+        SearchComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
@@ -88,6 +90,7 @@ import { PaginationComponent } from './pagination/pagination.component';
         FloatingButtonComponent,
         AvatarComponent,
         PaginationComponent,
+        SearchComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
