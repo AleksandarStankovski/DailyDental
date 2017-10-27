@@ -23,6 +23,14 @@ module.exports = {
         })
     },
 
+    getFiltered: (req, res) => { 
+        let searchText = new RegExp(req.query.searchText, 'i'); 
+        Manipulation.find({ $or: [{ name: { $regex: searchText }}, { type: { $regex: searchText }}] })
+        .then(manipulations => {
+            res.json(manipulations);
+        })
+    },
+
     getById: (req, res) => {
         let id = req.params.id;
         Manipulation.findById(id)

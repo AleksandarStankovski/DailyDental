@@ -25,7 +25,8 @@ module.exports = function (app, config) {
 	app.put('/api/doctor/edit', doctorController.edit);
 	app.delete('/api/doctor/delete/:id', doctorController.delete);
 	app.get('/api/manipulations', manipulationController.getAll);
-	app.get('/api/manipulations/pagination/', manipulationController.getByPage);
+	app.get('/api/manipulations/pagination', manipulationController.getByPage);
+	app.get('/api/manipulations/search', manipulationController.getFiltered);
 	app.get('/api/manipulation/:id', manipulationController.getById);
 	app.post('/api/manipulation/create', manipulationController.create);
 	app.put('/api/manipulation/edit', manipulationController.edit);

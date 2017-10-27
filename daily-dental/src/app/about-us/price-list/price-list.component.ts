@@ -23,6 +23,7 @@ export class PriceListComponent implements OnInit {
     isRoleUser: boolean;
     paginationConfig: PaginationConfig;
     manipulationsLength: number;
+    searchText: string;
 
     constructor(
         private modalDialog: MdDialog,
@@ -47,7 +48,7 @@ export class PriceListComponent implements OnInit {
         if (newPaginationConfig) {
             this.paginationConfig = newPaginationConfig;
         } 
-        this.manipulationService.getAllManipulationsByPage(this.paginationConfig.currentPage, this.paginationConfig.itemsPerPage)
+        this.manipulationService.getManipulationsByPage(this.paginationConfig.currentPage, this.paginationConfig.itemsPerPage)
         .subscribe(response => {
             this.manipulations = response.manipulations;
             this.manipulationsLength = response.manipulationsLength;
@@ -78,6 +79,13 @@ export class PriceListComponent implements OnInit {
 
     editManipulation(manipulationId: string): void {
         this.openModalDialog(manipulationId);
+    }
+
+    search() {
+        this.manipulationService.getFilteredManipulations(this.searchText)
+        .subscribe(response => {
+            console.log(response)
+        })
     }
 
 }
