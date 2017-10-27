@@ -31,6 +31,7 @@ import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
 import { StatusConverterPipe } from './status-converter.pipe';
 import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
     imports: [
@@ -58,6 +59,7 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         LoadingOverlayComponent,
         FloatingButtonComponent,
         AvatarComponent,
+        PaginationComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
@@ -85,6 +87,7 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         LoadingOverlayComponent,
         FloatingButtonComponent,
         AvatarComponent,
+        PaginationComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,

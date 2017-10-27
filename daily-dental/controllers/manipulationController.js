@@ -10,15 +10,15 @@ module.exports = {
     },
 
     getByPage: function (req, res) {
-        let page = req.params.page || 1
-        let perPage = 18;
-        Manipulation.find({}).count().then(function (count) {
-            let countPage = Math.ceil(count / perPage);
+        let currentPage = Number(req.query.currentPage) || 1;
+        let itemsPerPage = Number(req.query.itemsPerPage) || 18;
+        Manipulation.find({}).count().then(function (manipulationsLength) {
+            let countPage = Math.ceil(manipulationsLength / itemsPerPage);
             Manipulation.find({})
-            .skip(perPage * (page - 1))
-            .limit(perPage)
+            .skip(itemsPerPage * (currentPage - 1))
+            .limit(itemsPerPage)
             .then(manipulations => {
-                res.json({countPage: countPage, manipulations: manipulations});
+                res.json({countPage: countPage, manipulations: manipulations, manipulationsLength: manipulationsLength});
             })
         })
     },
