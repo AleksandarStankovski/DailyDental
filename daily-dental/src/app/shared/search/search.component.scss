@@ -29,7 +29,8 @@
         background-color: $app-ligth-color;
         @include media-breakpoint-down(sm) {
             top: 53px;
-            padding: 7px 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
         } 
         button {
             margin: 0;

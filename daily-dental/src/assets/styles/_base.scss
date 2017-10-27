@@ -74,6 +74,9 @@ h2 {
 }
 .page {
     position: relative;
+    @include media-breakpoint-down(sm) {
+        padding-bottom: 75px;
+    }
 }
 .input-full-width {
     width: 100%;

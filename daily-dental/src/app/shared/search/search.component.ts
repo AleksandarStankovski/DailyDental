@@ -30,6 +30,7 @@ export class SearchComponent implements OnInit {
     }
 
     search(): void {
+        this.isVisibleSearch = false;
         this.searchEvent.emit(this.searchText)
     }
 

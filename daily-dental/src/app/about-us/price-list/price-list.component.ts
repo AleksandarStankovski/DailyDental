@@ -22,8 +22,7 @@ export class PriceListComponent implements OnInit {
     tutorialText: string;
     isRoleUser: boolean;
     paginationConfig: PaginationConfig;
-    manipulationsLength: number;
-    searchText: string;
+    showPaginaion: boolean;
 
     constructor(
         private modalDialog: MdDialog,
@@ -51,7 +50,7 @@ export class PriceListComponent implements OnInit {
         this.manipulationService.getManipulationsByPage(this.paginationConfig.currentPage, this.paginationConfig.itemsPerPage)
         .subscribe(response => {
             this.manipulations = response.manipulations;
-            this.manipulationsLength = response.manipulationsLength;
+            this.showPaginaion = response.manipulationsLength > this.paginationConfig.itemsPerPage
             this.paginationConfig.countPage = response.countPage;
             if (this.manipulations.length === 0) {
                 this.tutorialText = 'Кликнете тук за да създадете манипулация';
@@ -81,15 +80,18 @@ export class PriceListComponent implements OnInit {
         this.openModalDialog(manipulationId);
     }
 
-    search() {
-        this.manipulationService.getFilteredManipulations(this.searchText)
-        .subscribe(response => {
-            console.log(response)
-        })
-    }
-
-    test(event) {
-        console.log(event);
+    search(searchText: string) {
+        if (typeof searchText !== "undefined") {
+            if (searchText.length === 0) {
+                this.getManipulationsByPage();
+            } else {
+                this.manipulationService.getFilteredManipulations(searchText)
+                .subscribe(response => {
+                    this.manipulations = response;
+                    this.showPaginaion = false;
+                }) 
+            }
+        }
     }
 
 }
