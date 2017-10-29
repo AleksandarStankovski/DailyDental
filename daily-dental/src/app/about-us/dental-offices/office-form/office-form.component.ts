@@ -3,9 +3,9 @@ import {
     OnInit,
     Inject } from '@angular/core';
 import {
-    MdDialogRef,
-    MD_DIALOG_DATA,
-    MdSnackBar } from '@angular/material';
+    MatDialogRef,
+    MAT_DIALOG_DATA,
+    MatSnackBar } from '@angular/material';
 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Office } from '../../../shared/models/office.model';
@@ -25,11 +25,11 @@ export class OfficeFormComponent implements OnInit {
     specialities: { type: string, name: string }[];
 
     constructor(
-        private modalDialogRef: MdDialogRef<OfficeFormComponent>,
-        private snackBar: MdSnackBar,
+        private modalDialogRef: MatDialogRef<OfficeFormComponent>,
+        private snackBar: MatSnackBar,
         private officeService: OfficeService,
         private specialityService: SpecialityService,
-        @Inject(MD_DIALOG_DATA) public data: any) { }
+        @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.office = new Office('', '', '');

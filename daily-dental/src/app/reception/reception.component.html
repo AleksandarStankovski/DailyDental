@@ -16,12 +16,12 @@
         <div class="page-container mx-auto">
             <div>
                 <div *ngIf="doctors?.length > 1" class="timeline-date">
-                    <md-form-field class="example-full-width d-none">
-                        <input mdInput [mdDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
-                    </md-form-field>
-                    <md-datepicker touchUi="true" #datepicker></md-datepicker>
+                    <mat-form-field class="example-full-width d-none">
+                        <input matInput [matDatepicker]="datepicker" (dateChange)="changeDate($event.value)" readonly [value]="receptionData" placeholder="Дата">
+                    </mat-form-field>
+                    <mat-datepicker touchUi="true" #datepicker></mat-datepicker>
                     <div class="d-flex flex-column align-items-center">
-                        <a (click)="datepicker.open()" md-fab class="btn-datepicker">
+                        <a (click)="datepicker.open()" mat-fab class="btn-datepicker">
                             <i class="fontello ft-24 icon-calendar"></i>
                         </a>
                         <span class="reception-data mt-2">{{receptionData | date: 'dd/MM/y'}}</span>

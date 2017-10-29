@@ -1,7 +1,7 @@
 import {
     Component,
     OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Doctor } from '../../shared/models/doctor.model';
@@ -22,7 +22,7 @@ export class StaffComponent implements OnInit {
     isRoleUser: boolean;
 
     constructor(
-        private modalDialog: MdDialog,
+        private modalDialog: MatDialog,
         private doctorService: DoctorService,
         private userService: UserService) {}
 

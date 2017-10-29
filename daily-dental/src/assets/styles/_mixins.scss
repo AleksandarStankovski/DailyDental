@@ -8,7 +8,7 @@
 
 @mixin generate-material-icon-size($sizes) {
     @each $size in $sizes {
-        &.md-#{$size} {
+        &.mat-#{$size} {
             font-size: #{$size}px;
             height: #{$size}px;
             width: #{$size}px;

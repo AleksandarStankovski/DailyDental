@@ -1,7 +1,7 @@
 import {
     Component,
     OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Manipulation } from '../../shared/models/manipulation.model';
@@ -25,7 +25,7 @@ export class PriceListComponent implements OnInit {
     showPaginaion: boolean;
 
     constructor(
-        private modalDialog: MdDialog,
+        private modalDialog: MatDialog,
         private manipulationService: ManipulationService,
         private userService: UserService) {}
 

@@ -3,9 +3,9 @@ import {
     OnInit,
     Inject } from '@angular/core';
 import {
-    MdDialogRef,
-    MD_DIALOG_DATA,
-    MdSnackBar } from '@angular/material';
+    MatDialogRef,
+    MAT_DIALOG_DATA,
+    MatSnackBar } from '@angular/material';
 
 import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
 import { Patient } from '../../shared/models/patient.model';
@@ -26,11 +26,11 @@ export class PatientFormComponent implements OnInit {
     loadingOverlay: boolean;
 
     constructor(
-        private modalDialogRef: MdDialogRef<PatientFormComponent>,
+        private modalDialogRef: MatDialogRef<PatientFormComponent>,
         private patientService: PatientService,
         private doctorService: DoctorService,
-        private snackBar: MdSnackBar,
-        @Inject(MD_DIALOG_DATA) public data: any) { }
+        private snackBar: MatSnackBar,
+        @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.patient = new Patient('', '', '', '', '', { _id: ''});

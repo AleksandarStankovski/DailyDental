@@ -1,69 +1,73 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="doctor.speciality" class="md-dialog-header d-flex justify-content-end">
-    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+<div [ngClass]="doctor.speciality" class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
 </div>
-<md-dialog-content>
+<mat-dialog-content>
     <form (ngSubmit)="doctorForm.valid && save()" #doctorForm="ngForm" novalidate>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.firstName" name="firstName" required #doctorFirstName="ngModel" placeholder="Име">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.firstName" name="firstName" required #doctorFirstName="ngModel" placeholder="Име">
+            </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.lastName" name="lastName" required #doctorLastName="ngModel" placeholder="Фамилия">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.lastName" name="lastName" required #doctorLastName="ngModel" placeholder="Фамилия">
+            </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.egn" name="egn" required #doctorEgn="ngModel" placeholder="ЕГН">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.egn" name="egn" required #doctorEgn="ngModel" placeholder="ЕГН">
+            </mat-form-field>
         </div>
         <div >
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
+            </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.address" name="address" required #doctorAddress="ngModel" placeholder="Адрес">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.address" name="address" required #doctorAddress="ngModel" placeholder="Адрес">
+            </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
-            <md-select [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност" class="input-full-width">
-                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност">
+                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.email" name="email" required #doctorEmail="ngModel" placeholder="Е-mail">
+            </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
-            <md-select [(ngModel)]="doctor.role" name="role" required #doctorRole="ngModel" placeholder="Роля" class="input-full-width">
-                <md-option value="admin">Администратор</md-option>
-                <md-option value="user">Служител</md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="doctor.role" name="role" required #doctorRole="ngModel" placeholder="Роля">
+                    <mat-option value="admin">Администратор</mat-option>
+                    <mat-option value="user">Служител</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div *ngIf="showPassword">
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="doctor.password" type="password" name="password" required #doctorPassword="ngModel" placeholder="Парола">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="doctor.password" type="password" name="password" required #doctorPassword="ngModel" placeholder="Парола">
+            </mat-form-field>
         </div> 
         <div *ngIf="!isRoleReception && (user?._id !== data.doctorId)">
-            <md-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
+            <mat-slide-toggle (change)="slideToggle($event)" [checked]="doctor.active">
                 {{doctor.active | doctorActiveConverter}}
-            </md-slide-toggle>
+            </mat-slide-toggle>
         </div> 
         <div *ngIf="data.doctorId" class="d-flex justify-content-end">
-            <a md-button (click)="passwordToggle()">Смяна на парола</a>
+            <a mat-button (click)="passwordToggle()">Смяна на парола</a>
         </div>
     </form>
-</md-dialog-content>
-<md-dialog-actions class="justify-content-end">
-    <button *ngIf="data.doctorId && !isRoleReception && (user?._id !== data.doctorId)" md-button (click)="delete()" md-raised-button>Изтрий</button>
-    <button md-button (click)="save()" [disabled]="doctorForm.invalid" md-raised-button>Запази</button>
-</md-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button *ngIf="data.doctorId && !isRoleReception && (user?._id !== data.doctorId)" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="doctorForm.invalid" mat-raised-button>Запази</button>
+</mat-dialog-actions>
 

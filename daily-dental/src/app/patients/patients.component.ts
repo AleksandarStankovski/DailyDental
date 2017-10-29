@@ -1,7 +1,7 @@
 import {
     Component,
     OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
 import { Patient } from '../shared/models/patient.model';
@@ -20,7 +20,7 @@ export class PatientsComponent implements OnInit {
     tutorialText: string;
 
     constructor(
-        private modalDialog: MdDialog,
+        private modalDialog: MatDialog,
         private patientService: PatientService) { }
 
     ngOnInit() {

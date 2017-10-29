@@ -6,9 +6,9 @@ import {
 import { FormControl } from '@angular/forms';
 
 import {
-    MdDialogRef,
-    MD_DIALOG_DATA,
-    MdSnackBar } from '@angular/material';
+    MatDialogRef,
+    MAT_DIALOG_DATA,
+    MatSnackBar } from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/startWith';
@@ -50,15 +50,15 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     filteredPatients: Observable<any[]>;
 
     constructor(
-        private modalDialogRef: MdDialogRef<AppointmentFormComponent>,
-        private snackBar: MdSnackBar,
+        private modalDialogRef: MatDialogRef<AppointmentFormComponent>,
+        private snackBar: MatSnackBar,
         private appointmentService: AppointmentService,
         private appointmentStatusService: AppointmentStatusService,
         private appointmentHoursService: AppointmentHoursService,
         private doctorService: DoctorService,
         private manipulationService: ManipulationService,
         private patientService: PatientService,
-        @Inject(MD_DIALOG_DATA) public data: any) { }
+        @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.todayDate = 0;

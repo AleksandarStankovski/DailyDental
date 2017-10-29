@@ -5,21 +5,21 @@
                 <a (click)="toggleMenu()" class="d-flex header-top-toggle cursor-pointer">
                     <i class="fontello ft-26 icon-menu-button"></i>
                 </a>
-                <a [mdMenuTriggerFor]="userMenu" class="d-flex header-top-account cursor-pointer">
+                <a [matMenuTriggerFor]="userMenu" class="d-flex header-top-account cursor-pointer">
                     <i class="fontello ft-28 icon-user"></i>
                 </a>
             </div>
         </div>
-        <md-menu #userMenu="mdMenu" xPosition="before" yPosition="below" class="user-menu">
-            <a (click)="openProfile()" md-menu-item class="decoration-none d-flex align-items-center">
+        <mat-menu #userMenu="matMenu" xPosition="before" yPosition="below" class="user-menu">
+            <a (click)="openProfile()" mat-menu-item class="decoration-none d-flex align-items-center">
                 <i class="fontello ft-26 icon-doctor mr-1"></i>
                 <span>Профил</span>
             </a>
-            <a href="logout" md-menu-item class="decoration-none d-flex align-items-center">
+            <a href="logout" mat-menu-item class="decoration-none d-flex align-items-center">
                 <i class="fontello ft-22 icon-logout mr-1"></i>
                 <span>Изход</span>
             </a>
-        </md-menu>
+        </mat-menu>
         <div class="header-title">
             <h1>{{title}}</h1>
         </div>

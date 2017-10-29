@@ -2,8 +2,8 @@ import {
     Component, 
     OnInit } from '@angular/core';
 import {
-    MdDialogRef,
-    MdSnackBar } from '@angular/material';
+    MatDialogRef,
+    MatSnackBar } from '@angular/material';
 
 import { User } from '../../shared/models/user.model'; 
 import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
@@ -23,9 +23,9 @@ export class UserFormComponent implements OnInit {
     isRoleReception: boolean;
 
     constructor(
-        private modalDialogRef: MdDialogRef<UserFormComponent>,
+        private modalDialogRef: MatDialogRef<UserFormComponent>,
         private userService: UserService,
-        private snackBar: MdSnackBar) { }
+        private snackBar: MatSnackBar) { }
 
     ngOnInit() {
         this.user = new User('', '', '', '', '', '', '', '');

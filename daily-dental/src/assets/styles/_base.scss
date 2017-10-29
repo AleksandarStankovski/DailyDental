@@ -81,9 +81,6 @@ h2 {
 .input-full-width {
     width: 100%;
 }
-.mat-select {
-    padding-bottom: 20px;
-}
 .container {
     @include media-breakpoint-down(sm) {
         width: 100%;
@@ -91,7 +88,7 @@ h2 {
     }
 }
 .mat-mini-fab {
-    &.md-mini-fab-basic {
+    &.mat-mini-fab-basic {
         background-color: #fff;
         color: rgba(0,0,0,.87);
     }
@@ -103,7 +100,7 @@ h2 {
     @include media-breakpoint-down(xs) {
         margin: 0 auto;
     }
-    .md-dialog-header {
+    .mat-dialog-header {
         height: 40px;
         margin-top: -24px;
         margin-right: -24px;

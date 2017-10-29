@@ -3,9 +3,9 @@ import {
     OnInit,
     Inject } from '@angular/core';
 import {
-    MdDialogRef,
-    MD_DIALOG_DATA,
-    MdSnackBar } from '@angular/material';
+    MatDialogRef,
+    MAT_DIALOG_DATA,
+    MatSnackBar } from '@angular/material';
 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
@@ -30,12 +30,12 @@ export class DoctorFormComponent implements OnInit {
     isRoleReception: boolean;
 
     constructor(
-        private modalDialogRef: MdDialogRef<DoctorFormComponent>,
-        private snackBar: MdSnackBar,
+        private modalDialogRef: MatDialogRef<DoctorFormComponent>,
+        private snackBar: MatSnackBar,
         private doctorService: DoctorService,
         private specialityService: SpecialityService,
         private userService: UserService,
-        @Inject(MD_DIALOG_DATA) public data: any) { }
+        @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
         this.showPassword = true;

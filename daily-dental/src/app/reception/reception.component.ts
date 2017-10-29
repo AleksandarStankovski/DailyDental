@@ -1,7 +1,7 @@
 import {
     Component,
     OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
 import { Doctor } from '../shared/models/doctor.model';
@@ -29,7 +29,7 @@ export class ReceptionComponent implements OnInit {
     user: User;
 
     constructor(
-        private modalDialog: MdDialog,
+        private modalDialog: MatDialog,
         private appointmentService: AppointmentService,
         private userService: UserService) { }
 

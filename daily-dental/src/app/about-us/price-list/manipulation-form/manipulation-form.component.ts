@@ -3,9 +3,9 @@ import {
     OnInit,
     Inject } from '@angular/core';
 import {
-    MdDialogRef,
-    MD_DIALOG_DATA,
-    MdSnackBar } from '@angular/material';
+    MatDialogRef,
+    MAT_DIALOG_DATA,
+    MatSnackBar } from '@angular/material';
 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
@@ -25,11 +25,11 @@ export class ManipulationFormComponent implements OnInit {
     specialities: { type: string, name: string }[];
 
     constructor(
-        private modalDialogRef: MdDialogRef<ManipulationFormComponent>,
-        private snackBar: MdSnackBar,
+        private modalDialogRef: MatDialogRef<ManipulationFormComponent>,
+        private snackBar: MatSnackBar,
         private manipulationService: ManipulationService,
         private specialityService: SpecialityService,
-        @Inject(MD_DIALOG_DATA) public data: any) {}
+        @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
         this.manipulation = new Manipulation('', undefined, '');

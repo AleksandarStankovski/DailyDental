@@ -1,46 +1,50 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="patient.doctor?.speciality" class="md-dialog-header d-flex justify-content-end">
-    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+<div [ngClass]="patient.doctor?.speciality" class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
 </div>
-<md-dialog-content>
+<mat-dialog-content>
     <form (ngSubmit)="patientForm.valid && save()" #patientForm="ngForm" novalidate>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.firstName" name="firstName" required #patientFirstName="ngModel" placeholder="Име">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="patient.firstName" name="firstName" required #patientFirstName="ngModel" placeholder="Име">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.lastName" name="lastName" required #patientLastName="ngModel" placeholder="Фамилия">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="patient.lastName" name="lastName" required #patientLastName="ngModel" placeholder="Фамилия">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.phone" name="phone" required #patientPhone="ngModel" placeholder="Телефон">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="patient.phone" name="phone" required #patientPhone="ngModel" placeholder="Телефон">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.address" name="address" #patientAddress="ngModel" placeholder="Адрес">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="patient.address" name="address" #patientAddress="ngModel" placeholder="Адрес">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="patient.email" name="email" #patientEmail="ngModel" placeholder="Е-mail">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="patient.email" name="email" #patientEmail="ngModel" placeholder="Е-mail">
+            </mat-form-field>
         </div>
-        <md-select *ngIf="doctors?.length > 0" [(ngModel)]="patient.doctor._id" name="doctor" #patientDoctor="ngModel" placeholder="Лекар" class="input-full-width">
-            <ng-container *ngFor="let doctor of doctors">
-                <md-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
-                    д-р. {{doctor.lastName}}
-                </md-option>
-            </ng-container>
-        </md-select>
+        <div *ngIf="doctors?.length > 0">
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="patient.doctor._id" name="doctor" #patientDoctor="ngModel" placeholder="Лекар">
+                    <ng-container *ngFor="let doctor of doctors">
+                        <mat-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
+                            д-р. {{doctor.lastName}}
+                        </mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </form>
-</md-dialog-content>
-<md-dialog-actions class="justify-content-end">
-    <button *ngIf="data.patientId" md-button (click)="delete()" md-raised-button>Изтрий</button>
-    <button md-button (click)="save()" [disabled]="patientForm.invalid" md-raised-button>Запази</button>
-</md-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button *ngIf="data.patientId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="patientForm.invalid" mat-raised-button>Запази</button>
+</mat-dialog-actions>

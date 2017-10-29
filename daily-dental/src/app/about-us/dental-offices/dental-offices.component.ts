@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Office } from '../../shared/models/office.model';
@@ -20,7 +20,7 @@ export class DentalOfficesComponent implements OnInit {
     isRoleUser: boolean;
 
     constructor(
-        private modalDialog: MdDialog,
+        private modalDialog: MatDialog,
         private officeService: OfficeService,
         private userService: UserService) { }
 

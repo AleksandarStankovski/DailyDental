@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-end align-items-center mt-4">
-    <button (click)="changePage('prev')" [disabled]="paginationConfig.currentPage <= 1" md-mini-fab class="md-mini-fab-basic">
+    <button (click)="changePage('prev')" [disabled]="paginationConfig.currentPage <= 1" mat-mini-fab class="mat-mini-fab-basic">
         <i class="fontello ft-14 icon-arrow-left"></i>
     </button>
     <span class="ml-2 mr-2">{{paginationConfig.currentPage}} / {{paginationConfig.countPage}}</span>
-    <button (click)="changePage('next')" [disabled]="paginationConfig.currentPage === paginationConfig.countPage" md-mini-fab class="md-mini-fab-basic">
+    <button (click)="changePage('next')" [disabled]="paginationConfig.currentPage === paginationConfig.countPage" mat-mini-fab class="mat-mini-fab-basic">
         <i class="fontello ft-14 icon-arrow-right"></i>
     </button>
 </div>

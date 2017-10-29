@@ -1,30 +1,32 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="office.type" class="md-dialog-header d-flex justify-content-end">
-    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+<div [ngClass]="office.type" class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
 </div>
-<md-dialog-content>
+<mat-dialog-content>
     <form (ngSubmit)="officeForm.valid && save()" #officeForm="ngForm" novalidate>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="office.name" name="name" required #officeName="ngModel" placeholder="Име">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="office.name" name="name" required #officeName="ngModel" placeholder="Име">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="office.phone" name="phone" required #officePhone="ngModel" placeholder="Телефон">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="office.phone" name="phone" required #officePhone="ngModel" placeholder="Телефон">
+            </mat-form-field>
         </div>
         <div>
-            <md-select [(ngModel)]="office.type" name="type" required #officeType="ngModel" placeholder="Тип" class="input-full-width">
-                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="office.type" name="type" required #officeType="ngModel" placeholder="Тип">
+                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </form>
-</md-dialog-content>
-<md-dialog-actions class="justify-content-end">
-    <button *ngIf="data.officeId" md-button (click)="delete()" md-raised-button>Изтрий</button>
-    <button md-button (click)="save()" [disabled]="officeForm.invalid" md-raised-button>Запази</button>
-</md-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button *ngIf="data.officeId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="officeForm.invalid" mat-raised-button>Запази</button>
+</mat-dialog-actions>
 

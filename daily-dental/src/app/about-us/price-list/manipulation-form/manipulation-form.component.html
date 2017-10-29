@@ -1,32 +1,34 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="manipulation.type" class="md-dialog-header d-flex justify-content-end">
-    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+<div [ngClass]="manipulation.type" class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
 </div>
-<md-dialog-content>
+<mat-dialog-content>
     <form (ngSubmit)="manipulationForm.valid && save()" #manipulationForm="ngForm" novalidate>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="manipulation.name" name="name" required #manipulationName="ngModel" placeholder="Име">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="manipulation.name" name="name" required #manipulationName="ngModel" placeholder="Име">
+            </mat-form-field>
         </div>
         <div>
-            <md-select [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип" class="input-full-width">
-                <md-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="manipulation.type" name="type" required #manipulationType="ngModel" placeholder="Тип">
+                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" placeholder="Цена" type="number">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" placeholder="Цена" type="number">
+            </mat-form-field>
         </div>
         <div>
-            <md-slider (change)="changePrice($event.value)" [value]="manipulation.price" max="1000" min="0" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></md-slider>
+            <mat-slider (change)="changePrice($event.value)" [value]="manipulation.price" max="1000" min="0" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></mat-slider>
         </div>
     </form>
-</md-dialog-content>
-<md-dialog-actions class="justify-content-end">
-    <button *ngIf="data.manipulationId" md-button (click)="delete()" md-raised-button>Изтрий</button>
-    <button md-button (click)="save()" [disabled]="manipulationForm.invalid" md-raised-button>Запази</button>
-</md-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button *ngIf="data.manipulationId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="manipulationForm.invalid" mat-raised-button>Запази</button>
+</mat-dialog-actions>

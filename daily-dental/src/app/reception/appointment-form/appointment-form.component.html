@@ -1,109 +1,123 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="appointment.status" class="md-dialog-header d-flex justify-content-end">
-    <button [md-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+<div [ngClass]="appointment.status" class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
 </div>
-<md-dialog-content>
+<mat-dialog-content>
     <form (ngSubmit)="appointmentForm.valid && isValidPatient && save()" #appointmentForm="ngForm" novalidate>
         <div>
-            <md-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар" class="input-full-width">
-                <ng-container *ngFor="let doctor of doctors">
-                    <md-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
-                        д-р. {{doctor.lastName}}
-                    </md-option>
-                </ng-container>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар">
+                    <ng-container *ngFor="let doctor of doctors">
+                        <mat-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
+                            д-р. {{doctor.lastName}}
+                        </mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div>
-            <md-select [(ngModel)]="appointment.startTime" (change)="durationFilter()" name="startTime" required #appointmentStartTime="ngModel" placeholder="Час" class="input-full-width">
-                <md-option *ngFor="let hour of hours" [value]="hour.value">
-                    {{hour.name}}
-                </md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.startTime" (change)="durationFilter()" name="startTime" required #appointmentStartTime="ngModel" placeholder="Час">
+                    <mat-option *ngFor="let hour of hours" [value]="hour.value">
+                        {{hour.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div>
-            <md-select [(ngModel)]="appointment.duration" name="duration" required #appointmentDuration="ngModel" placeholder="Времетраене" class="input-full-width">
-                <md-option *ngFor="let hour of durationHours" [value]="hour">
-                    {{hour}}
-                </md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.duration" name="duration" required #appointmentDuration="ngModel" placeholder="Времетраене">
+                    <mat-option *ngFor="let hour of durationHours" [value]="hour">
+                        {{hour}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
-            <md-form-field class="input-full-width">
-                <input type="text" mdInput [mdAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient"  (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
-            </md-form-field>
-            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayPatient">
-                <md-option *ngFor="let patient of filteredPatients | async" [value]="patient">
+            <mat-form-field class="input-full-width">
+                <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient"  (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
+            </mat-form-field>
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayPatient">
+                <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
                     {{patient.firstName}} {{patient.lastName }}
-                </md-option>
-            </md-autocomplete>
+                </mat-option>
+            </mat-autocomplete>
         </div>
         <div *ngIf="appointmentDataDay >= todayDate" [hidden]="manipulations?.length === 0">
-            <md-select [(ngModel)]="appointment.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация" class="input-full-width">
-                <md-option *ngFor="let manipulation of manipulations" [value]="manipulation">
-                    {{manipulation.name}}
-                </md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация">
+                    <mat-option *ngFor="let manipulation of manipulations" [value]="manipulation">
+                        {{manipulation.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div>
-            <md-select [(ngModel)]="appointment.status" name="status" required #appointmentStatus="ngModel" placeholder="Статус" class="input-full-width">
-                <md-option *ngFor="let status of statuses" [value]="status.type">
-                    {{status.name}}
-                </md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.status" name="status" required #appointmentStatus="ngModel" placeholder="Статус">
+                    <mat-option *ngFor="let status of statuses" [value]="status.type">
+                        {{status.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <textarea  mdInput [(ngModel)]="appointment.comment" name="comment" #appointmentComment="ngModel" placeholder="Забележка"></textarea>
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <textarea  matInput [(ngModel)]="appointment.comment" name="comment" #appointmentComment="ngModel" placeholder="Забележка"></textarea>
+            </mat-form-field>
         </div>
     </form>
-</md-dialog-content>
-<md-dialog-actions class="justify-content-end">
-    <button *ngIf="data.appointmentId && appointmentDataDay >= todayDate" md-button (click)="delete()" md-raised-button>Изтрий</button>
-    <button md-button (click)="save()" [disabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" md-raised-button>Запази</button>
-</md-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button *ngIf="data.appointmentId && appointmentDataDay >= todayDate" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" mat-raised-button>Запази</button>
+</mat-dialog-actions>
 
 
         <!-- <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
-            <md-select [(ngModel)]="appointment.patient" [compareWith]="selectPatient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
-                <md-option *ngFor="let patient of patients" [value]="patient">
-                    {{patient.firstName}} {{patient.lastName}}
-                </md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.patient" [compareWith]="selectPatient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент">
+                    <mat-option *ngFor="let patient of patients" [value]="patient">
+                        {{patient.firstName}} {{patient.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div> -->
 
 
-        <!-- <md-form-field>
-            <input type="text" mdInput [mdAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient" name="patient" placeholder="Пациент">
-        </md-form-field>
-        <md-autocomplete #auto="mdAutocomplete">
-            <md-option *ngFor="let patient of filteredPatients | async" [value]="patient">
+        <!-- <mat-form-field>
+            <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient" name="patient" placeholder="Пациент">
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
                 {{patient.firstName}} {{patient.lastName }}
-            </md-option>
-        </md-autocomplete> -->
+            </mat-option>
+        </mat-autocomplete> -->
         <!-- <div [hidden]="patients?.length === 0">
-            <md-select [(ngModel)]="appointment.patient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент" class="input-full-width">
-                <md-option *ngFor="let patient of patients" [value]="patient._id">
-                    {{patient.firstName}} {{patient.lastName}}
-                </md-option>
-            </md-select>
+            <mat-form-field class="input-full-width">
+                <mat-select [(ngModel)]="appointment.patient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент">
+                    <mat-option *ngFor="let patient of patients" [value]="patient._id">
+                        {{patient.firstName}} {{patient.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div> -->
 
 
         <!-- <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="appointment.patient.firstName" name="patientFirstName" required #appointmentPatientFirstName="ngModel" placeholder="Име на пациента">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="appointment.patient.firstName" name="patientFirstName" required #appointmentPatientFirstName="ngModel" placeholder="Име на пациента">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="appointment.patient.lastName" name="patientLastName" required #appointmentPatientLastName="ngModel" placeholder="Фамилия на пациента">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="appointment.patient.lastName" name="patientLastName" required #appointmentPatientLastName="ngModel" placeholder="Фамилия на пациента">
+            </mat-form-field>
         </div>
         <div>
-            <md-form-field class="input-full-width">
-                <input mdInput [(ngModel)]="appointment.patient.phone" name="patientPhone" required #appointmentPatientPhone="ngModel" placeholder="Телефон на пациента">
-            </md-form-field>
+            <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="appointment.patient.phone" name="patientPhone" required #appointmentPatientPhone="ngModel" placeholder="Телефон на пациента">
+            </mat-form-field>
         </div> -->

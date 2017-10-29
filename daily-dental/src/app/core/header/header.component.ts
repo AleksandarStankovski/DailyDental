@@ -4,7 +4,7 @@ import {
 import { 
     Router, 
     NavigationEnd } from "@angular/router";
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { NavModel } from '../../shared/models/nav.model';
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private modalDialog: MdDialog,
+        private modalDialog: MatDialog,
         private pageNameService: PageNameService,
         private pageImageService: PageImageService,
         private navService: NavService) {}
