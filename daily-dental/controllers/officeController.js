@@ -3,6 +3,7 @@ const Office = require('mongoose').model('Office');
 module.exports = {
     getAll: (req, res) => { 
         Office.find({})
+        .sort({date: -1})
         .then(offces => {
             res.json(offces);
         })  

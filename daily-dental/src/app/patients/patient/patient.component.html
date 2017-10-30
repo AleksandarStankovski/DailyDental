@@ -1,4 +1,4 @@
-<a (click)="editPatient()" [ngClass]="patient.doctor?.speciality" class="patient cursor-pointer d-flex flex-column justify-content-end">
+<a [routerLink]="['/patients/patient', patient._id]" [ngClass]="patient.doctor?.speciality" class="patient cursor-pointer decoration-none d-flex flex-column justify-content-end">
     <div class="patient-fbox">
         <h6>{{patient.firstName}} {{patient.lastName}}</h6>
         <span class="d-flex align-items-center mt-1">

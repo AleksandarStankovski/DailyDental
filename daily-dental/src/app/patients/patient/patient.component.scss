@@ -7,7 +7,8 @@
     min-height: 250px;
     height: 100%;
     padding: 25px;
-    background-color: #fff;
+    background-color: $app-ligth-color;
+    color: $app-dark-color;
     overflow: hidden;
     @include media-breakpoint-down(md) {
         padding: 15px;
@@ -99,9 +100,5 @@
                 background-color: darken($app-surgery, $patient-darken);
             }
         }
-    }
-    .patients-pagination {
-        padding-left: 10px;
-        padding-right: 10px;
     }
 }

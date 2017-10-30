@@ -23,6 +23,11 @@ let patientSchema = mongoose.Schema({
     doctor: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Doctor' 
+    },
+    date: {
+        type: Date,
+        require: true,
+        default: Date.now
     }
 });
 

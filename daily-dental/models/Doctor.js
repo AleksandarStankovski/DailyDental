@@ -50,6 +50,11 @@ let doctorSchema = mongoose.Schema({
     active: {
         type: Boolean,
         required: true
+    },
+    date: {
+        type: Date,
+        require: true,
+        default: Date.now
     }
 });
 

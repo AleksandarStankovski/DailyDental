@@ -15,6 +15,11 @@ let manipulationSchema = mongoose.Schema({
         type: String,
         enum: config.development.specialityType,
         required: true
+    },
+    date: {
+        type: Date,
+        require: true,
+        default: Date.now
     }
 });
 

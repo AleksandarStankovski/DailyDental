@@ -4,6 +4,7 @@ const Manipulation = require('mongoose').model('Manipulation');
 module.exports = {
     getAll: (req, res) => { 
         Manipulation.find({})
+        .sort({date: -1})
         .then(manipulations => {
             res.json(manipulations);
         })
@@ -15,6 +16,7 @@ module.exports = {
         Manipulation.find({}).count().then(manipulationsLength=> {
             let countPage = Math.ceil(manipulationsLength / itemsPerPage);
             Manipulation.find({})
+            .sort({date: -1})
             .skip(itemsPerPage * (currentPage - 1))
             .limit(itemsPerPage)
             .then(manipulations => {

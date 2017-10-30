@@ -5,6 +5,7 @@ module.exports = {
     getAll: (req, res) => { 
         Patient.find({})
         .populate('doctor', 'speciality')
+        .sort({date: -1})
         .then(patients => {
             res.json(patients);
         })  
@@ -16,6 +17,7 @@ module.exports = {
         Patient.find({}).count().then(patientsLength => {
             let countPage = Math.ceil(patientsLength / itemsPerPage);
             Patient.find({})
+            .sort({date: -1})
             .skip(itemsPerPage * (currentPage - 1))
             .limit(itemsPerPage)
             .then(patients => {
@@ -27,6 +29,7 @@ module.exports = {
     getFiltered: (req, res) => { 
         let searchText = new RegExp(req.query.searchText, 'i'); 
         Patient.find({ $or: [{ firstName: { $regex: searchText }}, { lastName: { $regex: searchText }}] })
+        .sort({date: -1})
         .then(patients => {
             res.json(patients);
         })
@@ -35,7 +38,7 @@ module.exports = {
     getById: (req, res) => {
         let id = req.params.id;
         Patient.findById(id)
-        .populate('doctor', 'speciality')
+        .populate('doctor', 'lastName speciality')
         .then(patient => {
             res.json(patient);
         })

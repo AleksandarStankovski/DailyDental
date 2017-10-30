@@ -5,6 +5,7 @@ const encryption = require('../utilities/encryption');
 module.exports = {
     getAll: (req, res) => { 
         Doctor.find({})
+        .sort({date: -1})
         .then(doctors => {
             res.json(doctors);
         })  

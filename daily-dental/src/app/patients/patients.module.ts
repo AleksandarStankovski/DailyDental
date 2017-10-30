@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PatientsComponent } from './patients.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientFormComponent } from './patient-form/patient-form.component';
+import { PatientPageComponent } from './patient-page/patient-page.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { PatientFormComponent } from './patient-form/patient-form.component';
     declarations: [
         PatientsComponent,
         PatientComponent,
-        PatientFormComponent
+        PatientFormComponent,
+        PatientPageComponent
     ],
     entryComponents: [
         PatientFormComponent
