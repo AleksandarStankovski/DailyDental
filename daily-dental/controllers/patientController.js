@@ -10,6 +10,28 @@ module.exports = {
         })  
     },
 
+    getByPage: (req, res) => {
+        let currentPage = Number(req.query.currentPage) || 1;
+        let itemsPerPage = Number(req.query.itemsPerPage) || 18;
+        Patient.find({}).count().then(patientsLength => {
+            let countPage = Math.ceil(patientsLength / itemsPerPage);
+            Patient.find({})
+            .skip(itemsPerPage * (currentPage - 1))
+            .limit(itemsPerPage)
+            .then(patients => {
+                res.json({countPage: countPage, patients: patients, patientsLength: patientsLength});
+            })
+        })
+    },
+
+    getFiltered: (req, res) => { 
+        let searchText = new RegExp(req.query.searchText, 'i'); 
+        Patient.find({ $or: [{ firstName: { $regex: searchText }}, { lastName: { $regex: searchText }}] })
+        .then(patients => {
+            res.json(patients);
+        })
+    },
+
     getById: (req, res) => {
         let id = req.params.id;
         Patient.findById(id)

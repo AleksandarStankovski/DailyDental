@@ -9,10 +9,10 @@ module.exports = {
         })
     },
 
-    getByPage: function (req, res) {
+    getByPage: (req, res) => {
         let currentPage = Number(req.query.currentPage) || 1;
         let itemsPerPage = Number(req.query.itemsPerPage) || 18;
-        Manipulation.find({}).count().then(function (manipulationsLength) {
+        Manipulation.find({}).count().then(manipulationsLength=> {
             let countPage = Math.ceil(manipulationsLength / itemsPerPage);
             Manipulation.find({})
             .skip(itemsPerPage * (currentPage - 1))
@@ -25,7 +25,7 @@ module.exports = {
 
     getFiltered: (req, res) => { 
         let searchText = new RegExp(req.query.searchText, 'i'); 
-        Manipulation.find({ $or: [{ name: { $regex: searchText }}, { type: { $regex: searchText }}] })
+        Manipulation.find({ name: { $regex: searchText }})
         .then(manipulations => {
             res.json(manipulations);
         })

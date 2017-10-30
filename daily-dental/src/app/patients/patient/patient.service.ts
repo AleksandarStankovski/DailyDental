@@ -18,6 +18,16 @@ export class PatientService {
         .map(response => response.json() as Patient[]);
     }
 
+    getPatientsByPage(currentPage: number, itemsPerPage: number): Observable<any> {
+        return this.http.get(`${this.apiUrl}/patients/pagination?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`)
+        .map(response => response.json());
+    }
+
+    getFilteredPatients(searchText: string): Observable<any> {
+        return this.http.get(`${this.apiUrl}/patients/search?searchText=${searchText}`)
+        .map(response => response.json());
+    }
+
     getPatient(id: string): Observable<Patient> {
         return this.http.get(`${this.apiUrl}/patient/${id}`)
         .map(response => response.json() as Patient);

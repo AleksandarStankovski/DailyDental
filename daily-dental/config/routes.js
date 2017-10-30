@@ -32,6 +32,8 @@ module.exports = function (app, config) {
 	app.put('/api/manipulation/edit', manipulationController.edit);
 	app.delete('/api/manipulation/delete/:id', manipulationController.delete);
 	app.get('/api/patients', patientController.getAll);
+	app.get('/api/patients/pagination', patientController.getByPage);
+	app.get('/api/patients/search', patientController.getFiltered);
 	app.get('/api/patient/:id', patientController.getById);
 	app.post('/api/patient/create', patientController.create);
 	app.put('/api/patient/edit', patientController.edit);

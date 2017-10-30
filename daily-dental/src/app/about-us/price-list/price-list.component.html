@@ -1,16 +1,12 @@
 <div class="price-lis page">
     <app-floating-button *ngIf="!isRoleUser" [tutorialText]="tutorialText" (floatingButtonActionEvent)="addManipulation()"></app-floating-button>
     <app-search [placeholderText]="'Търси в манипулации'" (searchEvent)="search($event)"></app-search>
-    <!-- <div>
-        <input type="text" [(ngModel)]="searchText" name="search">
-        <a (click)="search()">Search</a>
-    </div> -->
     <div class="page-container container">
         <ul class="list-unstyled">
             <li *ngFor="let manipulation of manipulations">
                 <app-manipulation [manipulation]="manipulation" [isRoleUser]="isRoleUser" (editManipulationEvent)="editManipulation($event)"></app-manipulation>
             </li>
-            <app-pagination *ngIf="showPaginaion" [paginationConfig]="paginationConfig" (changePageEvent)="getManipulationsByPage($event)"></app-pagination>
         </ul>
+        <app-pagination *ngIf="showPaginaion" [paginationConfig]="paginationConfig" (changePageEvent)="getManipulationsByPage($event)"></app-pagination>
     </div>
 </div>
