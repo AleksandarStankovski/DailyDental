@@ -1,0 +1,200 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
+.patient-details {
+    .page-container {
+        > div {
+            position: relative;
+            top: -100px;
+            background-color: #fff;
+        }
+    }
+    .patient-details-fbox {
+        width: 60px;
+        background-color: $app-default-speciality;
+        @include media-breakpoint-down(md) {
+            width: 40px;
+        }
+    }
+    .patient-details-sbox {
+        flex: 1;
+        .patient-details-personal {
+            padding: 40px;
+            @include media-breakpoint-down(xs) {
+                padding: 20px;
+            }
+            .patient-details-icon {
+                min-height: 303px;
+                @include media-breakpoint-down(lg) {
+                    min-height: 240px;
+                }
+                @include media-breakpoint-down(md) {
+                    min-height: 200px;
+                }
+                > div {
+                    height: 100%;
+                    background: #f3f3f3;
+                }
+                i {
+                    font-size: 105px;
+                    @include media-breakpoint-down(md) {
+                        font-size: 80px;
+                    }
+                }
+            }
+            .patient-details-info {
+                @include media-breakpoint-down(sm) {
+                    margin-top: 30px;
+                }
+                header {
+                    margin-bottom: 20px;
+                    padding-bottom: 20px;
+                    border-bottom: 2px solid #ececec;
+                    h3 {
+                        @include media-breakpoint-down(md) {
+                            font-size: 1.5rem;
+                        } 
+                    }
+                }
+                section {
+                    li {
+                        margin-top: 5px;
+                        a {
+                            color: $app-dark-color;
+                        }
+                        span {
+                            display: inline-block;
+                            min-width: 120px;
+                            margin-right: 10px;
+                            font-size: .9rem;
+                            @include media-breakpoint-down(md) {
+                                min-width: 100px;
+                            }
+                        }
+                        i {
+                            display: inline-block;
+                            font-style: normal;
+                        }
+                    }
+                    .doctor {
+                        margin-top: 8px;
+                        i {
+                            padding: 3px 10px;
+                            background-color: $app-default-speciality;
+                            color: $app-ligth-color;
+                            border-radius: 4px;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+    &.aesthetic {
+        .patient-details-fbox {
+            background-color: $app-aesthetic;
+        }
+        .patient-details-sbox {
+            .patient-details-personal {
+                .patient-details-info {
+                    section {
+                        .doctor {
+                            i {
+                                background-color: $app-aesthetic;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.parodontology {
+        .patient-details-fbox {
+            background-color: $app-parodontology;
+        }
+        .patient-details-sbox {
+            .patient-details-personal {
+                .patient-details-info {
+                    section {
+                        .doctor {
+                            i {
+                                background-color: $app-parodontology;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.pediatrics {
+        .patient-details-fbox {
+            background-color: $app-pediatrics;
+        }
+        .patient-details-sbox {
+            .patient-details-personal {
+                .patient-details-info {
+                    section {
+                        .doctor {
+                            i {
+                                background-color: $app-pediatrics;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.endodontics {
+        .patient-details-fbox {
+            background-color: $app-endodontics;
+        }
+        .patient-details-sbox {
+            .patient-details-personal {
+                .patient-details-info {
+                    section {
+                        .doctor {
+                            i {
+                                background-color: $app-endodontics;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.orthodontics {
+        .patient-details-fbox {
+            background-color: $app-orthodontics;
+        }
+        .patient-details-sbox {
+            .patient-details-personal {
+                .patient-details-info {
+                    section {
+                        .doctor {
+                            i {
+                                background-color: $app-orthodontics;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.surgery {
+        .patient-details-fbox {
+            background-color: $app-surgery;
+        }
+        .patient-details-sbox {
+            .patient-details-personal {
+                .patient-details-info {
+                    section {
+                        .doctor {
+                            i {
+                                background-color: $app-surgery;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

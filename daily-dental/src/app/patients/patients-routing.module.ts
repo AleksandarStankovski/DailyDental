@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PatientsComponent } from './patients.component';
-import { PatientPageComponent } from './patient-page/patient-page.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 const patientsRoutes: Routes = [
     {
@@ -11,7 +11,7 @@ const patientsRoutes: Routes = [
     },
     {
         path: 'patient/:id',
-        component: PatientPageComponent
+        component: PatientDetailsComponent
     }
 ]
 

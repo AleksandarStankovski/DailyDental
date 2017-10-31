@@ -10,11 +10,11 @@ import { PatientFormComponent } from '../patient-form/patient-form.component';
 import { PatientService } from '../patient/patient.service';
 
 @Component({
-    selector: 'app-patient-page',
-    templateUrl: './patient-page.component.html',
-    styleUrls: ['./patient-page.component.scss']
+    selector: 'app-patient-details',
+    templateUrl: './patient-details.component.html',
+    styleUrls: ['./patient-details.component.scss']
 })
-export class PatientPageComponent implements OnInit {
+export class PatientDetailsComponent implements OnInit {
 
     patient: Patient;
     patientId: string;

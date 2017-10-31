@@ -20,7 +20,8 @@ import {
     MatSliderModule,
     MatTooltipModule,
     MatRadioModule,
-    MatAutocompleteModule } from '@angular/material';
+    MatAutocompleteModule,
+    MatExpansionModule } from '@angular/material';
 
 import { SecondNavComponent } from './second-nav/second-nav.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
@@ -53,7 +54,8 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         MatSliderModule,
         MatTooltipModule,
         MatRadioModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatExpansionModule
     ],
     declarations: [
         SecondNavComponent,
@@ -85,6 +87,7 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         MatTooltipModule,
         MatRadioModule,
         MatAutocompleteModule,
+        MatExpansionModule,
         SecondNavComponent,
         LoadingOverlayComponent,
         FloatingButtonComponent,
