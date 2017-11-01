@@ -139,7 +139,6 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
 
     checkValidPatient(patient): void {
         this.isValidPatient = !!patient.firstName;
-        console.log(this.isValidPatient)
     }
 
     displayPatient(patient: Patient) {

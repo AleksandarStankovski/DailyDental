@@ -1,0 +1,35 @@
+<app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
+<div class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+        <i class="fontello icon-close ft-14"></i>
+    </button>
+</div>
+<mat-dialog-content>
+    <form (ngSubmit)="examinationForm.valid && save()" #examinationForm="ngForm" novalidate>
+        <div *ngFor="let procedure of examination.procedures; let i = index">
+            <div>
+                <mat-form-field class="input-full-width">
+                    <mat-select [(ngModel)]="procedure.tooth" name="tooth-{{i}}" required #examinationTooth="ngModel" placeholder="Зъб">
+                        <mat-option [value]="'b2'">Зъб b2</mat-option>
+                        <mat-option [value]="'b1'">Зъб b1</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="input-full-width">
+                    <mat-select [(ngModel)]="procedure.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation-{{i}}" required #examinationManipulation="ngModel" placeholder="Манипулация">
+                        <mat-option *ngFor="let manipulation of manipulations" [value]="manipulation">
+                            {{manipulation.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <button *ngIf="examination.procedures.length > 1" (click)="removeProcedure(i)">remove</button>
+        </div>
+        <button *ngIf="examinationForm.valid" (click)="addProcedure()">add procedure</button>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button *ngIf="data.examinationId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="examinationForm.invalid" mat-raised-button>Запази</button>
+</mat-dialog-actions>

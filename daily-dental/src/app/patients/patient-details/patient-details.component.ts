@@ -1,12 +1,14 @@
 import { 
     Component, 
-    OnInit } from '@angular/core';
+    OnInit,
+    ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Patient } from '../../shared/models/patient.model';
 import { PatientFormComponent } from '../patient-form/patient-form.component';
+import { ExaminationsComponent } from './examinations/examinations.component';
 import { PatientService } from '../patient/patient.service';
 
 @Component({
@@ -19,12 +21,13 @@ export class PatientDetailsComponent implements OnInit {
     patient: Patient;
     patientId: string;
     modalConfig: ModalConfig;
+    @ViewChild('examinations') private examinations: ExaminationsComponent;
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
         private modalDialog: MatDialog,
-        private patientService: PatientService,) {}
+        private patientService: PatientService) {}
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
@@ -64,6 +67,10 @@ export class PatientDetailsComponent implements OnInit {
 
     editPatient(): void {
         this.openModalDialog();
+    }
+
+    addExamination(): void {
+        this.examinations.addExamination();
     }
 
 }

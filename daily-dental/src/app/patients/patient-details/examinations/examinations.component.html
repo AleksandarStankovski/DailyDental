@@ -1,0 +1,21 @@
+<div *ngIf="examinations?.length > 0">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let examination of examinations">
+            <mat-expansion-panel-header>
+                <time>{{examination.date | date: 'dd/MM/y'}}</time>
+            </mat-expansion-panel-header>
+            <div>
+                <a (click)="editExaminationn(examination._id)" class="cursor-pointer">
+                    <section>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let procedure of examination.procedures">{{procedure.tooth}} <span *ngFor="let manipulation of procedure.manipulations">{{manipulation.name}}</span></li>
+                        </ul>
+                    </section>
+                    <footer>
+                        <span>452. 00 лв.</span>
+                    </footer>
+                </a>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

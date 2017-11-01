@@ -1,5 +1,5 @@
 <div [ngClass]="patient.doctor?.speciality" class="patient-details page">
-    <app-floating-button (floatingButtonActionEvent)="addPatient()"></app-floating-button>
+    <app-floating-button (floatingButtonActionEvent)="addExamination()"></app-floating-button>
     <div class="page-container container">
         <div class="d-flex">
             <div class="patient-details-fbox"></div>
@@ -35,42 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <time>01/01/2017</time>
-                            </mat-expansion-panel-header>
-                            <div>
-                                <section>
-                                    <ul class="list-unstyled">
-                                        <li>Зъб 1 <span>Манипулация 1</span><span>Манипулация 2</span></li>
-                                        <li>Зъб 2 <span>Манипулация 1</span><span>Манипулация 2</span></li>
-                                    </ul>
-                                </section>
-                                <footer>
-                                    <span>452. 00 лв.</span>
-                                </footer>
-                            </div>
-                        </mat-expansion-panel>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <time>01/01/2017</time>
-                            </mat-expansion-panel-header>
-                            <div>
-                                <section>
-                                    <ul class="list-unstyled">
-                                        <li>Зъб 1 <span>Манипулация 1</span><span>Манипулация 2</span></li>
-                                        <li>Зъб 2 <span>Манипулация 1</span><span>Манипулация 2</span></li>
-                                    </ul>
-                                </section>
-                                <footer>
-                                    <span>452. 00 лв.</span>
-                                </footer>
-                            </div>
-                        </mat-expansion-panel>
-                    </mat-accordion>
-                </div>
+                <app-examinations [patientId]="patientId" #examinations></app-examinations>
             </div>
         </div>
     </div>

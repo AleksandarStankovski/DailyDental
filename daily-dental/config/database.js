@@ -17,5 +17,6 @@ module.exports = function (config) {
     require('./../models/Doctor');
     require('./../models/Manipulation');
     require('./../models/Patient');
+    require('./../models/Examination');
     require('./../models/Appointment');
 };

@@ -24,6 +24,11 @@ let patientSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Doctor' 
     },
+    examinations: [{
+        type: mongoose.Schema.Types.ObjectId,
+        default: [],
+        ref: 'Examination'
+    }],
     date: {
         type: Date,
         require: true,
