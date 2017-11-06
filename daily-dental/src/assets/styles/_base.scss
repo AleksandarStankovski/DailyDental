@@ -90,7 +90,9 @@ h2 {
         color: rgba(0,0,0,.87);
     }
 }
-
+.mat-expansion-panel {
+    color: inherit;
+}
 
 /* Modal dialog */
 .mat-dialog-container {

@@ -1,18 +1,26 @@
-<div *ngIf="examinations?.length > 0">
+<div *ngIf="examinations?.length > 0" class="examinations">
     <mat-accordion>
         <mat-expansion-panel *ngFor="let examination of examinations">
             <mat-expansion-panel-header>
-                <time>{{examination.date | date: 'dd/MM/y'}}</time>
+                <time class="bold-text">{{examination.date | date: 'dd/MM/y'}}</time>
             </mat-expansion-panel-header>
             <div>
                 <a (click)="editExaminationn(examination._id)" class="cursor-pointer">
                     <section>
                         <ul class="list-unstyled">
-                            <li *ngFor="let procedure of examination.procedures">{{procedure.tooth}} <span *ngFor="let manipulation of procedure.manipulations">{{manipulation.name}}</span></li>
+                            <li *ngFor="let procedure of examination.procedures">
+                                <p>Зъб: <span>{{procedure.tooth}}</span></p>
+                                <ul>
+                                    <li *ngFor="let manipulation of procedure.manipulations">{{manipulation.name}}</li>
+                                </ul>
+                            </li>
                         </ul>
                     </section>
-                    <footer>
-                        <span>452. 00 лв.</span>
+                    <footer class="d-flex justify-content-end">
+                        <p>
+                            За плащане: 
+                            <span class="bold-text price">{{getTotalPrice(examination) | number:'2.2'}} лв.</span>
+                        </p>
                     </footer>
                 </a>
             </div>

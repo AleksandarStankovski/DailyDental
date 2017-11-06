@@ -36,6 +36,16 @@ export class ExaminationsComponent implements OnInit {
         })
     }
 
+    getTotalPrice(examination: Examination): number {
+        let totalPrice = 0;
+        examination.procedures.forEach(procedure => {
+            procedure.manipulations.forEach(manipulation => {
+                totalPrice = totalPrice + manipulation.price;
+            })
+        })
+        return totalPrice;
+    }
+
     openModalDialog(examinationId?: string): void {
         const id = examinationId;
         const modalDialogRef = this.modalDialog.open(ExaminationFormComponent, {
