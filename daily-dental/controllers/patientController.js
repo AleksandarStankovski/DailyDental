@@ -4,7 +4,6 @@ const Patient = require('mongoose').model('Patient');
 module.exports = {
     getAll: (req, res) => { 
         Patient.find({})
-        .populate('doctor', 'speciality')
         .sort({date: -1})
         .then(patients => {
             res.json(patients);
@@ -17,6 +16,7 @@ module.exports = {
         Patient.find({}).count().then(patientsLength => {
             let countPage = Math.ceil(patientsLength / itemsPerPage);
             Patient.find({})
+            .populate('doctor', 'speciality')
             .sort({date: -1})
             .skip(itemsPerPage * (currentPage - 1))
             .limit(itemsPerPage)
@@ -30,6 +30,7 @@ module.exports = {
         let searchText = new RegExp(req.query.searchText, 'i'); 
         Patient.find({ $or: [{ firstName: { $regex: searchText }}, { lastName: { $regex: searchText }}] })
         .sort({date: -1})
+        .populate('doctor', 'speciality')
         .then(patients => {
             res.json(patients);
         })
@@ -42,6 +43,9 @@ module.exports = {
         .then(patient => {
             res.json(patient);
         })
+        .catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     create: (req, res) => {

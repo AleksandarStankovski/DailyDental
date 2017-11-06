@@ -9,6 +9,9 @@ module.exports = {
         .then(examinations => {
             res.json(examinations);
         })  
+        .catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     getById: (req, res) => {
@@ -17,6 +20,9 @@ module.exports = {
         .then(examination => {
             res.json(examination);
         })
+        .catch(error => {
+            res.status(400).send(error);
+        });
     },
 
     create: (req, res) => {

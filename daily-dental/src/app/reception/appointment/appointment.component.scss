@@ -31,7 +31,7 @@
         .phone {
             flex: 1;
         }
-        .time {
+        time {
             color: #48b8f3;
         }
         h5 {
@@ -46,7 +46,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-confirmed;
+                a {
+                    color: $app-confirmed;
+                } 
             }
         }
     }
@@ -58,7 +60,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-unconfirmed;
+                a {
+                    color: $app-unconfirmed;
+                }
             }
         }
     }
@@ -70,7 +74,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-arrived;
+                a {
+                    color: $app-arrived;
+                }
             }
         }
     }
@@ -82,7 +88,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-current;
+                a {
+                    color: $app-current;
+                }
             }
         }
     }
@@ -94,7 +102,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-finished;
+                a {
+                    color: $app-finished;
+                }
             }
         }
     }
@@ -106,7 +116,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-late;
+                a {
+                    color: $app-late;
+                }
             }
         }
     }
@@ -118,7 +130,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-missing;
+                a {
+                    color: $app-missing;
+                }
             }
         }
     }
@@ -130,7 +144,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-canceled;
+                a {
+                    color: $app-canceled;
+                }
             }
         }
     }
@@ -142,7 +158,9 @@
         }
         .appointment-sbox {
             h5 {
-                color: $app-urgent;
+                a {
+                    color: $app-urgent;
+                }
             }
         }
     }

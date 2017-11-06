@@ -1,20 +1,19 @@
-<a (click)="editAppointment()" [ngClass]="appointment.status" class="appointment cursor-pointer d-flex">
-    <div class="appointment-fbox d-flex flex-column justify-content-between">
+<div [ngClass]="appointment.status" class="appointment d-flex">
+    <div (click)="editAppointment()" class="appointment-fbox cursor-pointer d-flex flex-column justify-content-between">
         <div [matTooltip]="appointment.status | statusConverter" matTooltipPosition="above" class="d-flex justify-content-center align-items-center rounded-circle">
             <i [ngClass]="appointmentIcon" class="fontello ft-28"></i>
         </div>
         <span></span>
     </div>
     <div class="appointment-sbox col">
-        <div class="d-flex justify-content-between">
+        <div (click)="editAppointment()" class="cursor-pointer d-flex justify-content-between">
             <span class="phone"><i class="fontello icon-phone-fill ft-14"></i> {{appointment.patient.phone}}</span>
-            <span class="time">{{appointment.startTime | timeConverter}}ч. - {{endTime | timeConverter}}ч.</span>
+            <time (click)="editAppointment()">{{appointment.startTime | timeConverter}}ч. - {{endTime | timeConverter}}ч.</time>
         </div>
         <h5 class="mb-2">
-            {{appointment.patient.firstName}} {{appointment.patient.lastName}}
+            <a [routerLink]="['/patients/patient', appointment.patient._id]" class="decoration-none">{{appointment.patient.firstName}} {{appointment.patient.lastName}}</a>
         </h5> 
-        <p><span *ngFor="let manipulation of appointment.manipulations" class="mr-1">{{manipulation.name}}</span></p>
-        <p class="d-block text-right mt-3">Дължима сума: <span class="bold-text">{{totalPrice | number:'2.2'}} лв.</span></p>
+        <p (click)="editAppointment()" *ngIf="appointment.comment" class="cursor-pointer">{{appointment.comment}}</p>
     </div>    
-</a>
+</div>
 

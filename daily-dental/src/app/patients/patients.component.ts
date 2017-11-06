@@ -85,15 +85,3 @@ export class PatientsComponent implements OnInit {
     }
 
 }
-
-    // getAllPatients(): void {
-    //     this.patientService.getAllPatients()
-    //     .subscribe(response => {
-    //         this.patients = response;
-    //         if (this.patients.length === 0) {
-    //             this.tutorialText = 'Кликнете тук за да създадете пациент';
-    //         } else {
-    //             this.tutorialText = undefined;
-    //         }
-    //     })
-    // }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { PatientGuardService } from './patient/patient-guard.service';
 import { PatientsComponent } from './patients.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
@@ -11,7 +12,8 @@ const patientsRoutes: Routes = [
     },
     {
         path: 'patient/:id',
-        component: PatientDetailsComponent
+        component: PatientDetailsComponent,
+        canActivate: [PatientGuardService]
     }
 ]
 

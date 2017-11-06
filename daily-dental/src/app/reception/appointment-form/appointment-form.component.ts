@@ -20,10 +20,8 @@ import { AppointmentService } from '../appointment/appointment.service';
 import { AppointmentStatusService } from './appointment-status.service';
 import { AppointmentHoursService } from './appointment-hours.service';
 import { Doctor } from '../../shared/models/doctor.model';
-import { Manipulation } from '../../shared/models/manipulation.model';
 import { Patient } from '../../shared/models/patient.model';
 import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
-import { ManipulationService } from '../../about-us/price-list/manipulation/manipulation.service';
 import { PatientService } from '../../patients/patient/patient.service';
 
 @Component({
@@ -37,7 +35,6 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     loadingOverlay: boolean;
     appointment: Appointment;
     doctors: Doctor[];
-    manipulations: Manipulation[];
     patients: Patient[];
     statuses: { type: string, name: string }[];
     hours: { name: string, value: number }[];
@@ -56,7 +53,6 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         private appointmentStatusService: AppointmentStatusService,
         private appointmentHoursService: AppointmentHoursService,
         private doctorService: DoctorService,
-        private manipulationService: ManipulationService,
         private patientService: PatientService,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -67,7 +63,6 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.appointment = new Appointment(new Date, 8, undefined, {}, '', [], 'confirmed', '');
         this.getAllDoctors();
         this.getAllHours();
-        this.getAllManipulations();
         this.getAllPatients();
         this.getAllStatuses();
 
@@ -109,22 +104,12 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.hours = this.appointmentHoursService.getAllHours();
     }
 
-    getAllManipulations(): void {
-        this.manipulationService.getAllManipulations()
-        .subscribe(response => {
-            this.manipulations = response;
-            if (this.manipulations.length === 0) {
-                const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте манипулация и пациент');
-            }
-        });
-    }
-
     getAllPatients(): void {
         this.patientService.getAllPatients()
         .subscribe(response => {
             this.patients = response;
             if (this.patients.length === 0) {
-                const snackBarRef = this.snackBar.open('Моля, преди да запишете час, създайте пациент и манипулация');
+                const snackBarRef = this.snackBar.open('Моля, преди да запишете час създайте пациент');
             }
             this.filteredPatients = this.myControl.valueChanges
                 .startWith(null)
@@ -162,10 +147,6 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     durationFilter(): void {
         this.appointment.duration = undefined;
         this.getDuration();
-    }
-
-    selectManipulation(optionValue, selectedValue) {
-        return optionValue._id === selectedValue._id;
     }
 
     save(): void {
@@ -237,44 +218,4 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
             }
         );
     }
-
-    // selectPatient(optionValue, selectedValue) {
-    //     return optionValue._id === selectedValue._id;
-    // }
-
-    // getAppointmentByDate(): void {
-    //     this.appointmentService.getAppointmentByDate(this.appointment.date)
-    //     .subscribe(response => {
-    //         this.doctors = response;
-    //     })
-    // }
-
-    // hoursFilter() {
-    //     let selectedDoctor;
-    //     let arr = [];
-    //     let newHours = this.getHours();
-        
-    //     this.doctors.forEach(doctor => {
-    //         if (doctor._id === this.appointment.doctor) {
-    //             doctor.appointments.forEach((appointment:any) => {
-    //                 let sum = appointment.startTime + appointment.duration;
-    //                 for(let i = appointment.startTime; i <= sum; i++) {
-    //                     arr.push(i);
-    //                 }
-    //             })
-                
-    //         }
-    //     })
-    //     if (arr.length > 0) {
-    //         newHours.forEach((x, index) => {
-    //             console.log(newHours)
-    //             arr.forEach(y => {
-    //                 if (x.value == y) {
-    //                     this.hours.splice(index, 1)
-    //                 }
-    //             })
-    //         })
-    //     }
-    // }
-
 }

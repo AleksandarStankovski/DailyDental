@@ -45,15 +45,6 @@
                 </mat-option>
             </mat-autocomplete>
         </div>
-        <div *ngIf="appointmentDataDay >= todayDate" [hidden]="manipulations?.length === 0">
-            <mat-form-field class="input-full-width">
-                <mat-select [(ngModel)]="appointment.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation" required #appointmentManipulation="ngModel" placeholder="Манипулация">
-                    <mat-option *ngFor="let manipulation of manipulations" [value]="manipulation">
-                        {{manipulation.name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
         <div>
             <mat-form-field class="input-full-width">
                 <mat-select [(ngModel)]="appointment.status" name="status" required #appointmentStatus="ngModel" placeholder="Статус">

@@ -16,7 +16,6 @@ import { AppointmentService } from './appointment.service';
 export class AppointmentComponent implements OnInit {
 
     endTime: number;
-    totalPrice: number;
     appointmentIcon: string;
     @Input() appointment: Appointment;
     @Output() editAppointmentEvent: EventEmitter<string> = new EventEmitter();
@@ -25,20 +24,11 @@ export class AppointmentComponent implements OnInit {
 
     ngOnInit() { 
         this.getEndTime();
-        this.getTotalPrice();
         this.getIcon();
     }
 
     getEndTime(): void {
         this.endTime = this.appointment.startTime + this.appointment.duration;
-    }
-
-    getTotalPrice(): void {
-        let total = 0;
-        this.appointment.manipulations.forEach(manipulation => {
-            total = total + manipulation.price;
-        })
-        this.totalPrice = total;
     }
 
     editAppointment(): void {
