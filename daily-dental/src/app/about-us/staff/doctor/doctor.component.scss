@@ -8,6 +8,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: $app-default-speciality;
+    background-image: url('/assets/images/staff/reception.jpg');
     .doctor-fbox {
         z-index: 1;
         min-height: 250px;
@@ -73,7 +74,7 @@
     }
     &.parodontology {
         background-color: $app-parodontology;
-        background-image: url('/assets/images/staff/parodontology.jpeg');
+        background-image: url('/assets/images/staff/parodontology.jpg');
         &:after {
             background-color: rgba($app-parodontology, $doctor-opacity);
         }
@@ -118,7 +119,7 @@
     }
     &.orthodontics {
         background-color: $app-orthodontics;
-        background-image: url('/assets/images/staff/orthodontics.jpeg');
+        background-image: url('/assets/images/staff/orthodontics.jpg');
         &:after {
             background-color: rgba($app-orthodontics, $doctor-opacity);
         }

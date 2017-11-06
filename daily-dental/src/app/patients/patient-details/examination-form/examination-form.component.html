@@ -24,11 +24,13 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-            <div *ngIf="examination.procedures.length > 1">
+            <div *ngIf="examination.procedures.length > 1" class="d-flex justify-content-end">
                 <button (click)="removeProcedure(i)" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>delete</mat-icon></button>
             </div>
         </div>
-        <button *ngIf="examinationForm.valid" (click)="addProcedure()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>add</mat-icon></button>
+        <div>
+            <button *ngIf="examinationForm.valid" (click)="addProcedure()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>add</mat-icon></button>            
+        </div>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">

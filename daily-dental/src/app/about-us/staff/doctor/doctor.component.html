@@ -6,7 +6,8 @@
                 <div class="doctor-icon d-flex justify-content-center align-items-center rounded-circle mr-3">
                     <i class="fontello ft-30 icon-doctor"></i>
                 </div>
-                <h5 class="mr-2">{{doctor.firstName}} <span *ngIf="!isRoleReception">{{doctor.lastName}}</span></h5>
+                <h5 *ngIf="!isRoleReception" class="mr-2">д-р {{doctor.firstName}} <span>{{doctor.lastName}}</span></h5>
+                <h5 *ngIf="isRoleReception" class="mr-2">{{doctor.firstName}}</h5>
             </div>
             <mat-icon *ngIf="doctor.active" class="mat-30">visibility</mat-icon>
             <mat-icon *ngIf="!doctor.active" class="mat-30">visibility_off</mat-icon>

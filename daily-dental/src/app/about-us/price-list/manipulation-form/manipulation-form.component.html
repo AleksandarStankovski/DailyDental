@@ -24,7 +24,7 @@
             </mat-form-field>
         </div>
         <div>
-            <mat-slider (change)="changePrice($event.value)" [value]="manipulation.price" max="1000" min="0" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></mat-slider>
+            <mat-slider (change)="changePrice($event.value)" [value]="manipulation.price" max="1000" min="1" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></mat-slider>
         </div>
     </form>
 </mat-dialog-content>

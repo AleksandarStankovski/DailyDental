@@ -35,11 +35,11 @@ export class PageImageService {
                 break;
             }
             case '/reception': {
-                image = 'staff-2.jpg'
+                image = 'reception.jpg'
                 break;
             }
             default: {
-                image = 'clinic-6.jpg'
+                image = 'default.jpg'
             }
         }
         return image;

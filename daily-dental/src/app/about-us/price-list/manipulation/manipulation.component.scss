@@ -3,7 +3,7 @@
 
 .manipulation {
     $manipulation-darken: 10%;
-    min-height: 150px;
+    min-height: 130px;
     margin-bottom: 10px;
     border-radius: 5px;
     background-color: #fff;
@@ -17,8 +17,8 @@
         color: $app-ligth-color;
         background-color: $app-default-speciality;
         > div {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background-color: darken($app-default-speciality, $manipulation-darken);
             @include media-breakpoint-down(xs) {
                 width: 55px;
