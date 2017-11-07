@@ -82,50 +82,51 @@ export class ExaminationFormComponent implements OnInit {
     }
 
     save(): void {
-        let errorMsg = 'Моля, опитайте отново';
-        this.loadingOverlay = true;
-        if (this.data.examinationId) {
-            this.examinationService.editExamination(this.examination)
-            .subscribe(
-                response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Edit');
-                    }, this.snackbarConfig.duration);
-                }, error => {
-                    const snackBarRef = this.snackBar.open(errorMsg, '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                }
-            );
-        } else {
-            this.examinationService.createExamination(this.examination)
-            .subscribe(
-                response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Create');
-                    }, this.snackbarConfig.duration);
-                }, 
-                error => {
-                    const snackBarRef = this.snackBar.open(errorMsg, '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                }
-            );
-        }
+        console.log(this.examination)
+        // let errorMsg = 'Моля, опитайте отново';
+        // this.loadingOverlay = true;
+        // if (this.data.examinationId) {
+        //     this.examinationService.editExamination(this.examination)
+        //     .subscribe(
+        //         response => {
+        //             const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
+        //                 duration: this.snackbarConfig.duration
+        //             });
+        //             setTimeout(() => {
+        //                 this.modalDialogRef.close('Edit');
+        //             }, this.snackbarConfig.duration);
+        //         }, error => {
+        //             const snackBarRef = this.snackBar.open(errorMsg, '', {
+        //                 duration: this.snackbarConfig.duration
+        //             });
+        //             setTimeout(() => {
+        //                 this.loadingOverlay = false;
+        //             }, this.snackbarConfig.duration);
+        //             throw new Error(error);
+        //         }
+        //     );
+        // } else {
+        //     this.examinationService.createExamination(this.examination)
+        //     .subscribe(
+        //         response => {
+        //             const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
+        //                 duration: this.snackbarConfig.duration
+        //             });
+        //             setTimeout(() => {
+        //                 this.modalDialogRef.close('Create');
+        //             }, this.snackbarConfig.duration);
+        //         }, 
+        //         error => {
+        //             const snackBarRef = this.snackBar.open(errorMsg, '', {
+        //                 duration: this.snackbarConfig.duration
+        //             });
+        //             setTimeout(() => {
+        //                 this.loadingOverlay = false;
+        //             }, this.snackbarConfig.duration);
+        //             throw new Error(error);
+        //         }
+        //     );
+        // }
     }
 
     delete(): void {

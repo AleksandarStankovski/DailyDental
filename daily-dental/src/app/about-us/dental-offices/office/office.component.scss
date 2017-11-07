@@ -4,9 +4,15 @@
 .office {
     $office-darken: 10%;
     position: relative;
-    min-height: 250px;
+    min-height: 280px;
     height: 100%;
     background-color: $app-default-speciality;
+    @media screen and (max-width: $app-xl) {
+        min-height: 250px;
+    }
+    // @include media-breakpoint-down($app-xl) {
+    //     min-height: 250px;
+    // }
     @include media-breakpoint-down(xs) {
         min-height: 185px;
     }
