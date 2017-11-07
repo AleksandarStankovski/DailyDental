@@ -11,7 +11,7 @@
                 <mat-select [(ngModel)]="appointment.doctor" name="doctor" required #appointmentDoctor="ngModel" placeholder="Лекар">
                     <ng-container *ngFor="let doctor of doctors">
                         <mat-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
-                            д-р. {{doctor.lastName}}
+                            д-р {{doctor.lastName}}
                         </mat-option>
                     </ng-container>
                 </mat-select>
@@ -41,7 +41,7 @@
             </mat-form-field>
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayPatient">
                 <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
-                    {{patient.firstName}} {{patient.lastName }}
+                    {{patient.firstName}} {{patient.middleName}} {{patient.lastName }}
                 </mat-option>
             </mat-autocomplete>
         </div>

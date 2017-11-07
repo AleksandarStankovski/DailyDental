@@ -28,6 +28,10 @@ let appointmentSchema = mongoose.Schema({
             type: String,
             required: true 
         },
+        middleName: {
+            type: String,
+            required: true
+        },
         phone: {
             type: String,
             required: true 

@@ -1,0 +1,14 @@
+- Favicon
+- Animations and transition
+- Application - first visit tutorial 
+- Responsive menu
+- Change icon (+)
+- Resolve in router
+- Box-shadown
++ Change icon reception in staff
++ Autocomplete in appointment
++ Appointment doctor tabs responsive
++ Price list icon size
++ Add Patient middle name
++ Validation for email
++ Validation for price

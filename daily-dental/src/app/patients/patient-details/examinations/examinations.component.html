@@ -9,10 +9,7 @@
                     <section>
                         <ul class="list-unstyled">
                             <li *ngFor="let procedure of examination.procedures">
-                                <p>Зъб: <span>{{procedure.tooth}}</span></p>
-                                <ul>
-                                    <li *ngFor="let manipulation of procedure.manipulations">{{manipulation.name}}</li>
-                                </ul>
+                                <p>Зъб: <span>{{procedure.tooth}}</span> - <span>{{joinManipulationNames(procedure.manipulations)}}</span></p>
                             </li>
                         </ul>
                     </section>

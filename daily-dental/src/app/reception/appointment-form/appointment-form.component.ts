@@ -113,21 +113,30 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
             }
             this.filteredPatients = this.myControl.valueChanges
                 .startWith(null)
-                .map(patient => patient && typeof patient === 'object' ? patient.lastName : patient)
-                .map(lastName => lastName ? this.filter(lastName) : this.patients.slice());
+                .map(patient => patient && typeof patient === 'object' ? patient.firstName : patient)
+                .map(firstName => firstName ? this.filter(firstName) : this.patients.slice());
         });
     }
 
-    filter(lastName: string): any[] {
-        return this.patients.filter(patient => patient.lastName.toLowerCase().indexOf(lastName.toLowerCase()) === 0);
+    filter(firstName: string): any[] {
+        return this.patients.filter(patient => patient.firstName.toLowerCase().indexOf(firstName.toLowerCase()) === 0);
+    }
+
+    displayPatient(patient: Patient) {
+        let concatNames;
+        if (patient && patient.firstName) {
+            if (patient.middleName) {
+                concatNames = patient.firstName + ' ' + patient.middleName + ' ' + patient.lastName;
+            } else {
+                concatNames = patient.firstName + ' ' + patient.lastName;
+            }
+            
+        }
+        return concatNames;
     }
 
     checkValidPatient(patient): void {
         this.isValidPatient = !!patient.firstName;
-    }
-
-    displayPatient(patient: Patient) {
-        return patient ? patient.lastName : patient;
     }
 
     getAllStatuses(): void {

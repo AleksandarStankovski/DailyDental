@@ -51,7 +51,7 @@ module.exports = function (app, config) {
                         let doctor = {
                             firstName: 'Рецепция',
                             lastName: 'Рецепция',
-                            email: 'reception',
+                            email: 'reception@reception.com',
                             role: 'reception',
                             active: true,
                             salt: salt,

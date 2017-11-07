@@ -10,6 +10,9 @@ let patientSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    middleName: {
+        type: String
+    },
     phone: {
         type: String,
         required: true

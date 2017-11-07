@@ -20,11 +20,11 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="manipulation.price" name="price" required #manipulationPrice="ngModel" placeholder="Цена" type="number">
+                <input matInput [(ngModel)]="manipulation.price" name="price" required min="1" [pattern]="regexPositiveInteger" #manipulationPrice="ngModel" placeholder="Цена" type="number">
             </mat-form-field>
         </div>
         <div>
-            <mat-slider (change)="changePrice($event.value)" [value]="manipulation.price" max="1000" min="1" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></mat-slider>
+            <mat-slider (change)="changePrice($event.value)" [value]="manipulation.price" min="1" max="1000" step="10" thumbLabel="true" tickInterval="10" class="input-full-width"></mat-slider>
         </div>
     </form>
 </mat-dialog-content>

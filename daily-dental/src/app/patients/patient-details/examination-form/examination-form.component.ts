@@ -12,6 +12,7 @@ import { Examination } from '../../../shared/models/examination.model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ExaminationService } from '../examinations/examination.service';
 import { ManipulationService } from '../../../about-us/price-list/manipulation/manipulation.service';
+import { ToothService } from '../../../core/tooth.service';
 
 @Component({
     selector: 'app-examination-form',
@@ -24,18 +25,21 @@ export class ExaminationFormComponent implements OnInit {
     manipulations: Manipulation[];
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
+    teeth: {position: string, name: string}[];
 
     constructor(
         private modalDialogRef: MatDialogRef<ExaminationFormComponent>,
         private snackBar: MatSnackBar,
         private examinationService: ExaminationService,
         private manipulationService: ManipulationService,
+        private toothService: ToothService,
         @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
         this.examination = new Examination(this.data.patientId, [{ tooth: '', manipulations: []}]);
         this.snackbarConfig = new SnackbarConfig();
         this.getAllManipulations();
+        this.getAllTeeth();
         if (this.data.examinationId) {
             this.getExamination();
         }
@@ -56,6 +60,10 @@ export class ExaminationFormComponent implements OnInit {
                 const snackBarRef = this.snackBar.open('Моля, преди да запишете преглед, създайте манипулация');
             }
         });
+    }
+
+    getAllTeeth(): void {
+        this.teeth = this.toothService.getAllTeeth();
     }
 
     selectManipulation(optionValue, selectedValue) {

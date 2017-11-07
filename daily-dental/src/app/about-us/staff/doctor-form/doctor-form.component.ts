@@ -7,6 +7,7 @@ import {
     MAT_DIALOG_DATA,
     MatSnackBar } from '@angular/material';
 
+import { regex } from '../../../shared/const/regex.const'; 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
 import { User } from '../../../shared/models/user.model';
@@ -28,6 +29,7 @@ export class DoctorFormComponent implements OnInit {
     showPassword: boolean;
     user: User;
     isRoleReception: boolean;
+    regexEmail = regex.email;
 
     constructor(
         private modalDialogRef: MatDialogRef<DoctorFormComponent>,

@@ -7,6 +7,7 @@ import {
     MAT_DIALOG_DATA,
     MatSnackBar } from '@angular/material';
 
+import { regex } from '../../shared/const/regex.const'; 
 import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
 import { Patient } from '../../shared/models/patient.model';
 import { PatientService } from '../patient/patient.service';
@@ -24,6 +25,7 @@ export class PatientFormComponent implements OnInit {
     doctors: Doctor[];
     snackbarConfig: SnackbarConfig
     loadingOverlay: boolean;
+    regexEmail = regex.email;
 
     constructor(
         private modalDialogRef: MatDialogRef<PatientFormComponent>,
@@ -33,7 +35,7 @@ export class PatientFormComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-        this.patient = new Patient('', '', '', '', '', { _id: ''});
+        this.patient = new Patient('', '', '', '', '', '', { _id: ''});
         this.snackbarConfig = new SnackbarConfig();
         this.getAllDoctors();
         if (this.data.patientId) {

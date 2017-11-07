@@ -10,8 +10,7 @@
             <div>
                 <mat-form-field class="input-full-width">
                     <mat-select [(ngModel)]="procedure.tooth" name="tooth-{{i}}" required #examinationTooth="ngModel" placeholder="Зъб">
-                        <mat-option [value]="'b2'">Зъб b2</mat-option>
-                        <mat-option [value]="'b1'">Зъб b1</mat-option>
+                        <mat-option *ngFor="let tooth of teeth" [value]="tooth.position">{{tooth.name}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -28,8 +27,8 @@
                 <button (click)="removeProcedure(i)" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>delete</mat-icon></button>
             </div>
         </div>
-        <div>
-            <button *ngIf="examinationForm.valid" (click)="addProcedure()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>add</mat-icon></button>            
+        <div *ngIf="examinationForm.valid" [ngClass]="{'add-btn-margin': examination.procedures.length > 1}" class="add-btn">
+            <button (click)="addProcedure()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>add</mat-icon></button>            
         </div>
     </form>
 </mat-dialog-content>

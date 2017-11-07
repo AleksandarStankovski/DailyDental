@@ -47,6 +47,12 @@
         @include media-breakpoint-down(xs) {
             min-height: 70px;
         }
+        h6 {
+            min-height: 17px;
+            @include media-breakpoint-down(xs) {
+                min-height: 15px;
+            }
+        }
     }
     &:after {
         content: '';

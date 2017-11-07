@@ -4,7 +4,7 @@
         <div class="d-flex">
             <div class="patient-details-fbox"></div>
             <div class="patient-details-sbox">
-                <div class="patient-details-personal">
+                <a (click)="editPatient()" class="patient-details-personal cursor-pointer d-block decoration-none">
                     <div class="row">
                         <div class="patient-details-icon col-md-4">
                             <div class="d-flex justify-content-center align-items-center">
@@ -13,12 +13,12 @@
                         </div>
                         <div class="patient-details-info col-md-8">
                             <header>
-                                <h3>{{patient.firstName}} {{patient.lastName}}</h3>
+                                <h3>{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</h3>
                             </header>
                             <section>
                                 <ul class="list-unstyled">
                                     <li>
-                                        <p><span class="bold-text text-uppercase"><i>Телефон</i></span> <a href="tel:{{patient.phone}}" class="decoration-none">{{patient.phone}}</a></p>
+                                        <p><span class="bold-text text-uppercase"><i>Телефон</i></span> {{patient.phone}}</p>
                                     </li>
                                     <li>
                                         <p><span class="bold-text text-uppercase"><i>Адрес</i></span> {{patient.address}}</p>
@@ -31,10 +31,9 @@
                                     </li>
                                 </ul>
                             </section>
-                            <!-- <button (click)="editPatient()">Преглед</button> -->
                         </div>
                     </div>
-                </div>
+                </a>
                 <app-examinations [patientId]="patientId" #examinations></app-examinations>
             </div>
         </div>

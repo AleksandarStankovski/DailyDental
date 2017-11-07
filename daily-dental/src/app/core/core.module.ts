@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PageNameService } from './page-name.service';
 import { PageImageService } from './page-image.service';
 import { SpecialityService } from './speciality.service';
+import { ToothService } from './tooth.service';
 import { UserService } from './user.service';
 import { DoctorService } from '../about-us/staff/doctor/doctor.service';
 import { ManipulationService } from '../about-us/price-list/manipulation/manipulation.service';
@@ -41,6 +42,7 @@ import { UserFormComponent } from './user-form/user-form.component';
         PageNameService,
         PageImageService,
         SpecialityService,
+        ToothService,
         UserService,
         DoctorService,
         ManipulationService,

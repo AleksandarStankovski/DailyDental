@@ -13,12 +13,17 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
+                <input matInput [(ngModel)]="patient.middleName" name="middleName" #patientMiddleName="ngModel" placeholder="Презиме">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="input-full-width">
                 <input matInput [(ngModel)]="patient.lastName" name="lastName" required #patientLastName="ngModel" placeholder="Фамилия">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="patient.phone" name="phone" required #patientPhone="ngModel" placeholder="Телефон">
+                <input matInput [(ngModel)]="patient.phone" type="tel" name="phone" required #patientPhone="ngModel" placeholder="Телефон">
             </mat-form-field>
         </div>
         <div>
@@ -28,7 +33,7 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="patient.email" name="email" #patientEmail="ngModel" placeholder="Е-mail">
+                <input matInput [(ngModel)]="patient.email" type="email" name="email" [pattern]="regexEmail" #patientEmail="ngModel" placeholder="Е-mail">
             </mat-form-field>
         </div>
         <div *ngIf="doctors?.length > 0">
@@ -36,7 +41,7 @@
                 <mat-select [(ngModel)]="patient.doctor._id" name="doctor" #patientDoctor="ngModel" placeholder="Лекар">
                     <ng-container *ngFor="let doctor of doctors">
                         <mat-option *ngIf="doctor.role !== 'reception'" [value]="doctor._id">
-                            д-р. {{doctor.lastName}}
+                            д-р {{doctor.lastName}}
                         </mat-option>
                     </ng-container>
                 </mat-select>

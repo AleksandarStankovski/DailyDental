@@ -24,6 +24,11 @@
                 width: 55px;
                 height: 55px;
             }
+            i {
+                @include media-breakpoint-down(xs) {
+                    font-size: 32px;
+                }
+            }
         }
     }
     .manipulation-sbox {

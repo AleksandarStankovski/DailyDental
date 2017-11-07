@@ -31,7 +31,7 @@ export class PatientDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.patient = new Patient('', '', '', '', '', { lastName: '', speciality: ''});
+        this.patient = new Patient('', '', '', '', '', '', { lastName: '', speciality: ''});
         this.getRouteParams();
     }
 

@@ -36,6 +36,14 @@ export class ExaminationsComponent implements OnInit {
         })
     }
 
+    joinManipulationNames(manipulations): string {
+        let names = [];
+        manipulations.forEach(manipulation => {
+            names.push(manipulation.name);
+        })
+        return names.join(', ');
+    }
+
     getTotalPrice(examination: Examination): number {
         let totalPrice = 0;
         examination.procedures.forEach(procedure => {

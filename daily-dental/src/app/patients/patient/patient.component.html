@@ -1,8 +1,8 @@
 <a [routerLink]="['/patients/patient', patient._id]" [ngClass]="patient.doctor?.speciality" class="patient cursor-pointer decoration-none d-flex flex-column justify-content-end">
     <div class="patient-fbox">
-        <h6>{{patient.firstName}} {{patient.lastName}}</h6>
+        <h6>{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</h6>
         <span class="d-flex align-items-center mt-1">
-            <i class="fontello icon-phone-fill ft-14"></i>
+            <i class="fontello icon-phone-fill ft-14 mr-1"></i>
             {{patient.phone}}
         </span>
     </div>

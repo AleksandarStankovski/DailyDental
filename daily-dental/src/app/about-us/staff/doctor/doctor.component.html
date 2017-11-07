@@ -4,19 +4,17 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
                 <div class="doctor-icon d-flex justify-content-center align-items-center rounded-circle mr-3">
-                    <i class="fontello ft-30 icon-doctor"></i>
+                    <i [ngClass]="{'ft-32 icon-reception-2': doctor.role === 'reception', 'ft-30 icon-doctor': doctor.role !== 'reception'}" class="fontello "></i>
                 </div>
                 <h5 *ngIf="!isRoleReception" class="mr-2">д-р {{doctor.firstName}} <span>{{doctor.lastName}}</span></h5>
                 <h5 *ngIf="isRoleReception" class="mr-2">{{doctor.firstName}}</h5>
             </div>
-            <mat-icon *ngIf="doctor.active" class="mat-30">visibility</mat-icon>
-            <mat-icon *ngIf="!doctor.active" class="mat-30">visibility_off</mat-icon>
         </div>
 	</div>
     <div class="doctor-sbox">
         <h6>{{doctor.speciality | specialityConverter}}</h6>
         <span *ngIf="doctor.phone" class="d-flex align-items-center mt-1">
-            <i class="fontello icon-phone-fill ft-14"></i>
+            <i class="fontello icon-phone-fill ft-14 mr-1"></i>
             {{doctor.phone}}
         </span>
     </div>

@@ -28,7 +28,7 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="clinic.email" name="email" required #clinicEmail="ngModel" placeholder="E-mail">
+                <input matInput [(ngModel)]="clinic.email" name="email" required [pattern]="regexEmail" #clinicEmail="ngModel" placeholder="E-mail">
             </mat-form-field>
         </div>
     </form>

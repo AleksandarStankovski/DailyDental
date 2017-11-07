@@ -7,28 +7,45 @@
         background-color: rgba(#fff, .4);
         min-height: 50px;
         li {
+            @include media-breakpoint-down(sm) {
+                flex: 1;
+            }
+            a {
+                min-height: 50px;
+                height: 100%;
+                padding: 5px 30px;
+                color: $app-ligth-color;
+                transition: color .4s;
+                @include media-breakpoint-down(sm) {
+                    padding: 5px;
+                }
+                &:hover {
+                    color: darken($app-ligth-color, 10%);
+                }
+                &.active {
+                    border-bottom: 2px solid $app-primary;
+                }
+                span {
+                    @include media-breakpoint-down(sm) {
+                        display: none;
+                    }
+                }
+            }
             &.full-width {
                 flex: 1;
-            }
-            @include media-breakpoint-down(sm) {
-                flex: 1;
-            }
-        }
-        a {
-            min-height: 50px;
-            padding: 5px 30px;
-            color: $app-ligth-color;
-            transition: color .4s;
-            @include media-breakpoint-down(sm) {
-                padding: 5px 10px;
-            }
-            &:hover {
-                color: darken($app-ligth-color, 10%);
-            }
-            &.active {
-                border-bottom: 2px solid $app-primary;
+                a {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    span {
+                        @include media-breakpoint-down(lg) {
+                            display: none;
+                        }
+                    }
+                }
+                
             }
         }
+
     }
     .page-container {
         width: 700px;

@@ -7,6 +7,7 @@ import {
     MAT_DIALOG_DATA,
     MatSnackBar } from '@angular/material';
 
+import { regex } from '../../../shared/const/regex.const'; 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Clinic } from '../../../shared/models/clinic.model';
 import { ClinicService } from '../clinic/clinic.service';
@@ -21,6 +22,7 @@ export class ClinicFormComponent implements OnInit {
     clinic: Clinic;
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
+    regexEmail = regex.email;
 
     constructor(
         private modalDialogRef: MatDialogRef<ClinicFormComponent>,

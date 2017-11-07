@@ -7,6 +7,7 @@ import {
     MAT_DIALOG_DATA,
     MatSnackBar } from '@angular/material';
 
+import { regex } from '../../../shared/const/regex.const'; 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ManipulationService } from '../manipulation/manipulation.service';
@@ -23,6 +24,7 @@ export class ManipulationFormComponent implements OnInit {
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
     specialities: { type: string, name: string }[];
+    regexPositiveInteger = regex.positiveInteger;
 
     constructor(
         private modalDialogRef: MatDialogRef<ManipulationFormComponent>,
