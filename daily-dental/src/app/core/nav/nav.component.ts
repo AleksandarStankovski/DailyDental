@@ -1,9 +1,8 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    Output,
-    EventEmitter } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Router, NavigationEnd } from "@angular/router";
+
+import { NavModel } from '../../shared/models/nav.model';
+import { NavService } from '../nav.service';
 
 @Component({
     selector: 'app-nav',
@@ -12,16 +11,40 @@ import {
 })
 export class NavComponent implements OnInit {
 
-    @Input() navList;
-    @Input() isVisibleMenu: boolean;
-    @Output() toggleMenu: EventEmitter<boolean> = new EventEmitter();
+    isVisibleMenu: boolean;
+    navList: NavModel[];
 
-    constructor() { }
+    constructor(
+        private renderer: Renderer2,
+        private router: Router,
+        private navService: NavService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.isVisibleMenu = false;
+        this.getNavList();
+        this.router.events.subscribe(event => {
+            if(event instanceof NavigationEnd) {
+                this.isVisibleMenu = false;
+                this.toggleClassDisabledOverflow();
+            }
+        }); 
+    }
 
-    toggle() {
-        this.toggleMenu.emit();
+    getNavList(): void {
+        this.navList = this.navService.getHeaderNavList();
+    } 
+
+    toggleMenu(): void {
+        this.isVisibleMenu = !this.isVisibleMenu;
+        this.toggleClassDisabledOverflow();
+    }
+
+    toggleClassDisabledOverflow(): void {
+        if (this.isVisibleMenu) {
+            this.renderer.addClass(document.body, 'disabled-overflow');
+        } else {
+            this.renderer.removeClass(document.body, 'disabled-overflow');
+        }
     }
 
 }

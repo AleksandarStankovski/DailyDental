@@ -8,23 +8,12 @@ header {
         z-index: 4;
         width: 100%;
         min-height: 63px;
-        padding: 10px 15px;
+        padding: 17px 15px;
         background-color: $app-primary;
         color: $app-ligth-color;
         @include media-breakpoint-down(sm) {
             min-height: 53px;
-            padding: 6px 10px;
-        }
-        .header-top {
-            &-toggle {
-                padding-top: 7px;
-                padding-bottom: 7px;
-            }
-            .fontello {
-                @include media-breakpoint-down(sm) {
-                    font-size: 26px;
-                }  
-            }
+            padding: 13px 10px;
         }
         .header-title {
             h1 {
