@@ -1,0 +1,10 @@
+@import "~assets/styles/variables";
+@import "~bootstrap/scss/bootstrap-grid";
+
+.toggle-profile {
+    .fontello {
+        @include media-breakpoint-down(sm) {
+            font-size: 26px;
+        }
+    }
+}

@@ -1,20 +1,18 @@
-import { 
-    Component, 
-    OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
     MatDialogRef,
     MatSnackBar } from '@angular/material';
 
-import { User } from '../../shared/models/user.model'; 
-import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
-import { UserService } from '../user.service';
+import { User } from '../../../shared/models/user.model'; 
+import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
+import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss']
+  selector: 'app-profile-form',
+  templateUrl: './profile-form.component.html',
+  styleUrls: ['./profile-form.component.scss']
 })
-export class UserFormComponent implements OnInit {
+export class ProfileFormComponent implements OnInit {
 
     user: User;
     readonlyUser = { firstName: '', lastName: '', speciality: '', email: ''};
@@ -23,7 +21,7 @@ export class UserFormComponent implements OnInit {
     isRoleReception: boolean;
 
     constructor(
-        private modalDialogRef: MatDialogRef<UserFormComponent>,
+        private modalDialogRef: MatDialogRef<ProfileFormComponent>,
         private userService: UserService,
         private snackBar: MatSnackBar) { }
 

@@ -1,12 +1,8 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
-import { MatDialog } from '@angular/material';
-
-import { ModalConfig } from '../../shared/models/modal-config.model';
 
 import { PageNameService } from '../page-name.service';
-import { PageImageService } from '../page-image.service';
-import { UserFormComponent } from "../user-form/user-form.component";
+import { PageWallpaperService } from '../page-wallpaper.service';
 
 @Component({
     selector: 'app-header',
@@ -16,33 +12,22 @@ import { UserFormComponent } from "../user-form/user-form.component";
 export class HeaderComponent implements OnInit {
 
     title: string;
-    image: string;
-    pageName: string;
-    modalConfig: ModalConfig;
+    wallpaper: string;
+    pageUrl: string;
 
     constructor(
         private router: Router,
-        private renderer: Renderer2,
-        private modalDialog: MatDialog,
         private pageNameService: PageNameService,
-        private pageImageService: PageImageService) {}
+        private pageWallpaperService: PageWallpaperService) {}
 
     ngOnInit() {
-        this.modalConfig = new ModalConfig();
         this.router.events.subscribe(event => {
             if(event instanceof NavigationEnd) {
-                this.pageName = event.url;
+                this.pageUrl = event.url;
                 this.title = this.pageNameService.getPageName(event.url);
-                this.image = this.pageImageService.getPageImage(event.url);
+                this.wallpaper = this.pageWallpaperService.getPageWallpaper(event.url);
             }
         }); 
-    }
-
-    openProfile(): void {
-        const modalDialogRef = this.modalDialog.open(UserFormComponent, {
-            width: this.modalConfig.width,
-            panelClass: 'loading-overlay-container'
-        });
     }
 
 }

@@ -1,30 +1,14 @@
 <header>
-    <div appScrollPageTransition [toggleClass]="'header-fixed-scroll'" [hidden]="pageName === '/home' || pageName === '/'" class="header-fixed">
-        <div class="header-top">
-            <div class="d-flex justify-content-between align-items-center">
-                <app-nav></app-nav>
-                <div>
-                    <a [matMenuTriggerFor]="userMenu" class="d-flex header-top-account cursor-pointer">
-                        <i class="fontello ft-28 icon-user"></i>
-                    </a>
-                    <mat-menu #userMenu="matMenu" xPosition="before" yPosition="below" class="user-menu">
-                        <a (click)="openProfile()" mat-menu-item class="decoration-none d-flex align-items-center">
-                            <i class="fontello ft-26 icon-doctor mr-1"></i>
-                            <span>Профил</span>
-                        </a>
-                        <a href="logout" mat-menu-item class="decoration-none d-flex align-items-center">
-                            <i class="fontello ft-22 icon-logout mr-1"></i>
-                            <span>Изход</span>
-                        </a>
-                    </mat-menu>
-                </div>
-            </div>
+    <div appScrollPageTransition [toggleClass]="'header-fixed-scroll'" [hidden]="pageUrl === '/home' || pageUrl === '/'" class="header-fixed">
+        <div class="header-top d-flex justify-content-between align-items-center">
+            <app-nav></app-nav>
+            <app-profile></app-profile>
         </div>
         <div class="header-title">
             <h1>{{title}}</h1>
         </div>
     </div>
-    <div class="header-background" [hidden]="pageName === '/home'">
-        <div [style.background-image]="'url(assets/images/'+image+')'"></div>
+    <div class="header-background" [hidden]="pageUrl === '/home'">
+        <div [style.background-image]="'url(assets/images/wallpapers/'+ wallpaper +')'"></div>
     </div>
 </header>

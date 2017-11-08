@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class PageImageService {
+export class PageWallpaperService {
 
-    getPageImage(pageUrl): string {
+    getPageWallpaper(pageUrl): string {
         let image: string;
         switch(pageUrl) {
             case '/home': {

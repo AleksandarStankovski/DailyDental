@@ -7,13 +7,19 @@ header {
         top: 0;
         z-index: 4;
         width: 100%;
-        min-height: 63px;
-        padding: 17px 15px;
+        padding-right: 15px;
+        padding-left: 15px;
         background-color: $app-primary;
         color: $app-ligth-color;
         @include media-breakpoint-down(sm) {
-            min-height: 53px;
-            padding: 13px 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .header-top {
+            min-height: 63px;
+            @include media-breakpoint-down(sm) {
+                min-height: 53px;
+            }
         }
         .header-title {
             h1 {
@@ -29,7 +35,7 @@ header {
                 }  
             }
         }
-        &-scroll {
+        &.header-fixed-scroll {
             .header-title {
                 width: 100%;
                 h1 {

@@ -1,0 +1,15 @@
+<div>
+    <a [matMenuTriggerFor]="profileMenu" class="d-flex toggle-profile cursor-pointer">
+        <i class="fontello ft-28 icon-user"></i>
+    </a>
+    <mat-menu #profileMenu="matMenu" xPosition="before" yPosition="below" class="profile-menu">
+        <a (click)="openModalDialog()" mat-menu-item class="decoration-none d-flex align-items-center">
+            <i class="fontello ft-26 icon-doctor mr-1"></i>
+            <span>Профил</span>
+        </a>
+        <a href="logout" mat-menu-item class="decoration-none d-flex align-items-center">
+            <i class="fontello ft-22 icon-logout mr-1"></i>
+            <span>Изход</span>
+        </a>
+    </mat-menu>
+</div>
