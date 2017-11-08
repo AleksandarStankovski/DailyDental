@@ -1,4 +1,4 @@
-export class NavModel {
+export class Nav {
     constructor(
         public routerLink: string,
         public routerText: string,

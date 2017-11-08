@@ -8,6 +8,7 @@ import {
     MatSnackBar } from '@angular/material';
 
 import { regex } from '../../../shared/const/regex.const'; 
+import { Speciality } from "../../../shared/models/speciality.model";
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ManipulationService } from '../manipulation/manipulation.service';
@@ -23,7 +24,7 @@ export class ManipulationFormComponent implements OnInit {
     manipulation: Manipulation;
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
-    specialities: { type: string, name: string }[];
+    specialities: Speciality[];
     regexPositiveInteger = regex.positiveInteger;
 
     constructor(

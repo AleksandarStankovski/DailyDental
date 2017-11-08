@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
 
-import { NavModel } from '../../shared/models/nav.model';
+import { Nav } from '../../shared/models/nav.model';
 import { NavService } from '../nav.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { NavService } from '../nav.service';
 export class NavComponent implements OnInit {
 
     isVisibleMenu: boolean;
-    navList: NavModel[];
+    navList: Nav[];
 
     constructor(
         private renderer: Renderer2,

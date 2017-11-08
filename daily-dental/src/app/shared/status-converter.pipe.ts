@@ -44,7 +44,7 @@ export class StatusConverterPipe implements PipeTransform {
                 break;
             }
             default: {
-                value = 'Нов'
+                value = ''
             }
         }
         return value;

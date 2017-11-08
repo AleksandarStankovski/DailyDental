@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { NavModel } from '../shared/models/nav.model';
+import { Nav } from '../shared/models/nav.model';
 
 @Injectable()
 export class NavService {
 
-    getHeaderNavList(): NavModel[]{
+    getHeaderNavList(): Nav[]{
         let navList = [
             {
                 routerLink: '/home',
@@ -36,7 +36,7 @@ export class NavService {
         return navList;
     }
 
-    getHomeNavList(): NavModel[]{
+    getHomeNavList(): Nav[]{
         let navList = [
             {
                 routerLink: '/reception',
@@ -58,7 +58,7 @@ export class NavService {
         return navList;
     }
 
-    getAboutUsNavList(): NavModel[]{
+    getAboutUsNavList(): Nav[]{
         let navList = [
             {
                 routerLink: '/about-us/clinic-info',

@@ -1,13 +1,8 @@
-import {
-    Component,
-    OnInit,
-    Inject } from '@angular/core';
-import {
-    MatDialogRef,
-    MAT_DIALOG_DATA,
-    MatSnackBar } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 
 import { regex } from '../../../shared/const/regex.const'; 
+import { Speciality } from '../../../shared/models/speciality.model';
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
 import { User } from '../../../shared/models/user.model';
@@ -25,7 +20,7 @@ export class DoctorFormComponent implements OnInit {
     doctor: Doctor;
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
-    specialities: {type: string, name: string}[];
+    specialities: Speciality[];
     showPassword: boolean;
     user: User;
     isRoleReception: boolean;

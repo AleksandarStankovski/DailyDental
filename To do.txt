@@ -11,6 +11,6 @@
 - Responsive menu
 - Change icon (+)
 - Resolve in router
-- Box-shadown
++ Box-shadown
 + Examination-form repeat - BUG
-- Disabled open examination < new Date()
++ Disabled open examination < new Date()

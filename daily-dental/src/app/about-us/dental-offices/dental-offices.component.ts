@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Office } from '../../shared/models/office.model';
-import { OfficeFormComponent } from './office-form/office-form.component';
-import { OfficeService } from './office/office.service';
 import { UserService } from '../../core/user.service';
+import { OfficeService } from './office/office.service';
+import { OfficeFormComponent } from './office-form/office-form.component';
 
 @Component({
     selector: 'app-dental-offices',
@@ -26,10 +26,10 @@ export class DentalOfficesComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.isisRoleUserCheck();
+        this.isRoleUserCheck();
     }
 
-    isisRoleUserCheck(): void {
+    isRoleUserCheck(): void {
         this.userService.isRoleUser()
         .subscribe(response => {
             this.isRoleUser = response;

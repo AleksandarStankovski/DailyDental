@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 
+import { Speciality } from '../shared/models/speciality.model';
+
 @Injectable()
 export class SpecialityService {
 
-    getAllSpecialities(): { type: string, name: string }[]{
+    getAllSpecialities(): Speciality[] {
         let specialities = [
             {
                 type: 'aesthetic',
@@ -32,4 +34,5 @@ export class SpecialityService {
         ];
         return specialities;
     }
+
 }

@@ -13,7 +13,7 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="office.phone" name="phone" required #officePhone="ngModel" placeholder="Телефон">
+                <input matInput [(ngModel)]="office.phone" type="tel" name="phone" required #officePhone="ngModel" placeholder="Телефон">
             </mat-form-field>
         </div>
         <div>
@@ -26,7 +26,6 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button *ngIf="data.officeId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
-    <button mat-button (click)="save()" [disabled]="officeForm.invalid" mat-raised-button>Запази</button>
+    <button *ngIf="data.officeId" (click)="delete()" mat-button mat-raised-button>Изтрий</button>
+    <button [disabled]="officeForm.invalid" (click)="save()" mat-button mat-raised-button>Запази</button>
 </mat-dialog-actions>
-

@@ -37,4 +37,5 @@ export class OfficeService {
         return this.http.delete(`${this.apiUrl}/office/delete/${id}`)
         .map(response => response.json());
     }
+
 }

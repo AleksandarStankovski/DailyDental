@@ -19,7 +19,6 @@ import { ProfileFormComponent } from './profile/profile-form/profile-form.compon
 import { ProfileComponent } from './profile/profile.component';
 import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
 
-
 @NgModule({
     imports: [
         CommonModule,

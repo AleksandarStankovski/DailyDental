@@ -27,10 +27,10 @@ export class ClinicInfoComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        this.isisRoleUserCheck();
+        this.isRoleUserCheck();
     }
 
-    isisRoleUserCheck(): void {
+    isRoleUserCheck(): void {
         this.userService.isRoleUser()
         .subscribe(response => {
             this.isRoleUser = response;

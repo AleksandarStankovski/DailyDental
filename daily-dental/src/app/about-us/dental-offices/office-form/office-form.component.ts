@@ -1,16 +1,11 @@
-import {
-    Component,
-    OnInit,
-    Inject } from '@angular/core';
-import {
-    MatDialogRef,
-    MAT_DIALOG_DATA,
-    MatSnackBar } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 
+import { Speciality } from '../../../shared/models/speciality.model';
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
-import { Office } from '../../../shared/models/office.model';
 import { OfficeService } from '../office/office.service';
 import { SpecialityService } from '../../../core/speciality.service';
+import { Office } from '../../../shared/models/office.model';
 
 @Component({
   selector: 'app-office-form',
@@ -22,7 +17,7 @@ export class OfficeFormComponent implements OnInit {
     office: Office;
     snackbarConfig: SnackbarConfig
     loadingOverlay: boolean;
-    specialities: { type: string, name: string }[];
+    specialities: Speciality[];
 
     constructor(
         private modalDialogRef: MatDialogRef<OfficeFormComponent>,

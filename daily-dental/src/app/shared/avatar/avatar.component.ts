@@ -1,7 +1,4 @@
-import { 
-    Component, 
-    OnInit,
-    Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-avatar',
@@ -22,7 +19,9 @@ export class AvatarComponent implements OnInit {
     }
 
     convertText(): void {
-        let primatyText = this.firstName.charAt(0) + this.lastName.charAt(0);
+        let firstName = this.firstName || '';
+        let lastName = this.lastName || '';
+        let primatyText = firstName.charAt(0) + lastName.charAt(0);
         this.text = primatyText.toUpperCase();
     }
 

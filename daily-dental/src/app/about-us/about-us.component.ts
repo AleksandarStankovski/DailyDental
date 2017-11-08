@@ -2,7 +2,7 @@ import {
     Component,
     OnInit } from '@angular/core';
 
-import { NavModel } from '../shared/models/nav.model';
+import { Nav } from '../shared/models/nav.model';
 import { NavService } from '../core/nav.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { NavService } from '../core/nav.service';
 })
 export class AboutUsComponent implements OnInit {
 
-    navList: NavModel[]
+    navList: Nav[]
 
     constructor(private navService: NavService) { }
 
