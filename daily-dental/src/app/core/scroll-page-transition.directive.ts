@@ -13,7 +13,7 @@ export class ScrollPageTransitionDirective {
     @Input() toggleClass: string;
 
     constructor(
-        private el: ElementRef,
+        private elementRef: ElementRef,
         private rendered: Renderer2) { }
 
     @HostListener('window:scroll', []) onScrollEvent(){
@@ -21,16 +21,16 @@ export class ScrollPageTransitionDirective {
     }
 
     toggleClassTransition(): void {
-        let isModalOpen = this.el.nativeElement.ownerDocument.all[0].classList.contains('cdk-global-scrollblock');
-        let hasClass = this.el.nativeElement.classList.contains(this.toggleClass);
+        let isModalOpen = this.elementRef.nativeElement.ownerDocument.all[0].classList.contains('cdk-global-scrollblock');
+        let hasClass = this.elementRef.nativeElement.classList.contains(this.toggleClass);
         if (!isModalOpen) {
             if (window.pageYOffset > 0) {
                 if (!hasClass) {
-                    this.rendered.addClass(this.el.nativeElement, this.toggleClass);
+                    this.rendered.addClass(this.elementRef.nativeElement, this.toggleClass);
                 }
             } else {
                 if (hasClass) {
-                    this.rendered.removeClass(this.el.nativeElement, this.toggleClass);
+                    this.rendered.removeClass(this.elementRef.nativeElement, this.toggleClass);
                 }
             }
         }

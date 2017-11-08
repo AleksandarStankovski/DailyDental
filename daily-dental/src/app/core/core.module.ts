@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserFormComponent } from './user-form/user-form.component';
 import { PageNameService } from './page-name.service';
 import { PageImageService } from './page-image.service';
 import { SpecialityService } from './speciality.service';
@@ -17,7 +18,6 @@ import { ManipulationService } from '../about-us/price-list/manipulation/manipul
 import { PatientService } from '../patients/patient/patient.service';
 import { NavService } from './nav.service';
 import { ScrollPageTransitionDirective } from './scroll-page-transition.directive';
-import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
     imports: [
@@ -30,8 +30,8 @@ import { UserFormComponent } from './user-form/user-form.component';
         HeaderComponent,
         NavComponent,
         FooterComponent,
-        ScrollPageTransitionDirective,
-        UserFormComponent
+        UserFormComponent,
+        ScrollPageTransitionDirective
     ],
     exports: [
         HeaderComponent,

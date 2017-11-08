@@ -17,12 +17,9 @@
         min-height: 185px;
     }
     .patient-fbox {
-        padding-right: 100px;
-        @include media-breakpoint-down(lg) {
-            padding-right: 30px;
-        }
-        @include media-breakpoint-down(md) {
-            padding-right: 0;
+        h6 {
+            position: relative;
+            z-index: 1;
         }
     }
     .patient-sbox {

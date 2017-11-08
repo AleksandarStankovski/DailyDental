@@ -5,7 +5,7 @@
                 <time class="bold-text">{{examination.date | date: 'dd/MM/y'}}</time>
             </mat-expansion-panel-header>
             <div>
-                <a (click)="editExaminationn(examination._id)" class="cursor-pointer">
+                <a (click)="editExaminationn(examination)" class="cursor-pointer">
                     <section>
                         <ul class="list-unstyled">
                             <li *ngFor="let procedure of examination.procedures">

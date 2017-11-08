@@ -12,5 +12,5 @@
 - Change icon (+)
 - Resolve in router
 - Box-shadown
-- Examination-form repeat - BUG
++ Examination-form repeat - BUG
 - Disabled open examination < new Date()

@@ -6,17 +6,15 @@
 </div>
 <mat-dialog-content>
     <form (ngSubmit)="examinationForm.valid && save()" #examinationForm="ngForm" novalidate>
-        <div *ngFor="let procedure of examination.procedures; trackBy:myTrackBy; let i = index">
+         <div *ngFor="let procedure of examination.procedures; let i = index; trackBy:trackByIndex">
             <div>
-                <p>index - {{i}}</p>
-                <p>{{examination.procedures[i].tooth}}</p>
                 <mat-form-field class="input-full-width">
-                    <mat-select [(ngModel)]="examination.procedures[i].tooth" name="tooth-{{i}}" required #examinationTooth="ngModel" placeholder="Зъб">
+                    <mat-select [(ngModel)]="procedure.tooth" name="tooth-{{i}}" required #examinationTooth="ngModel" placeholder="Зъб">
                         <mat-option *ngFor="let tooth of teeth" [value]="tooth.position">{{tooth.name}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
-            <!-- <div>
+             <div>
                 <mat-form-field class="input-full-width">
                     <mat-select [(ngModel)]="procedure.manipulations" [compareWith]="selectManipulation" [multiple]="true" name="manipulation-{{i}}" required #examinationManipulation="ngModel" placeholder="Манипулация">
                         <mat-option *ngFor="let manipulation of manipulations" [value]="manipulation">
@@ -24,17 +22,15 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-            </div> -->
+            </div> 
             <div *ngIf="examination.procedures.length > 1" class="d-flex justify-content-end">
                 <button (click)="removeProcedure(i)" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>delete</mat-icon></button>
             </div>
         </div>
         <div *ngIf="examinationForm.valid" [ngClass]="{'add-btn-margin': examination.procedures.length > 1}" class="add-btn">
             <button (click)="addProcedure()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>add</mat-icon></button>            
-        </div>
+        </div>  
     </form>
-    <span class="test">{{examination | json}}</span>
-    
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
     <button *ngIf="data.examinationId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>

@@ -70,8 +70,12 @@ export class ExaminationsComponent implements OnInit {
         this.openModalDialog();
     }
 
-    editExaminationn(examinationId: string): void {
-        this.openModalDialog(examinationId);
+    editExaminationn(examination: Examination): void {
+        let newDate = new Date().getDate();
+        let examinationDate = new Date(examination.date).getDate();
+        if (newDate === examinationDate) {
+            this.openModalDialog(examination._id);
+        }
     }
 
 }

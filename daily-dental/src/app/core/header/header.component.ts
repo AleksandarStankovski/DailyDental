@@ -1,6 +1,7 @@
 import {
     Component,
-    OnInit } from '@angular/core';
+    OnInit, 
+    Renderer2 } from '@angular/core';
 import { 
     Router, 
     NavigationEnd } from "@angular/router";
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
     constructor(
         private router: Router,
+        private renderer: Renderer2,
         private modalDialog: MatDialog,
         private pageNameService: PageNameService,
         private pageImageService: PageImageService,
@@ -43,6 +45,7 @@ export class HeaderComponent implements OnInit {
             if(event instanceof NavigationEnd) {
                 this.pageName = event.url;
                 this.isVisibleMenu = false;
+                this.toggleClassDisabledOverflow();
                 this.title = this.pageNameService.getPageName(event.url);
                 this.image = this.pageImageService.getPageImage(event.url);
             }
@@ -55,6 +58,15 @@ export class HeaderComponent implements OnInit {
 
     toggleMenu(): void {
         this.isVisibleMenu = !this.isVisibleMenu;
+        this.toggleClassDisabledOverflow();
+    }
+
+    toggleClassDisabledOverflow(): void {
+        if (this.isVisibleMenu) {
+            this.renderer.addClass(document.body, 'disabled-overflow');
+        } else {
+            this.renderer.removeClass(document.body, 'disabled-overflow');
+        }
     }
 
     openProfile(): void {
