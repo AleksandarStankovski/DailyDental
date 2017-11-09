@@ -1,5 +1,9 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="user.speciality" class="mat-dialog-header"></div>
+<div [ngClass]="user.speciality" class="mat-dialog-header d-flex justify-content-end">
+    <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
+        <i class="fontello icon-close ft-14"></i>
+    </button>
+</div>
 <mat-dialog-content>
     <form (ngSubmit)="userForm.valid && save()" #userForm="ngForm" novalidate>
         <div>
@@ -40,7 +44,6 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button mat-button [mat-dialog-close]="'cancel'" mat-raised-button>Затвори</button>
-    <button mat-button (click)="save()" [disabled]="userForm.invalid" mat-raised-button>Запази</button>
+    <app-modal-action [formIsDisabled]="userForm.invalid" [showDeleteBtn]="false" [data]="user" [dataId]="user._id" [type]="'user'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>
 

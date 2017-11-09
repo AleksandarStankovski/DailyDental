@@ -8,6 +8,7 @@ import { PageWallpaperService } from './page-wallpaper.service';
 import { SpecialityService } from './speciality.service';
 import { ToothService } from './tooth.service';
 import { UserService } from './user.service';
+import { CudService } from './cud.service';
 import { DoctorService } from '../about-us/staff/doctor/doctor.service';
 import { ManipulationService } from '../about-us/price-list/manipulation/manipulation.service';
 import { PatientService } from '../patients/patient/patient.service';
@@ -43,6 +44,7 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
         SpecialityService,
         ToothService,
         UserService,
+        CudService,
         DoctorService,
         ManipulationService,
         PatientService,

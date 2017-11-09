@@ -79,5 +79,11 @@ export class DoctorFormComponent implements OnInit {
 
     modalClose(type: string): void {
         this.modalDialogRef.close(type);
+        if (type === 'Edit') {
+            if (this.user._id === this.doctor._id) {
+                window.location.reload();
+            }
+        }
     }
+
 }

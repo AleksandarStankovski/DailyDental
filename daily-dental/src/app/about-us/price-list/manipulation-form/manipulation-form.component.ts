@@ -1,10 +1,5 @@
-import {
-    Component,
-    OnInit,
-    Inject } from '@angular/core';
-import {
-    MatDialogRef,
-    MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Speciality } from "../../../shared/models/speciality.model";
 import { Manipulation } from '../../../shared/models/manipulation.model';
@@ -59,82 +54,4 @@ export class ManipulationFormComponent implements OnInit {
         this.modalDialogRef.close(type);
     }
 
-    // save(): void {
-    //     let errorMsg = 'Моля, опитайте отново';
-    //     this.loadingOverlay = true;
-    //     if (this.data.manipulationId) {
-    //         this.manipulationService.editManipulation(this.manipulation)
-    //         .subscribe(
-    //             response => {
-    //                 const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-    //                     duration: this.snackbarConfig.duration
-    //                 });
-    //                 setTimeout(() => {
-    //                     this.modalDialogRef.close('Edit');
-    //                 }, this.snackbarConfig.duration);
-    //             }, error => {
-    //                 let errorObj = JSON.parse(error._body);
-    //                 if (errorObj.code === 11000) {
-    //                     errorMsg = 'Моля, въведете различно име';
-    //                 }
-    //                 const snackBarRef = this.snackBar.open(errorMsg, '', {
-    //                     duration: this.snackbarConfig.duration
-    //                 });
-    //                 setTimeout(() => {
-    //                     this.loadingOverlay = false;
-    //                 }, this.snackbarConfig.duration);
-    //                 throw new Error(error);
-    //             }
-    //         );
-    //     } else {
-    //         this.manipulationService.createManipulation(this.manipulation)
-    //         .subscribe(
-    //             response => {
-    //                 const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-    //                     duration: this.snackbarConfig.duration
-    //                 });
-    //                 setTimeout(() => {
-    //                     this.modalDialogRef.close('Create');
-    //                 }, this.snackbarConfig.duration);
-    //             }, 
-    //             error => {
-    //                 let errorObj = JSON.parse(error._body);
-    //                 if (errorObj.code === 11000) {
-    //                     errorMsg = 'Моля, въведете различно име';
-    //                 }
-    //                 const snackBarRef = this.snackBar.open(errorMsg, '', {
-    //                     duration: this.snackbarConfig.duration
-    //                 });
-    //                 setTimeout(() => {
-    //                     this.loadingOverlay = false;
-    //                 }, this.snackbarConfig.duration);
-    //                 throw new Error(error);
-    //             }
-    //         );
-    //     }
-    // }
-
-    // delete(): void {
-    //     this.loadingOverlay = true;
-    //     this.manipulationService.deleteManipulation(this.manipulation._id)
-    //     .subscribe(
-    //         response => {
-    //             const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
-    //                 duration: this.snackbarConfig.duration
-    //             });
-    //             setTimeout(() => {
-    //                 this.modalDialogRef.close('Delete');
-    //             }, this.snackbarConfig.duration);
-    //         },
-    //         error => {
-    //             const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-    //                 duration: this.snackbarConfig.duration
-    //             });
-    //             setTimeout(() => {
-    //                 this.loadingOverlay = false;
-    //             }, this.snackbarConfig.duration);
-    //             throw new Error(error);
-    //         }
-    //     );
-    // }
 }

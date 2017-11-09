@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Clinic } from '../../shared/models/clinic.model';
-import { ClinicFormComponent } from './clinic-form/clinic-form.component';
 import { ClinicService } from './clinic/clinic.service';
 import { UserService } from '../../core/user.service';
+import { ClinicFormComponent } from './clinic-form/clinic-form.component';
 
 @Component({
     selector: 'app-clinic-info',
@@ -52,7 +52,7 @@ export class ClinicInfoComponent implements OnInit {
     }
 
     openModalDialog(clinicId?: string): void {
-        const id = clinicId || undefined;
+        const id = clinicId;
         const modalDialogRef = this.modalDialog.open(ClinicFormComponent, {
             width: this.modalConfig.width,
             data: { clinicId: id },

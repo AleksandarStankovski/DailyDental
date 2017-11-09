@@ -13,7 +13,7 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="clinic.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
+                <input matInput [(ngModel)]="clinic.phone" name="phone" type="tel" required #doctorPhone="ngModel" placeholder="Телефон">
             </mat-form-field>
         </div>
         <div>
@@ -35,6 +35,4 @@
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
     <app-modal-action [formIsDisabled]="clinicForm.invalid" [showDeleteBtn]="false" [data]="clinic" [dataId]="data.clinicId" [type]="'clinic'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
-    <!-- <button mat-button (click)="save()" [disabled]="clinicForm.invalid" mat-raised-button>Запази</button> -->
 </mat-dialog-actions>
-

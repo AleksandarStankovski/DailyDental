@@ -7,9 +7,9 @@ import { SpecialityService } from '../../../core/speciality.service';
 import { Office } from '../../../shared/models/office.model';
 
 @Component({
-  selector: 'app-office-form',
-  templateUrl: './office-form.component.html',
-  styleUrls: ['./office-form.component.scss']
+    selector: 'app-office-form',
+    templateUrl: './office-form.component.html',
+    styleUrls: ['./office-form.component.scss']
 })
 export class OfficeFormComponent implements OnInit {
 
@@ -49,5 +49,5 @@ export class OfficeFormComponent implements OnInit {
     modalClose(type: string): void {
         this.modalDialogRef.close(type);
     }
-    
+
 }

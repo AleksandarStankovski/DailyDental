@@ -1,9 +1,4 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    Output,
-    EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Office } from '../../../shared/models/office.model';
 
@@ -25,4 +20,5 @@ export class OfficeComponent implements OnInit {
     editOffice(): void {
         this.editOfficeEvent.emit(this.office._id);
     }
+
 }

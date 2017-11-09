@@ -1,9 +1,4 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    Output,
-    EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ManipulationService } from './manipulation.service';
@@ -33,4 +28,5 @@ export class ManipulationComponent implements OnInit {
     getIcon(): void {
         this.manipulationIcon = this.manipulationService.getIcon(this.manipulation.type);
     }
+
 }

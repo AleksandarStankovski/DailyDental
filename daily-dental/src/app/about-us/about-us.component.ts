@@ -1,6 +1,4 @@
-import {
-    Component,
-    OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Nav } from '../shared/models/nav.model';
 import { NavService } from '../core/nav.service';
@@ -23,4 +21,5 @@ export class AboutUsComponent implements OnInit {
     getNavList(): void {
         this.navList = this.navService.getAboutUsNavList();
     } 
+
 }

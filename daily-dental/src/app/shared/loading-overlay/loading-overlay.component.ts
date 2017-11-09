@@ -1,7 +1,4 @@
-import {
-    Component,
-    OnInit,
-    Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { LoadingOverlayConfig } from '../models/loading-overlay-config.model';
 

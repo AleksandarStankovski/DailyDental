@@ -1,16 +1,11 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    Output,
-    EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Doctor } from '../../../shared/models/doctor.model';
 
 @Component({
-  selector: 'app-doctor',
-  templateUrl: './doctor.component.html',
-  styleUrls: ['./doctor.component.scss']
+    selector: 'app-doctor',
+    templateUrl: './doctor.component.html',
+    styleUrls: ['./doctor.component.scss']
 })
 export class DoctorComponent implements OnInit {
 
@@ -28,4 +23,5 @@ export class DoctorComponent implements OnInit {
     editDoctor(): void {
         this.editDoctorEvent.emit(this.doctor._id);
     }
+
 }

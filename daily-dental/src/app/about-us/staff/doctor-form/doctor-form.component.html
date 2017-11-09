@@ -23,7 +23,7 @@
         </div>
         <div >
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="doctor.phone" name="phone" required #doctorPhone="ngModel" placeholder="Телефон">
+                <input matInput [(ngModel)]="doctor.phone" name="phone" type="tel" required #doctorPhone="ngModel" placeholder="Телефон">
             </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
@@ -69,4 +69,3 @@
 <mat-dialog-actions class="justify-content-end">
     <app-modal-action [formIsDisabled]="doctorForm.invalid" [showDeleteBtn]="data.doctorId && !isRoleReception && (user?._id !== data.doctorId)" [data]="doctor" [dataId]="data.doctorId" [type]="'doctor'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>
-

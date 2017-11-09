@@ -50,7 +50,7 @@ export class DentalOfficesComponent implements OnInit {
     }
 
     openModalDialog(officeId?: string): void {
-        const id = officeId || undefined;
+        const id = officeId;
         const modalDialogRef = this.modalDialog.open(OfficeFormComponent, {
             width: this.modalConfig.width,
             data: { officeId: id },
@@ -69,4 +69,5 @@ export class DentalOfficesComponent implements OnInit {
     editOffice(officeId: string): void {
         this.openModalDialog(officeId);
     }
+
 }

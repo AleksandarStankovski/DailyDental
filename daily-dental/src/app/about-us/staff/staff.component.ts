@@ -1,13 +1,11 @@
-import {
-    Component,
-    OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Doctor } from '../../shared/models/doctor.model';
-import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { DoctorService } from './doctor/doctor.service';
 import { UserService } from '../../core/user.service';
+import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 
 @Component({
   selector: 'app-staff',
@@ -71,4 +69,5 @@ export class StaffComponent implements OnInit {
     editDoctor(doctorId: string): void {
         this.openModalDialog(doctorId);
     }
+
 }

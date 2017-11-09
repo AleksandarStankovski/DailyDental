@@ -25,4 +25,5 @@ export class CudService {
         return this.http.delete(`${this.apiUrl}/${type}/delete/${id}`)
         .map(response => response.json());
     }
+
 }

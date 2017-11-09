@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-    MatDialogRef,
-    MatSnackBar } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 
 import { User } from '../../../shared/models/user.model'; 
-import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -16,7 +13,6 @@ export class ProfileFormComponent implements OnInit {
 
     user: User;
     readonlyUser = { firstName: '', lastName: '', speciality: '', email: ''};
-    snackbarConfig: SnackbarConfig;
     loadingOverlay = false;
     isRoleReception: boolean;
 
@@ -27,7 +23,6 @@ export class ProfileFormComponent implements OnInit {
 
     ngOnInit() {
         this.user = new User('', '', '', '', '', '', '', '');
-        this.snackbarConfig = new SnackbarConfig();
         this.getUser();
     }
 
@@ -44,27 +39,16 @@ export class ProfileFormComponent implements OnInit {
             };
         });
     }
+    
+    toggleLoadingOverlay(loadingOverlay: boolean): void {
+        this.loadingOverlay = loadingOverlay;
+    }
 
-    save(): void {
-        this.loadingOverlay = true;
-        this.userService.editUser(this.user)
-        .subscribe(response => {
-            const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                duration: this.snackbarConfig.duration
-            });
-            setTimeout(() => {
-                this.modalDialogRef.close('Edit');
-                window.location.reload();
-            }, this.snackbarConfig.duration);
-        }, error => {
-            const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-                duration: this.snackbarConfig.duration
-            });
-            setTimeout(() => {
-                this.loadingOverlay = false;
-            }, this.snackbarConfig.duration);
-            throw new Error(error);
-        })
+    modalClose(type: string): void {
+        this.modalDialogRef.close(type);
+        if (type === 'Edit') {
+            window.location.reload();
+        }
     }
 
 }

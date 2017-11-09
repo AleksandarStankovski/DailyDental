@@ -1,19 +1,17 @@
-import {
-    Component,
-    OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { Manipulation } from '../../shared/models/manipulation.model';
 import { PaginationConfig } from '../../shared/models/pagination-config-model';
-import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
-import { ManipulationService } from './manipulation/manipulation.service';
 import { UserService } from '../../core/user.service';
+import { ManipulationService } from './manipulation/manipulation.service';
+import { ManipulationFormComponent } from './manipulation-form/manipulation-form.component';
 
 @Component({
-  selector: 'app-price-list',
-  templateUrl: './price-list.component.html',
-  styleUrls: ['./price-list.component.scss']
+    selector: 'app-price-list',
+    templateUrl: './price-list.component.html',
+    styleUrls: ['./price-list.component.scss']
 })
 export class PriceListComponent implements OnInit {
 
@@ -95,15 +93,3 @@ export class PriceListComponent implements OnInit {
     }
 
 }
-
-// getAllManipulations(): void {
-//     this.manipulationService.getAllManipulations()
-//     .subscribe(response => {
-//         this.manipulations = response;
-//         if (this.manipulations.length === 0) {
-//             this.tutorialText = 'Кликнете тук за да създадете манипулация';
-//         } else {
-//             this.tutorialText = undefined;
-//         }
-//     });
-// }

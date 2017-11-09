@@ -8,7 +8,6 @@ import { StaffComponent } from './staff.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 
-
 @NgModule({
     imports: [
         HttpModule,

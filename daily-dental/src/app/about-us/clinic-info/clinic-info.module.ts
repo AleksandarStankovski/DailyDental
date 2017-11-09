@@ -3,8 +3,8 @@ import { HttpModule } from '@angular/http';
 
 import { ClinicInfoRoutingModule } from './clinic-info-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { ClinicService } from './clinic/clinic.service';
 import { CudService} from '../../core/cud.service';
+import { ClinicService } from './clinic/clinic.service';
 import { ClinicInfoComponent } from './clinic-info.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { ClinicFormComponent } from './clinic-form/clinic-form.component';
@@ -21,8 +21,8 @@ import { ClinicFormComponent } from './clinic-form/clinic-form.component';
         ClinicFormComponent
     ],
     providers: [
-        ClinicService,
-        CudService
+        CudService,
+        ClinicService
     ],
     entryComponents: [
         ClinicFormComponent
