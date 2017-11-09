@@ -79,16 +79,14 @@ export class PriceListComponent implements OnInit {
     }
 
     search(searchText: string) {
-        if (typeof searchText !== "undefined") {
-            if (searchText.length === 0) {
-                this.getManipulationsByPage();
-            } else {
-                this.manipulationService.getFilteredManipulations(searchText)
-                .subscribe(response => {
-                    this.manipulations = response;
-                    this.showPaginaion = false;
-                }) 
-            }
+        if (searchText.length === 0) {
+            this.getManipulationsByPage();
+        } else {
+            this.manipulationService.getFilteredManipulations(searchText)
+            .subscribe(response => {
+                this.manipulations = response;
+                this.showPaginaion = false;
+            }) 
         }
     }
 

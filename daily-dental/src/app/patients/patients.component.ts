@@ -1,6 +1,4 @@
-import {
-    Component,
-    OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
@@ -71,16 +69,14 @@ export class PatientsComponent implements OnInit {
     }
 
     search(searchText: string) {
-        if (typeof searchText !== "undefined") {
-            if (searchText.length === 0) {
-                this.getPatientsByPage();
-            } else {
-                this.patientService.getFilteredPatients(searchText)
-                .subscribe(response => {
-                    this.patients = response;
-                    this.showPaginaion = false;
-                }) 
-            }
+        if (searchText.length === 0) {
+            this.getPatientsByPage();
+        } else {
+            this.patientService.getFilteredPatients(searchText)
+            .subscribe(response => {
+                this.patients = response;
+                this.showPaginaion = false;
+            }) 
         }
     }
 
