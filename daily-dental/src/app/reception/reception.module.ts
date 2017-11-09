@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentStatusService } from './appointment-form/appointment-status.service';
 import { AppointmentHoursService } from './appointment-form/appointment-hours.service';
-import { CudService} from '../core/cud.service';
 import { ReceptionComponent } from './reception.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
@@ -28,8 +27,7 @@ import { AppointmentFormComponent } from './appointment-form/appointment-form.co
     providers: [
         AppointmentService,
         AppointmentStatusService,
-        AppointmentHoursService,
-        CudService
+        AppointmentHoursService
     ],
     entryComponents: [
         AppointmentFormComponent

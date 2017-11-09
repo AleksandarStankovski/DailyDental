@@ -10,6 +10,7 @@ import { PatientService } from './patient.service';
 
 @Injectable()
 export class PatientGuardService implements CanActivate {
+
     constructor(
         private patientService: PatientService,
         private router: Router) { }
@@ -25,4 +26,5 @@ export class PatientGuardService implements CanActivate {
             } 
         });
     }
+
 }

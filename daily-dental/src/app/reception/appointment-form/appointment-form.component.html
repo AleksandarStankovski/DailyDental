@@ -63,7 +63,4 @@
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
     <app-modal-action [formIsDisabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" [showDeleteBtn]="data.appointmentId && appointmentDataDay >= todayDate" [data]="appointment" [dataId]="data.appointmentId" [type]="'appointment'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
-
-    <!-- <button *ngIf="data.appointmentId && appointmentDataDay >= todayDate" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
-    <button mat-button (click)="save()" [disabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" mat-raised-button>Запази</button> -->
 </mat-dialog-actions>

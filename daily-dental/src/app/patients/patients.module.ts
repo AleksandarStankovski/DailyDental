@@ -5,7 +5,6 @@ import { PatientsRoutingModule } from './patients-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PatientGuardService } from './patient/patient-guard.service';
 import { ExaminationService } from './patient-details/examinations/examination.service';
-import { CudService} from '../core/cud.service';
 import { PatientsComponent } from './patients.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientFormComponent } from './patient-form/patient-form.component';
@@ -33,8 +32,7 @@ import { ExaminationFormComponent } from './patient-details/examination-form/exa
     ],
     providers: [
         PatientGuardService,
-        ExaminationService,
-        CudService
+        ExaminationService
     ]
 })
 export class PatientsModule { }
