@@ -33,6 +33,5 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button *ngIf="data.examinationId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
-    <button mat-button (click)="save()" [disabled]="examinationForm.invalid" mat-raised-button>Запази</button>
+    <app-modal-action [formIsDisabled]="examinationForm.invalid" [showDeleteBtn]="!!data.examinationId" [data]="examination" [dataId]="data.examinationId" [type]="'examination'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>

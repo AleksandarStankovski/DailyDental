@@ -4,12 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { ReceptionRoutingModule } from './reception-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { ReceptionComponent } from './reception.component';
-import { AppointmentComponent } from './appointment/appointment.component';
-import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentStatusService } from './appointment-form/appointment-status.service';
 import { AppointmentHoursService } from './appointment-form/appointment-hours.service';
+import { CudService} from '../core/cud.service';
+import { ReceptionComponent } from './reception.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { AppointmentHoursService } from './appointment-form/appointment-hours.se
     providers: [
         AppointmentService,
         AppointmentStatusService,
-        AppointmentHoursService
+        AppointmentHoursService,
+        CudService
     ],
     entryComponents: [
         AppointmentFormComponent

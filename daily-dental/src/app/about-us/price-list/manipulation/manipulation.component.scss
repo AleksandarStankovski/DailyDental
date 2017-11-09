@@ -10,7 +10,7 @@
     box-shadow: $app-box-shadow;
     overflow: hidden;
     @include media-breakpoint-down(xs) {
-        min-height: 130px;
+        min-height: 110px;
     }
     .manipulation-fbox {
         padding: 15px;

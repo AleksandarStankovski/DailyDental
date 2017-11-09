@@ -29,6 +29,7 @@ import { FloatingButtonComponent } from './floating-button/floating-button.compo
 import { AvatarComponent } from './avatar/avatar.component';
 import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { ModalActionComponent } from './modal-action/modal-action.component';
 import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
@@ -64,6 +65,7 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         AvatarComponent,
         PaginationComponent,
         SearchComponent,
+        ModalActionComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
@@ -94,6 +96,7 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         AvatarComponent,
         PaginationComponent,
         SearchComponent,
+        ModalActionComponent,
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,

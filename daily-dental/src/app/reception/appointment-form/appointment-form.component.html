@@ -62,53 +62,8 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button *ngIf="data.appointmentId && appointmentDataDay >= todayDate" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
-    <button mat-button (click)="save()" [disabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" mat-raised-button>Запази</button>
+    <app-modal-action [formIsDisabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" [showDeleteBtn]="data.appointmentId && appointmentDataDay >= todayDate" [data]="appointment" [dataId]="data.appointmentId" [type]="'appointment'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
+
+    <!-- <button *ngIf="data.appointmentId && appointmentDataDay >= todayDate" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" mat-raised-button>Запази</button> -->
 </mat-dialog-actions>
-
-
-        <!-- <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
-            <mat-form-field class="input-full-width">
-                <mat-select [(ngModel)]="appointment.patient" [compareWith]="selectPatient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент">
-                    <mat-option *ngFor="let patient of patients" [value]="patient">
-                        {{patient.firstName}} {{patient.lastName}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div> -->
-
-
-        <!-- <mat-form-field>
-            <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient" name="patient" placeholder="Пациент">
-        </mat-form-field>
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
-                {{patient.firstName}} {{patient.lastName }}
-            </mat-option>
-        </mat-autocomplete> -->
-        <!-- <div [hidden]="patients?.length === 0">
-            <mat-form-field class="input-full-width">
-                <mat-select [(ngModel)]="appointment.patient" name="patient" required #appointmentPatient="ngModel" placeholder="Пациент">
-                    <mat-option *ngFor="let patient of patients" [value]="patient._id">
-                        {{patient.firstName}} {{patient.lastName}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div> -->
-
-
-        <!-- <div>
-            <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="appointment.patient.firstName" name="patientFirstName" required #appointmentPatientFirstName="ngModel" placeholder="Име на пациента">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="appointment.patient.lastName" name="patientLastName" required #appointmentPatientLastName="ngModel" placeholder="Фамилия на пациента">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="appointment.patient.phone" name="patientPhone" required #appointmentPatientPhone="ngModel" placeholder="Телефон на пациента">
-            </mat-form-field>
-        </div> -->

@@ -19,10 +19,12 @@
         padding-right: 50px;
         overflow: hidden;
         @include media-breakpoint-down(sm) {
-            margin-top: 0;
+            margin-top: 0;    
+            margin-bottom: -15px;
+            padding-right: 30px;
         }
-        @include media-breakpoint-down(xs) {
-            width: 250px;
+        @include media-breakpoint-down(sm) {
+            width: 220px;
         }
         i {
             width: 98px;
@@ -37,6 +39,7 @@
             margin-top: -10px;
             @include media-breakpoint-down(sm) {
                 margin-top: 0;
+                margin-bottom: -10px;
             }
         }
     }

@@ -20,7 +20,7 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [(ngModel)]="manipulation.price" name="price" required min="1" [pattern]="regexPositiveInteger" #manipulationPrice="ngModel" placeholder="Цена" type="number">
+                <input matInput [(ngModel)]="manipulation.price" name="price" required min="1" #manipulationPrice="ngModel" placeholder="Цена" type="number">
             </mat-form-field>
         </div>
         <div>
@@ -29,6 +29,7 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button *ngIf="data.manipulationId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
-    <button mat-button (click)="save()" [disabled]="manipulationForm.invalid" mat-raised-button>Запази</button>
+    <app-modal-action [formIsDisabled]="manipulationForm.invalid" [showDeleteBtn]="!!data.manipulationId" [data]="manipulation" [dataId]="data.manipulationId" [type]="'manipulation'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
+    <!-- <button *ngIf="data.manipulationId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="manipulationForm.invalid" mat-raised-button>Запази</button> -->
 </mat-dialog-actions>

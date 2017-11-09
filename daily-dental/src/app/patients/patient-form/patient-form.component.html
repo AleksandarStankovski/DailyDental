@@ -49,7 +49,6 @@
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions class="justify-content-end">
-    <button *ngIf="data.patientId" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
-    <button mat-button (click)="save()" [disabled]="patientForm.invalid" mat-raised-button>Запази</button>
+<mat-dialog-actions class="justify-content-end">    
+    <app-modal-action [formIsDisabled]="patientForm.invalid" [showDeleteBtn]="!!data.patientId" [data]="patient" [dataId]="data.patientId" [type]="'patient'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>

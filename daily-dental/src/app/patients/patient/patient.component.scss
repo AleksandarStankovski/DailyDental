@@ -4,17 +4,20 @@
 .patient {
     $patient-darken: 10%;
     position: relative;
-    min-height: 250px;
+    min-height: 280px;
     height: 100%;
     padding: 25px;
     background-color: $app-ligth-color;
     color: $app-dark-color;
     overflow: hidden;
+    @media screen and (max-width: $app-xl) {
+        min-height: 250px;
+    }
     @include media-breakpoint-down(md) {
         padding: 15px;
     }
     @include media-breakpoint-down(xs) {
-        min-height: 185px;
+        min-height: 180px;
     }
     .patient-fbox {
         h6 {

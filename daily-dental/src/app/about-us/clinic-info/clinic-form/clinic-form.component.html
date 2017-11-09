@@ -34,6 +34,7 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button mat-button (click)="save()" [disabled]="clinicForm.invalid" mat-raised-button>Запази</button>
+    <app-modal-action [formIsDisabled]="clinicForm.invalid" [showDeleteBtn]="false" [data]="clinic" [dataId]="data.clinicId" [type]="'clinic'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
+    <!-- <button mat-button (click)="save()" [disabled]="clinicForm.invalid" mat-raised-button>Запази</button> -->
 </mat-dialog-actions>
 

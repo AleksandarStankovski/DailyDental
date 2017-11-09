@@ -65,94 +65,19 @@ export class DoctorFormComponent implements OnInit {
         this.specialities = this.specialityService.getAllSpecialities();
     }
 
-    save(): void {
-        let errorMsg = 'Моля, опитайте отново';
-        this.loadingOverlay = true;
-        if (this.data.doctorId) {
-            this.doctorService.editDoctor(this.doctor)
-            .subscribe(
-                response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Edit');
-                        if (this.user._id === this.doctor._id) {
-                            window.location.reload();
-                        }
-                    }, this.snackbarConfig.duration);
-                }, 
-                error => {
-                    let errorObj = JSON.parse(error._body);
-                    if (errorObj.code === 11000) {
-                        errorMsg = 'Моля, въведете различен e-mail';
-                    }
-                    const snackBarRef = this.snackBar.open(errorMsg, '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                }
-            )
-        } else {
-            this.doctorService.createDoctor(this.doctor)
-            .subscribe(
-                response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Create');
-                    }, this.snackbarConfig.duration);
-                }, 
-                error => {
-                    let errorObj = JSON.parse(error._body);
-                    if (errorObj.code === 11000) {
-                        errorMsg = 'Моля, въведете различен e-mail';
-                    }
-                    const snackBarRef = this.snackBar.open(errorMsg, '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                }
-            );
-        }
-    }
-
-    delete(): void {
-        this.loadingOverlay = true;
-        this.doctorService.deleteDoctor(this.doctor._id)
-        .subscribe(
-            response => {
-                const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.modalDialogRef.close('Delete');
-                }, this.snackbarConfig.duration);
-            },
-            error => {
-                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.loadingOverlay = false;
-                }, this.snackbarConfig.duration);
-                throw new Error(error);
-            }
-        );
-    }
-
     slideToggle(event): void {
         this.doctor.active = event.checked;
     }
 
     passwordToggle(): void {
         this.showPassword = !this.showPassword;
+    }
+
+    toggleLoadingOverlay(loadingOverlay: boolean): void {
+        this.loadingOverlay = loadingOverlay;
+    }
+
+    modalClose(type: string): void {
+        this.modalDialogRef.close(type);
     }
 }

@@ -65,6 +65,9 @@ header {
             @include media-breakpoint-down(sm) {
                 height: 250px;
             }
+            @include media-breakpoint-down(xs) {
+                height: 220px;
+            }
             &:after {
                 content: "";
                 display: block;

@@ -1,11 +1,5 @@
-import { 
-    Component,
-    OnInit,
-    Inject } from '@angular/core';
-import {
-    MatDialogRef,
-    MAT_DIALOG_DATA,
-    MatSnackBar } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Examination } from '../../../shared/models/examination.model';
@@ -85,75 +79,12 @@ export class ExaminationFormComponent implements OnInit {
         return index;
     }
 
-    save(): void {
-        let errorMsg = 'Моля, опитайте отново';
-        this.loadingOverlay = true;
-        if (this.data.examinationId) {
-            this.examinationService.editExamination(this.examination)
-            .subscribe(
-                response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Edit');
-                    }, this.snackbarConfig.duration);
-                }, error => {
-                    const snackBarRef = this.snackBar.open(errorMsg, '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                }
-            );
-        } else {
-            this.examinationService.createExamination(this.examination)
-            .subscribe(
-                response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Create');
-                    }, this.snackbarConfig.duration);
-                }, 
-                error => {
-                    const snackBarRef = this.snackBar.open(errorMsg, '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                }
-            );
-        }
+    toggleLoadingOverlay(loadingOverlay: boolean): void {
+        this.loadingOverlay = loadingOverlay;
     }
 
-    delete(): void {
-        this.loadingOverlay = true;
-        this.examinationService.deleteExamination(this.examination._id)
-        .subscribe(
-            response => {
-                const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.modalDialogRef.close('Delete');
-                }, this.snackbarConfig.duration);
-            },
-            error => {
-                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.loadingOverlay = false;
-                }, this.snackbarConfig.duration);
-                throw new Error(error);
-            }
-        );
+    modalClose(type: string): void {
+        this.modalDialogRef.close(type);
     }
 
 }

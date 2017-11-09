@@ -10,11 +10,8 @@
     @media screen and (max-width: $app-xl) {
         min-height: 250px;
     }
-    // @include media-breakpoint-down($app-xl) {
-    //     min-height: 250px;
-    // }
     @include media-breakpoint-down(xs) {
-        min-height: 185px;
+        min-height: 180px;
     }
     .office-sbox {
         z-index: 1;

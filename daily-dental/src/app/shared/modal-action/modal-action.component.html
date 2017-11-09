@@ -1,0 +1,4 @@
+<div>
+    <button *ngIf="showDeleteBtn" mat-button (click)="delete()" mat-raised-button>Изтрий</button>
+    <button mat-button (click)="save()" [disabled]="formIsDisabled" mat-raised-button>Запази</button>
+</div>

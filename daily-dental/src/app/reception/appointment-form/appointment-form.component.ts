@@ -5,22 +5,19 @@ import {
     Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import {
-    MatDialogRef,
-    MAT_DIALOG_DATA,
-    MatSnackBar } from '@angular/material';
-import {Observable} from 'rxjs/Observable';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
 import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
 import { Appointment } from '../../shared/models/appointment.model';
+import { Doctor } from '../../shared/models/doctor.model';
+import { Patient } from '../../shared/models/patient.model';
 import { AppointmentService } from '../appointment/appointment.service';
 import { AppointmentStatusService } from './appointment-status.service';
 import { AppointmentHoursService } from './appointment-hours.service';
-import { Doctor } from '../../shared/models/doctor.model';
-import { Patient } from '../../shared/models/patient.model';
 import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
 import { PatientService } from '../../patients/patient/patient.service';
 
@@ -158,73 +155,81 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.getDuration();
     }
 
-    save(): void {
-        if (this.isValidPatient) {
-            this.loadingOverlay = true;
-            if (this.data.appointmentId) {
-                this.appointmentService.editAppointment(this.appointment)
-                .subscribe(response => {
-                    const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.modalDialogRef.close('Edit');
-                    }, this.snackbarConfig.duration);
-                }, error => {
-                    const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-                        duration: this.snackbarConfig.duration
-                    });
-                    setTimeout(() => {
-                        this.loadingOverlay = false;
-                    }, this.snackbarConfig.duration);
-                    throw new Error(error);
-                })
-            } else {
-                this.appointmentService.createAppointment(this.appointment)
-                .subscribe(
-                    response => {
-                        const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
-                            duration: this.snackbarConfig.duration
-                        });
-                        setTimeout(() => {
-                            this.modalDialogRef.close('Create');
-                        }, this.snackbarConfig.duration);
-                    }, 
-                    error => {
-                        const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-                            duration: this.snackbarConfig.duration
-                        });
-                        setTimeout(() => {
-                            this.loadingOverlay = false;
-                        }, this.snackbarConfig.duration);
-                        throw new Error(error);
-                    }
-                )
-            }
-        }
+    toggleLoadingOverlay(loadingOverlay: boolean): void {
+        this.loadingOverlay = loadingOverlay;
     }
 
-    delete(): void {
-        this.loadingOverlay = true;
-        this.appointmentService.deleteAppointment(this.appointment._id)
-        .subscribe(
-            response => {
-                const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.modalDialogRef.close('Delete');
-                }, this.snackbarConfig.duration);
-            },
-            error => {
-                const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
-                    duration: this.snackbarConfig.duration
-                });
-                setTimeout(() => {
-                    this.loadingOverlay = false;
-                }, this.snackbarConfig.duration);
-                throw new Error(error);
-            }
-        );
+    modalClose(type: string): void {
+        this.modalDialogRef.close(type);
     }
+
+    // save(): void {
+    //     if (this.isValidPatient) {
+    //         this.loadingOverlay = true;
+    //         if (this.data.appointmentId) {
+    //             this.appointmentService.editAppointment(this.appointment)
+    //             .subscribe(response => {
+    //                 const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
+    //                     duration: this.snackbarConfig.duration
+    //                 });
+    //                 setTimeout(() => {
+    //                     this.modalDialogRef.close('Edit');
+    //                 }, this.snackbarConfig.duration);
+    //             }, error => {
+    //                 const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+    //                     duration: this.snackbarConfig.duration
+    //                 });
+    //                 setTimeout(() => {
+    //                     this.loadingOverlay = false;
+    //                 }, this.snackbarConfig.duration);
+    //                 throw new Error(error);
+    //             })
+    //         } else {
+    //             this.appointmentService.createAppointment(this.appointment)
+    //             .subscribe(
+    //                 response => {
+    //                     const snackBarRef = this.snackBar.open('Данните бяха запазени успешно', '', {
+    //                         duration: this.snackbarConfig.duration
+    //                     });
+    //                     setTimeout(() => {
+    //                         this.modalDialogRef.close('Create');
+    //                     }, this.snackbarConfig.duration);
+    //                 }, 
+    //                 error => {
+    //                     const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+    //                         duration: this.snackbarConfig.duration
+    //                     });
+    //                     setTimeout(() => {
+    //                         this.loadingOverlay = false;
+    //                     }, this.snackbarConfig.duration);
+    //                     throw new Error(error);
+    //                 }
+    //             )
+    //         }
+    //     }
+    // }
+
+    // delete(): void {
+    //     this.loadingOverlay = true;
+    //     this.appointmentService.deleteAppointment(this.appointment._id)
+    //     .subscribe(
+    //         response => {
+    //             const snackBarRef = this.snackBar.open('Данните бяха изтрити успешно', '', {
+    //                 duration: this.snackbarConfig.duration
+    //             });
+    //             setTimeout(() => {
+    //                 this.modalDialogRef.close('Delete');
+    //             }, this.snackbarConfig.duration);
+    //         },
+    //         error => {
+    //             const snackBarRef = this.snackBar.open('Моля, опитайте отново', '', {
+    //                 duration: this.snackbarConfig.duration
+    //             });
+    //             setTimeout(() => {
+    //                 this.loadingOverlay = false;
+    //             }, this.snackbarConfig.duration);
+    //             throw new Error(error);
+    //         }
+    //     );
+    // }
 }
