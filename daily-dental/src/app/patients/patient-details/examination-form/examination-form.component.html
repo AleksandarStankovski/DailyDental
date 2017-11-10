@@ -24,11 +24,11 @@
                 </mat-form-field>
             </div> 
             <div *ngIf="examination.procedures.length > 1" class="d-flex justify-content-end">
-                <button (click)="removeProcedure(i)" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>delete</mat-icon></button>
+                <a matTooltip="Изтрий процедура" (click)="removeProcedure(i)" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>delete</mat-icon></a>
             </div>
         </div>
         <div *ngIf="examinationForm.valid" [ngClass]="{'add-btn-margin': examination.procedures.length > 1}" class="add-btn">
-            <button (click)="addProcedure()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>add</mat-icon></button>            
+            <a matTooltip="Създай нова процедура" (click)="addProcedure()" mat-mini-fab><mat-icon>add</mat-icon></a>            
         </div>  
     </form>
 </mat-dialog-content>

@@ -70,6 +70,9 @@ module.exports = {
 
     edit: (req, res) => {
         let newPatient = req.body;
+        if (newPatient.doctor._id.length === 0) {
+            newPatient.doctor = undefined;
+        }
         Patient.findByIdAndUpdate({ _id: newPatient._id }, newPatient, { upsert: true })
         .then(() => {
             res.json('Success');

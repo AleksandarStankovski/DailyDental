@@ -20,10 +20,10 @@
                                     <li>
                                         <p><span class="bold-text text-uppercase"><i>Телефон</i></span> {{patient.phone}}</p>
                                     </li>
-                                    <li>
+                                    <li *ngIf="patient.address">
                                         <p><span class="bold-text text-uppercase"><i>Адрес</i></span> {{patient.address}}</p>
                                     </li>
-                                    <li>
+                                    <li *ngIf="patient.email">
                                         <p><span class="bold-text text-uppercase"><i>E-mail</i></span> {{patient.email}}</p>
                                     </li>
                                     <li *ngIf="patient.doctor" >

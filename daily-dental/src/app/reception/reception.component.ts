@@ -1,15 +1,13 @@
-import {
-    Component,
-    OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../shared/models/modal-config.model';
 import { Doctor } from '../shared/models/doctor.model';
 import { User } from '../shared/models/user.model';
 import { Appointment } from '../shared/models/appointment.model';
-import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
-import { AppointmentService } from './appointment/appointment.service';
 import { UserService } from '../core/user.service';
+import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 
 @Component({
     selector: 'app-reception',

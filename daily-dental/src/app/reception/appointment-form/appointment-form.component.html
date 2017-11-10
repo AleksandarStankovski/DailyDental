@@ -35,6 +35,9 @@
                 </mat-select>
             </mat-form-field>
         </div>
+        <div *ngIf="!data.appointmentId && appointmentDataDay >= todayDate" class="d-flex justify-content-end">
+            <a matTooltip="Създай нов пациент" (click)="openModalDialog()" mat-mini-fab><mat-icon>add</mat-icon></a>
+        </div>
         <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
             <mat-form-field class="input-full-width">
                 <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient"  (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
