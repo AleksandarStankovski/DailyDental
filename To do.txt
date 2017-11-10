@@ -5,10 +5,10 @@
 + Add Patient middle name
 + Validation for email
 + Validation for price
-- Favicon
++ Favicon
 - Animations and transition
 - Application - first visit tutorial 
-- Responsive menu
++ Responsive menu
 - Change icon (+)
 - Resolve in router
 + Box-shadown

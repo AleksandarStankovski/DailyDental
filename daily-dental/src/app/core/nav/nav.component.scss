@@ -33,22 +33,34 @@ nav {
             }
         }
         .logo-close {
+            position: relative;
             @include media-breakpoint-down(xs) {
-                background-color: $app-primary;
+                justify-content: flex-start !important;
+                background-color: #626469;
             }
             .logo {
-                padding: 5px 15px;
+                padding-top: 25px;
+                padding-bottom: 10px;
+                @include media-breakpoint-down(xs) {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    padding-left: 15px;
+                }
                 img {
-                    width: 40px; 
+                    width: 80px; 
+                    @include media-breakpoint-down(xs) {
+                        width: 40px; 
+                    }
                 }
             }
             .close-nav {
-                min-height: 63px;
-                padding: 5px 15px;
-                @include media-breakpoint-down(sm) {
-                    min-height: 53px;
-                }
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 15px;
+                color: $app-dark-color;
                 @include media-breakpoint-down(xs) {
+                    bottom: 0;
                     color: $app-ligth-color;
                 }
             }
