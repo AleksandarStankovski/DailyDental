@@ -15,3 +15,11 @@
 + Examination-form repeat - BUG
 + Disabled open examination < new Date()
 + Appointment - new patient (fast steps)
+- Loggin margin top and bottom
+- loggin padding left and right (to big)
+- login input border radius
+- Slider min value = 0
+- change password - staff
+- manipulation big text and margin top
+- patient icon iphone
+- reception phone and time iphone

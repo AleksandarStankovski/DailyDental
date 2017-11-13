@@ -1,4 +1,4 @@
-<app-loading-overlay [config]="{position: 'fixed', backgroundColor: 'black'}"></app-loading-overlay>
+<app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
 <div [ngClass]="manipulation.type" class="mat-dialog-header d-flex justify-content-end">
     <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>

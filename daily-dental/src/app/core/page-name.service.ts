@@ -42,7 +42,7 @@ export class PageNameService {
                 title = ''
             }
         }
-        return 'Material design';
+        return title;
     }
 
 }
