@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 
 import { DentalOfficesRoutingModule } from './dental-offices-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { DentalOfficesResolveService } from './dental-offices-resolve.service';
 import { OfficeService } from './office/office.service';
 import { DentalOfficesComponent } from './dental-offices.component';
 import { OfficeComponent } from './office/office.component';
@@ -20,7 +21,8 @@ import { OfficeFormComponent } from './office-form/office-form.component';
         OfficeFormComponent
     ],
     providers: [
-        OfficeService
+        OfficeService,
+        DentalOfficesResolveService
     ],
     entryComponents: [
         OfficeFormComponent

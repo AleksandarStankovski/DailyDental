@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
@@ -20,6 +21,7 @@ export class StaffComponent implements OnInit {
     isRoleUser: boolean;
 
     constructor(
+        private activatedRoute: ActivatedRoute,
         private modalDialog: MatDialog,
         private doctorService: DoctorService,
         private userService: UserService) {}
@@ -34,19 +36,28 @@ export class StaffComponent implements OnInit {
         .subscribe(response => {
             this.isRoleUser = response;
         });
-        this.getAllDoctors();
+        this.getAllDoctorsFromResolve();
+    }
+
+    getAllDoctorsFromResolve(): void {
+        this.doctors = this.activatedRoute.snapshot.data['doctors'];
+        this.toggleTutorialText();
     }
 
     getAllDoctors(): void {
         this.doctorService.getAllDoctors()
         .subscribe(response => {
             this.doctors = response;
-            if (this.doctors.length === 0) {
-                this.tutorialText = 'Кликнете тук за да създадете лекар';
-            } else {
-                this.tutorialText = undefined;
-            }
+            this.toggleTutorialText();
         });
+    }
+
+    toggleTutorialText(): void {
+        if (this.doctors.length === 0) {
+            this.tutorialText = 'Кликнете тук за да създадете лекар';
+        } else {
+            this.tutorialText = undefined;
+        }
     }
 
     openModalDialog(doctorId?: string): void {

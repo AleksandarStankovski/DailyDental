@@ -32,14 +32,20 @@ export class PatientDetailsComponent implements OnInit {
     ngOnInit() {
         this.modalConfig = new ModalConfig();
         this.patient = new Patient('', '', '', '', '', '', { lastName: '', speciality: ''});
-        this.getRouteParams();
+        this.getPatientFromResolve();
     }
 
-    getRouteParams(): void {
-        this.activatedRoute.params.subscribe(params => {
-            this.patientId = params['id'];
-            this.getPatient();
-        });
+    // Params subscribe example
+    // getRouteParams(): void {
+    //     this.activatedRoute.params.subscribe(params => {
+    //         this.patientId = params['id'];
+    //         this.getPatientFromResolve();
+    //     });
+    // }
+
+    getPatientFromResolve(): void {
+        this.patientId = this.activatedRoute.snapshot.params['id'];
+        this.patient = this.activatedRoute.snapshot.data['patient'];
     }
 
     getPatient(): void {

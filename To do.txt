@@ -4,3 +4,4 @@
 - Change icon (add, delete, password)
 - Resolve in router
 - patient icon iphone
+- pagination and search - revision
