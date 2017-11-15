@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { PatientsRoutingModule } from './patients-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PatientGuardService } from './patient/patient-guard.service';
+import { PatientDetailsResolveService } from './patient-details/patient-details-resolve.service';
 import { ExaminationService } from './patient-details/examinations/examination.service';
 import { PatientsComponent } from './patients.component';
 import { PatientComponent } from './patient/patient.component';
@@ -24,12 +25,13 @@ import { ExaminationFormComponent } from './patient-details/examination-form/exa
         ExaminationFormComponent,
         ExaminationsComponent
     ],
-    entryComponents: [
-        ExaminationFormComponent
-    ],
     providers: [
         PatientGuardService,
-        ExaminationService
+        ExaminationService,
+        PatientDetailsResolveService
+    ],
+    entryComponents: [
+        ExaminationFormComponent
     ]
 })
 export class PatientsModule { }

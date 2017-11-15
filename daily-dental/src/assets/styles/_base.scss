@@ -19,6 +19,11 @@ h2 {
         font-size: 1.2rem;
     }
 }
+h5 {
+    @include media-breakpoint-down(xs) {
+        font-size: 1.1rem;
+    }
+}
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
     margin-left: 0;
 }

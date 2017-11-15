@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
@@ -20,6 +21,7 @@ export class DentalOfficesComponent implements OnInit {
     isRoleUser: boolean;
 
     constructor(
+        private activatedRoute: ActivatedRoute,
         private modalDialog: MatDialog,
         private officeService: OfficeService,
         private userService: UserService) { }
@@ -34,19 +36,28 @@ export class DentalOfficesComponent implements OnInit {
         .subscribe(response => {
             this.isRoleUser = response;
         });
-        this.getAllOffices();
+        this.getAllOfficesFromResolve();
+    }
+
+    getAllOfficesFromResolve(): void {
+        this.offices = this.activatedRoute.snapshot.data['offices'];
+        this.toggleTutorialText();
     }
 
     getAllOffices(): void {
         this.officeService.getAllOffices()
         .subscribe(response => {
             this.offices = response;
-            if (this.offices.length === 0) {
-                this.tutorialText = 'Кликнете тук за да създадете кабинет';
-            } else {
-                this.tutorialText = undefined;
-            }
+            this.toggleTutorialText();
         });
+    }
+
+    toggleTutorialText(): void {
+        if (this.offices.length === 0) {
+            this.tutorialText = 'Кликнете тук за да създадете кабинет';
+        } else {
+            this.tutorialText = undefined;
+        }
     }
 
     openModalDialog(officeId?: string): void {

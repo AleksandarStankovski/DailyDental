@@ -36,7 +36,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     hours: { name: string, value: number }[];
     durationHours;
     todayDate: number;
-    appointmentDataDay: number;
+    appointmentDateDay: number;
     isValidPatient: boolean;
     myControl: FormControl = new FormControl();
     filteredPatients: Observable<any[]>;
@@ -55,7 +55,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.todayDate = 0;
-        this.appointmentDataDay = 0;
+        this.appointmentDateDay = 0;
         this.modalConfig = new ModalConfig();
         this.snackbarConfig = new SnackbarConfig();
         this.appointment = new Appointment(new Date, 8, undefined, {}, '', [], 'confirmed', '');
@@ -64,8 +64,8 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.getAllPatients();
         this.getAllStatuses();
 
-        if (this.data.receptionData) {
-            this.appointment.date = this.data.receptionData; 
+        if (this.data.receptionDate) {
+            this.appointment.date = this.data.receptionDate; 
         }
         if (this.data.activeDoctor) {
             this.appointment.doctor = this.data.activeDoctor;
@@ -86,7 +86,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.appointmentService.getAppointment(this.data.appointmentId)
         .subscribe(resolve => {
             this.appointment = resolve;  
-            this.appointmentDataDay = new Date(this.appointment.date).getDate();
+            this.appointmentDateDay = new Date(this.appointment.date).getDate();
             this.getDuration();
         });
     }

@@ -36,6 +36,9 @@
         span {
             font-size: 1.2rem;
             font-weight: bold;
+            @include media-breakpoint-down(xs) {
+                font-size: 1.1rem;
+            }
         }
     }
     &.aesthetic {

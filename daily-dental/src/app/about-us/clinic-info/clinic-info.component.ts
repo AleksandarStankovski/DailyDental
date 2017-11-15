@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
@@ -21,6 +22,7 @@ export class ClinicInfoComponent implements OnInit {
     isRoleUser: boolean;
 
     constructor(
+        private activatedRoute: ActivatedRoute,
         private modalDialog: MatDialog,
         private clinicService: ClinicService,
         private userService: UserService) { }
@@ -35,20 +37,30 @@ export class ClinicInfoComponent implements OnInit {
         .subscribe(response => {
             this.isRoleUser = response;
         });
-        this.getAllClinics();
+        this.getAllClinicsFromResolve();
+    }
+
+    getAllClinicsFromResolve(): void {
+        this.clinics = this.activatedRoute.snapshot.data['clinics'];
+        this.clinic = this.clinics[0];
+        this.toggleTutorialText();
     }
 
     getAllClinics(): void {
         this.clinicService.getAllClinics()
-        .subscribe(resolve => {
-            this.clinics = resolve;
-            this.clinic = resolve[0];
-            if (this.clinics.length === 0) {
-                this.tutorialText = 'Кликнете тук за да създадете клиника';
-            } else {
-                this.tutorialText = undefined;
-            }
+        .subscribe(response => {
+            this.clinics = response;
+            this.clinic = response[0];
+            this.toggleTutorialText();
         });
+    }
+
+    toggleTutorialText(): void {
+        if (this.clinics.length === 0) {
+            this.tutorialText = 'Кликнете тук за да създадете клиника';
+        } else {
+            this.tutorialText = undefined;
+        }
     }
 
     openModalDialog(clinicId?: string): void {

@@ -22,6 +22,7 @@ export class DoctorFormComponent implements OnInit {
     loadingOverlay: boolean;
     specialities: Speciality[];
     showPassword: boolean;
+    showPasswordText: string;
     user: User;
     isRoleReception: boolean;
     regexEmail = regex.email;
@@ -44,6 +45,7 @@ export class DoctorFormComponent implements OnInit {
             this.showPassword = false;
             this.getDoctor();
         }
+        this.passwordTextToggle(this.showPassword);
     }
 
     getUser(): void {
@@ -71,6 +73,15 @@ export class DoctorFormComponent implements OnInit {
 
     passwordToggle(): void {
         this.showPassword = !this.showPassword;
+        this.passwordTextToggle(this.showPassword);
+    }
+
+    passwordTextToggle(showPassword: boolean): void {
+        if (this.showPassword) {
+            this.showPasswordText = 'Скрий поле за парола';
+        } else {
+            this.showPasswordText = 'Покажи поле за парола';
+        }
     }
 
     toggleLoadingOverlay(loadingOverlay: boolean): void {

@@ -5,7 +5,7 @@
         </div>
         <span></span>
     </div>
-    <div class="appointment-sbox col">
+    <div class="appointment-sbox">
         <div (click)="editAppointment()" class="cursor-pointer d-flex justify-content-between">
             <span class="phone"><i class="fontello icon-phone-fill ft-14 mr-1"></i> {{appointment.patient.phone}}</span>
             <time (click)="editAppointment()">{{appointment.startTime | timeConverter}}ч. - {{endTime | timeConverter}}ч.</time>

@@ -62,7 +62,7 @@
             </mat-slide-toggle>
         </div> 
         <div *ngIf="data.doctorId" class="d-flex justify-content-end">
-            <a mat-button (click)="passwordToggle()">Смяна на парола</a>
+            <a [matTooltip]="showPasswordText" (click)="passwordToggle()" mat-mini-fab class="mat-mini-fab-basic"><mat-icon>https</mat-icon></a>
         </div>
     </form>
 </mat-dialog-content>

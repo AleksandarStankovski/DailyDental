@@ -21,7 +21,7 @@
             <mat-form-field class="input-full-width">
                 <mat-select [(ngModel)]="appointment.startTime" (change)="durationFilter()" name="startTime" required #appointmentStartTime="ngModel" placeholder="Час">
                     <mat-option *ngFor="let hour of hours" [value]="hour.value">
-                        {{hour.name}}
+                        {{hour.name}} ч.
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -30,15 +30,15 @@
             <mat-form-field class="input-full-width">
                 <mat-select [(ngModel)]="appointment.duration" name="duration" required #appointmentDuration="ngModel" placeholder="Времетраене">
                     <mat-option *ngFor="let hour of durationHours" [value]="hour">
-                        {{hour}}
+                        {{hour}} ч.
                     </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
-        <div *ngIf="!data.appointmentId && appointmentDataDay >= todayDate" class="d-flex justify-content-end">
+        <div *ngIf="!data.appointmentId && appointmentDateDay >= todayDate" class="d-flex justify-content-end">
             <a matTooltip="Създай нов пациент" (click)="openModalDialog()" mat-mini-fab><mat-icon>add</mat-icon></a>
         </div>
-        <div *ngIf="appointmentDataDay >= todayDate" [hidden]="patients?.length === 0">
+        <div *ngIf="appointmentDateDay >= todayDate" [hidden]="patients?.length === 0">
             <mat-form-field class="input-full-width">
                 <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient"  (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
             </mat-form-field>
@@ -65,5 +65,5 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <app-modal-action [formIsDisabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" [showDeleteBtn]="data.appointmentId && appointmentDataDay >= todayDate" [data]="appointment" [dataId]="data.appointmentId" [type]="'appointment'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
+    <app-modal-action [formIsDisabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" [showDeleteBtn]="data.appointmentId && appointmentDateDay >= todayDate" [data]="appointment" [dataId]="data.appointmentId" [type]="'appointment'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>
