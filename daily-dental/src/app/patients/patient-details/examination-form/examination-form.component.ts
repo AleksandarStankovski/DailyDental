@@ -19,7 +19,7 @@ export class ExaminationFormComponent implements OnInit {
     manipulations: Manipulation[];
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
-    teeth: {position: string, name: string}[];
+    teeth: string[];
 
     constructor(
         private modalDialogRef: MatDialogRef<ExaminationFormComponent>,

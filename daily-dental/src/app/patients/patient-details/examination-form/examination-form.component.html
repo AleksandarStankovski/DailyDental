@@ -10,7 +10,7 @@
             <div>
                 <mat-form-field class="input-full-width">
                     <mat-select [(ngModel)]="procedure.tooth" name="tooth-{{i}}" required #examinationTooth="ngModel" placeholder="Зъб">
-                        <mat-option *ngFor="let tooth of teeth" [value]="tooth.position">{{tooth.name}}</mat-option>
+                        <mat-option *ngFor="let tooth of teeth" [value]="tooth">{{tooth}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
