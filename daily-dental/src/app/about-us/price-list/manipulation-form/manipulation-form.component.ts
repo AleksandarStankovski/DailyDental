@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { Speciality } from "../../../shared/models/speciality.model";
+import { Speciality } from '../../../shared/models/speciality.model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ManipulationService } from '../manipulation/manipulation.service';
 import { SpecialityService } from '../../../core/speciality.service';

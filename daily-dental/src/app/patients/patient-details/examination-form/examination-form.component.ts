@@ -61,10 +61,10 @@ export class ExaminationFormComponent implements OnInit {
     }
 
     selectManipulation(optionValue, selectedValue) {
-        if(selectedValue) {
+        if (selectedValue) {
             return optionValue._id === selectedValue._id;
         }
-        return false;  
+        return false;
     }
 
     addProcedure(): void {

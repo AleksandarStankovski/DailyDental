@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../shared/models/modal-config.model';
-import { ProfileFormComponent } from "./profile-form/profile-form.component";
+import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 @Component({
     selector: 'app-profile',
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
 
     constructor(private modalDialog: MatDialog) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.modalConfig = new ModalConfig();
     }
 

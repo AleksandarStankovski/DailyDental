@@ -19,9 +19,9 @@ export class AvatarComponent implements OnInit {
     }
 
     convertText(): void {
-        let firstName = this.firstName || '';
-        let lastName = this.lastName || '';
-        let primatyText = firstName.charAt(0) + lastName.charAt(0);
+        const firstName = this.firstName || '';
+        const lastName = this.lastName || '';
+        const primatyText = firstName.charAt(0) + lastName.charAt(0);
         this.text = primatyText.toUpperCase();
     }
 

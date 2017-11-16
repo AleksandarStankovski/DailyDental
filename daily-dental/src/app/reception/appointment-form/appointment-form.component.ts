@@ -18,7 +18,7 @@ import { AppointmentStatusService } from './appointment-status.service';
 import { AppointmentHoursService } from './appointment-hours.service';
 import { PatientService } from '../../patients/patient/patient.service';
 import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
-import { PatientFormComponent } from "../../patients/patient-form/patient-form.component";
+import { PatientFormComponent } from '../../patients/patient-form/patient-form.component';
 
 @Component({
     selector: 'app-appointment-form',
@@ -65,7 +65,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.getAllStatuses();
 
         if (this.data.receptionDate) {
-            this.appointment.date = this.data.receptionDate; 
+            this.appointment.date = this.data.receptionDate;
         }
         if (this.data.activeDoctor) {
             this.appointment.doctor = this.data.activeDoctor;
@@ -75,7 +75,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
             this.getAppointment();
         } else {
             this.getDuration();
-        }   
+        }
     }
 
     ngOnDestroy() {
@@ -85,7 +85,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     getAppointment(): void {
         this.appointmentService.getAppointment(this.data.appointmentId)
         .subscribe(resolve => {
-            this.appointment = resolve;  
+            this.appointment = resolve;
             this.appointmentDateDay = new Date(this.appointment.date).getDate();
             this.getDuration();
         });
@@ -128,7 +128,6 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
             } else {
                 concatNames = patient.firstName + ' ' + patient.lastName;
             }
-            
         }
         return concatNames;
     }
@@ -141,9 +140,9 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.statuses = this.appointmentStatusService.getAllStatuses();
     }
 
-    getDuration(): number[]{
-        let duration = [];
-        let lastHour = this.hours[this.hours.length - 1].value + 1;
+    getDuration(): number[] {
+        const duration = [];
+        const lastHour = this.hours[this.hours.length - 1].value + 1;
         for (let i = 1; i <= this.hours.length; i++) {
             duration.push(i);
         }

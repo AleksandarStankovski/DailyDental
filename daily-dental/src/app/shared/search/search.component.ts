@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
 
     search(): void {
         this.isVisibleSearch = false;
-        if (typeof this.searchText !== "undefined") {
+        if (typeof this.searchText !== 'undefined') {
             this.searchEvent.emit(this.searchText)
         }
     }

@@ -22,6 +22,6 @@ export class HomeComponent implements OnInit {
 
     getNavList(): void {
         this.navList = this.navService.getHomeNavList();
-    } 
+    }
 
 }

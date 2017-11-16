@@ -50,7 +50,7 @@ export class ManipulationService {
 
     getIcon(type: string): string {
         let icon;
-        switch(type) {
+        switch (type) {
             case 'aesthetic': {
                 icon = 'icon-tooth-3'
                 break;

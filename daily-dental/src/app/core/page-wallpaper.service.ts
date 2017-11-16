@@ -5,7 +5,7 @@ export class PageWallpaperService {
 
     getPageWallpaper(pageUrl): string {
         let image: string;
-        switch(pageUrl) {
+        switch (pageUrl) {
             case '/home': {
                 image = 'home.jpg'
                 break;

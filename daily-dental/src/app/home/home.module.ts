@@ -11,7 +11,7 @@ import { HomeNavComponent } from './home-nav/home-nav.component';
         HomeRoutingModule
     ],
     declarations: [
-        HomeComponent, 
+        HomeComponent,
         HomeNavComponent
     ]
 })

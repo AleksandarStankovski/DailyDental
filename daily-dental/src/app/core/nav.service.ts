@@ -5,8 +5,8 @@ import { Nav } from '../shared/models/nav.model';
 @Injectable()
 export class NavService {
 
-    getHeaderNavList(): Nav[]{
-        let navList = [
+    getHeaderNavList(): Nav[] {
+        const navList = [
             {
                 routerLink: '/home',
                 routerText: 'Начало',
@@ -36,8 +36,8 @@ export class NavService {
         return navList;
     }
 
-    getHomeNavList(): Nav[]{
-        let navList = [
+    getHomeNavList(): Nav[] {
+        const navList = [
             {
                 routerLink: '/reception',
                 routerText: 'Рецепция'
@@ -58,8 +58,8 @@ export class NavService {
         return navList;
     }
 
-    getAboutUsNavList(): Nav[]{
-        let navList = [
+    getAboutUsNavList(): Nav[] {
+        const navList = [
             {
                 routerLink: '/about-us/clinic-info',
                 routerText: 'Клиника',

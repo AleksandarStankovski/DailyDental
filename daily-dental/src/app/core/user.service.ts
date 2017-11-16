@@ -10,7 +10,7 @@ import { User } from '../shared/models/user.model';
 @Injectable()
 export class UserService {
 
-    private apiUrl: string = 'api';
+    private apiUrl = 'api';
 
     constructor(private http: Http) { }
 
@@ -24,14 +24,14 @@ export class UserService {
         .map(response => response.json());
     }
 
-    isRoleUser(): Observable<boolean>{
+    isRoleUser(): Observable<boolean> {
         return this.http.get(`${this.apiUrl}/user`)
         .map(response => {
-            let user: User = response.json() as User;
-            let isRoleUser: boolean = false;
+            const user: User = response.json() as User;
+            let isRoleUser = false;
             if (user.role === 'user') {
                 isRoleUser = true;
-            } 
+            }
             return isRoleUser;
         })
     }

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from "@angular/router";
+import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 import { Patient } from '../../shared/models/patient.model';
 import { PatientService } from '../patient/patient.service';
 
 
 @Injectable()
-export class PatientDetailsResolveService implements Resolve<Patient>{
+export class PatientDetailsResolveService implements Resolve<Patient> {
 
     constructor(private patientService: PatientService) { }
 
@@ -14,5 +14,5 @@ export class PatientDetailsResolveService implements Resolve<Patient>{
         const id = route.params['id'];
         return this.patientService.getPatient(id);
     }
-    
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { Router, NavigationEnd } from "@angular/router";
+import { Router, NavigationEnd } from '@angular/router';
 
 import { Nav } from '../../shared/models/nav.model';
 import { NavService } from '../nav.service';
@@ -23,16 +23,16 @@ export class NavComponent implements OnInit {
         this.isVisibleMenu = false;
         this.getNavList();
         this.router.events.subscribe(event => {
-            if(event instanceof NavigationEnd) {
+            if (event instanceof NavigationEnd) {
                 this.isVisibleMenu = false;
                 this.toggleClassDisabledOverflow();
             }
-        }); 
+        });
     }
 
     getNavList(): void {
         this.navList = this.navService.getHeaderNavList();
-    } 
+    }
 
     toggleMenu(): void {
         this.isVisibleMenu = !this.isVisibleMenu;

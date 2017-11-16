@@ -1,7 +1,4 @@
-import { 
-    Component, 
-    OnInit,
-    ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
@@ -66,8 +63,8 @@ export class PatientDetailsComponent implements OnInit {
             if (result === 'Delete') {
                 this.router.navigate(['/patients']);
             } else {
-                this.getPatient();  
-            } 
+                this.getPatient();
+            }
         })
     }
 

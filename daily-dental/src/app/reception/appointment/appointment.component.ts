@@ -22,7 +22,7 @@ export class AppointmentComponent implements OnInit {
 
     constructor(private appointmentService: AppointmentService) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getEndTime();
         this.getIcon();
     }

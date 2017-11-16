@@ -46,7 +46,7 @@ export class AppointmentService {
 
     getIcon(status: string): string {
         let icon;
-        switch(status) {
+        switch (status) {
             case 'confirmed': {
                 icon = 'icon-like'
                 break;

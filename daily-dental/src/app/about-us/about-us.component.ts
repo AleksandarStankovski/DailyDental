@@ -20,6 +20,6 @@ export class AboutUsComponent implements OnInit {
 
     getNavList(): void {
         this.navList = this.navService.getAboutUsNavList();
-    } 
+    }
 
 }

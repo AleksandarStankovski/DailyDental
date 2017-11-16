@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SpecialityConverterPipe implements PipeTransform {
 
     transform(value: any, args?: any): any {
-        switch(value) {
+        switch (value) {
             case 'aesthetic': {
                 value = 'Естетика'
                 break;

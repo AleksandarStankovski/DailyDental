@@ -7,10 +7,10 @@ export class TransitionElementDirective {
 
     constructor(
         private elementRef: ElementRef,
-        private rendered: Renderer2) { 
+        private rendered: Renderer2) {
             setTimeout(() => {
                 this.rendered.addClass(this.elementRef.nativeElement, 'finish-transition');
-            }, 200); 
+            }, 200);
         }
 
 }

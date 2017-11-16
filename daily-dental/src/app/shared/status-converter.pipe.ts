@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StatusConverterPipe implements PipeTransform {
 
     transform(value: any, args?: any): any {
-        switch(value) {
+        switch (value) {
             case 'confirmed': {
                 value = 'Потвърден'
                 break;

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppointmentStatusService {
-    
+
     getAllStatuses(): { type: string, name: string }[] {
-        let statuses = [
+        const statuses = [
             {
                 type: 'confirmed',
                 name: 'Потвърден'

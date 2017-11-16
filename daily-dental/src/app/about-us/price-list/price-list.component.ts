@@ -44,7 +44,7 @@ export class PriceListComponent implements OnInit {
     getManipulationsByPage(newPaginationConfig?: PaginationConfig) {
         if (newPaginationConfig) {
             this.paginationConfig = newPaginationConfig;
-        } 
+        }
         this.manipulationService.getManipulationsByPage(this.paginationConfig.currentPage, this.paginationConfig.itemsPerPage)
         .subscribe(response => {
             this.manipulations = response.manipulations;
@@ -86,7 +86,7 @@ export class PriceListComponent implements OnInit {
             .subscribe(response => {
                 this.manipulations = response;
                 this.showPaginaion = false;
-            }) 
+            })
         }
     }
 

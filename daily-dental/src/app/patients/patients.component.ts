@@ -33,7 +33,7 @@ export class PatientsComponent implements OnInit {
     getPatientsByPage(newPaginationConfig?: PaginationConfig) {
         if (newPaginationConfig) {
             this.paginationConfig = newPaginationConfig;
-        } 
+        }
         this.patientService.getPatientsByPage(this.paginationConfig.currentPage, this.paginationConfig.itemsPerPage)
         .subscribe(response => {
             this.patients = response.patients;
@@ -76,7 +76,7 @@ export class PatientsComponent implements OnInit {
             .subscribe(response => {
                 this.patients = response;
                 this.showPaginaion = false;
-            }) 
+            })
         }
     }
 

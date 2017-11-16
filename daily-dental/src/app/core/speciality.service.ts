@@ -6,7 +6,7 @@ import { Speciality } from '../shared/models/speciality.model';
 export class SpecialityService {
 
     getAllSpecialities(): Speciality[] {
-        let specialities = [
+        const specialities = [
             {
                 type: 'aesthetic',
                 name: 'Естетика'

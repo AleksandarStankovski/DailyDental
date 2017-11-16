@@ -11,13 +11,13 @@ export class ScrollPageTransitionDirective {
         private elementRef: ElementRef,
         private rendered: Renderer2) { }
 
-    @HostListener('window:scroll', []) onScrollEvent(){
+    @HostListener('window:scroll', []) onScrollEvent() {
         this.toggleClassTransition();
     }
 
     toggleClassTransition(): void {
-        let isModalOpen = this.elementRef.nativeElement.ownerDocument.all[0].classList.contains('cdk-global-scrollblock');
-        let hasClass = this.elementRef.nativeElement.classList.contains(this.toggleClass);
+        const isModalOpen = this.elementRef.nativeElement.ownerDocument.all[0].classList.contains('cdk-global-scrollblock');
+        const hasClass = this.elementRef.nativeElement.classList.contains(this.toggleClass);
         if (!isModalOpen) {
             if (window.pageYOffset > 0) {
                 if (!hasClass) {

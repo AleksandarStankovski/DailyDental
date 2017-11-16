@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from "@angular/router";
+import { Router, NavigationEnd } from '@angular/router';
 
 import { PageNameService } from '../page-name.service';
 import { PageWallpaperService } from '../page-wallpaper.service';
@@ -22,12 +22,12 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.router.events.subscribe(event => {
-            if(event instanceof NavigationEnd) {
+            if (event instanceof NavigationEnd) {
                 this.pageUrl = event.url;
                 this.title = this.pageNameService.getPageName(event.url);
                 this.wallpaper = this.pageWallpaperService.getPageWallpaper(event.url);
             }
-        }); 
+        });
     }
 
 }

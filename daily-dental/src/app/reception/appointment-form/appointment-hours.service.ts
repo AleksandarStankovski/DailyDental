@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppointmentHoursService {
-    
+
     getAllHours(): { name: string, value: number }[] {
-        let hours = [
+        const hours = [
             {
                 name: '08:00',
                 value: 8

@@ -33,7 +33,7 @@ export class ReceptionComponent implements OnInit {
 
     ngOnInit() {
         this.modalConfig = new ModalConfig();
-        let newDate = new Date().setHours(13, 0, 0, 0);
+        const newDate = new Date().setHours(13, 0, 0, 0);
         this.todayDate = new Date().getDate();
         this.receptionDate = new Date(newDate);
         this.receptionDateDay = this.receptionDate.getDate();
@@ -59,7 +59,6 @@ export class ReceptionComponent implements OnInit {
                     } else {
                         this.activeDoctor = this.user._id;
                     }
-                    
                 }
                 this.getAppointmentByDoctor(this.activeDoctor, true);
             }
@@ -106,7 +105,7 @@ export class ReceptionComponent implements OnInit {
     }
 
     changeDate(value): void {
-        let newDate = new Date(value).setHours(13, 0, 0, 0);
+        const newDate = new Date(value).setHours(13, 0, 0, 0);
         this.receptionDate =  new Date(newDate);
         this.receptionDateDay = this.receptionDate.getDate();
         this.getAppointmentByDate();

@@ -16,7 +16,7 @@ export class DoctorComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.isRoleReception = this.doctor.role === 'reception';
     }
 

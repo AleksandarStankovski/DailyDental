@@ -5,7 +5,7 @@ export class PageNameService {
 
     getPageName(pageUrl): string {
         let title: string;
-        switch(pageUrl) {
+        switch (pageUrl) {
             case '/home': {
                 title = 'Material design'
                 break;

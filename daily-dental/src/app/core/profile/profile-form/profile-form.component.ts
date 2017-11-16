@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBar } from '@angular/material';
 
-import { User } from '../../../shared/models/user.model'; 
+import { User } from '../../../shared/models/user.model';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -31,15 +31,15 @@ export class ProfileFormComponent implements OnInit {
         .subscribe(resolve => {
             this.user = resolve;
             this.isRoleReception = this.user.role === 'reception';
-            this.readonlyUser = { 
-                firstName: this.user.firstName, 
-                lastName: this.user.lastName, 
-                speciality: this.user.speciality, 
-                email: this.user.email, 
+            this.readonlyUser = {
+                firstName: this.user.firstName,
+                lastName: this.user.lastName,
+                speciality: this.user.speciality,
+                email: this.user.email
             };
         });
     }
-    
+
     toggleLoadingOverlay(loadingOverlay: boolean): void {
         this.loadingOverlay = loadingOverlay;
     }

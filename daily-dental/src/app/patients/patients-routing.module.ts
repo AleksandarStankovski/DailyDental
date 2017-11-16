@@ -14,8 +14,8 @@ const patientsRoutes: Routes = [
     {
         path: 'patient/:id',
         component: PatientDetailsComponent,
-        canActivate: [ 
-            PatientGuardService 
+        canActivate: [
+            PatientGuardService
         ],
         resolve: {
             patient: PatientDetailsResolveService

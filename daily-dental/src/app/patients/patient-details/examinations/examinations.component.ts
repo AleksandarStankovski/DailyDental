@@ -1,7 +1,4 @@
-import { 
-    Component,
-    OnInit,
-    Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { ModalConfig } from '../../../shared/models/modal-config.model';
@@ -37,7 +34,7 @@ export class ExaminationsComponent implements OnInit {
     }
 
     joinManipulationNames(manipulations): string {
-        let names = [];
+        const names = [];
         manipulations.forEach(manipulation => {
             names.push(manipulation.name);
         })
@@ -71,8 +68,8 @@ export class ExaminationsComponent implements OnInit {
     }
 
     editExaminationn(examination: Examination): void {
-        let newDate = new Date().getDate();
-        let examinationDate = new Date(examination.date).getDate();
+        const newDate = new Date().getDate();
+        const examinationDate = new Date(examination.date).getDate();
         if (newDate === examinationDate) {
             this.openModalDialog(examination._id);
         }

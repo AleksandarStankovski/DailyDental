@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { regex } from '../../../shared/const/regex.const'; 
+import { regex } from '../../../shared/const/regex.const';
 import { Clinic } from '../../../shared/models/clinic.model';
 import { ClinicService } from '../clinic/clinic.service';
 

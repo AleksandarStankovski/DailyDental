@@ -14,7 +14,7 @@ export class ManipulationComponent implements OnInit {
     @Input() manipulation: Manipulation;
     @Input() isRoleUser: boolean;
     @Output() editManipulationEvent: EventEmitter<string> = new EventEmitter();
-    
+
     constructor(private manipulationService: ManipulationService) { }
 
     ngOnInit() {

@@ -24,7 +24,7 @@ export class ModalActionComponent implements OnInit {
         private snackBar: MatSnackBar,
         private cudService: CudService) {}
 
-    ngOnInit() { 
+    ngOnInit() {
         this.snackbarConfig = new SnackbarConfig();
     }
 
@@ -64,8 +64,8 @@ export class ModalActionComponent implements OnInit {
                         this.modalClose('Edit');
                     }, this.snackbarConfig.duration);
                 }, error => {
-                    let errorObj = JSON.parse(error._body);
-                    let errorMsg = this.getError(errorObj.code);
+                    const errorObj = JSON.parse(error._body);
+                    const errorMsg = this.getError(errorObj.code);
                     const snackBarRef = this.snackBar.open(errorMsg, '', {
                         duration: this.snackbarConfig.duration
                     });
@@ -85,10 +85,10 @@ export class ModalActionComponent implements OnInit {
                     setTimeout(() => {
                         this.modalClose('Create');
                     }, this.snackbarConfig.duration);
-                }, 
+                },
                 error => {
-                    let errorObj = JSON.parse(error._body);
-                    let errorMsg = this.getError(errorObj.code);
+                    const errorObj = JSON.parse(error._body);
+                    const errorMsg = this.getError(errorObj.code);
                     const snackBarRef = this.snackBar.open(errorMsg, '', {
                         duration: this.snackbarConfig.duration
                     });
@@ -114,8 +114,8 @@ export class ModalActionComponent implements OnInit {
                 }, this.snackbarConfig.duration);
             },
             error => {
-                let errorObj = JSON.parse(error._body);
-                let errorMsg = this.getError(errorObj.code);
+                const errorObj = JSON.parse(error._body);
+                const errorMsg = this.getError(errorObj.code);
                 const snackBarRef = this.snackBar.open(errorMsg, '', {
                     duration: this.snackbarConfig.duration
                 });

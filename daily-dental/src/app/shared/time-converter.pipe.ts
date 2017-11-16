@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TimeConverterPipe implements PipeTransform {
 
     transform(value: any, args?: any): any {
-        switch(value) {
+        switch (value) {
             case 8: {
                 value = '08:00'
                 break;

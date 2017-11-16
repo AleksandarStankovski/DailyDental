@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 
-import { regex } from '../../../shared/const/regex.const'; 
+import { regex } from '../../../shared/const/regex.const';
 import { Speciality } from '../../../shared/models/speciality.model';
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Doctor } from '../../../shared/models/doctor.model';
@@ -37,7 +37,7 @@ export class DoctorFormComponent implements OnInit {
 
     ngOnInit() {
         this.showPassword = true;
-        this.doctor = new Doctor('', '', '', '', '', true, '', '' ,'', '');
+        this.doctor = new Doctor('', '', '', '', '', true, '', '' , '', '');
         this.snackbarConfig = new SnackbarConfig();
         this.getAllSpecialities();
         this.getUser();

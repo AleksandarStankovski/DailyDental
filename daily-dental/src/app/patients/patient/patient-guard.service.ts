@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
@@ -23,7 +23,7 @@ export class PatientGuardService implements CanActivate {
         .do(hasPatient => {
             if (!hasPatient) {
                 this.router.navigate(['/patients']);
-            } 
+            }
         });
     }
 
