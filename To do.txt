@@ -2,6 +2,17 @@
 - Application - first visit tutorial 
 + Responsive menu
 - Change icon (add, delete, password)
-- Resolve in router
 - patient icon iphone
 - pagination and search - revision
+- specialities json and pipe
+- navigation json
+- dynamic currency
+- dynamic d-r
+- dynamic doctor-active
+- status pipe to json
+- dynamic h.
+- dynamic tooltip text
+- dynamic error msg
+- dynamic tutorialText
+- dynamic button text
+- dynamic admin and user value
