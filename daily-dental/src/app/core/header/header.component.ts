@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { PageNameService } from '../page-name.service';
-import { PageWallpaperService } from '../page-wallpaper.service';
+import { PageInfo } from '../../shared/models/page-info.model';
+import { PagePresentationService } from '../page-presentation.service';
 
 @Component({
     selector: 'app-header',
@@ -14,18 +14,20 @@ export class HeaderComponent implements OnInit {
     title: string;
     wallpaper: string;
     pageUrl: string;
+    pageInfo: PageInfo;
 
     constructor(
         private router: Router,
-        private pageNameService: PageNameService,
-        private pageWallpaperService: PageWallpaperService) {}
+        private pagePresentationService: PagePresentationService) {}
 
     ngOnInit() {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 this.pageUrl = event.url;
-                this.title = this.pageNameService.getPageName(event.url);
-                this.wallpaper = this.pageWallpaperService.getPageWallpaper(event.url);
+                this.pagePresentationService.getPageInfo(event.url)
+                .subscribe(response => {
+                    this.pageInfo = response;
+                });
             }
         });
     }

@@ -1,0 +1,42 @@
+[
+    {
+        "url": "",
+        "title": "",
+        "wallpaper": "default.jpg"
+    },
+    {
+        "url": "/home",
+        "title": "",
+        "wallpaper": "home.jpg"
+    },
+    {
+        "url": "/about-us/clinic-info",
+        "title": "Клиника",
+        "wallpaper": "clinic.jpg"
+    },
+    {
+        "url": "/about-us/dental-offices",
+        "title": "Кабинети",
+        "wallpaper": "dental-offices.jpg"
+    },
+    {
+        "url": "/about-us/staff",
+        "title": "Персонал",
+        "wallpaper": "staff.jpg"
+    },
+    {
+        "url": "/about-us/price-list",
+        "title": "Ценова листа",
+        "wallpaper": "price-list.jpg"
+    },
+    {
+        "url": "/patients",
+        "title": "Пациенти",
+        "wallpaper": "patients.jpg"
+    },
+    {
+        "url": "/reception",
+        "title": "Рецепция",
+        "wallpaper": "reception.jpg"
+    }
+]

@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
 import { Examination } from '../../../shared/models/examination.model';
 import { Manipulation } from '../../../shared/models/manipulation.model';
+import { Tooth } from '../../../shared/models/tooth.model';
 import { ExaminationService } from '../examinations/examination.service';
 import { ManipulationService } from '../../../about-us/price-list/manipulation/manipulation.service';
 import { ToothService } from '../../../core/tooth.service';
@@ -19,7 +20,7 @@ export class ExaminationFormComponent implements OnInit {
     manipulations: Manipulation[];
     snackbarConfig: SnackbarConfig;
     loadingOverlay: boolean;
-    teeth: string[];
+    teeth: Tooth[];
 
     constructor(
         private modalDialogRef: MatDialogRef<ExaminationFormComponent>,
@@ -57,7 +58,10 @@ export class ExaminationFormComponent implements OnInit {
     }
 
     getAllTeeth(): void {
-        this.teeth = this.toothService.getAllTeeth();
+         this.toothService.getAllTeeth()
+        .subscribe(response => {
+            this.teeth = response;
+        });
     }
 
     selectManipulation(optionValue, selectedValue) {

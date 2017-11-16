@@ -39,7 +39,10 @@ export class ManipulationFormComponent implements OnInit {
     }
 
     getAllSpecialities(): void {
-        this.specialities = this.specialityService.getAllSpecialities();
+        this.specialityService.getAllSpecialities()
+        .subscribe(response => {
+            this.specialities = response;
+        });
     }
 
     changePrice(value: number): void {

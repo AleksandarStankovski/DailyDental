@@ -44,7 +44,6 @@ let appointmentSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: config.development.appointmentStatus,
         require: true
     },
     comment: {

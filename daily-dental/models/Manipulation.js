@@ -13,7 +13,6 @@ let manipulationSchema = mongoose.Schema({
     },
     type: {
         type: String,
-        enum: config.development.specialityType,
         required: true
     },
     date: {

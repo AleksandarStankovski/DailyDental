@@ -64,7 +64,10 @@ export class DoctorFormComponent implements OnInit {
     }
 
     getAllSpecialities(): void {
-        this.specialities = this.specialityService.getAllSpecialities();
+        this.specialityService.getAllSpecialities()
+        .subscribe(response => {
+            this.specialities = response;
+        });
     }
 
     slideToggle(event): void {

@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { PageNameService } from './page-name.service';
-import { PageWallpaperService } from './page-wallpaper.service';
+import { PagePresentationService } from './page-presentation.service';
 import { SpecialityService } from './speciality.service';
 import { ToothService } from './tooth.service';
 import { UserService } from './user.service';
@@ -39,8 +38,7 @@ import { ScrollPageTransitionDirective } from './scroll-page-transition.directiv
         NavComponent
     ],
     providers: [
-        PageNameService,
-        PageWallpaperService,
+        PagePresentationService,
         SpecialityService,
         ToothService,
         UserService,

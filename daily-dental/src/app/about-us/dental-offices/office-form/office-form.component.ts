@@ -39,7 +39,10 @@ export class OfficeFormComponent implements OnInit {
     }
 
     getAllSpecialities(): void {
-        this.specialities = this.specialityService.getAllSpecialities();
+        this.specialityService.getAllSpecialities()
+        .subscribe(response => {
+            this.specialities = response;
+        });
     }
 
     toggleLoadingOverlay(loadingOverlay: boolean): void {

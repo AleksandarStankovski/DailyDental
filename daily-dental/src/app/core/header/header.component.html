@@ -5,10 +5,10 @@
             <app-profile></app-profile>
         </div>
         <div class="header-title">
-            <h1>{{title}}</h1>
+            <h1>{{pageInfo?.title}}</h1>
         </div>
     </div>
     <div class="header-background" [hidden]="pageUrl === '/home'">
-        <div [style.background-image]="'url(assets/images/wallpapers/'+ wallpaper +')'"></div>
+        <div [style.background-image]="'url(assets/images/wallpapers/'+ pageInfo?.wallpaper +')'"></div>
     </div>
 </header>

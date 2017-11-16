@@ -21,8 +21,7 @@ let doctorSchema = mongoose.Schema({
         type: String
     },
     speciality: {
-        type: String,
-        enum: config.development.specialityType,
+        type: String
     },
     email: {
         type: String,

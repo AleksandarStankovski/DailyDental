@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
+
+import { Tooth } from '../shared/models/tooth.model';
 
 @Injectable()
 export class ToothService {
 
-    getAllTeeth(): string[] {
-        const teeth = ['11', '12', '13', '14', '15', '16', '17', '18', '21', '22', '23', '24', '25', '26', '27', '28',
-        '31', '32', '33', '34', '35', '36', '37', '38', '41', '42', '43', '44', '45', '46', '47', '48'];
-        return teeth;
+    constructor(private http: Http) { }
+
+    getAllTeeth(): Observable<Tooth[]> {
+        return this.http.get(`/assets/json/teeth.json`)
+        .map(response => response.json() as Tooth[]);
     }
 
 }
