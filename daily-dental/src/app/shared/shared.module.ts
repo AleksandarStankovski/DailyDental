@@ -34,7 +34,6 @@ import { PatientFormComponent } from '../patients/patient-form/patient-form.comp
 import { TransitionElementDirective } from './transition-element.directive';
 import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
-import { StatusConverterPipe } from './status-converter.pipe';
 import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
 
 @NgModule({
@@ -71,7 +70,6 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
-        StatusConverterPipe,
         DoctorActiveConverterPipe
     ],
     entryComponents: [
@@ -106,7 +104,6 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         TransitionElementDirective,
         SpecialityConverterPipe,
         TimeConverterPipe,
-        StatusConverterPipe,
         DoctorActiveConverterPipe
     ]
 })

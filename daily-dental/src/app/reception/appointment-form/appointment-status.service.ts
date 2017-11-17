@@ -1,48 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
+
+import { AppointmentStatus } from '../../shared/models/appointment-status.model';
 
 @Injectable()
 export class AppointmentStatusService {
 
-    getAllStatuses(): { type: string, name: string }[] {
-        const statuses = [
-            {
-                type: 'confirmed',
-                name: 'Потвърден'
-            },
-            {
-                type: 'unconfirmed',
-                name: 'Непотвърден'
-            },
-            {
-                type: 'arrived',
-                name: 'Пристигнал'
-            },
-            {
-                type: 'current',
-                name: 'Текущ'
-            },
-            {
-                type: 'finished',
-                name: 'Завършен'
-            },
-            {
-                type: 'late',
-                name: 'Закаснява'
-            },
-            {
-                type: 'missing',
-                name: 'Липсващ'
-            },
-            {
-                type: 'canceled',
-                name: 'Отменен'
-            },
-            {
-                type: 'urgent',
-                name: 'Спешен'
-            }
-        ];
-        return statuses;
+    constructor(private http: Http) { }
+
+    getAllStatuses(): Observable<AppointmentStatus[]> {
+        return this.http.get(`/assets/json/appointment-status.json`)
+        .map(response => response.json() as AppointmentStatus[]);
     }
 
 }

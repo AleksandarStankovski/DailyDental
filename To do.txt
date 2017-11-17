@@ -9,7 +9,7 @@
 - dynamic currency
 - dynamic d-r
 - dynamic doctor-active
-- status pipe to json
++ status pipe to json
 - dynamic h.
 - dynamic tooltip text
 - dynamic error msg

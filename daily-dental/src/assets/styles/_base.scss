@@ -150,33 +150,6 @@ body {
         &.surgery {
             background-color: $app-surgery;
         }
-        &.confirmed {
-            background-color: $app-confirmed;
-        }
-        &.unconfirmed {
-            background-color: $app-unconfirmed;
-        }
-        &.arrived {
-            background-color: $app-arrived;
-        }
-        &.current {
-            background-color: $app-current;
-        }
-        &.finished {
-            background-color: $app-finished;
-        }
-        &.late {
-            background-color: $app-late;
-        }
-        &.missing {
-            background-color: $app-missing;
-        }
-        &.canceled {
-            background-color: $app-canceled;
-        }
-        &.urgent {
-            background-color: $app-urgent;
-        }
     }
     .mat-dialog-content {
         padding-top: 24px;

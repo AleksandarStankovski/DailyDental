@@ -1,5 +1,5 @@
 export class Speciality {
     constructor(
-        public type: string,
-        public name: string) {}
+        public name: string,
+        public value: string) {}
 }

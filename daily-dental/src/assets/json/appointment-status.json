@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Потвърден",
+        "value": "confirmed",
+        "color": "#9575CD",
+        "icon": "icon-like"
+    },
+    {
+        "name": "Непотвърден",
+        "value": "unconfirmed",
+        "color": "#9E9E9E",
+        "icon": "icon-question"
+    },
+    {
+        "name": "Пристигнал",
+        "value": "arrived",
+        "color": "#03A9F4",
+        "icon": "icon-home-fill"
+    },
+    {
+        "name": "Текущ",
+        "value": "current",
+        "color": "#00BCD4",
+        "icon": "icon-current"
+    },
+    {
+        "name": "Завършен",
+        "value": "finished",
+        "color": "#8BC34A",
+        "icon": "icon-done"
+    },
+    {
+        "name": "Закаснява",
+        "value": "late",
+        "color": "#FFC107",
+        "icon": "icon-time"
+    },
+    {
+        "name": "Липсващ",
+        "value": "missing",
+        "color": "#607D8B",
+        "icon": "icon-blocked"
+    },
+    {
+        "name": "Отменен",
+        "value": "canceled",
+        "color": "#D50000",
+        "icon": "icon-close"
+    },
+    {
+        "name": "Спешен",
+        "value": "urgent",
+        "color": "#FF5722",
+        "icon": "icon-danger"
+    }
+]

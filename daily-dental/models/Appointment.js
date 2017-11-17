@@ -43,8 +43,20 @@ let appointmentSchema = mongoose.Schema({
         required: true 
     },
     status: {
-        type: String,
-        require: true
+        name: {
+            type: String,
+            require: true
+        },
+        value: {
+            type: String,
+            require: true
+        },
+        color: {
+            type: String
+        },
+        icon: {
+            type: String
+        }
     },
     comment: {
         type: String

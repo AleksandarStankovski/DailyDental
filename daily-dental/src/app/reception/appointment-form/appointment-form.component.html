@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="appointment.status" class="mat-dialog-header d-flex justify-content-end">
+<div [style.backgroundColor]="appointment.status?.color" class="mat-dialog-header d-flex justify-content-end">
     <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
@@ -40,7 +40,7 @@
         </div>
         <div *ngIf="appointmentDateDay >= todayDate" [hidden]="patients?.length === 0">
             <mat-form-field class="input-full-width">
-                <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient"  (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
+                <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="appointment.patient" (ngModelChange)="checkValidPatient($event)" name="patient" required placeholder="Пациент">
             </mat-form-field>
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayPatient">
                 <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
@@ -50,8 +50,8 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <mat-select [(ngModel)]="appointment.status" name="status" required #appointmentStatus="ngModel" placeholder="Статус">
-                    <mat-option *ngFor="let status of statuses" [value]="status.type">
+                <mat-select [(ngModel)]="appointment.status" [compareWith]="selectStatus" name="status" (ngModelChange)="checkValidStatus($event)" required #appointmentStatus="ngModel" placeholder="Статус">
+                    <mat-option *ngFor="let status of statuses" [value]="status">
                         {{status.name}}
                     </mat-option>
                 </mat-select>
@@ -65,5 +65,5 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <app-modal-action [formIsDisabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid)" [showDeleteBtn]="data.appointmentId && appointmentDateDay >= todayDate" [data]="appointment" [dataId]="data.appointmentId" [type]="'appointment'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
+    <app-modal-action [formIsDisabled]="appointmentForm.invalid || (!isValidPatient && !appointmentForm.invalid) || (!isValidStatus && !appointmentForm.invalid)" [showDeleteBtn]="data.appointmentId && appointmentDateDay >= todayDate" [data]="appointment" [dataId]="data.appointmentId" [type]="'appointment'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>

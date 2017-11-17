@@ -19,7 +19,7 @@
         <div>
             <mat-form-field class="input-full-width">
                 <mat-select [(ngModel)]="office.type" name="type" required #officeType="ngModel" placeholder="Тип">
-                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</mat-option>
+                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.value">{{speciality.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

@@ -16,7 +16,6 @@ import { AppointmentService } from './appointment.service';
 export class AppointmentComponent implements OnInit {
 
     endTime: number;
-    appointmentIcon: string;
     @Input() appointment: Appointment;
     @Output() editAppointmentEvent: EventEmitter<string> = new EventEmitter();
 
@@ -24,7 +23,6 @@ export class AppointmentComponent implements OnInit {
 
     ngOnInit() {
         this.getEndTime();
-        this.getIcon();
     }
 
     getEndTime(): void {
@@ -33,10 +31,6 @@ export class AppointmentComponent implements OnInit {
 
     editAppointment(): void {
         this.editAppointmentEvent.emit(this.appointment._id);
-    }
-
-    getIcon(): void {
-        this.appointmentIcon = this.appointmentService.getIcon(this.appointment.status);
     }
 
 }

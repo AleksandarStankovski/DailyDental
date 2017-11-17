@@ -6,7 +6,7 @@ export class Appointment {
         public patient: { firstName?: string, lastName?: string, phone?: string, _id?: string },
         public doctor: string,
         public manipulations: { name: string, price: number, _id?: string }[],
-        public status: string,
+        public status: { name: string, value: string },
         public comment: string,
         public _id?: string) {}
 }

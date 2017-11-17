@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 import { ModalConfig } from '../../shared/models/modal-config.model';
 import { SnackbarConfig } from '../../shared/models/snackbar-config-model';
 import { Appointment } from '../../shared/models/appointment.model';
+import { AppointmentStatus } from '../../shared/models/appointment-status.model';
 import { Doctor } from '../../shared/models/doctor.model';
 import { Patient } from '../../shared/models/patient.model';
 import { AppointmentService } from '../appointment/appointment.service';
@@ -32,12 +33,13 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     appointment: Appointment;
     doctors: Doctor[];
     patients: Patient[];
-    statuses: { type: string, name: string }[];
+    statuses: AppointmentStatus[];
     hours: { name: string, value: number }[];
     durationHours;
     todayDate: number;
     appointmentDateDay: number;
     isValidPatient: boolean;
+    isValidStatus: boolean;
     myControl: FormControl = new FormControl();
     filteredPatients: Observable<any[]>;
     modalConfig: ModalConfig;
@@ -58,7 +60,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.appointmentDateDay = 0;
         this.modalConfig = new ModalConfig();
         this.snackbarConfig = new SnackbarConfig();
-        this.appointment = new Appointment(new Date, 8, undefined, {}, '', [], 'confirmed', '');
+        this.appointment = new Appointment(new Date, 8, undefined, {}, '', [], { name: '', value: ''}, '');
         this.getAllDoctors();
         this.getAllHours();
         this.getAllPatients();
@@ -96,6 +98,13 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         .subscribe(response => {
             this.doctors = response;
         });
+    }
+
+    selectStatus(optionValue, selectedValue) {
+        if (selectedValue) {
+            return optionValue.value === selectedValue.value;
+        }
+        return false;
     }
 
     getAllHours(): void {
@@ -136,8 +145,17 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.isValidPatient = !!patient.firstName;
     }
 
+    checkValidStatus(status: AppointmentStatus): void {
+        if (status.value) {
+            this.isValidStatus = status.value.length > 0;
+        }
+    }
+
     getAllStatuses(): void {
-        this.statuses = this.appointmentStatusService.getAllStatuses();
+        this.appointmentStatusService.getAllStatuses()
+        .subscribe(response => {
+            this.statuses = response;
+        });
     }
 
     getDuration(): number[] {

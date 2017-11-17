@@ -34,7 +34,7 @@
         <div *ngIf="!isRoleReception">
             <mat-form-field class="input-full-width">
                 <mat-select [(ngModel)]="doctor.speciality" name="speciality" required #doctorSpeciality="ngModel" placeholder="Специалност">
-                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.type">{{speciality.name}}</mat-option>
+                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.value">{{speciality.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
