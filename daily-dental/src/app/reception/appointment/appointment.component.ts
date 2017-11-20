@@ -12,7 +12,6 @@ import { AppointmentHourService } from '../appointment-form/appointment-hour.ser
 })
 export class AppointmentComponent implements OnInit {
 
-    hours: Hour[];
     endTime: Hour;
     @Input() appointment: Appointment;
     @Output() editAppointmentEvent: EventEmitter<string> = new EventEmitter();
@@ -28,10 +27,10 @@ export class AppointmentComponent implements OnInit {
     getEndTime(): void {
         this.appointmentHourService.getAllHours()
         .subscribe(response => {
-            this.hours = response;
+            const hours: Hour[] = response;
             const endTimeValue = this.appointment.startTime.value + this.appointment.duration;
             let endTimeName
-            this.hours.forEach(item => {
+            hours.forEach(item => {
                 if (item.value === endTimeValue) {
                     endTimeName = item.name;
                 }
