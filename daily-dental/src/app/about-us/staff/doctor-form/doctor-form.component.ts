@@ -55,7 +55,6 @@ export class DoctorFormComponent implements OnInit {
             this.user = response;
         })
     }
-    
 
     getDoctor(): void {
         this.doctorService.getDoctor(this.data.doctorId)

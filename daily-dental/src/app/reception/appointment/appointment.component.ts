@@ -29,7 +29,7 @@ export class AppointmentComponent implements OnInit {
         this.appointmentHourService.getAllHours()
         .subscribe(response => {
             this.hours = response;
-            let endTimeValue = this.appointment.startTime.value + this.appointment.duration;
+            const endTimeValue = this.appointment.startTime.value + this.appointment.duration;
             let endTimeName
             this.hours.forEach(item => {
                 if (item.value === endTimeValue) {

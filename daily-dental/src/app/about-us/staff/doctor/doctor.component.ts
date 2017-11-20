@@ -29,7 +29,7 @@ export class DoctorComponent implements OnInit {
             if (this.doctor.speciality) {
                 this.image = this.doctor.speciality.doctorImage;
             }
-        }    
+        }
     }
 
     editDoctor(): void {
