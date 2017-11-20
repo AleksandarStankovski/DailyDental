@@ -19,8 +19,8 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <mat-select [(ngModel)]="appointment.startTime" (change)="durationFilter()" name="startTime" required #appointmentStartTime="ngModel" placeholder="Час">
-                    <mat-option *ngFor="let hour of hours" [value]="hour.value">
+                <mat-select [(ngModel)]="appointment.startTime" [compareWith]="selectHour" (ngModelChange)="getDuration()" name="startTime" required #appointmentStartTime="ngModel" placeholder="Час">
+                    <mat-option *ngFor="let hour of hours" [value]="hour">
                         {{hour.name}} ч.
                     </mat-option>
                 </mat-select>

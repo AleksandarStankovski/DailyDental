@@ -8,8 +8,14 @@ let appointmentSchema = mongoose.Schema({
         default: new Date
     },
     startTime: {
-        type: Number,
-        required: true
+        name: {
+            type: String,
+            required: true
+        },
+        value: {
+            type: Number,
+            required: true
+        }
     },
     duration: {
         type: Number,

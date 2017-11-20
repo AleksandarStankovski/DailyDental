@@ -14,9 +14,10 @@ import { Appointment } from '../../shared/models/appointment.model';
 import { AppointmentStatus } from '../../shared/models/appointment-status.model';
 import { Doctor } from '../../shared/models/doctor.model';
 import { Patient } from '../../shared/models/patient.model';
+import { Hour } from '../../shared/models/hour.model';
 import { AppointmentService } from '../appointment/appointment.service';
 import { AppointmentStatusService } from './appointment-status.service';
-import { AppointmentHoursService } from './appointment-hours.service';
+import { AppointmentHourService } from './appointment-hour.service';
 import { PatientService } from '../../patients/patient/patient.service';
 import { DoctorService } from '../../about-us/staff/doctor/doctor.service';
 import { PatientFormComponent } from '../../patients/patient-form/patient-form.component';
@@ -34,7 +35,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     doctors: Doctor[];
     patients: Patient[];
     statuses: AppointmentStatus[];
-    hours: { name: string, value: number }[];
+    hours: Hour[];
     durationHours;
     todayDate: number;
     appointmentDateDay: number;
@@ -50,7 +51,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         private snackBar: MatSnackBar,
         private appointmentService: AppointmentService,
         private appointmentStatusService: AppointmentStatusService,
-        private appointmentHoursService: AppointmentHoursService,
+        private appointmentHourService: AppointmentHourService,
         private doctorService: DoctorService,
         private patientService: PatientService,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -60,7 +61,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.appointmentDateDay = 0;
         this.modalConfig = new ModalConfig();
         this.snackbarConfig = new SnackbarConfig();
-        this.appointment = new Appointment(new Date, 8, undefined, {}, '', [], { name: '', value: ''}, '');
+        this.appointment = new Appointment(new Date, { name: '08:00', value: 8 }, undefined, {}, '', [], { name: '', value: ''}, '');
         this.getAllDoctors();
         this.getAllHours();
         this.getAllPatients();
@@ -102,6 +103,13 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         });
     }
 
+    selectHour(optionValue, selectedValue) {
+        if (selectedValue) {
+            return optionValue.value === selectedValue.value;
+        }
+        return false;
+    }
+
     selectStatus(optionValue, selectedValue) {
         if (selectedValue) {
             return optionValue.value === selectedValue.value;
@@ -110,7 +118,10 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
     }
 
     getAllHours(): void {
-        this.hours = this.appointmentHoursService.getAllHours();
+        this.appointmentHourService.getAllHours()
+        .subscribe(response => {
+            this.hours = response;
+        });
     }
 
     getAllPatients(): void {
@@ -166,7 +177,7 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         for (let i = 1; i <= this.hours.length; i++) {
             duration.push(i);
         }
-        this.durationHours = duration.filter(x => x <= (lastHour - this.appointment.startTime));
+        this.durationHours = duration.filter(x => x <= (lastHour - this.appointment.startTime.value));
         return this.durationHours;
     }
 

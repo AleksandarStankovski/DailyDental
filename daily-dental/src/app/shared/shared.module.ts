@@ -32,7 +32,6 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ModalActionComponent } from './modal-action/modal-action.component';
 import { PatientFormComponent } from '../patients/patient-form/patient-form.component';
 import { TransitionElementDirective } from './transition-element.directive';
-import { TimeConverterPipe } from './time-converter.pipe';
 import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
 
 @NgModule({
@@ -67,7 +66,6 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         ModalActionComponent,
         PatientFormComponent,
         TransitionElementDirective,
-        TimeConverterPipe,
         DoctorActiveConverterPipe
     ],
     entryComponents: [
@@ -100,7 +98,6 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         ModalActionComponent,
         PatientFormComponent,
         TransitionElementDirective,
-        TimeConverterPipe,
         DoctorActiveConverterPipe
     ]
 })

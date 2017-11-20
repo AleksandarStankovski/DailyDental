@@ -7,11 +7,11 @@
     </div>
     <div class="appointment-sbox">
         <div (click)="editAppointment()" class="cursor-pointer d-flex justify-content-between">
-            <span class="phone"><i class="fontello icon-phone-fill ft-14 mr-1"></i> {{appointment.patient.phone}}</span>
-            <time (click)="editAppointment()">{{appointment.startTime | timeConverter}}ч. - {{endTime | timeConverter}}ч.</time>
+            <span class="phone"><i class="fontello icon-phone-fill ft-14 mr-1"></i> {{appointment.patient?.phone}}</span>
+            <time (click)="editAppointment()">{{appointment.startTime?.name}}ч. - {{endTime?.name}}ч.</time>
         </div>
         <h5 class="mb-2">
-            <a [routerLink]="['/patients/patient', appointment.patient._id]" [style.color]="appointment.status?.color" class="decoration-none">{{appointment.patient.firstName}} {{appointment.patient.middleName}} {{appointment.patient.lastName}}</a>
+            <a [routerLink]="['/patients/patient', appointment.patient._id]" [style.color]="appointment.status?.color" class="decoration-none">{{appointment.patient?.firstName}} {{appointment.patient?.middleName}} {{appointment.patient?.lastName}}</a>
         </h5> 
         <p (click)="editAppointment()" *ngIf="appointment.comment" class="cursor-pointer">{{appointment.comment}}</p>
     </div>    
