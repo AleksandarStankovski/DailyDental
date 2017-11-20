@@ -1,7 +1,7 @@
 <div [ngClass]="appointment.status?.value" class="appointment d-flex">
     <div (click)="editAppointment()" class="appointment-fbox cursor-pointer d-flex flex-column justify-content-between">
-        <div [style.backgroundColor]="appointment.status?.color" [matTooltip]="appointment.status?.name" matTooltipPosition="above" class="d-flex justify-content-center align-items-center rounded-circle">
-            <i [ngClass]="appointment.status?.icon" class="fontello ft-28"></i>
+        <div [style.background-color]="appointment.status?.color" [matTooltip]="appointment.status?.name" matTooltipPosition="above" class="d-flex justify-content-center align-items-center rounded-circle">
+            <i [ngClass]="appointment.status?.icon" class="fontello ft-24"></i>
         </div>
         <span></span>
     </div>

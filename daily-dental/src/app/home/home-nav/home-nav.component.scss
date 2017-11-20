@@ -71,7 +71,7 @@ nav {
             }
             &.home-nav-box-1 {
                 top: -50px;
-                background-color: rgba(255, 255, 255, .2);
+                background-color: rgba(#fff, .2);
                 @include media-breakpoint-down(sm) {
                     top: -20px;
                 }

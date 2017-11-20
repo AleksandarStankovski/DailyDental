@@ -25,6 +25,7 @@ export class DoctorFormComponent implements OnInit {
     showPasswordText: string;
     user: User;
     isRoleReception: boolean;
+    isValidSpeciality: boolean
     regexEmail = regex.email;
 
     constructor(
@@ -37,7 +38,7 @@ export class DoctorFormComponent implements OnInit {
 
     ngOnInit() {
         this.showPassword = true;
-        this.doctor = new Doctor('', '', '', '', '', true, '', '' , '', '');
+        this.doctor = new Doctor('', '', '', '', true, '', '' , '', '', { name: '', value: '' });
         this.snackbarConfig = new SnackbarConfig();
         this.getAllSpecialities();
         this.getUser();
@@ -54,12 +55,16 @@ export class DoctorFormComponent implements OnInit {
             this.user = response;
         })
     }
+    
 
     getDoctor(): void {
         this.doctorService.getDoctor(this.data.doctorId)
         .subscribe(response => {
             this.doctor = response;
             this.isRoleReception = this.doctor.role === 'reception';
+            if (!this.isRoleReception) {
+                this.checkValidSpeciality(this.doctor.speciality);
+            }
         });
     }
 
@@ -68,6 +73,19 @@ export class DoctorFormComponent implements OnInit {
         .subscribe(response => {
             this.specialities = response;
         });
+    }
+
+    selectSpeciality(optionValue, selectedValue) {
+        if (selectedValue) {
+            return optionValue.value === selectedValue.value;
+        }
+        return false;
+    }
+
+    checkValidSpeciality(speciality: Speciality): void {
+        if (speciality.value) {
+            this.isValidSpeciality = speciality.value.length > 0;
+        }
     }
 
     slideToggle(event): void {

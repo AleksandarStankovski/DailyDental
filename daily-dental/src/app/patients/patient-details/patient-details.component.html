@@ -1,8 +1,8 @@
-<div [ngClass]="patient.doctor?.speciality" class="patient-details page">
+<div class="patient-details page">
     <app-floating-button (floatingButtonActionEvent)="addExamination()"></app-floating-button>
     <div class="page-container container">
         <div class="d-flex">
-            <div class="patient-details-fbox"></div>
+            <div [style.background-color]="patient.doctor?.speciality?.color" class="patient-details-fbox"></div>
             <div class="patient-details-sbox">
                 <a (click)="editPatient()" class="patient-details-personal cursor-pointer d-block decoration-none">
                     <div class="row">
@@ -27,7 +27,7 @@
                                         <p><span class="bold-text text-uppercase"><i>E-mail</i></span> {{patient.email}}</p>
                                     </li>
                                     <li *ngIf="patient.doctor" >
-                                        <p class="doctor"><span class="bold-text"><i>Лекар</i></span> д-р {{patient.doctor.lastName}}</p>
+                                        <p class="doctor"><span class="bold-text"><i [style.background-color]="patient.doctor?.speciality?.color">Лекар</i></span> д-р {{patient.doctor?.lastName}}</p>
                                     </li>
                                 </ul>
                             </section>

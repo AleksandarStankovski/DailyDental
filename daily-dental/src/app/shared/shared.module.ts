@@ -32,7 +32,6 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ModalActionComponent } from './modal-action/modal-action.component';
 import { PatientFormComponent } from '../patients/patient-form/patient-form.component';
 import { TransitionElementDirective } from './transition-element.directive';
-import { SpecialityConverterPipe } from './speciality-converter.pipe';
 import { TimeConverterPipe } from './time-converter.pipe';
 import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
 
@@ -68,7 +67,6 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         ModalActionComponent,
         PatientFormComponent,
         TransitionElementDirective,
-        SpecialityConverterPipe,
         TimeConverterPipe,
         DoctorActiveConverterPipe
     ],
@@ -102,7 +100,6 @@ import { DoctorActiveConverterPipe } from './doctor-active-converter.pipe';
         ModalActionComponent,
         PatientFormComponent,
         TransitionElementDirective,
-        SpecialityConverterPipe,
         TimeConverterPipe,
         DoctorActiveConverterPipe
     ]

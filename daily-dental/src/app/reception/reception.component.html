@@ -4,7 +4,7 @@
             <ng-container *ngFor="let doctor of doctors">
                 <li *ngIf="doctor.role !== 'reception'" [ngClass]="{'full-width': doctors?.length > 4}">
                     <a (click)="getAppointmentByDoctor(doctor._id, false)" [ngClass]="{'active': activeDoctor === doctor._id}" class="cursor-pointer decoration-none d-flex justify-content-center align-items-center">
-                        <app-avatar [color]="doctor.speciality" [firstName]="doctor.firstName" [lastName]="doctor.lastName"></app-avatar>
+                        <app-avatar [color]="doctor.speciality?.color" [firstName]="doctor.firstName" [lastName]="doctor.lastName"></app-avatar>
                         <span class="ml-2">д-р {{doctor.lastName}}</span>
                     </a>
                 </li>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Manipulation } from '../../../shared/models/manipulation.model';
 import { ManipulationService } from './manipulation.service';
@@ -8,25 +8,16 @@ import { ManipulationService } from './manipulation.service';
     templateUrl: './manipulation.component.html',
     styleUrls: ['./manipulation.component.scss']
 })
-export class ManipulationComponent implements OnInit {
+export class ManipulationComponent {
 
-    manipulationIcon: string;
     @Input() manipulation: Manipulation;
     @Input() isRoleUser: boolean;
     @Output() editManipulationEvent: EventEmitter<string> = new EventEmitter();
 
     constructor(private manipulationService: ManipulationService) { }
 
-    ngOnInit() {
-        this.getIcon();
-    }
-
     editManipulation(): void {
         this.editManipulationEvent.emit(this.manipulation._id);
-    }
-
-    getIcon(): void {
-        this.manipulationIcon = this.manipulationService.getIcon(this.manipulation.type);
     }
 
 }

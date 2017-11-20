@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 
 import { SnackbarConfig } from '../../../shared/models/snackbar-config-model';
@@ -14,7 +14,7 @@ import { ToothService } from '../../../core/tooth.service';
     templateUrl: './examination-form.component.html',
     styleUrls: ['./examination-form.component.scss']
 })
-export class ExaminationFormComponent implements OnInit {
+export class ExaminationFormComponent implements OnInit, OnDestroy {
 
     examination: Examination;
     manipulations: Manipulation[];
@@ -38,6 +38,10 @@ export class ExaminationFormComponent implements OnInit {
         if (this.data.examinationId) {
             this.getExamination();
         }
+    }
+
+    ngOnDestroy() {
+        this.snackBar.dismiss();
     }
 
     getExamination(): void {

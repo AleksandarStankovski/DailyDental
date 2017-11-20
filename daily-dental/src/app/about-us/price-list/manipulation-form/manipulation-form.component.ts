@@ -16,6 +16,7 @@ export class ManipulationFormComponent implements OnInit {
     manipulation: Manipulation;
     specialities: Speciality[];
     loadingOverlay: boolean;
+    isValidSpeciality: boolean
 
     constructor(
         private modalDialogRef: MatDialogRef<ManipulationFormComponent>,
@@ -24,7 +25,7 @@ export class ManipulationFormComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     ngOnInit() {
-        this.manipulation = new Manipulation('', undefined, '');
+        this.manipulation = new Manipulation('', undefined, { name: '', value: '' });
         this.getAllSpecialities();
         if (this.data.manipulationId) {
             this.getManipulation();
@@ -35,6 +36,7 @@ export class ManipulationFormComponent implements OnInit {
         this.manipulationService.getManipultion(this.data.manipulationId)
         .subscribe(response => {
             this.manipulation = response;
+            this.checkValidSpeciality(this.manipulation.speciality);
         });
     }
 
@@ -51,6 +53,19 @@ export class ManipulationFormComponent implements OnInit {
 
     toggleLoadingOverlay(loadingOverlay: boolean): void {
         this.loadingOverlay = loadingOverlay;
+    }
+
+    selectSpeciality(optionValue, selectedValue) {
+        if (selectedValue) {
+            return optionValue.value === selectedValue.value;
+        }
+        return false;
+    }
+
+    checkValidSpeciality(speciality: Speciality): void {
+        if (speciality.value) {
+            this.isValidSpeciality = speciality.value.length > 0;
+        }
     }
 
     modalClose(type: string): void {

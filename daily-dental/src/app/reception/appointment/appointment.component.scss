@@ -7,8 +7,8 @@
     .appointment-fbox {
         position: relative;
         div {
-            width: 60px;
-            height: 60px;  
+            width: 55px;
+            height: 55px;  
             background-color: $app-default-status;
             color: #fff;
             @include media-breakpoint-down(xs) {

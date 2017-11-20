@@ -1,3 +1,4 @@
+const Clinic = require('mongoose').model('Clinic');
 const Office = require('mongoose').model('Office');
 
 module.exports = {
@@ -20,9 +21,16 @@ module.exports = {
     create: (req, res) => {
         let newOffice = req.body;
         Office.create(newOffice)
-        .then(result => {
+        .then(office => {
+            return Clinic.update(
+                { },
+                { $push: { offices: office._id } }
+            )  
+        })
+        .then(() => {
             res.json('Success');
-        }).catch(error => {
+        })
+        .catch(error => {
             res.status(400).send(error);
         });
     },
@@ -41,6 +49,12 @@ module.exports = {
     delete: (req, res) => {
         let id = req.params.id;
         Office.findByIdAndRemove(id)
+        .then(office => {
+            return Clinic.update(
+                { },
+                { $pull: { offices: office._id } }
+            ) 
+        })
         .then(() => {
             res.json('Success');
         })

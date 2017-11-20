@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="office.type" class="mat-dialog-header d-flex justify-content-end">
+<div [style.background-color]="office.speciality?.color" class="mat-dialog-header d-flex justify-content-end">
     <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
@@ -18,13 +18,13 @@
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <mat-select [(ngModel)]="office.type" name="type" required #officeType="ngModel" placeholder="Тип">
-                    <mat-option *ngFor="let speciality of specialities" [value]="speciality.value">{{speciality.name}}</mat-option>
+                <mat-select [(ngModel)]="office.speciality" [compareWith]="selectSpeciality" (ngModelChange)="checkValidSpeciality($event)" name="speciality" required #officeSpeciality="ngModel" placeholder="Тип">
+                    <mat-option *ngFor="let speciality of specialities" [value]="speciality">{{speciality.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <app-modal-action [formIsDisabled]="officeForm.invalid" [showDeleteBtn]="!!data.officeId" [data]="office" [dataId]="data.officeId" [type]="'office'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
+    <app-modal-action [formIsDisabled]="officeForm.invalid || (!isValidSpeciality && !officeForm.invalid)" [showDeleteBtn]="!!data.officeId" [data]="office" [dataId]="data.officeId" [type]="'office'" (toggleLoadingOverlayEvent)="toggleLoadingOverlay($event)" (modalCloseEvent)="modalClose($event)"></app-modal-action>
 </mat-dialog-actions>

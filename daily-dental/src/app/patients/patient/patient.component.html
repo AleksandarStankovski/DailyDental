@@ -1,4 +1,4 @@
-<a [routerLink]="['/patients/patient', patient._id]" [ngClass]="patient.doctor?.speciality" class="patient cursor-pointer decoration-none d-flex flex-column justify-content-end">
+<a [routerLink]="['/patients/patient', patient._id]" class="patient cursor-pointer decoration-none d-flex flex-column justify-content-end">
     <div class="patient-fbox">
         <h6>{{patient.firstName}} {{patient.middleName}} {{patient.lastName}}</h6>
         <span class="d-flex align-items-center mt-1">
@@ -6,5 +6,7 @@
             {{patient.phone}}
         </span>
     </div>
-    <div class="patient-sbox"></div>
+    <div [style.background-color]="patient.doctor?.speciality?.color" class="patient-sbox">
+        <div class="overlay"></div>
+    </div>
 </a>

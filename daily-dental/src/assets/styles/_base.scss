@@ -129,27 +129,6 @@ body {
             border: none;
             background-color: transparent;
         }
-        &.default {
-            background-color: $app-default-speciality;
-        }
-        &.aesthetic {
-            background-color: $app-aesthetic;
-        }
-        &.parodontology {
-            background-color: $app-parodontology;
-        }
-        &.pediatrics {
-            background-color: $app-pediatrics;
-        }
-        &.endodontics {
-            background-color: $app-endodontics;
-        }
-        &.orthodontics {
-            background-color: $app-orthodontics;
-        }
-        &.surgery {
-            background-color: $app-surgery;
-        }
     }
     .mat-dialog-content {
         padding-top: 24px;

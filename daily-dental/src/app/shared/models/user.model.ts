@@ -1,3 +1,5 @@
+import { Speciality } from './speciality.model';
+
 export class User {
     constructor(
         public firstName: string,
@@ -5,8 +7,8 @@ export class User {
         public egn: string,
         public phone: string,
         public address: string,
-        public speciality: string,
         public email: string,
         public role: string,
+        public speciality?: Speciality,
         public _id?: string) {}
 }

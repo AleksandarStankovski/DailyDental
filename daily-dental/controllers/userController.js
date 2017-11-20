@@ -11,7 +11,7 @@ module.exports = {
             user.egn = res.locals.user.egn;
             user.phone = res.locals.user.phone;
             user.address = res.locals.user.address;
-            user.speciality = res.locals.user.speciality;
+            user.speciality = res.locals.user.speciality
             user.email = res.locals.user.email;
             user.role = res.locals.user.role;
         }

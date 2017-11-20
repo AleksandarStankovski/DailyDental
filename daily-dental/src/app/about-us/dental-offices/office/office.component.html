@@ -1,4 +1,5 @@
-<a (click)="!isRoleUser && editOffice()" [ngClass]="office.type" class="office cursor-pointer d-flex flex-column justify-content-end">
+<a (click)="!isRoleUser && editOffice()" [style.backgroundColor]="office.speciality?.color" [ngClass]="office.speciality?.value" class="office cursor-pointer d-flex flex-column justify-content-end">
+    <div [style.background-color]="office.speciality?.color" [style.background-image]="'url(assets/images/offices/'+ office.speciality?.officeImage +')'" class="overlay"></div>
     <div class="office-sbox">
         <h6>{{office.name}}</h6>
         <span class="d-flex align-items-center mt-1">

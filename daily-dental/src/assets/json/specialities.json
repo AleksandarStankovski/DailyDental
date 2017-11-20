@@ -1,30 +1,50 @@
 [
     {
-        "type": "aesthetic",
-        "name": "Естетика"
+        "name": "Естетика",
+        "value": "aesthetic",
+        "color": "#C457A2",
+        "icon": "icon-tooth-3",
+        "officeImage": "aesthetic.png",
+        "doctorImage": "aesthetic.jpg"
     },
     {
-        "type": "parodontology",
-        "name": "Пародонтология"
+        "name": "Пародонтология",
+        "value": "parodontology",
+        "color": "#3cd469",
+        "icon": "icon-parodontology",
+        "officeImage": "parodontology.png",
+        "doctorImage": "parodontology.jpg"
     },
     {
-        "type": "pediatrics",
-        "name": "Педиатрия"
+        "name": "Педиатрия",
+        "value": "pediatrics",
+        "color": "#FF6F94",
+        "icon": "icon-pediatrics",
+        "officeImage": "pediatrics.png",
+        "doctorImage": "pediatrics.jpg"
     },
     {
-        "type": "endodontics",
-        "name": "Ендодонтия"
+        "name": "Ендодонтия",
+        "value": "endodontics",
+        "color": "#F9DD57",
+        "icon": "icon-endodontics",
+        "officeImage": "endodontics.png",
+        "doctorImage": "endodontics.jpg"
     },
     {
-        "type": "orthodontics",
-        "name": "Ортодонтия"
+        "name": "Ортодонтия",
+        "value": "orthodontics",
+        "color": "#8D57C4",
+        "icon": "icon-braces-2",
+        "officeImage": "orthodontics.png",
+        "doctorImage": "orthodontics.jpg"
     },
     {
-        "type": "surgery",
-        "name": "Хирургия"
-    },
-    {
-        "type": "new",
-        "name": "Нова специалност"
+        "name": "Хирургия",
+        "value": "surgery",
+        "color": "#37C0FF",
+        "icon": "icon-implant-2",
+        "officeImage": "surgery.png",
+        "doctorImage": "surgery.jpg"
     }
 ]

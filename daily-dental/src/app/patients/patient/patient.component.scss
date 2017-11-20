@@ -42,62 +42,12 @@
         @include media-breakpoint-down(xs) {
             height: 130px;
         }
-        &:after {
-            content: "";
-            display: block;
+        .overlay {
             width: 75%;
             height: 100%;
-            background-color: darken($app-default-speciality, $patient-darken);
+            background-color: rgba(#000, .1);
             @include media-breakpoint-down(md) {
                 width: 70%;
-            }
-        }
-    }
-    &.aesthetic {
-        .patient-sbox {
-            background-color: $app-aesthetic;
-            &:after {
-                background-color: darken($app-aesthetic, $patient-darken);
-            }
-        }
-    }
-    &.parodontology {
-        .patient-sbox {
-            background-color: $app-parodontology;
-            &:after {
-                background-color: darken($app-parodontology, $patient-darken);
-            }
-        }
-    }
-    &.pediatrics {
-        .patient-sbox {
-            background-color: $app-pediatrics;
-            &:after {
-                background-color: darken($app-pediatrics, $patient-darken);
-            }
-        }
-    }
-    &.endodontics {
-        .patient-sbox {
-            background-color: $app-endodontics;
-            &:after {
-                background-color: darken($app-endodontics, $patient-darken);
-            }
-        }
-    }
-    &.orthodontics {
-        .patient-sbox {
-            background-color: $app-orthodontics;
-            &:after {
-                background-color: darken($app-orthodontics, $patient-darken);
-            }
-        }
-    }
-    &.surgery {
-        .patient-sbox {
-            background-color: $app-surgery;
-            &:after {
-                background-color: darken($app-surgery, $patient-darken);
             }
         }
     }

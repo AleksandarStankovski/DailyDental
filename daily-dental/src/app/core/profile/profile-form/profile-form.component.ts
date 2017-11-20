@@ -12,7 +12,6 @@ import { UserService } from '../../user.service';
 export class ProfileFormComponent implements OnInit {
 
     user: User;
-    readonlyUser = { firstName: '', lastName: '', speciality: '', email: ''};
     loadingOverlay = false;
     isRoleReception: boolean;
 
@@ -22,7 +21,7 @@ export class ProfileFormComponent implements OnInit {
         private snackBar: MatSnackBar) { }
 
     ngOnInit() {
-        this.user = new User('', '', '', '', '', '', '', '');
+        this.user = new User('', '', '', '', '', '', '');
         this.getUser();
     }
 
@@ -31,12 +30,6 @@ export class ProfileFormComponent implements OnInit {
         .subscribe(resolve => {
             this.user = resolve;
             this.isRoleReception = this.user.role === 'reception';
-            this.readonlyUser = {
-                firstName: this.user.firstName,
-                lastName: this.user.lastName,
-                speciality: this.user.speciality,
-                email: this.user.email
-            };
         });
     }
 

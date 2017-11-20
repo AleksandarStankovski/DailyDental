@@ -11,9 +11,21 @@ let officeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    type: {
-        type: String,
-        required: true
+    speciality: {
+        name: {
+            type: String,
+            required: true
+        },
+        value: {
+            type: String,
+            required: true
+        },
+        color: {
+            type: String
+        },
+        officeImage: {
+            type: String
+        }
     },
     date: {
         type: Date,

@@ -7,22 +7,4 @@
     font-size: 16px;
     font-style: normal;
     background-color: $app-default-speciality;
-    &.aesthetic {
-        background-color: $app-aesthetic;
-    }
-    &.parodontology {
-        background-color: $app-parodontology;
-    }
-    &.pediatrics {
-        background-color: $app-pediatrics;
-    }
-    &.endodontics {
-        background-color: $app-endodontics;
-    }
-    &.orthodontics {
-        background-color: $app-orthodontics;
-    }
-    &.surgery {
-        background-color: $app-surgery;
-    }
 }

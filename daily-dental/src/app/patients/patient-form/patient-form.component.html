@@ -1,5 +1,5 @@
 <app-loading-overlay *ngIf="loadingOverlay"></app-loading-overlay>
-<div [ngClass]="patient.doctor?.speciality" class="mat-dialog-header d-flex justify-content-end">
+<div [style.background-color]="patient.doctor?.speciality?.color" class="mat-dialog-header d-flex justify-content-end">
     <button [mat-dialog-close]="'cancel'" class="close-modal cursor-pointer d-flex justify-content-center align-items-center">
         <i class="fontello icon-close ft-14"></i>
     </button>
@@ -36,7 +36,7 @@
                 <input matInput [(ngModel)]="patient.email" type="email" name="email" [pattern]="regexEmail" #patientEmail="ngModel" placeholder="Е-mail">
             </mat-form-field>
         </div>
-        <div *ngIf="doctors?.length > 0">
+        <div *ngIf="doctors?.length > 1">
             <mat-form-field class="input-full-width">
                 <mat-select [(ngModel)]="patient.doctor._id" name="doctor" #patientDoctor="ngModel" placeholder="Лекар">
                     <ng-container *ngFor="let doctor of doctors">

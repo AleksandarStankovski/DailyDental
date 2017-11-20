@@ -4,7 +4,7 @@
 - Change icon (add, delete, password)
 - patient icon iphone
 - pagination and search - revision
-- specialities json and pipe
++ specialities json and pipe
 - navigation json
 - dynamic currency
 - dynamic d-r

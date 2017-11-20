@@ -21,7 +21,18 @@ let doctorSchema = mongoose.Schema({
         type: String
     },
     speciality: {
-        type: String
+        name: {
+            type: String,
+        },
+        value: {
+            type: String,
+        },
+        color: {
+            type: String
+        },
+        doctorImage: {
+            type: String
+        }
     },
     email: {
         type: String,

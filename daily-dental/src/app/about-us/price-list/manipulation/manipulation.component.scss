@@ -19,7 +19,7 @@
         > div {
             width: 80px;
             height: 80px;
-            background-color: darken($app-default-speciality, $manipulation-darken);
+            background-color: rgba(#000, .1);
             @include media-breakpoint-down(xs) {
                 width: 55px;
                 height: 55px;
@@ -38,54 +38,6 @@
             font-weight: bold;
             @include media-breakpoint-down(xs) {
                 font-size: 1.1rem;
-            }
-        }
-    }
-    &.aesthetic {
-        .manipulation-fbox {
-            background-color: $app-aesthetic;
-            > div {
-                background-color: darken($app-aesthetic, $manipulation-darken);
-            }
-        }
-    }
-    &.parodontology {
-        .manipulation-fbox {
-            background-color: $app-parodontology;
-            > div {
-                background-color: darken($app-parodontology, $manipulation-darken);
-            }
-        }
-    }
-    &.pediatrics {
-        .manipulation-fbox {
-            background-color: $app-pediatrics;
-            > div {
-                background-color: darken($app-pediatrics, $manipulation-darken);
-            }
-        }
-    }
-    &.endodontics {
-        .manipulation-fbox {
-            background-color: $app-endodontics;
-            > div {
-                background-color: darken($app-endodontics, $manipulation-darken);
-            }
-        }
-    }
-    &.orthodontics {
-        .manipulation-fbox {
-            background-color: $app-orthodontics;
-            > div {
-                background-color: darken($app-orthodontics, $manipulation-darken);
-            }
-        }
-    }
-    &.surgery {
-        .manipulation-fbox {
-            background-color: $app-surgery;
-            > div {
-                background-color: darken($app-surgery, $manipulation-darken);
             }
         }
     }

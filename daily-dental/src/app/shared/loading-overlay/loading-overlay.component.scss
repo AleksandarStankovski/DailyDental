@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     z-index: 8;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(#fff, .8);
     &.loading-overlay-absolute {
         position: absolute;
     }
@@ -13,9 +13,9 @@
         position: fixed;
     }
     &.loading-overlay-white {
-        background-color: rgba(255, 255, 255, .8);
+        background-color: rgba(#fff, .8);
     }
     &.loading-overlay-black {
-        background-color: rgba(0, 0, 0, .6);
+        background-color: rgba(#000, .6);
     }
 }

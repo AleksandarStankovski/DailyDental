@@ -8,12 +8,12 @@
     <form (ngSubmit)="userForm.valid && save()" #userForm="ngForm" novalidate>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [ngModel]="readonlyUser.firstName" name="firstName" readonly #userFirstName="ngModel" placeholder="Име">
+                <input matInput [value]="user.firstName" name="firstName" readonly placeholder="Име">
             </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
             <mat-form-field class="input-full-width">
-                <input matInput [ngModel]="readonlyUser.lastName" name="lastName" readonly #userLastName="ngModel" placeholder="Фамилия">
+                <input matInput [value]="user.lastName" name="lastName" readonly placeholder="Фамилия">
             </mat-form-field>
         </div>
         <div *ngIf="!isRoleReception">
@@ -33,12 +33,12 @@
         </div>
         <div *ngIf="!isRoleReception">
             <mat-form-field class="input-full-width">
-                <input matInput [ngModel]="readonlyUser.speciality | specialityConverter" readonly name="speciality" #userSpeciality="ngModel" placeholder="Специалност">
+                <input matInput [value]="user.speciality?.name" readonly name="speciality" placeholder="Специалност">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="input-full-width">
-                <input matInput [ngModel]="readonlyUser.email" readonly name="email" #userEmail="ngModel" placeholder="Е-mail">
+                <input matInput [ngModel]="user.email" readonly name="email" #userEmail="ngModel" placeholder="Е-mail">
             </mat-form-field>
         </div>
     </form>

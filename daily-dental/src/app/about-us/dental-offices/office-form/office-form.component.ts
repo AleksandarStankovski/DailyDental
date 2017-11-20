@@ -16,6 +16,7 @@ export class OfficeFormComponent implements OnInit {
     office: Office;
     specialities: Speciality[];
     loadingOverlay: boolean;
+    isValidSpeciality: boolean
 
     constructor(
         private modalDialogRef: MatDialogRef<OfficeFormComponent>,
@@ -24,7 +25,7 @@ export class OfficeFormComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-        this.office = new Office('', '', '');
+        this.office = new Office('', '', { name: '', value: '' });
         this.getAllSpecialities();
         if (this.data.officeId) {
             this.getOffice();
@@ -35,6 +36,7 @@ export class OfficeFormComponent implements OnInit {
         this.officeService.getOffice(this.data.officeId)
         .subscribe(response => {
             this.office = response;
+            this.checkValidSpeciality(this.office.speciality);
         });
     }
 
@@ -43,6 +45,19 @@ export class OfficeFormComponent implements OnInit {
         .subscribe(response => {
             this.specialities = response;
         });
+    }
+
+    selectSpeciality(optionValue, selectedValue) {
+        if (selectedValue) {
+            return optionValue.value === selectedValue.value;
+        }
+        return false;
+    }
+
+    checkValidSpeciality(speciality: Speciality): void {
+        if (speciality.value) {
+            this.isValidSpeciality = speciality.value.length > 0;
+        }
     }
 
     toggleLoadingOverlay(loadingOverlay: boolean): void {

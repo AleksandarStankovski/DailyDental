@@ -88,6 +88,8 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.appointmentService.getAppointment(this.data.appointmentId)
         .subscribe(resolve => {
             this.appointment = resolve;
+            this.checkValidPatient(this.appointment.patient);
+            this.checkValidStatus(this.appointment.status);
             this.appointmentDateDay = new Date(this.appointment.date).getDate();
             this.getDuration();
         });

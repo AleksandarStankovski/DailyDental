@@ -11,9 +11,21 @@ let manipulationSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    type: {
-        type: String,
-        required: true
+    speciality: {
+        name: {
+            type: String,
+            required: true
+        },
+        value: {
+            type: String,
+            required: true
+        },
+        color: {
+            type: String
+        },
+        icon: {
+            type: String
+        }
     },
     date: {
         type: Date,
