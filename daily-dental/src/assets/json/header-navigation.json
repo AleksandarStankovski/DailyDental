@@ -1,0 +1,27 @@
+[
+    {
+        "routerLink": "/home",
+        "routerText": "Начало",
+        "routerIcon": "icon-home"
+    },
+    {
+        "routerLink": "/reception",
+        "routerText": "Рецепция",
+        "routerIcon": "icon-reception-2"
+    },
+    {
+        "routerLink": "/patients",
+        "routerText": "Пациенти",
+        "routerIcon": "icon-family"
+    },
+    {
+        "routerLink": "/about-us/clinic-info",
+        "routerText": "Клиника",
+        "routerIcon": "icon-protection"
+    },
+    {
+        "routerLink": "/about-us/price-list",
+        "routerText": "Ценова листа",
+        "routerIcon": "icon-clipboard-2"
+    }
+]

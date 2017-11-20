@@ -1,0 +1,22 @@
+[
+    {
+        "routerLink": "/about-us/clinic-info",
+        "routerText": "Клиника",
+        "routerIcon": "icon-protection"
+    },
+    {
+        "routerLink": "/about-us/dental-offices",
+        "routerText": "Кабинети",
+        "routerIcon": "icon-chair-fill"
+    },
+    {
+        "routerLink": "/about-us/staff",
+        "routerText": "Персонал",
+        "routerIcon": "icon-doctor"
+    },
+    {
+        "routerLink": "/about-us/price-list",
+        "routerText": "Ценова листа",
+        "routerIcon": "icon-clipboard-2"
+    }
+]

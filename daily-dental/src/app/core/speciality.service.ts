@@ -16,34 +16,4 @@ export class SpecialityService {
         .map(response => response.json() as Speciality[]);
     }
 
-    // getAllSpecialities(): Speciality[] {
-    //     const specialities = [
-    //         {
-    //             type: 'aesthetic',
-    //             name: 'Естетика'
-    //         },
-    //         {
-    //             type: 'parodontology',
-    //             name: 'Пародонтология'
-    //         },
-    //         {
-    //             type: 'pediatrics',
-    //             name: 'Педиатрия'
-    //         },
-    //         {
-    //             type: 'endodontics',
-    //             name: 'Ендодонтия'
-    //         },
-    //         {
-    //             type: 'orthodontics',
-    //             name: 'Ортодонтия'
-    //         },
-    //         {
-    //             type: 'surgery',
-    //             name: 'Хирургия'
-    //         }
-    //     ];
-    //     return specialities;
-    // }
-
 }

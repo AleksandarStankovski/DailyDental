@@ -31,7 +31,10 @@ export class NavComponent implements OnInit {
     }
 
     getNavList(): void {
-        this.navList = this.navService.getHeaderNavList();
+        this.navService.getHeaderNavList()
+        .subscribe(response => {
+            this.navList = response;
+        });
     }
 
     toggleMenu(): void {

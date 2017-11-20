@@ -22,49 +22,14 @@ export class PagePresentationService {
                 }
             });
             if (!pageInfo) {
-                pageInfo = result[0];
+                pageInfo = {
+                    url: '',
+                    title: '',
+                    wallpaper: 'default.jpg'
+                }
             }
             return pageInfo;
         });
     }
-
-    // getPageName(pageUrl): string {
-    //     let title: string;
-    //     console.log('test');
-    //     switch (pageUrl) {
-    //         case '/home': {
-    //             title = 'Material design'
-    //             break;
-    //         }
-    //         case '/about-us/clinic-info': {
-    //             title = 'Клиника'
-    //             break;
-    //         }
-    //         case '/about-us/dental-offices': {
-    //             title = 'Кабинети'
-    //             break;
-    //         }
-    //         case '/about-us/staff': {
-    //             title = 'Персонал'
-    //             break;
-    //         }
-    //         case '/about-us/price-list': {
-    //             title = 'Ценова листа'
-    //             break;
-    //         }
-    //         case '/patients': {
-    //             title = 'Пациенти'
-    //             break;
-    //         }
-    //         case '/reception': {
-    //             title = 'Рецепция'
-    //             break;
-    //         }
-    //         default: {
-    //             title = ''
-    //         }
-    //     }
-    //     return title;
-    // }
 
 }

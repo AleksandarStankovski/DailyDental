@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
     }
 
     getNavList(): void {
-        this.navList = this.navService.getHomeNavList();
+        this.navService.getHomeNavList()
+        .subscribe(response => {
+            this.navList = response;
+        });
     }
 
 }

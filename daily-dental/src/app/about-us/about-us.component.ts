@@ -19,7 +19,10 @@ export class AboutUsComponent implements OnInit {
     }
 
     getNavList(): void {
-        this.navList = this.navService.getAboutUsNavList();
+        this.navService.getAboutUsNavList()
+        .subscribe(response => {
+            this.navList = response;
+        });
     }
 
 }
