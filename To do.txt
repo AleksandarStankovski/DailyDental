@@ -5,12 +5,12 @@
 - patient icon iphone
 - pagination and search - revision
 + specialities json and pipe
-- navigation json
++ navigation json
 - dynamic currency
 - dynamic d-r
 - dynamic doctor-active
 + status pipe to json
-- dynamic h.
++ dynamic h.
 - dynamic tooltip text
 - dynamic error msg
 - dynamic tutorialText

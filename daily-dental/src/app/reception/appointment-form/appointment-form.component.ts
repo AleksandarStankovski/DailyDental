@@ -66,18 +66,11 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.getAllHours();
         this.getAllPatients();
         this.getAllStatuses();
-
         if (this.data.receptionDate) {
             this.appointment.date = this.data.receptionDate;
         }
         if (this.data.activeDoctor) {
             this.appointment.doctor = this.data.activeDoctor;
-        }
-        if (this.data.appointmentId) {
-            this.todayDate = new Date().getDate();
-            this.getAppointment();
-        } else {
-            this.getDuration();
         }
     }
 
@@ -121,6 +114,12 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
         this.appointmentHourService.getAllHours()
         .subscribe(response => {
             this.hours = response;
+            if (this.data.appointmentId) {
+                this.todayDate = new Date().getDate();
+                this.getAppointment();
+            } else {
+                this.getDuration();
+            }
         });
     }
 
@@ -173,7 +172,8 @@ export class AppointmentFormComponent implements OnInit, OnDestroy {
 
     getDuration(): number[] {
         const duration = [];
-        const lastHour = this.hours[this.hours.length - 1].value + 1;
+        const hoursLength = Object.keys(this.hours).length;
+        const lastHour = this.hours[hoursLength - 1].value + 1;
         for (let i = 1; i <= this.hours.length; i++) {
             duration.push(i);
         }
