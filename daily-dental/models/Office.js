@@ -32,6 +32,8 @@ let officeSchema = mongoose.Schema({
         require: true,
         default: Date.now
     }
+},{
+    versionKey: false
 });
 
 const Office = mongoose.model('Office', officeSchema);

@@ -32,6 +32,8 @@ let manipulationSchema = mongoose.Schema({
         require: true,
         default: Date.now
     }
+},{
+    versionKey: false
 });
 
 const Manipulation = mongoose.model('Manipulation', manipulationSchema);

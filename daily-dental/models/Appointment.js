@@ -67,6 +67,8 @@ let appointmentSchema = mongoose.Schema({
     comment: {
         type: String
     },
+},{
+    versionKey: false
 });
 
 const Appointment = mongoose.model('Appointment', appointmentSchema);

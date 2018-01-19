@@ -37,6 +37,8 @@ let clinicSchema = mongoose.Schema({
         default: [],
         ref: 'Patient'
     }]
+},{
+    versionKey: false
 });
 
 const Clinic = mongoose.model('Clinic', clinicSchema);

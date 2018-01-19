@@ -37,6 +37,7 @@ module.exports = {
 
     edit: (req, res) => {
         let newOffice = req.body;
+        console.log(newOffice)
         Office.findByIdAndUpdate({ _id: newOffice._id }, newOffice, { upsert: true })
         .then(() => {
             res.json('Success');

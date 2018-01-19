@@ -32,6 +32,8 @@ let examinationSchema = mongoose.Schema({
         require: true,
         default: Date.now
     }
+},{
+    versionKey: false
 });
 
 const Examination = mongoose.model('Examination', examinationSchema);

@@ -66,6 +66,8 @@ let doctorSchema = mongoose.Schema({
         require: true,
         default: Date.now
     }
+},{
+    versionKey: false
 });
 
 doctorSchema.method ({
